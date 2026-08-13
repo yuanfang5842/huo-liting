@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>活力婷 · 个人工作台</title>
+  <meta name="theme-color" content="#1E9E83" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="活力婷" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="assets/icons/icon-192.png" />
+  <link rel="icon" type="image/png" href="assets/icons/icon-192.png" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- 唤醒界面 -->
+    <div id="wake-screen" class="wake-screen"></div>
+
+    <!-- 主应用 -->
+    <div id="main-app" class="main-app hidden">
+      <!-- 左侧导航 -->
+      <aside id="sidebar" class="sidebar">
+        <div class="brand">
+          <div class="brand-avatar-wrap">
+            <img id="brand-avatar" class="brand-avatar" src="assets/icons/icon-192.png" alt="活力婷">
+            <input type="file" id="brand-avatar-input" accept="image/*" class="hidden">
+          </div>
+          <div class="brand-name">活力婷</div>
+          <button class="nav-collapse" id="nav-collapse" aria-label="收起侧栏">‹</button>
+        </div>
+        <nav id="nav-list" class="nav-list"></nav>
+      </aside>
+      <div id="nav-overlay" class="nav-overlay hidden"></div>
+
+      <!-- 内容区 -->
+      <main id="content" class="content"></main>
+      <!-- 侧栏收起后展开入口 -->
+      <button id="nav-reopen" class="nav-reopen hidden" aria-label="展开导航">☰</button>
+    </div>
+  </div>
+
+  <!-- 成就大树浮层 -->
+  <div id="tree-modal" class="modal tree-modal hidden">
+    <div class="modal-card">
+      <button class="modal-close" data-close="tree-modal">×</button>
+      <div id="tree-body"></div>
+    </div>
+  </div>
+
+  <!-- 通用详情浮层（如要闻解读） -->
+  <div id="detail-modal" class="modal hidden">
+    <div class="modal-card">
+      <button class="modal-close" data-close="detail-modal">×</button>
+      <div id="detail-body"></div>
+    </div>
+  </div>
+
+  <!-- 通用提示 -->
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/core.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/wake.js"></script>
+  <script src="assets/js/overview.js"></script>
+  <script src="assets/js/news.js"></script>
+  <script src="assets/js/train.js"></script>
+  <script src="assets/js/life.js"></script>
+  <script src="assets/js/achievement.js"></script>
+  <script src="assets/js/settings.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('sw.js').catch(function () {});
+      });
+    }
+  </script>
+</body>
+</html>
