@@ -140,10 +140,21 @@ window.News = (function () {
         let tip = '实时源拉取失败：多为网络/代理/跨域限制，详见下方「4 步排查」';
         if (err) {
           const msg = err.message || '';
-          if (msg.indexOf('TIAN:') === 0) tip = '天行数据：' + msg.slice(5) + '（请到「设置 → 今日医药要闻」检查 AppKey 或接口是否开通）';
+          if (msg.indexOf('TIAN:') === 0) {
+            tip = '天行数据：' + msg.slice(5);
+            // 同时在状态栏显示详细信息（toast 会消失，状态栏常驻）
+            const st = document.getElementById('news-st-t');
+            const ss = document.getElementById('news-st-s');
+            const sta = document.getElementById('news-status');
+            if (st) st.textContent = '⚠ 天行数据异常';
+            if (ss) ss.innerHTML = '<span style="font-size:12px;opacity:0.8">' + escapeHtml(msg.slice(5).slice(0, 150)) + '</span>';
+            if (sta) { sta.style.background = '#FFF0F0'; sta.style.color = '#C00'; }
+          }
+          else if (msg.indexOf('PAYMENT_402') === 0) tip = '大模型余额不足，请充值后重试';
           else if (msg.indexOf('NET:') === 0) tip = msg.slice(4);
           else if (msg.indexOf('NO_KEY') === 0) tip = '未填写接口密钥（请到「设置 → 今日医药要闻」配置）';
-          else tip = '拉取异常：' + msg.slice(0, 80);
+          else if (msg.indexOf('AUTH_401') === 0) tip = 'API Key 无效或已过期，请检查设置';
+          else tip = '拉取异常：' + msg.slice(0, 120);
         }
         App.toast(tip);
       } else {

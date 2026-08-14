@@ -173,15 +173,18 @@ window.API = (function () {
     }
     let d;
     try { d = JSON.parse(txt); } catch (e) { throw new Error('NET:天行数据返回内容无法解析（网络/代理异常）'); }
-    console.log('[活力婷 API] 天行原始响应:', JSON.stringify(d).slice(0, 300));
+    console.log('[活力婷 API] 天行原始响应:', JSON.stringify(d).slice(0, 500));
     // 天行成功格式：{code:200, msg:"success", newslist:[...]}
     // 兼容：newslist 可能在不同字段名或嵌套层级
-    const list = d.newslist || d.data || d.list || d.result || [];
+    const list = d.newslist || d.data || d.list || d.result || (d.data && d.data.list) || [];
     if (d.code !== 200 && d.code !== '200') {
       throw new Error('TIAN:' + (TIAN_ERR[d.code] || ('接口返回 code=' + d.code + ', ' + (d.msg || '未知错误'))));
     }
     if (!Array.isArray(list) || list.length === 0) {
-      throw new Error('TIAN:接口返回成功但无新闻数据（请确认已在天行控制台开通「国内新闻」接口）');
+      // 调试：把返回的所有 key 打出来，方便手机端排查
+      const keys = Object.keys(d).join(', ');
+      const preview = JSON.stringify(d).slice(0, 200);
+      throw new Error('TIAN:接口返回成功(code=200)但无新闻数据。返回内容: ' + preview + '（可能原因：①该Key未开通「国内新闻」接口 ②接口返回格式变更 ③请求频率超限）。请到天行控制台确认已开通「国内新闻」');
     }
     // 按医疗相关度筛选：医保/集采/药/临床/医院等关键词优先
     const MED = ['医', '药', '临床', '医院', '卫生', '健康', '疫苗', '生物', '制药', '处方', '医保', '医改', '疾控', '护士', '患者', '中医', '养生', '治病', '疾病', '医疗'];
@@ -268,7 +271,14 @@ window.API = (function () {
     if (key) headers['Authorization'] = 'Bearer ' + key;
     const one = async (withFmt) => {
       const r = await fetch(url, { method: 'POST', headers, signal: AbortSignal.timeout(30000), body: JSON.stringify(mk(withFmt)) });
-      if (!r.ok) { const t = await r.text().catch(() => ''); throw new Error('HTTP_' + r.status + (t ? ' ' + t.slice(0, 140) : '')); }
+      if (!r.ok) {
+        const t = await r.text().catch(() => '');
+        // 常见错误码给出中文提示
+        if (r.status === 402) throw new Error('PAYMENT_402:大模型账户余额不足！请到你的大模型平台（硅基流动/DeepSeek等）充值后再试。当前为本地估算模式。');
+        if (r.status === 401) throw new Error('AUTH_401:API Key 无效或已过期。请检查「设置→逻辑口语」中的 Key 是否正确。');
+        if (r.status === 429) throw new Error('RATE_429:请求太频繁，请稍后再试。');
+        throw new Error('HTTP_' + r.status + (t ? ' ' + t.slice(0, 140) : ''));
+      }
       const d = await r.json();
       return d.choices[0].message.content;
     };
