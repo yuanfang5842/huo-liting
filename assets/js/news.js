@@ -124,24 +124,31 @@ window.News = (function () {
       const total = (data.grouped ? Object.values(data.grouped).reduce((a, b) => a + b.length, 0) : 0);
       const cacheEntry = { date: App.today(), data: data, isMock: false, fetchTime: Date.now() };
       App.dset('newsCache', cacheEntry);
-      renderData(data, false);
+      renderData(data, false);   // ← 强制刷新 UI（含状态栏）
       App.toast('已刷新真实要闻 ' + total + ' 条 ✓');
     } else {
-      // 拉取失败：仅当没有有效缓存时才回退示例（保留旧的真实缓存）
+      // 拉取失败：检查是否已有今天的真实缓存（有就不覆盖，保留已显示的真数据）
       const existing = App.dget('newsCache', null);
-      if (!existing || existing.isMock || existing.date !== App.today()) {
+      const hasRealData = existing && !existing.isMock && existing.date === App.today() && existing.data;
+      if (!hasRealData) {
+        // 没有有效缓存 → 回退到示例
         App.dset('newsCache', { date: App.today(), data: null, isMock: true, fetchTime: Date.now() });
         renderData(null, true);
       }
-      let tip = '实时源拉取失败：多为网络/代理/跨域限制，详见下方「4 步排查」';
-      if (err) {
-        const msg = err.message || '';
-        if (msg.indexOf('TIAN:') === 0) tip = '天行数据：' + msg.slice(5) + '（请到「设置 → 今日医药要闻」检查 AppKey 或接口是否开通）';
-        else if (msg.indexOf('NET:') === 0) tip = msg.slice(4);
-        else if (msg.indexOf('NO_KEY') === 0) tip = '未填写接口密钥（请到「设置 → 今日医药要闻」配置）';
-        else tip = '拉取异常：' + msg.slice(0, 80);
+      // 只在没有真数据时才弹错误提示（避免"数据明明显示了还报错"的困扰）
+      if (!hasRealData) {
+        let tip = '实时源拉取失败：多为网络/代理/跨域限制，详见下方「4 步排查」';
+        if (err) {
+          const msg = err.message || '';
+          if (msg.indexOf('TIAN:') === 0) tip = '天行数据：' + msg.slice(5) + '（请到「设置 → 今日医药要闻」检查 AppKey 或接口是否开通）';
+          else if (msg.indexOf('NET:') === 0) tip = msg.slice(4);
+          else if (msg.indexOf('NO_KEY') === 0) tip = '未填写接口密钥（请到「设置 → 今日医药要闻」配置）';
+          else tip = '拉取异常：' + msg.slice(0, 80);
+        }
+        App.toast(tip);
+      } else {
+        console.warn('[活力婷] 后台拉取失败但已有今日缓存，静默降级:', err?.message || err);
       }
-      App.toast(tip);
     }
   }
 

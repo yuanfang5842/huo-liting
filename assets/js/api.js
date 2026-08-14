@@ -173,13 +173,20 @@ window.API = (function () {
     }
     let d;
     try { d = JSON.parse(txt); } catch (e) { throw new Error('NET:天行数据返回内容无法解析（网络/代理异常）'); }
-    if (d.code !== 200 || !d.newslist) {
-      throw new Error('TIAN:' + (TIAN_ERR[d.code] || ('未知错误 code=' + d.code + ' ' + (d.msg || ''))));
+    console.log('[活力婷 API] 天行原始响应:', JSON.stringify(d).slice(0, 300));
+    // 天行成功格式：{code:200, msg:"success", newslist:[...]}
+    // 兼容：newslist 可能在不同字段名或嵌套层级
+    const list = d.newslist || d.data || d.list || d.result || [];
+    if (d.code !== 200 && d.code !== '200') {
+      throw new Error('TIAN:' + (TIAN_ERR[d.code] || ('接口返回 code=' + d.code + ', ' + (d.msg || '未知错误'))));
+    }
+    if (!Array.isArray(list) || list.length === 0) {
+      throw new Error('TIAN:接口返回成功但无新闻数据（请确认已在天行控制台开通「国内新闻」接口）');
     }
     // 按医疗相关度筛选：医保/集采/药/临床/医院等关键词优先
     const MED = ['医', '药', '临床', '医院', '卫生', '健康', '疫苗', '生物', '制药', '处方', '医保', '医改', '疾控', '护士', '患者', '中医', '养生', '治病', '疾病', '医疗'];
     const med = [], other = [];
-    d.newslist.forEach(it => {
+    list.forEach(it => {
       if (!it.title) return;
       const mod = categorize(it.title);
       const obj = { title: it.title, src: it.source || '天行数据', url: it.url || '#', date: (it.date || '').slice(5, 10).replace('-', '月') + '日', module: mod };
