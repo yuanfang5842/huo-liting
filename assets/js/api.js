@@ -339,11 +339,17 @@ window.API = (function () {
         if (!d) throw new Error('PARSE:接口返回不是合法 JSON（前100字符：' + rawText.slice(0, 100).replace(/[\r\n]/g, ' ') + '）。可能是接口暂异常或 model 名不匹配，已用本地规则引擎兜底。');
       }
       // 兼容多种 OpenAI 兼容格式的返回结构
-      const content = (d.choices && d.choices[0] && d.choices[0].message && d.choices[0].message.content)
+      let content = (d.choices && d.choices[0] && d.choices[0].message && d.choices[0].message.content)
         || (d.output && d.output.text)
         || (d.result && d.result)
         || '';
-      if (!content) {
+      // ★ 关键修复：部分接口（如硅基流动 DeepSeek-V3）可能返回对象而非字符串
+      // 此时必须强制转为字符串，否则 extractJSON 里 String(obj) 会变成 "[object Object]" 导致 JSON Parse error
+      if (typeof content !== 'string') {
+        console.warn('[活力婷 LLM] content 非字符串，类型:', typeof content, '值:', content);
+        try { content = JSON.stringify(content); } catch (_) { content = String(content); }
+      }
+      if (!content || content.trim() === '') {
         console.warn('[活力婷 LLM] 无法提取内容，原始响应:', rawText.slice(0, 300));
         throw new Error('EMPTY:接口返回了数据但无法提取回复内容（model 可能不支持当前参数）。已用本地规则引擎兜底。');
       }
@@ -367,17 +373,22 @@ window.API = (function () {
     return extractJSON(raw);
   }
 
-  /* 从模型返回中稳健提取 JSON（兼容 ```json 围栏 / 前后多余文字） */
+  /* 从模型返回中稳健提取 JSON（兼容 ```json 围栏 / 前后多余文字 / 对象型 content） */
   function extractJSON(s) {
     if (!s) throw new Error('PARSE:模型返回为空');
     let t = String(s).trim();
+    // 防御：如果 String() 后得到 "[object Object]" 说明原始值是对象，尝试 JSON.stringify
+    if (t === '[object Object]' || t === '[object Array]') {
+      console.warn('[活力婷 LLM] extractJSON 收到对象型输入，尝试序列化');
+      try { t = JSON.stringify(s); } catch (_) { throw new Error('PARSE:模型返回了无法序列化的对象'); }
+    }
     const fence = t.match(/```(?:json)?\s*([\s\S]*?)```/i);
     if (fence) t = fence[1].trim();
     const start = t.search(/[{[]/);
     const end = Math.max(t.lastIndexOf('}'), t.lastIndexOf(']'));
     if (start >= 0 && end > start) t = t.slice(start, end + 1);
     try { return JSON.parse(t); }
-    catch (e) { throw new Error('PARSE:模型返回不是合法 JSON（' + t.slice(0, 50) + '…）'); }
+    catch (e) { throw new Error('JSON Parse error: ' + e.message + '（前80字符：' + t.slice(0, 80).replace(/[\r\n]/g, ' ') + '）'); }
   }
 
   /* ---------- 今日娱乐：天行实时数据（体育/科技/综合热点） ---------- */
