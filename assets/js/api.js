@@ -320,25 +320,45 @@ window.API = (function () {
     if (key) headers['Authorization'] = 'Bearer ' + key;
     const one = async (withFmt) => {
       const r = await fetch(url, { method: 'POST', headers, signal: AbortSignal.timeout(30000), body: JSON.stringify(mk(withFmt)) });
+      // 先拿原始文本，再尝试解析——比直接 r.json() 更稳健，能捕获异常格式
+      const rawText = await r.text().catch(() => '');
       if (!r.ok) {
-        const t = await r.text().catch(() => '');
         // 常见错误码给出中文提示
         if (r.status === 402) throw new Error('PAYMENT_402:大模型账户余额不足！请到你的大模型平台（硅基流动/DeepSeek等）充值后再试。当前为本地估算模式。');
         if (r.status === 401) throw new Error('AUTH_401:API Key 无效或已过期。请检查「设置→逻辑口语」中的 Key 是否正确。');
         if (r.status === 429) throw new Error('RATE_429:请求太频繁，请稍后再试。');
-        throw new Error('HTTP_' + r.status + (t ? ' ' + t.slice(0, 140) : ''));
+        throw new Error('HTTP_' + r.status + (rawText ? ' ' + rawText.slice(0, 200) : ''));
       }
-      const d = await r.json();
-      return d.choices[0].message.content;
+      // 尝试解析 JSON，失败时记录原始响应用于排查
+      let d;
+      try { d = JSON.parse(rawText); } catch (parseErr) {
+        console.error('[活力婷 LLM] 响应非 JSON（前200字符）:', rawText.slice(0, 200));
+        // 部分代理/网关可能在正常 JSON 外面包了一层，尝试提取
+        const jsonMatch = rawText.match(/\{[\s\S]*\}/);
+        if (jsonMatch) try { d = JSON.parse(jsonMatch[0]); } catch (_) { /* 最终放弃 */ }
+        if (!d) throw new Error('PARSE:接口返回不是合法 JSON（前100字符：' + rawText.slice(0, 100).replace(/[\r\n]/g, ' ') + '）。可能是接口暂异常或 model 名不匹配，已用本地规则引擎兜底。');
+      }
+      // 兼容多种 OpenAI 兼容格式的返回结构
+      const content = (d.choices && d.choices[0] && d.choices[0].message && d.choices[0].message.content)
+        || (d.output && d.output.text)
+        || (d.result && d.result)
+        || '';
+      if (!content) {
+        console.warn('[活力婷 LLM] 无法提取内容，原始响应:', rawText.slice(0, 300));
+        throw new Error('EMPTY:接口返回了数据但无法提取回复内容（model 可能不支持当前参数）。已用本地规则引擎兜底。');
+      }
+      return content;
     };
     let raw;
     try {
       raw = await one(true); // 先带 json_object
     } catch (e) {
       const msg = e.message || '';
-      if (msg.indexOf('HTTP_400') === 0) {
-        try { raw = await one(false); } // 部分接口不支持 response_format，去掉再试
-        catch (e2) { throw new Error(e.message); }
+      if (msg.indexOf('HTTP_400') === 0 || msg.indexOf('PARSE:') === 0 || msg.indexOf('EMPTY:') === 0) {
+        // 400=不支持参数；PARSE/EMPTY=返回格式异常 → 去掉 response_format 再试一次
+        console.warn('[活力婷 LLM] 带格式请求失败，尝试不带 response_format 重试:', msg);
+        try { raw = await one(false); }
+        catch (e2) { throw new Error(e2.message || e.message); }
       } else if (e instanceof TypeError || /Failed to fetch|NetworkError|Load failed|TypeError/i.test(msg)) {
         // 浏览器跨域(CORS)拦截或网络不通：OpenAI/Anthropic 等海外接口常见
         throw new Error('CORS:浏览器直连被跨域(CORS)拦截，或网络不通。请改用支持浏览器直连的国内接口（硅基流动/月之暗面/DeepSeek），或在「设置→逻辑口语」开启代理并填写你自己的代理地址');
