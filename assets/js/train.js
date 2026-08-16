@@ -166,8 +166,8 @@ window.Train = (function () {
     const notes = tasks.map((tk, i) => '训练' + (i + 1) + '：' + tk.t + '\n方法/标准：' + tk.how + '\n用户记录：' + (p.tasks[i].note || '（未填写）')).join('\n\n');
     const user = '训练主题：' + d.t + '\n\n' + notes;
     try {
-      const raw = await API.callLLM(REVIEW_SYS, user);
-      const res = JSON.parse(raw);
+      // callLLM 内部已完成 JSON 解析，直接返回对象，切勿再 JSON.parse
+      const res = await API.callLLM(REVIEW_SYS, user);
       p.aiReview = {
         score: Math.max(0, Math.min(100, Math.round(res.score || 0))),
         summary: res.summary || '',
@@ -581,8 +581,8 @@ window.Train = (function () {
     const note = document.getElementById('speak-note');
     box.innerHTML = '<div class="card"><div class="section-title">修正建议（5 维度）</div><div class="muted text-sm">大模型评估中…</div></div>';
     try {
-      const raw = await API.callLLM(SPEAK_SYS, '话题：' + topic + '\n\n我的表达：' + text);
-      const res = JSON.parse(raw);
+      // callLLM 内部已完成 JSON 解析，直接返回对象
+      const res = await API.callLLM(SPEAK_SYS, '话题：' + topic + '\n\n我的表达：' + text);
       // 规整 5 维度顺序
       const order = ['观点', '逻辑', '框架', '表达深度', '总结升华'];
       res.dims.sort((a, b) => order.indexOf(a.key) - order.indexOf(b.key));
@@ -722,8 +722,8 @@ window.Train = (function () {
     if (box) box.innerHTML = '<div class="card"><div class="section-title">考核评分中…</div><div class="muted text-sm">大模型评估中…</div></div>';
     let res;
     try {
-      const raw = await API.callLLM(SPEAK_SYS, '话题：' + topic + '\n\n我的表达：' + text);
-      res = JSON.parse(raw);
+      // callLLM 内部已完成 JSON 解析，直接返回对象
+      res = await API.callLLM(SPEAK_SYS, '话题：' + topic + '\n\n我的表达：' + text);
     } catch (e) { res = localEval(text); }
     const order = ['观点', '逻辑', '框架', '表达深度', '总结升华'];
     (res.dims || []).sort((a, b) => order.indexOf(a.key) - order.indexOf(b.key));
@@ -779,8 +779,8 @@ window.Train = (function () {
     if (box) box.innerHTML = '<div class="card"><div class="section-title">考核评分中…</div><div class="muted text-sm">大模型评估中…</div></div>';
     let res;
     try {
-      const raw = await API.callLLM(MANAGE_ASSESS_SYS, '场景题：' + q + '\n\n我的处理思路：' + text);
-      res = JSON.parse(raw);
+      // callLLM 内部已完成 JSON 解析，直接返回对象
+      res = await API.callLLM(MANAGE_ASSESS_SYS, '场景题：' + q + '\n\n我的处理思路：' + text);
     } catch (e) {
       const len = text.length;
       res = { dims: [
