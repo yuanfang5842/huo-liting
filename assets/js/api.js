@@ -364,13 +364,22 @@ window.API = (function () {
     let raw;
     try {
       raw = await one(true); // 先带 json_object
+      console.log('[活力婷 LLM] one() 返回类型:', typeof raw, '长度:', String(raw).length, '前150字符:', String(raw).slice(0, 150));
     } catch (e) {
       const msg = e.message || '';
-      if (msg.indexOf('HTTP_400') === 0 || msg.indexOf('PARSE:') === 0 || msg.indexOf('EMPTY:') === 0) {
-        // 400=不支持参数；PARSE/EMPTY=返回格式异常 → 去掉 response_format 再试一次
+      if (msg.indexOf('HTTP_400') === 0 || msg.indexOf('PARSE:') === 0 || msg.indexOf('EMPTY:') === 0 || msg.indexOf('JSON Parse error') === 0) {
+        // 400=不支持参数；PARSE/EMPTY/JSON Parse=返回格式异常 → 去掉 response_format 再试一次
         console.warn('[活力婷 LLM] 带格式请求失败，尝试不带 response_format 重试:', msg);
+        // ★ 显示调试面板（首次失败时）
+        if (window.__llmDebug && window.__llmRawResponse) {
+          window.__llmDebug('=== 首次请求失败（将重试）===\n错误: ' + msg + '\n\n原始响应前600字符:\n' + window.__llmRawResponse.slice(0, 600));
+        }
         try { raw = await one(false); }
-        catch (e2) { throw new Error(e2.message || e.message); }
+        catch (e2) {
+          // ★ 重试也失败时显示调试面板
+          if (window.__llmDebug) window.__llmDebug('=== 重试（无response_format）也失败了 ===\n首次错误: ' + msg + '\n重试错误: ' + (e2.message || e2) + '\n\n原始响应:\n' + (window.__llmRawResponse || '无'));
+          throw new Error(e2.message || e.message);
+        }
       } else if (e instanceof TypeError || /Failed to fetch|NetworkError|Load failed|TypeError/i.test(msg)) {
         // 浏览器跨域(CORS)拦截或网络不通：OpenAI/Anthropic 等海外接口常见
         throw new Error('CORS:浏览器直连被跨域(CORS)拦截，或网络不通。请改用支持浏览器直连的国内接口（硅基流动/月之暗面/DeepSeek），或在「设置→逻辑口语」开启代理并填写你自己的代理地址');
@@ -383,18 +392,34 @@ window.API = (function () {
   function extractJSON(s) {
     if (!s) throw new Error('PARSE:模型返回为空');
     let t = String(s).trim();
+    // ★ 调试：记录原始输入
+    console.log('[活力婷 LLM] extractJSON 输入类型:', typeof s, '长度:', t.length, '前120字符:', t.slice(0, 120));
     // 防御：如果 String() 后得到 "[object Object]" 说明原始值是对象，尝试 JSON.stringify
     if (t === '[object Object]' || t === '[object Array]') {
       console.warn('[活力婷 LLM] extractJSON 收到对象型输入，尝试序列化');
       try { t = JSON.stringify(s); } catch (_) { throw new Error('PARSE:模型返回了无法序列化的对象'); }
     }
     const fence = t.match(/```(?:json)?\s*([\s\S]*?)```/i);
-    if (fence) t = fence[1].trim();
+    if (fence) { t = fence[1].trim(); console.log('[活力婷 LLM] 提取到围栏内容, 长度:', t.length); }
     const start = t.search(/[{[]/);
     const end = Math.max(t.lastIndexOf('}'), t.lastIndexOf(']'));
-    if (start >= 0 && end > start) t = t.slice(start, end + 1);
+    if (start >= 0 && end > start) { t = t.slice(start, end + 1); console.log('[活力婷 LLM] 提取JSON子串, 长度:', t.length, '前120字符:', t.slice(0, 120)); }
     try { return JSON.parse(t); }
-    catch (e) { throw new Error('JSON Parse error: ' + e.message + '（前80字符：' + t.slice(0, 80).replace(/[\r\n]/g, ' ') + '）'); }
+    catch (e) {
+      const errMsg = 'JSON Parse error: ' + e.message + '（前80字符：' + t.slice(0, 80).replace(/[\r\n]/g, ' ') + '）';
+      console.error('[活力婷 LLM] extractJSON 最终失败:', errMsg);
+      console.error('[活力婷 LLM] 完整待解析字符串:', t);
+      // ★ 显示调试面板
+      if (window.__llmDebug) window.__llmDebug(
+        '=== extractJSON 解析失败 ===\n' +
+        '错误: ' + e.message + '\n\n' +
+        '=== 原始输入（typeof ' + typeof s + '，长度 ' + String(s).length + '）===\n' +
+        String(s).slice(0, 800) + '\n\n' +
+        '=== 最终待解析字符串（长度 ' + t.length + '）===\n' +
+        t.slice(0, 800)
+      );
+      throw new Error(errMsg);
+    }
   }
 
   /* ---------- 今日娱乐：天行实时数据（体育/科技/综合热点） ---------- */
