@@ -322,6 +322,8 @@ window.API = (function () {
       const r = await fetch(url, { method: 'POST', headers, signal: AbortSignal.timeout(30000), body: JSON.stringify(mk(withFmt)) });
       // 先拿原始文本，再尝试解析——比直接 r.json() 更稳健，能捕获异常格式
       const rawText = await r.text().catch(() => '');
+      // ★ 调试：保存原始响应，出错时可通过 __llmDebug 查看
+      window.__llmRawResponse = rawText;
       if (!r.ok) {
         // 常见错误码给出中文提示
         if (r.status === 402) throw new Error('PAYMENT_402:大模型账户余额不足！请到你的大模型平台（硅基流动/DeepSeek等）充值后再试。当前为本地估算模式。');
@@ -333,6 +335,8 @@ window.API = (function () {
       let d;
       try { d = JSON.parse(rawText); } catch (parseErr) {
         console.error('[活力婷 LLM] 响应非 JSON（前200字符）:', rawText.slice(0, 200));
+        // ★ 显示调试面板：让用户能看到原始返回内容
+        if (window.__llmDebug) window.__llmDebug('=== LLM 原始响应（非 JSON）===\n状态码: ' + r.status + '\nContent-Type: ' + (r.headers.get('content-type') || '未知') + '\n\n前500字符:\n' + rawText.slice(0, 500));
         // 部分代理/网关可能在正常 JSON 外面包了一层，尝试提取
         const jsonMatch = rawText.match(/\{[\s\S]*\}/);
         if (jsonMatch) try { d = JSON.parse(jsonMatch[0]); } catch (_) { /* 最终放弃 */ }
@@ -347,6 +351,8 @@ window.API = (function () {
       // 此时必须强制转为字符串，否则 extractJSON 里 String(obj) 会变成 "[object Object]" 导致 JSON Parse error
       if (typeof content !== 'string') {
         console.warn('[活力婷 LLM] content 非字符串，类型:', typeof content, '值:', content);
+        // ★ 显示调试面板
+        if (window.__llmDebug) window.__llmDebug('=== LLM content 类型异常 ===\ntypeof content = ' + typeof content + '\ncontent 值:\n' + JSON.stringify(content).slice(0, 500) + '\n\n完整响应前300字符:\n' + rawText.slice(0, 300));
         try { content = JSON.stringify(content); } catch (_) { content = String(content); }
       }
       if (!content || content.trim() === '') {

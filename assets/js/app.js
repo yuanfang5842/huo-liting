@@ -62,6 +62,26 @@
     foot.appendChild(tree); foot.appendChild(setEl);
     nav.appendChild(foot);
 
+    // 版本号显示（确认是否加载了最新代码）
+    const ver = document.createElement('div');
+    ver.className = 'nav-group';
+    ver.innerHTML = '<span style="font-size:10px;opacity:0.4;letter-spacing:0.5px">' + (window.HUOLITING_VERSION || '未知版本') + '</span>';
+    nav.appendChild(ver);
+
+    // LLM 调试信息区域（出错时自动填充原始响应）
+    if (!document.getElementById('llm-debug')) {
+      const dbg = document.createElement('div');
+      dbg.id = 'llm-debug';
+      dbg.style.cssText = 'display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#0f0;font-size:11px;padding:8px;z-index:99999;max-height:40vh;overflow:auto;word-break:break-all;font-family:monospace';
+      dbg.innerHTML = '<div style="display:flex;justify-content:space-between"><b>🔧 LLM 调试信息</b><button onclick="this.parentElement.parentElement.style.display=\'none\'" style="background:#333;color:#fff;border:none;padding:2px 8px;border-radius:3px">关闭</button></div><pre id="llm-debug-text" style="margin:4px 0 0;white-space:pre-wrap"></pre>';
+      document.body.appendChild(dbg);
+    }
+    window.__llmDebug = function (text) {
+      const d = document.getElementById('llm-debug');
+      const t = document.getElementById('llm-debug-text');
+      if (d && t) { t.textContent = text; d.style.display = 'block'; }
+    };
+
     document.getElementById('nav-collapse').onclick = closeSidebar;
     document.getElementById('nav-reopen').onclick = openSidebar;
     document.getElementById('nav-overlay').onclick = closeSidebar;

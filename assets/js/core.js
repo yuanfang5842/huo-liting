@@ -116,6 +116,9 @@ window.App = (function () {
     } catch (e) { toast('导出失败：' + (e.message || e)); }
   }
 
+  /* 版本号（用于确认浏览器是否加载了最新代码） */
+  window.HUOLITING_VERSION = 'v19';
+
   return {
     get, set, dget, dset, today, todayLabel, dayIndex, isWeekend, hash,
     applyDailyTheme, themeName, icon, toast, register, go, onAchieve, achieve, h, exportCSV,
