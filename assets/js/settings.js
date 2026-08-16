@@ -13,20 +13,30 @@ window.Settings = (function () {
           '<option value="tianapi">天行数据 tianapi（更稳定·需 key）</option></select></div>' +
         '<div class="field"><label>天行数据 AppKey</label><input id="set-tianapi" type="password" value="' + escapeHtml(v(K.tianapiKey)) + '" placeholder="在 tianapi.com 免费申请" style="border:1px solid var(--line);border-radius:10px;padding:8px;width:100%"/></div>' +
         '<div class="muted text-xs">选「天行数据」并填有效 AppKey（控制台需开通「<b>健康经纬</b>」接口）即可<b>实时更新</b>医药要闻——该接口已支持浏览器直连，无需代理。同一 Key 还可用于「投资机会参考」（需额外开通「<b>财经新闻</b>」）和「今日娱乐热点」（需「<b>体育</b>」「<b>科学探索</b>」）。RSS 模式为公开源聚合，受网络限制可能回退示例。</div></div>' +
-      '<div class="card"><div class="section-title">逻辑口语 · 大模型（OpenAI 兼容）</div>' +
-        '<div class="muted text-xs" style="margin:-2px 0 8px;line-height:1.7">✅ 国内接口（硅基流动 / 月之暗面 / DeepSeek）已开启<b>浏览器跨域</b>，可<b>直接填 Key 使用、无需任何代理</b>。点下面一键填入：</div>' +
-        '<div class="row" style="gap:6px;margin-bottom:10px">' +
-          '<button class="chip" data-pre="sf" style="flex:1;justify-content:center">硅基流动</button>' +
-          '<button class="chip" data-pre="moonshot" style="flex:1;justify-content:center">月之暗面</button>' +
-          '<button class="chip" data-pre="deepseek" style="flex:1;justify-content:center">DeepSeek</button></div>' +
+      '<div class="card"><div class="section-title">大模型配置（口语训练 / 管理技能）</div>' +
+        '<div class="muted text-xs" style="margin:-2px 0 8px;line-height:1.7">随时切换：<b>免费</b>模型零成本可用，<b>收费</b>模型效果更好。选「本地规则引擎」完全免费、无需 Key，用内置启发式规则点评（不联网）。</div>' +
+        '<div class="field"><label>模型提供方</label><select id="set-llmprovider" style="border:1px solid var(--line);border-radius:10px;padding:8px;width:100%">' +
+          '<optgroup label="免费（可随时切换）">' +
+            '<option value="local">本地规则引擎（零成本 · 无需 Key）</option>' +
+            '<option value="siliconflow">硅基流动 SiliconFlow（注册送免费额度）</option>' +
+            '<option value="deepseek">DeepSeek（新用户免费额度）</option>' +
+            '<option value="moonshot">月之暗面 Kimi（免费额度）</option>' +
+            '<option value="gemini">Google Gemini（免费 API Key）</option>' +
+          '</optgroup>' +
+          '<optgroup label="收费（效果更好）">' +
+            '<option value="openai">OpenAI（GPT 系列 · 付费）</option>' +
+            '<option value="qwen">通义千问（阿里云 · 付费）</option>' +
+          '</optgroup>' +
+        '</select></div>' +
+        '<div id="llm-provider-note" class="muted text-xs" style="margin:-2px 0 8px;line-height:1.7"></div>' +
         '<div class="field"><label>接口地址 Base URL</label><input id="set-llmbase" value="' + escapeHtml(v(K.llmBase) || 'https://api.siliconflow.cn/v1') + '" placeholder="https://api.siliconflow.cn/v1" style="border:1px solid var(--line);border-radius:10px;padding:8px;width:100%"/></div>' +
         '<div class="field"><label>模型</label><input id="set-llmmodel" value="' + escapeHtml(v(K.llmModel) || 'deepseek-ai/DeepSeek-V3') + '" placeholder="deepseek-ai/DeepSeek-V3" style="border:1px solid var(--line);border-radius:10px;padding:8px;width:100%"/></div>' +
         '<div class="field"><label>API Key</label><input id="set-llmkey" type="password" value="' + escapeHtml(v(K.llmKey)) + '" placeholder="sk-...（本地保存，仅发往你填写的接口）" style="border:1px solid var(--line);border-radius:10px;padding:8px;width:100%"/></div>' +
         '<div class="field"><label>跨域代理转发</label><select id="set-llmproxy" style="border:1px solid var(--line);border-radius:10px;padding:8px;width:100%">' +
-          '<option value="0">关闭（推荐：用上方国内接口直连）</option>' +
+          '<option value="0">关闭（推荐：用国内接口直连）</option>' +
           '<option value="1">开启（填写下方你自己的代理地址）</option></select></div>' +
         '<div class="field"><label>自定义代理地址（开启代理后必填）</label><input id="set-llmproxyurl" value="' + escapeHtml(v(K.llmProxyUrl)) + '" placeholder="如 https://你的代理域名/?url=" style="border:1px solid var(--line);border-radius:10px;padding:8px;width:100%"/></div>' +
-        '<div class="muted text-xs"><b>OpenAI / Anthropic</b> 等海外接口在浏览器中会被跨域(CORS)拦截、且国内网络通常不可达，请勿直接填（会一直本地估算）。要用的话必须开启代理并填你自己的代理地址。</div></div>' +
+        '<div class="muted text-xs">海外接口（OpenAI 等）在浏览器中常被跨域(CORS)拦截、且国内网络通常不可达，需开启代理并填你自己的代理地址；国内接口（硅基流动 / 月之暗面 / DeepSeek / 通义 / Gemini）可直连。</div></div>' +
       '<div class="card"><div class="section-title">英语朗读 TTS（可选·更自然）</div>' +
         '<div class="muted text-xs" style="margin:-2px 0 8px;line-height:1.7">' +
           '① 默认用手机/浏览器<b>英式女声</b>朗读，离线可用，无需配置。<br>' +
@@ -52,19 +62,34 @@ window.Settings = (function () {
     document.getElementById('set-news').value = v(K.newsMode) || 'rss';
     document.getElementById('set-ttson').value = v(K.ttsOn) ? '1' : '0';
     document.getElementById('set-llmproxy').value = v(K.llmProxy) ? '1' : '0';
-    const presets = {
-      sf: { base: 'https://api.siliconflow.cn/v1', model: 'deepseek-ai/DeepSeek-V3' },
-      moonshot: { base: 'https://api.moonshot.cn/v1', model: 'moonshot-v1-8k' },
-      deepseek: { base: 'https://api.deepseek.com/v1', model: 'deepseek-chat' },
+    const LLM_PROVIDERS = {
+      local: { base:'', model:'', key:false, note:'完全免费、无需联网，用内置启发式规则点评。适合随时练、不花钱。' },
+      siliconflow: { base:'https://api.siliconflow.cn/v1', model:'deepseek-ai/DeepSeek-V3', key:true, note:'注册送免费额度，部分模型免费；浏览器直连，无需代理。' },
+      deepseek: { base:'https://api.deepseek.com/v1', model:'deepseek-chat', key:true, note:'新用户有免费额度；浏览器直连。' },
+      moonshot: { base:'https://api.moonshot.cn/v1', model:'moonshot-v1-8k', key:true, note:'有免费额度；浏览器直连。' },
+      gemini: { base:'https://generativelanguage.googleapis.com/v1beta/openai/', model:'gemini-2.0-flash', key:true, note:'Google AI Studio 免费申请 Key；浏览器直连。' },
+      openai: { base:'https://api.openai.com/v1', model:'gpt-4o-mini', key:true, note:'需付费账户；海外接口浏览器直连多被 CORS 拦截，建议开启代理。' },
+      qwen: { base:'https://dashscope.aliyuncs.com/compatible-mode/v1', model:'qwen-plus', key:true, note:'阿里云付费；浏览器直连。' },
     };
-    c.querySelectorAll('[data-pre]').forEach(b => {
-      b.onclick = () => {
-        const p = presets[b.dataset.pre]; if (!p) return;
-        document.getElementById('set-llmbase').value = p.base;
-        document.getElementById('set-llmmodel').value = p.model;
-        App.toast('已填入「' + b.textContent + '」的地址与模型，填 Key 即可用 ✓');
-      };
-    });
+    function applyProvider(id) {
+      const p = LLM_PROVIDERS[id]; if (!p) return;
+      const baseEl = document.getElementById('set-llmbase');
+      const modelEl = document.getElementById('set-llmmodel');
+      const keyEl = document.getElementById('set-llmkey');
+      const noteEl = document.getElementById('llm-provider-note');
+      if (p.base) baseEl.value = p.base;
+      if (p.model) modelEl.value = p.model;
+      if (!p.key) { keyEl.value = ''; keyEl.placeholder = '本地引擎无需 Key'; }
+      else { keyEl.placeholder = 'sk-...（本地保存，仅发往你填写的接口）'; }
+      if (noteEl) noteEl.textContent = (p.key ? '【收费/免费额度】' : '【免费】') + p.note;
+    }
+    const provSel = document.getElementById('set-llmprovider');
+    if (provSel) {
+      provSel.onchange = () => applyProvider(provSel.value);
+      const savedProv = v(K.llmProvider) || (v(K.llmKey) ? 'siliconflow' : 'local');
+      provSel.value = savedProv;
+      applyProvider(savedProv);
+    }
     document.getElementById('set-invest').value = v(K.investMode) || 'rotate';
 
     document.getElementById('set-save').onclick = () => {
@@ -82,6 +107,7 @@ window.Settings = (function () {
       API.setCfg(K.ttsKey, document.getElementById('set-ttskey').value.trim());
       API.setCfg(K.ttsVoice, document.getElementById('set-ttsvoice').value.trim() || 'alloy');
       API.setCfg(K.investMode, document.getElementById('set-invest').value);
+      API.setCfg(K.llmProvider, document.getElementById('set-llmprovider').value);
       App.dset('weatherCache', null); // 城市变了，天气重新拉
       App.toast('设置已保存 ✓');
     };

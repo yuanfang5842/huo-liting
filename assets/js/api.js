@@ -9,14 +9,14 @@ window.API = (function () {
     llmBase: 'llmBase', llmKey: 'llmKey', llmModel: 'llmModel', llmProxy: 'llmProxy', llmProxyUrl: 'llmProxyUrl',
     weatherCity: 'weatherCity', newsMode: 'newsMode', tianapiKey: 'tianapiKey',
     ttsOn: 'ttsOn', ttsBase: 'ttsBase', ttsKey: 'ttsKey', ttsModel: 'ttsModel', ttsVoice: 'ttsVoice',
-    investMode: 'investMode',
+    investMode: 'investMode', llmProvider: 'llmProvider',
   };
 
   function cfg(k, d) { return App.get(k, d); }
   function setCfg(k, v) { App.set(k, v); }
 
   /* 新闻 5 大模块（全局） */
-  const MODS = ['行业政策与市场', '新药与管线(研发·获批)', '企业与产品动态', '临床与研究', '趋势与观点'];
+  const MODS = ['行业政策与市场', '新药与管线', '企业产品动态', '临床研究', '趋势与观点'];
   /* 天行数据错误码 → 中文提示 */
   const TIAN_ERR = {
     100: '接口无返回信息', 110: '接口不存在或暂未开通（请在天行控制台开通「国内新闻」接口）',
@@ -107,7 +107,7 @@ window.API = (function () {
   // 关键词 → 5 大模块
   const CAT_RULES = [
     { mod: '行业政策与市场', kw: ['医保', '集采', '目录', '政策', '卫健委', '药监局', '改革', '支付', '招标', '控费', 'DRG', '集采'] },
-    { mod: '新药与管线(研发·获批)', kw: ['新药', '获批', '临床', '试验', '管线', 'FDA', 'IND', 'NDA', '三期', '二期', '一期', '上市', '批件', 'GLP', 'ADC', 'PD-1', 'mRNA'] },
+    { mod: '新药与管线', kw: ['新药', '获批', '临床', '试验', '管线', 'FDA', 'IND', 'NDA', '三期', '二期', '一期', '上市', '批件', 'GLP', 'ADC', 'PD-1', 'mRNA'] },
     { mod: '企业与产品动态', kw: ['财报', '融资', '营收', '合作', '收购', '估值', '公司', 'Biotech', '药企', '业绩', '上市', '产品'] },
     { mod: '临床与研究', kw: ['研究', '论文', '柳叶刀', '期刊', '真实世界', '数据', '试验', '临床', '循证'] },
     { mod: '趋势与观点', kw: ['观点', '专栏', '趋势', '观察', '认为', '未来', '将', '解读', '启示'] },
@@ -217,7 +217,7 @@ window.API = (function () {
     const grouped = {}; MODS.forEach(m => grouped[m] = []);
     picked.forEach(o => { (grouped[o.module] = grouped[o.module] || []).push(o); });
     MODS.forEach(m => grouped[m] = (grouped[m] || []).slice(0, 6));
-    return { isReal: true, mode: 'tianapi', grouped, sources: ['天行数据·国内新闻（已按医疗相关优先）'] };
+    return { isReal: true, mode: 'tianapi', grouped, sources: ['天行数据·健康经纬'] };
   }
 
   async function fetchNewsGdelt() {
@@ -244,6 +244,27 @@ window.API = (function () {
     } catch (e) { return null; }
   }
 
+  /* 全网补充源：从官方政策站点（gov.cn 系）抓取「行业政策与市场」要闻。
+   * GDELT 支持按域名过滤，可覆盖国家医保局/卫健委/药监局/国务院政策库/上海阳光采购网等。
+   * best-effort：CORS 或网络不通时静默跳过，不影响主流程。 */
+  async function fetchNewsGdeltPolicy() {
+    const domains = ['nhsa.gov.cn', 'nhc.gov.cn', 'nmpa.gov.cn', 'gov.cn', 'samr.gov.cn', 'ybj.sh.gov.cn'];
+    const q = domains.map(d => 'domain:' + d).join(' ');
+    const url = 'https://api.gdeltproject.org/api/v2/doc/doc?query=' + encodeURIComponent(q) +
+      '&mode=ArtList&format=json&maxrecords=25&sortby=datedesc';
+    try {
+      const r = await fetch(url, { signal: AbortSignal.timeout(9000) });
+      if (!r.ok) return null;
+      const d = await r.json();
+      const arts = d.articles || [];
+      if (!arts.length) return null;
+      return arts.filter(a => a.title).map(a => ({
+        title: a.title, src: a.domain || 'GDELT政策源', url: a.url || '#',
+        date: fmtPub(a.seendate || ''), module: '行业政策与市场'
+      }));
+    } catch (e) { return null; }
+  }
+
   // 统一入口（带每日缓存，默认优先天行数据）
   async function fetchNews() {
     const mode = cfg(K.newsMode, 'tianapi');  // v11: 默认改天行（RSS 公共代理已全挂）
@@ -251,7 +272,16 @@ window.API = (function () {
       const key = cfg(K.tianapiKey, '');
       if (!key) throw new Error('NO_KEY:未填写天行数据 AppKey（请到「设置 → 今日医药要闻」填写）');
       console.log('[活力婷 API] 走天行数据模式拉取新闻...');
-      return await fetchNewsTianapi(key); // 可能抛 TIAN:/NET: 错误，由新闻页展示原因
+      let data = await fetchNewsTianapi(key); // 可能抛 TIAN:/NET: 错误，由新闻页展示原因
+      // 全网补充：从官方政策站点（医保局/卫健委/药监局/国务院政策库等 gov.cn 系）补充「行业政策与市场」要闻
+      try {
+        const pol = await fetchNewsGdeltPolicy();
+        if (pol && pol.length) {
+          data.grouped['行业政策与市场'] = (data.grouped['行业政策与市场'] || []).concat(pol).slice(0, 8);
+          data.sources = (data.sources || []).concat(['GDELT·官方政策源(全网监测)']);
+        }
+      } catch (e) { console.warn('[活力婷 API] 政策源补充失败(忽略):', e.message); }
+      return data;
     }
     // RSS 模式：先公开 RSS，再 GDELT，最后兜底天行（仅当用户已配 Key）
     console.log('[活力婷 API] 走 RSS 模式拉取新闻...');
@@ -267,6 +297,7 @@ window.API = (function () {
 
   /* ---------- 大模型：OpenAI 兼容（稳健版） ---------- */
   async function callLLM(systemPrompt, userPrompt) {
+    if (cfg(K.llmProvider, '') === 'local') throw new Error('LOCAL_ENGINE:使用免费本地规则引擎（零成本·无需联网）');
     const base = (cfg(K.llmBase, 'https://api.siliconflow.cn/v1') || '').trim() || 'https://api.siliconflow.cn/v1';
     const key = cfg(K.llmKey, '');
     const model = (cfg(K.llmModel, 'deepseek-ai/DeepSeek-V3') || '').trim() || 'deepseek-ai/DeepSeek-V3';

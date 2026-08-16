@@ -1,11 +1,27 @@
 /* ============ 今日医药要闻（真实接口 + 降级） v11-网络优先 ============ */
 window.News = (function () {
-  const MODS = ['行业政策与市场', '新药与管线(研发·获批)', '企业与产品动态', '临床与研究', '趋势与观点'];
+  const MODS = ['行业政策与市场', '新药与管线', '企业产品动态', '临床研究', '趋势与观点'];
   const srcLine = DATA.newsSources.join(' · ');
 
   function escapeHtml(s) { return (s || '').replace(/[&<>]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[m])); }
   function escAttr(s) { return escapeHtml(s).replace(/"/g, '&quot;'); }
   function itemId(it) { return App.hash(it.title + '|' + it.src + '|' + it.url); }
+
+  /* 官方政策源卡片：行业政策与市场首选的权威发布渠道（直接外链） */
+  function govCardHtml() {
+    const sites = [
+      { n: '国家卫生健康委员会', u: 'http://www.nhc.gov.cn/' },
+      { n: '国家医疗保障局', u: 'http://www.nhsa.gov.cn/' },
+      { n: '国务院政策文件库', u: 'https://www.gov.cn/zhengce/zhengceku/' },
+      { n: '国家药品监督管理局', u: 'https://www.nmpa.gov.cn/' },
+      { n: '上海阳光医药采购网', u: 'http://www.smpaa.cn/' },
+      { n: '中国政府网', u: 'https://www.gov.cn/' },
+    ];
+    const chips = sites.map(s => '<a class="chip gov-link" href="' + s.u + '" target="_blank" rel="noopener" style="flex-direction:row;justify-content:flex-start;margin-bottom:6px">' + escapeHtml(s.n) + ' ↗</a>').join('');
+    return '<div class="card mt12" style="border-color:var(--accent)"><div class="section-title">🏛 官方政策源 · 行业政策与市场首选</div>' +
+      '<div class="muted text-xs" style="margin:-4px 0 8px;line-height:1.65">以下为权威官方发布渠道，建议直接查看最新医药政策/文件。本区要闻也会通过 GDELT 全网监测从这些站点做补充。</div>' +
+      '<div class="row" style="flex-wrap:wrap;gap:6px">' + chips + '</div></div>';
+  }
 
   /* 打开「深度解读」详情浮层 - v15: 规则引擎解读 + 可选AI增强 */
   function showInterpret(el) {
@@ -202,7 +218,7 @@ window.News = (function () {
 
   function realHtml(data) {
     const read = App.dget('newsReadIds', []);
-    let html = '';
+    let html = govCardHtml();
     MODS.forEach(m => {
       const list = data.grouped[m] || [];
       html += '<div class="news-mod"><div class="head">' + m + ' <span class="muted text-xs">(' + list.length + ')</span></div>';
@@ -214,8 +230,7 @@ window.News = (function () {
           '<div class="title">' + (isRead ? '✓ ' : '') + escapeHtml(it.title) + '</div>' +
           '<div class="meta"><span class="src">' + escapeHtml(it.src) + '</span><span>' + (it.date || '') + '</span></div>' +
           '<div class="news-actions">' +
-            '<span class="orig" data-interpret data-t="' + escAttr(it.title) + '" data-src="' + escAttr(it.src) + '" data-date="' + escAttr(it.date || '') + '" data-url="' + escAttr(it.url) + '" data-desc="' + escAttr(it.desc || '') + '">解读 💡</span>' +
-            '<span class="orig" data-url="' + escapeHtml(it.url) + '" data-id="' + id + '">看原文 →</span>' +
+            '<span class="orig" data-interpret data-id="' + id + '" data-t="' + escAttr(it.title) + '" data-src="' + escAttr(it.src) + '" data-date="' + escAttr(it.date || '') + '" data-url="' + escAttr(it.url) + '" data-desc="' + escAttr(it.desc || '') + '">解读 💡</span>' +
           '</div></div>';
       });
       html += '</div>';
@@ -224,24 +239,24 @@ window.News = (function () {
   }
 
   function bindReal(body) {
-    body.querySelectorAll('[data-interpret]').forEach(el => { el.onclick = () => showInterpret(el); });
-    body.querySelectorAll('.orig:not([data-interpret])').forEach(el => {
+    body.querySelectorAll('[data-interpret]').forEach(el => {
       el.onclick = () => {
-        const url = el.dataset.url;
         const id = el.dataset.id;
-        const r = App.dget('newsReadIds', []);
-        if (!r.includes(id)) { r.push(id); App.dset('newsReadIds', r); App.dset('newsRead', r.length); }
-        App.achieve('f1', 10, '阅读要闻');
-        el.parentElement.querySelector('.title').textContent = '✓ ' + el.parentElement.querySelector('.title').textContent.replace(/^✓ /, '');
-        if (url && url !== '#') window.open(url, '_blank');
-        else App.toast('该条暂无原文链接');
+        if (id) {
+          const r = App.dget('newsReadIds', []);
+          if (!r.includes(id)) { r.push(id); App.dset('newsReadIds', r); App.dset('newsRead', r.length); }
+          App.achieve('f1', 10, '阅读要闻');
+          const titleEl = el.closest('.news-item') && el.closest('.news-item').querySelector('.title');
+          if (titleEl && titleEl.textContent.indexOf('✓ ') !== 0) titleEl.textContent = '✓ ' + titleEl.textContent;
+        }
+        showInterpret(el);
       };
     });
   }
 
   function mockHtml() {
     const read = App.dget('newsReadIds', []);
-    let html = '';
+    let html = govCardHtml();
     MODS.forEach(m => {
       html += '<div class="news-mod"><div class="head">' + m + '</div>';
       DATA.news[m].forEach((it, i) => {
@@ -252,8 +267,7 @@ window.News = (function () {
           '<div class="title">' + (isRead ? '✓ ' : '') + escapeHtml(it.t) + '</div>' +
           '<div class="meta"><span class="src">' + it.src + '</span><span>' + it.date + '</span></div>' +
           '<div class="news-actions">' +
-            '<span class="orig" data-interpret data-t="' + escAttr(it.t) + '" data-src="' + escAttr(it.src) + '" data-date="' + escAttr(it.date) + '" data-url="' + escAttr(url) + '" data-desc="' + escAttr(it.desc || '') + '">解读 💡</span>' +
-            '<span class="orig" data-id="' + id + '" data-mock="1" data-url="' + escapeHtml(url) + '">' + (isRead ? '已读 ✓' : '看原文 →') + '</span>' +
+            '<span class="orig" data-interpret data-id="' + id + '" data-t="' + escAttr(it.t) + '" data-src="' + escAttr(it.src) + '" data-date="' + escAttr(it.date) + '" data-url="' + escAttr(url) + '" data-desc="' + escAttr(it.desc || '') + '">解读 💡</span>' +
           '</div></div>';
       });
       html += '</div>';
@@ -262,16 +276,18 @@ window.News = (function () {
   }
 
   function bindMock(body) {
-    body.querySelectorAll('[data-interpret]').forEach(el => { el.onclick = () => showInterpret(el); });
-    body.querySelectorAll('.orig[data-mock]').forEach(el => {
+    body.querySelectorAll('[data-interpret]').forEach(el => {
       el.onclick = () => {
         const id = el.dataset.id;
-        const r = App.dget('newsReadIds', []);
-        if (!r.includes(id)) { r.push(id); App.dset('newsReadIds', r); App.dset('newsRead', r.length); }
-        App.achieve('f1', 10, '阅读要闻');
-        el.textContent = '已读 ✓';
-        el.parentElement.querySelector('.title').textContent = '✓ ' + el.parentElement.querySelector('.title').textContent.replace(/^✓ /, '');
-        if (el.dataset.url) window.open(el.dataset.url, '_blank');
+        if (id) {
+          const r = App.dget('newsReadIds', []);
+          if (!r.includes(id)) { r.push(id); App.dset('newsReadIds', r); App.dset('newsRead', r.length); }
+          App.achieve('f1', 10, '阅读要闻');
+          el.textContent = '已读 ✓';
+          const titleEl = el.closest('.news-item') && el.closest('.news-item').querySelector('.title');
+          if (titleEl && titleEl.textContent.indexOf('✓ ') !== 0) titleEl.textContent = '✓ ' + titleEl.textContent;
+        }
+        showInterpret(el);
       };
     });
   }

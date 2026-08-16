@@ -47,6 +47,21 @@ window.Overview = (function () {
   function blank() { return { tasks: [], goals: {}, schedule: [], record: '', feeling: '' }; }
   function getJ() { return App.dget('journal', null) || blank(); }
   function saveJ(j) { App.dset('journal', j); }
+  /* 每日日志快照归档（用于跨日导出全部日志） */
+  function archiveJournal(j) {
+    const arr = App.get('journalArchive', []) || [];
+    const snap = {
+      date: App.today(),
+      tasks: j.tasks || [],
+      goals: j.goals || {},
+      schedule: j.schedule || [],
+      record: j.record || '',
+      feeling: j.feeling || ''
+    };
+    const idx = arr.findIndex(x => x.date === snap.date);
+    if (idx >= 0) arr[idx] = snap; else arr.push(snap);
+    App.set('journalArchive', arr);
+  }
 
   function renderJournal(c) {
     let j = getJ();
@@ -89,7 +104,8 @@ window.Overview = (function () {
         '<div class="field"><label>精进记录</label><textarea id="rec" placeholder="今天学到了什么、做了什么…">' + escapeHtml(j.record || '') + '</textarea></div>' +
         '<div class="field"><label>感悟</label><textarea id="feel" placeholder="一点体会…">' + escapeHtml(j.feeling || '') + '</textarea></div></div>' +
       '<div class="feedback-card" id="fb-card"><div class="ft">💡 今日建议反馈（本地规则引擎生成 · 未调用大模型）</div>' + fb + '</div>' +
-      '<button class="btn block mt12" id="journal-save">保存今日日志</button>';
+      '<button class="btn block mt12" id="journal-save">保存今日日志</button>' +
+      '<button class="btn block mt8 ghost" id="journal-export">⬇ 导出全部日志（CSV · Excel 可打开）</button>';
 
     renderTasks(c);
     renderSched(c);
@@ -139,8 +155,26 @@ window.Overview = (function () {
       jj.record = document.getElementById('rec').value;
       jj.feeling = document.getElementById('feel').value;
       saveJ(jj);
+      archiveJournal(jj);
       App.achieve('f2', 20, '完成精进日志');
       App.toast('已保存，今日精进 +20 营养 🌱');
+    };
+    document.getElementById('journal-export').onclick = () => {
+      const arr = App.get('journalArchive', []) || [];
+      if (!arr.length) { App.toast('还没有可导出的日志，先保存今日日志'); return; }
+      const rows = [['日期', '今日要事与策略/方法', '时间安排', '精进记录', '今日感悟']];
+      arr.forEach(e => {
+        const tasks = (e.tasks || []).map(t => {
+          const g = (e.goals || {})[t.id] || {};
+          return '· ' + t.text + (t.status === 'done' ? ' ✓' : '') +
+            (g.strategy ? ' [策略]' + g.strategy : '') +
+            (g.method ? ' [方法]' + g.method : '');
+        }).join('  ');
+        const sched = (e.schedule || []).map(s => s.time + ' ' + s.text + (s.done ? ' ✓' : '')).join('  ');
+        rows.push([e.date, tasks, sched, e.record || '', e.feeling || '']);
+      });
+      App.exportCSV('活力婷_精进日志_' + App.today() + '.csv', rows);
+      App.toast('已导出 ' + arr.length + ' 天日志');
     };
   }
 

@@ -98,8 +98,26 @@ window.App = (function () {
   /* 创建元素小工具 */
   function h(html) { const t = document.createElement('template'); t.innerHTML = html.trim(); return t.content.firstChild; }
 
+  /* 导出 CSV（Excel 可直接打开，带 UTF-8 BOM 防中文乱码） */
+  function exportCSV(filename, rows) {
+    const esc = s => {
+      s = (s == null ? '' : String(s));
+      if (/[",\n\r]/.test(s)) s = '"' + s.replace(/"/g, '""') + '"';
+      return s;
+    };
+    const csv = '﻿' + rows.map(r => r.map(esc).join(',')).join('\r\n');
+    try {
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = filename;
+      document.body.appendChild(a); a.click();
+      setTimeout(() => { try { URL.revokeObjectURL(url); a.remove(); } catch (e) {} }, 200);
+    } catch (e) { toast('导出失败：' + (e.message || e)); }
+  }
+
   return {
     get, set, dget, dset, today, todayLabel, dayIndex, isWeekend, hash,
-    applyDailyTheme, themeName, icon, toast, register, go, onAchieve, achieve, h,
+    applyDailyTheme, themeName, icon, toast, register, go, onAchieve, achieve, h, exportCSV,
   };
 })();

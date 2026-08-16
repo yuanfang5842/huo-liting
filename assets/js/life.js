@@ -41,7 +41,10 @@ window.Life = (function () {
         '<div class="row"><span class="grow muted text-sm">本周（周一至今）</span><span class="bold">¥' + weekSum + '</span></div>' +
         '<div class="row"><span class="grow muted text-sm">本月</span><span class="bold">¥' + monthSum + '</span></div>' +
         '<div class="row"><span class="grow muted text-sm">本年</span><span class="bold">¥' + yearSum + '</span></div>' +
-        '<div class="muted text-xs mt8">记账数据长期保存，可随时回看各周期支出趋势。</div></div>';
+        '<div class="muted text-xs mt8">记账数据长期保存，可随时回看各周期支出趋势。</div></div>' +
+      '<div class="card mt12"><div class="section-title">数据留存与导出</div>' +
+        '<div class="text-sm muted" style="line-height:1.6">所有记账记录已按日期长期保存。可一键导出全部记录，用 Excel 直接打开查看。</div>' +
+        '<button class="btn block mt8" id="ledger-export">⬇ 导出全部记账数据（CSV · Excel 可打开）</button></div>';
 
     const catSel = document.getElementById('cat-sel');
     function fillSub() {
@@ -61,6 +64,16 @@ window.Life = (function () {
       App.set('ledgerAll', L);
       App.achieve('f1', 10, '记一笔账');
       renderLedger(c);
+    };
+    document.getElementById('ledger-export').onclick = () => {
+      const L2 = App.get('ledgerAll', { records: [] });
+      const recs = L2.records || [];
+      if (!recs.length) { App.toast('还没有记账记录，先记一笔吧'); return; }
+      const rows = [['日期', '大类', '细分', '金额(元)', '备注']].concat(
+        recs.map(r => [r.date, r.cat, r.sub, r.amount, r.note || ''])
+      );
+      App.exportCSV('活力婷_流水记账_' + App.today() + '.csv', rows);
+      App.toast('已导出 ' + recs.length + ' 条记账记录');
     };
   }
 
