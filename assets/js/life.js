@@ -460,9 +460,16 @@ window.Life = (function () {
   }
   function renderFunLive(c, items) {
     const el = document.getElementById('fun-live');
+    const body = document.getElementById('fun-live-body');
+    const stT = document.getElementById('fun-st-t');
+    const stS = document.getElementById('fun-st-s');
     if (!el || !items || !items.length) return;
     el.className = '';
-    el.innerHTML = '<div class="section-title mt12">🔥 今日实时热点</div>' + items.slice(0, 6).map(it =>
+    // 更新状态栏
+    if (stT) stT.textContent = '实时热点 · 天行数据';
+    if (stS) stS.textContent = items.length + ' 条 · 更新于 ' + new Date().toLocaleTimeString('zh-CN', {hour:'2-digit',minute:'2-digit'});
+    // 渲染内容
+    if (body) body.innerHTML = items.slice(0, 8).map(it =>
       '<div class="card" style="margin-bottom:10px"><div class="flex between center"><div class="bold text-sm" style="line-height:1.4">' + escapeHtml(it.title) + '</div>' +
       (it.tag ? '<span class="tag">' + escapeHtml(it.tag) + '</span>' : '') + '</div>' +
       (it.url && it.url !== '#' ? '<div class="mt8"><a class="look-link" href="' + escapeHtml(it.url) + '" target="_blank" rel="noopener">看原文 →</a></div>' : '') +
@@ -506,7 +513,9 @@ window.Life = (function () {
 
     c.innerHTML =
       '<div class="page-head"><h2>今日娱乐</h2><div class="date">每日新鲜 · ' + App.todayLabel() + '</div></div>' +
-      '<div id="fun-live" class="hidden"></div>' +
+      // 实时热点区域（置顶，天行数据优先）
+      '<div id="fun-live" class="hidden"><div class="achv-banner" style="background:var(--accent-soft);color:var(--accent);margin:8px 0"><div class="big">🔥</div><div class="grow"><div class="t" id="fun-st-t">实时热点</div><div class="s text-xs" id="fun-st-s" style="opacity:1">加载中…</div></div></div><div id="fun-live-body"></div></div>' +
+      // 本地内容（固定轮换，始终显示）
       funCard('📅 历史上的今天 · 中国', histCN.t) +
       funCard('🌍 历史上的今天 · 世界各地', histWorld.t) +
       funCard('😄 每日一笑', joke) +
@@ -516,7 +525,7 @@ window.Life = (function () {
         '<div class="fun-ans hidden" id="brain-ans">' + escapeHtml(brain.a) + '</div></div>' +
       funCard('💡 趣味冷知识', fact) +
       funCard('🔥 今日热话题 · ' + topic.tag, topic.t) +
-      '<div class="muted text-xs mt12">内容按日期每日轮换更新；联网时会尝试补充实时娱乐热点。</div>';
+      '<div class="muted text-xs mt12">基础内容每日轮换；联网时自动补充实时热点（体育/科技等）。</div>';
 
     const ba = document.querySelector('[data-brain]');
     if (ba) ba.onclick = () => {

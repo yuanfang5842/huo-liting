@@ -161,9 +161,10 @@ window.API = (function () {
   }
 
   async function fetchNewsTianapi(key) {
-    // 天行数据·国内新闻（需开通该接口）。该接口已开启 CORS（Access-Control-Allow-Origin: *），
-    // 浏览器可【直接】调用，无需经任何代理。请在控制台开通「国内新闻」接口并填有效 AppKey。
-    const raw = 'https://apis.tianapi.com/guonei/index?key=' + encodeURIComponent(key) + '&num=30';
+    // 天行数据·健康经纬（医药专用，需开通该接口）。该接口已开启 CORS（Access-Control-Allow-Origin: *），
+    // 浏览器可【直接】调用，无需经任何代理。请在控制台开通「健康经纬」接口并填有效 AppKey。
+    // 备选：国内新闻(guonei)返回全品类新闻(含煤炭等非医药内容)，不适合医药要闻场景。
+    const raw = 'https://apis.tianapi.com/health/index?key=' + encodeURIComponent(key) + '&num=30';
     let txt;
     try {
       const r = await fetch(raw, { signal: AbortSignal.timeout(9000) });
@@ -189,16 +190,28 @@ window.API = (function () {
       // 调试：把返回的所有 key 打出来，方便手机端排查
       const keys = Object.keys(d).join(', ');
       const preview = JSON.stringify(d).slice(0, 200);
-      throw new Error('TIAN:接口返回成功(code=200)但无新闻数据。返回内容: ' + preview + '（可能原因：①该Key未开通「国内新闻」接口 ②接口返回格式变更 ③请求频率超限）。请到天行控制台确认已开通「国内新闻」');
+      throw new Error('TIAN:接口返回成功(code=200)但无新闻数据。返回内容: ' + preview + '（可能原因：①该Key未开通「健康经纬」接口 ②接口返回格式变更 ③请求频率超限）。请到天行控制台确认已开通「健康经纬」');
     }
-    // 按医疗相关度筛选：医保/集采/药/临床/医院等关键词优先
-    const MED = ['医', '药', '临床', '医院', '卫生', '健康', '疫苗', '生物', '制药', '处方', '医保', '医改', '疾控', '护士', '患者', '中医', '养生', '治病', '疾病', '医疗'];
+    // 按医疗相关度分类（health 接口已为医药专类，此处做细分类）
     const med = [], other = [];
     list.forEach(it => {
       if (!it.title) return;
       const mod = categorize(it.title);
-      const obj = { title: it.title, src: it.source || '天行数据', url: it.url || '#', date: (it.date || '').slice(5, 10).replace('-', '月') + '日', module: mod };
-      (MED.some(k => it.title.indexOf(k) >= 0) ? med : other).push(obj);
+      // 解析日期：支持 "2024-08-16" / "08-16 14:30" / "2024年08月16日" 等格式
+      let dateStr = '';
+      const rawDate = it.date || it.time || it.pubdate || '';
+      if (rawDate) {
+        const d = rawDate.replace(/年|月/g, '-').replace(/日/g, '').trim();
+        if (d.length >= 10) dateStr = d.slice(5, 10).replace('-', '/') + (d.length > 10 ? ' ' + d.slice(11, 16) : '');
+        else if (d.length >= 5) dateStr = d.replace('-', '/');
+        else dateStr = rawDate;
+      }
+      // URL 清理：确保是完整链接
+      let url = (it.url || it.link || '').trim();
+      if (url && !url.startsWith('http') && url !== '#') url = 'https://' + url;
+      if (!url) url = '#';
+      const obj = { title: it.title, src: it.source || '天行数据', url: url, date: dateStr || '今日', module: mod };
+      med.push(obj);  // health 接口全是医药相关，不再分 med/other
     });
     const picked = med.concat(other).slice(0, 30);
     const grouped = {}; MODS.forEach(m => grouped[m] = []);
@@ -316,25 +329,44 @@ window.API = (function () {
     catch (e) { throw new Error('PARSE:模型返回不是合法 JSON（' + t.slice(0, 50) + '…）'); }
   }
 
-  /* ---------- 今日娱乐：实时娱乐热点（best-effort，失败回退生成内容） ---------- */
-  const FUN_FEEDS = [
-    { label: '豆瓣电影', url: 'https://www.douban.com/feed/latest_movies' },
-    { label: '豆瓣读书', url: 'https://www.douban.com/feed/latest_books' },
-  ];
-  async function fetchFunRSS() {
-    const items = [];
-    await Promise.all(FUN_FEEDS.map(async f => {
+  /* ---------- 今日娱乐：天行实时数据（体育/科技/综合热点） ---------- */
+  // 复用用户已有的天行 Key，拉取娱乐相关实时内容
+  async function fetchFunTianapi(key) {
+    const endpoints = [
+      { name: '体育', url: 'https://apis.tianapi.com/tiyu/index?key=' + encodeURIComponent(key) + '&num=5' },
+      { name: '科技探索', url: 'https://apis.tianapi.com/keji/index?key=' + encodeURIComponent(key) + '&num=5' },
+    ];
+    const allItems = [];
+    for (const ep of endpoints) {
       try {
-        const xml = await fetchViaProxy(f.url);
-        if (xml) parseFeed(xml, f.label).forEach(it => items.push(it));
-      } catch (e) { /* 单源失败忽略 */ }
-    }));
-    const seen = new Set();
-    const uniq = items.filter(it => { const k = it.title + it.src; if (seen.has(k)) return false; seen.add(k); return true; });
-    if (!uniq.length) return null;
-    return { isReal: true, mode: 'fun', items: uniq.slice(0, 8), sources: FUN_FEEDS.map(f => f.label) };
+        const r = await fetch(ep.url, { signal: AbortSignal.timeout(8000) });
+        const txt = await r.text();
+        const d = JSON.parse(txt);
+        if (d.code === 200) {
+          const list = d.newslist || (d.result && d.result.newslist) || [];
+          list.forEach(it => {
+            if (!it.title) return;
+            let url = (it.url || '').trim();
+            if (url && !url.startsWith('http')) url = 'https://' + url;
+            allItems.push({ title: it.title, src: it.source || ('天行·' + ep.name), url: url || '#', tag: ep.name });
+          });
+        }
+      } catch (e) { console.warn('[活力婷] 娱乐源 ' + ep.name + ' 拉取失败:', e.message); }
+    }
+    if (!allItems.length) return null;
+    return { isReal: true, mode: 'tianapi-fun', items: allItems.slice(0, 10), sources: endpoints.map(e => '天行·' + e.name) };
   }
+
   async function fetchFun() {
+    // 优先走天行（复用新闻 Key）
+    const key = cfg(K.tianapiKey, '');
+    if (key) {
+      try {
+        const r = await fetchFunTianapi(key);
+        if (r) return r;
+      } catch (e) { /* 天行失败，降级 */ }
+    }
+    // 降级：尝试 RSS（大概率也挂了）
     try { return await fetchFunRSS(); } catch (e) { return null; }
   }
 

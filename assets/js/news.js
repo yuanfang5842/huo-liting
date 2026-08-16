@@ -7,20 +7,57 @@ window.News = (function () {
   function escAttr(s) { return escapeHtml(s).replace(/"/g, '&quot;'); }
   function itemId(it) { return App.hash(it.title + '|' + it.src + '|' + it.url); }
 
-  /* 打开「深度解读」详情浮层 */
+  /* 打开「深度解读」详情浮层 - v15: 规则引擎解读 + 可选AI增强 */
   function showInterpret(el) {
     const it = { t: el.dataset.t, src: el.dataset.src, date: el.dataset.date, url: el.dataset.url, desc: el.dataset.desc };
     const body = document.getElementById('detail-body');
     if (!body) return;
+
+    // 规则引擎：根据标题关键词生成基础解读（无需大模型）
+    const title = it.t || '';
+    let interp = '';
+    const hasDrug = /药|新药|疫苗|生物|制药|临床|获批|上市|研发|管线|试验/.test(title);
+    const hasPolicy = /政策|医保|集采|医改|改革|规划|方案|通知|意见|办法|条例|监管|审批/.test(title);
+    const hasCompany = /公司|企业|集团|医药|生物科技|制药|医疗健康|药业|医药/.test(title);
+    const hasMarket = /市场|行业|融资|投资|估值|股价|营收|增长|下滑|亏损|盈利|并购|收购|IPO|上市/.test(title);
+    const hasHospital = /医院|诊所|医生|护士|患者|诊疗|治疗|手术|诊断|检查|科室|门诊|住院/.test(title);
+    const hasTech = /AI|人工智能|数字|智能|创新|技术|平台|系统|设备|器械|影像|基因|细胞/.test(title);
+
+    if (hasPolicy) {
+      interp += '<p><b>📋 政策视角：</b>该条涉及医药行业政策法规变化，可能影响企业合规成本、市场准入门槛、产品定价策略及患者用药可及性。建议关注后续实施细则和过渡期安排。</p>';
+    }
+    if (hasDrug) {
+      interp += '<p><b>💊 产品视角：</b>该条涉及药物/疫苗/生物制品的研发进展或监管动态。关注点包括：临床试验阶段（I/II/III期）、适应症范围、竞品格局、上市时间预期及潜在市场规模。</p>';
+    }
+    if (hasCompany) {
+      interp += '<p><b>🏢 企业视角：</b>该条涉及医药企业经营动态。可从核心竞争力（研发管线/销售网络/产能布局）、财务健康状况、战略方向（创新转型/国际化/并购整合）等维度跟踪其长期价值。</p>';
+    }
+    if (hasMarket) {
+      interp += '<p><b>📈 市场视角：</b>该条涉及资本市场或行业趋势。需结合宏观环境（利率/流动性）、行业周期位置、估值水平综合判断短期波动与长期趋势的关系。</p>';
+    }
+    if (hasHospital) {
+      interp += '<p><b>🏥 临床视角：</b>该条涉及医疗服务端动态。关注对临床实践的影响：诊疗路径是否改变、患者获益程度、医疗资源分配效率及医护工作流程调整。</p>';
+    }
+    if (hasTech) {
+      interp += '<p><b>🔬 技术视角：</b>该条涉及医药科技创新。评估技术成熟度（实验室/临床/商业化阶段）、落地壁垒（监管/成本/接受度）及对现有诊疗模式的颠覆潜力。</p>';
+    }
+    if (!interp) {
+      interp = '<p>该条为医药健康领域实时要闻。建议从以下角度跟进：<br>① 对自身健康管理的影响（如涉及药品/疫苗/公共卫生）；<br>② 对行业从业者的启示（如涉及政策/市场/技术变革）；<br>③ 对投资决策的参考价值（如涉及上市公司动态）。</p>';
+    }
+
+    // 检查是否有大模型可用（可选AI增强解读）
+    const llmNote = '<div class="muted text-xs mt8" style="color:var(--ink-3)">💡 配置大模型 Key 后可获取 AI 深度解读（当前为规则引擎分析）。到「设置 → 大模型配置」填写即可启用。</div>';
+
     const descHtml = it.desc && it.desc.trim()
-      ? '<div class="text-sm" style="line-height:1.75">' + escapeHtml(it.desc) + '</div>'
-      : '<div class="muted text-sm">该条为实时要闻，暂未生成本地解读文案（联网接入新闻源后可补充逐篇解读）。</div>';
+      ? '<div class="text-sm" style="line-height:1.75"><b>📝 原文摘要：</b>' + escapeHtml(it.desc) + '</div>'
+      : '';
+
     body.innerHTML =
       '<div class="page-head"><h2 style="font-size:17px">📖 深度解读</h2></div>' +
       '<div class="bold" style="font-size:14px;line-height:1.55">' + escapeHtml(it.t) + '</div>' +
       '<div class="text-xs muted mt8">来源：' + escapeHtml(it.src || '') + (it.date ? ' · ' + escapeHtml(it.date) : '') + '</div>' +
-      '<div class="card mt12"><div class="section-title">解读（市场 / 行业 / 医院医生患者 / 老百姓工作生活）</div>' + descHtml + '</div>' +
-      (it.url && it.url !== '#' ? '<a class="look-link" href="' + escAttr(it.url) + '" target="_blank" rel="noopener">看原文 →</a>' : '');
+      '<div class="card mt12"><div class="section-title">多维度解读</div>' + descHtml + '<div style="line-height:1.8">' + interp + '</div>' + llmNote + '</div>' +
+      (it.url && it.url !== '#' ? '<div class="mt12"><a class="look-link" href="' + escAttr(it.url) + '" target="_blank" rel="noopener">🔗 看完整原文 →</a></div>' : '<div class="muted text-xs mt12">⚠️ 该条暂无原文链接</div>');
     document.getElementById('detail-modal').classList.remove('hidden');
   }
 
@@ -94,8 +131,8 @@ window.News = (function () {
     const sta = document.getElementById('news-status');
     if (!st || !ss || !sta) return;
     if (!data) return;
-    st.textContent = '真实要闻 · ' + (data.mode === 'tianapi' ? '天行数据' : data.mode === 'gdelt' ? 'GDELT 全球监测' : '公开 RSS 聚合');
-    ss.innerHTML = '实时来源：' + (data.sources || []).join('、') + ' · 已按 5 模块分类';
+    st.textContent = '真实要闻 · ' + (data.mode === 'tianapi' ? '天行·健康经纬' : data.mode === 'gdelt' ? 'GDELT 全球监测' : '公开 RSS 聚合');
+    ss.innerHTML = '实时来源：' + (data.sources || []).join('、') + ' · 已按 5 模块分类 · 更新于 ' + new Date().toLocaleTimeString('zh-CN', {hour:'2-digit',minute:'2-digit'});
     sta.style.background = 'var(--accent-soft)'; sta.style.color = 'var(--accent)';
   }
 

@@ -12,7 +12,7 @@ window.Settings = (function () {
           '<option value="rss">公开 RSS 聚合（免费·无需 key）</option>' +
           '<option value="tianapi">天行数据 tianapi（更稳定·需 key）</option></select></div>' +
         '<div class="field"><label>天行数据 AppKey</label><input id="set-tianapi" type="password" value="' + escapeHtml(v(K.tianapiKey)) + '" placeholder="在 tianapi.com 免费申请" style="border:1px solid var(--line);border-radius:10px;padding:8px;width:100%"/></div>' +
-        '<div class="muted text-xs">选「天行数据」并填有效 AppKey（控制台需开通「国内新闻」接口）即可<b>实时更新</b>——该接口已支持浏览器直连，无需代理。RSS 模式为公开源聚合，受网络/代理限制可能回退示例。</div></div>' +
+        '<div class="muted text-xs">选「天行数据」并填有效 AppKey（控制台需开通「<b>健康经纬</b>」接口）即可<b>实时更新</b>医药要闻——该接口已支持浏览器直连，无需代理。同一 Key 还可用于「投资机会参考」（需额外开通「<b>财经新闻</b>」）和「今日娱乐热点」（需「<b>体育</b>」「<b>科学探索</b>」）。RSS 模式为公开源聚合，受网络限制可能回退示例。</div></div>' +
       '<div class="card"><div class="section-title">逻辑口语 · 大模型（OpenAI 兼容）</div>' +
         '<div class="muted text-xs" style="margin:-2px 0 8px;line-height:1.7">✅ 国内接口（硅基流动 / 月之暗面 / DeepSeek）已开启<b>浏览器跨域</b>，可<b>直接填 Key 使用、无需任何代理</b>。点下面一键填入：</div>' +
         '<div class="row" style="gap:6px;margin-bottom:10px">' +
