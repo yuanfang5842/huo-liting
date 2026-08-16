@@ -296,7 +296,7 @@ window.API = (function () {
   }
 
   /* ---------- 大模型：OpenAI 兼容（稳健版） ---------- */
-  async function callLLM(systemPrompt, userPrompt) {
+  async function callLLM(systemPrompt, userPrompt, asText) {
     if (cfg(K.llmProvider, '') === 'local') throw new Error('LOCAL_ENGINE:使用免费本地规则引擎（零成本·无需联网）');
     const base = (cfg(K.llmBase, 'https://api.siliconflow.cn/v1') || '').trim() || 'https://api.siliconflow.cn/v1';
     const key = cfg(K.llmKey, '');
@@ -385,7 +385,13 @@ window.API = (function () {
         throw new Error('CORS:浏览器直连被跨域(CORS)拦截，或网络不通。请改用支持浏览器直连的国内接口（硅基流动/月之暗面/DeepSeek），或在「设置→逻辑口语」开启代理并填写你自己的代理地址');
       } else throw e;
     }
+    if (asText) return raw;            // 自由文本场景（解读/反馈/建议）直接返回字符串，调用方切勿再 JSON.parse
     return extractJSON(raw);
+  }
+
+  // callLLMText: 返回模型原始文本，专用于「解读 / 反馈 / 建议」等自由文本场景（单一入口，内部已做健壮解析与重试）
+  async function callLLMText(systemPrompt, userPrompt) {
+    return await callLLM(systemPrompt, userPrompt, true);
   }
 
   /* 从模型返回中稳健提取 JSON（兼容 ```json 围栏 / 前后多余文字 / 对象型 content） */
@@ -537,6 +543,7 @@ window.API = (function () {
 
   return {
     cfg, setCfg, K,
-    fetchWeather, fetchNews, fetchFun, fetchInvest, callLLM,
+    fetchWeather, fetchNews, fetchFun, fetchInvest, callLLM, callLLMText,
+    llmReady: () => cfg(K.llmProvider, '') !== 'local' && !!cfg(K.llmKey, ''),
   };
 })();

@@ -3,6 +3,9 @@ window.News = (function () {
   const MODS = ['行业政策与市场', '新药与管线', '企业产品动态', '临床研究', '趋势与观点'];
   const srcLine = DATA.newsSources.join(' · ');
 
+  // AI 深度解读系统提示（自由文本，无需 JSON；由 callLLMText 返回纯文本）
+  const NEWS_INTERP_SYS = '你是资深医药行业分析师，擅长把专业医药新闻讲得通俗易懂。用户会给你一条医药健康新闻的标题与摘要。请输出一段面向普通人的深度解读（300 字以内）：① 一句话讲清这条新闻是什么；② 对行业/企业的影响；③ 对普通人的启发（健康/工作/职业/投资任选角度）。用自然口语、分点叙述，不要使用 JSON 格式，直接给纯文本。';
+
   function escapeHtml(s) { return (s || '').replace(/[&<>]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[m])); }
   function escAttr(s) { return escapeHtml(s).replace(/"/g, '&quot;'); }
   function itemId(it) { return App.hash(it.title + '|' + it.src + '|' + it.url); }
@@ -61,8 +64,13 @@ window.News = (function () {
       interp = '<p>该条为医药健康领域实时要闻。建议从以下角度跟进：<br>① 对自身健康管理的影响（如涉及药品/疫苗/公共卫生）；<br>② 对行业从业者的启示（如涉及政策/市场/技术变革）；<br>③ 对投资决策的参考价值（如涉及上市公司动态）。</p>';
     }
 
-    // 检查是否有大模型可用（可选AI增强解读）
-    const llmNote = '<div class="muted text-xs mt8" style="color:var(--ink-3)">💡 配置大模型 Key 后可获取 AI 深度解读（当前为规则引擎分析）。到「设置 → 大模型配置」填写即可启用。</div>';
+    // 是否配置了可用的大模型（决定是否展示「AI 深度解读」按钮）
+    const llmOk = (API.llmReady && API.llmReady());
+    const llmNote = llmOk ? '' :
+      '<div class="muted text-xs mt8" style="color:var(--ink-3)">💡 配置大模型 Key 后可获取 AI 深度解读（当前为规则引擎分析）。到「设置 → 大模型配置」填写即可启用。</div>';
+    const aiBlock = llmOk
+      ? '<button class="btn sm mt8" id="ai-interp-btn">🤖 AI 深度解读</button><div id="ai-interp-box"></div>'
+      : llmNote;
 
     const descHtml = it.desc && it.desc.trim()
       ? '<div class="text-sm" style="line-height:1.75"><b>📝 原文摘要：</b>' + escapeHtml(it.desc) + '</div>'
@@ -72,9 +80,43 @@ window.News = (function () {
       '<div class="page-head"><h2 style="font-size:17px">📖 深度解读</h2></div>' +
       '<div class="bold" style="font-size:14px;line-height:1.55">' + escapeHtml(it.t) + '</div>' +
       '<div class="text-xs muted mt8">来源：' + escapeHtml(it.src || '') + (it.date ? ' · ' + escapeHtml(it.date) : '') + '</div>' +
-      '<div class="card mt12"><div class="section-title">多维度解读</div>' + descHtml + '<div style="line-height:1.8">' + interp + '</div>' + llmNote + '</div>' +
+      '<div class="card mt12"><div class="section-title">多维度解读</div>' + descHtml + '<div style="line-height:1.8">' + interp + '</div>' + aiBlock + '</div>' +
       (it.url && it.url !== '#' ? '<div class="mt12"><a class="look-link" href="' + escAttr(it.url) + '" target="_blank" rel="noopener">🔗 看完整原文 →</a></div>' : '<div class="muted text-xs mt12">⚠️ 该条暂无原文链接</div>');
     document.getElementById('detail-modal').classList.remove('hidden');
+
+    // 绑定 AI 深度解读按钮（仅在配置了大模型时存在）
+    const aiBtn = document.getElementById('ai-interp-btn');
+    if (aiBtn) aiBtn.onclick = () => genAiInterp(it);
+  }
+
+  /* 调用大模型生成自由文本深度解读（callLLMText 返回字符串，无需 JSON.parse） */
+  async function genAiInterp(it) {
+    const box = document.getElementById('ai-interp-box');
+    const btn = document.getElementById('ai-interp-btn');
+    if (!box) return;
+    if (btn) { btn.disabled = true; btn.textContent = '生成中…'; }
+    box.innerHTML = '<div class="muted text-sm">🤖 AI 深度解读生成中…</div>';
+    const userPrompt = '新闻标题：' + (it.t || '') + '\n' +
+      (it.desc ? ('原文摘要：' + it.desc + '\n') : '') +
+      '来源：' + (it.src || '未知');
+    try {
+      const text = await API.callLLMText(NEWS_INTERP_SYS, userPrompt);
+      box.innerHTML =
+        '<div class="card mt12" style="border-color:var(--accent)"><div class="section-title">🤖 AI 深度解读</div>' +
+        '<div style="line-height:1.8">' + escapeHtml(text).replace(/\n/g, '<br>') + '</div>' +
+        '<div class="muted text-xs mt8" style="color:var(--ink-3)">由「设置 → 大模型配置」所选模型实时生成。</div></div>';
+    } catch (e) {
+      const m = e.message || '';
+      if (m.indexOf('LOCAL_ENGINE') === 0 || m.indexOf('NO_KEY') === 0) {
+        box.innerHTML = '<div class="muted text-xs mt8" style="color:var(--ink-3)">💡 在「设置 → 大模型配置」填写 Key 后即可获取 AI 深度解读。</div>';
+      } else if (m.indexOf('CORS') === 0) {
+        box.innerHTML = '<div class="muted text-xs mt8" style="color:#c0392b">⚠️ ' + escapeHtml(m) + '</div>';
+      } else {
+        box.innerHTML = '<div class="muted text-xs mt8" style="color:var(--ink-3)">⚠️ AI 解读生成失败（' + escapeHtml(m.slice(0, 60)) + '），已为你保留上方规则引擎解读。</div>';
+      }
+    } finally {
+      if (btn) { btn.disabled = false; btn.textContent = '🤖 AI 深度解读'; }
+    }
   }
 
   /* ====== 核心：网络优先策略 ======

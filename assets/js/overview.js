@@ -47,6 +47,9 @@ window.Overview = (function () {
   function blank() { return { tasks: [], goals: {}, schedule: [], record: '', feeling: '' }; }
   function getJ() { return App.dget('journal', null) || blank(); }
   function saveJ(j) { App.dset('journal', j); }
+
+  // AI 精进日志反馈系统提示（自由文本，无需 JSON；由 callLLMText 返回纯文本）
+  const JOURNAL_FB_SYS = '你是个人成长教练。用户会给你今天的「要事+策略/方法+时间安排+精进记录+感悟」。请输出一段真诚、具体、可执行的反馈与明天建议（250 字以内）：点出今天的亮点，指出 1-2 个可改进的具体点，并给一句明天的行动建议。用自然口语、分点叙述，不要使用 JSON 格式，直接给纯文本。';
   /* 每日日志快照归档（用于跨日导出全部日志） */
   function archiveJournal(j) {
     const arr = App.get('journalArchive', []) || [];
@@ -88,8 +91,6 @@ window.Overview = (function () {
       });
     }
 
-    const fb = genFeedback(j);
-
     c.innerHTML =
       '<div class="page-head"><h2>精进日志</h2><div class="date">' + App.todayLabel() + '</div></div>' +
       quadCardHtml() +
@@ -103,7 +104,7 @@ window.Overview = (function () {
       '<div class="card"><div class="section-title">今日精进记录及感悟</div>' +
         '<div class="field"><label>精进记录</label><textarea id="rec" placeholder="今天学到了什么、做了什么…">' + escapeHtml(j.record || '') + '</textarea></div>' +
         '<div class="field"><label>感悟</label><textarea id="feel" placeholder="一点体会…">' + escapeHtml(j.feeling || '') + '</textarea></div></div>' +
-      '<div class="feedback-card" id="fb-card"><div class="ft">💡 今日建议反馈（本地规则引擎生成 · 未调用大模型）</div>' + fb + '</div>' +
+      '<div class="feedback-card" id="fb-card">' + feedbackInnerHtml(j) + '</div>' +
       '<button class="btn block mt12" id="journal-save">保存今日日志</button>' +
       '<button class="btn block mt8 ghost" id="journal-export">⬇ 导出全部日志（CSV · Excel 可打开）</button>';
 
@@ -176,11 +177,65 @@ window.Overview = (function () {
       App.exportCSV('活力婷_精进日志_' + App.today() + '.csv', rows);
       App.toast('已导出 ' + arr.length + ' 天日志');
     };
+    bindAiFeedback(c);
   }
 
   function refreshFeedback(c) {
     const box = document.getElementById('fb-card');
-    if (box) box.innerHTML = '<div class="ft">💡 今日建议反馈（根据完成情况自动生成）</div>' + genFeedback(getJ());
+    if (box) box.innerHTML = feedbackInnerHtml(getJ());
+    bindAiFeedback(c);
+  }
+
+  // 反馈卡片内部结构：规则引擎即时反馈 + （配置了大模型时）AI 深度分析按钮
+  function feedbackInnerHtml(j) {
+    const llmOk = (API.llmReady && API.llmReady());
+    return '<div class="ft">💡 今日建议反馈</div>' +
+      '<div id="fb-body">' + genFeedback(j) + '</div>' +
+      (llmOk
+        ? '<button class="btn sm mt8" id="ai-fb-btn">🤖 用 AI 深度分析今日</button><div id="ai-fb-box"></div>'
+        : '<div class="muted text-xs mt8" style="color:var(--ink-3)">💡 在「设置 → 大模型配置」填写 Key 后，可让 AI 针对你今天的日志给出深度反馈。</div>');
+  }
+
+  // 绑定 AI 反馈按钮（每次重渲染后调用）
+  function bindAiFeedback(c) {
+    const btn = document.getElementById('ai-fb-btn');
+    if (btn) btn.onclick = () => genAiFeedback(c);
+  }
+
+  // 调用大模型生成自由文本反馈（callLLMText 返回字符串，无需 JSON.parse）
+  async function genAiFeedback(c) {
+    const box = document.getElementById('ai-fb-box');
+    const btn = document.getElementById('ai-fb-btn');
+    if (!box) return;
+    if (btn) { btn.disabled = true; btn.textContent = '生成中…'; }
+    box.innerHTML = '<div class="muted text-sm">🤖 AI 深度分析生成中…</div>';
+    const j = getJ();
+    const tasks = (j.tasks || []).map(t => {
+      const g = j.goals[t.id] || {};
+      return '· ' + t.text + (t.status === 'done' ? '（已完成）' : '') +
+        (g.strategy ? ' 策略：' + g.strategy : '') + (g.method ? ' 方法：' + g.method : '');
+    }).join('\n');
+    const sched = (j.schedule || []).map(s => s.time + ' ' + s.text).join('\n');
+    const userPrompt = '【今日要事】\n' + (tasks || '（无）') + '\n\n【时间安排】\n' + (sched || '（无）') +
+      '\n\n【精进记录】\n' + (j.record || '（空）') + '\n\n【今日感悟】\n' + (j.feeling || '（空）');
+    try {
+      const text = await API.callLLMText(JOURNAL_FB_SYS, userPrompt);
+      box.innerHTML =
+        '<div class="card mt12" style="border-color:var(--accent)"><div class="section-title">🤖 AI 深度反馈</div>' +
+        '<div style="line-height:1.8">' + escapeHtml(text).replace(/\n/g, '<br>') + '</div>' +
+        '<div class="muted text-xs mt8" style="color:var(--ink-3)">由「设置 → 大模型配置」所选模型实时生成。</div></div>';
+    } catch (e) {
+      const m = e.message || '';
+      if (m.indexOf('LOCAL_ENGINE') === 0 || m.indexOf('NO_KEY') === 0) {
+        box.innerHTML = '<div class="muted text-xs mt8" style="color:var(--ink-3)">💡 在「设置 → 大模型配置」填写 Key 后即可获取 AI 深度反馈。</div>';
+      } else if (m.indexOf('CORS') === 0) {
+        box.innerHTML = '<div class="muted text-xs mt8" style="color:#c0392b">⚠️ ' + escapeHtml(m) + '</div>';
+      } else {
+        box.innerHTML = '<div class="muted text-xs mt8" style="color:var(--ink-3)">⚠️ AI 反馈生成失败（' + escapeHtml(m.slice(0, 60)) + '），已为你保留上方本地反馈。</div>';
+      }
+    } finally {
+      if (btn) { btn.disabled = false; btn.textContent = '🤖 用 AI 深度分析今日'; }
+    }
   }
 
   function genFeedback(j) {
