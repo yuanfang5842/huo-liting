@@ -151,19 +151,29 @@ window.Life = (function () {
 
   function renderInvestLive(data) {
     const body = document.getElementById('invest-body');
+    const modeLabel = data.mode === 'tianapi-caijing' ? '天行数据·财经新闻（实时）' : '实时财经 RSS（联网拉取）';
     let html = '<div class="muted text-xs" style="margin:4px 0 8px;color:#1E9E83">● 实时数据 · 来源：' + (data.sources || []).join('、') + '</div>';
-    let idx = 0;
+    // 按标签分组显示
+    const groups = {};
     (data.items || []).forEach(it => {
-      idx++;
-      const hh = String(8 + Math.floor(idx / 3)).padStart(2, '0');
-      const mm = String((idx % 3) * 20).padStart(2, '0');
-      html += '<div class="card" style="margin-bottom:10px"><div class="flex between center"><div class="bold" style="font-size:13px;line-height:1.4">' + escapeHtml(it.title) + '</div>' +
-        (it.tag ? '<span class="tag">' + escapeHtml(it.tag) + '</span>' : '') + '</div>' +
-        '<div class="text-xs muted mt8">来源：' + escapeHtml(it.src || '财经RSS') + ' · ' + hh + ':' + mm + '</div>' +
-        '<div class="text-sm mt8" style="line-height:1.6">' + escapeHtml(it.desc || '') + '</div>' +
-        (it.url && it.url !== '#' ? '<div class="mt8"><a class="look-link" href="' + escapeHtml(it.url) + '" target="_blank" rel="noopener">看原文 →</a></div>' : '') + '</div>';
+      const g = it.tag || '财经';
+      if (!groups[g]) groups[g] = [];
+      groups[g].push(it);
+    });
+    Object.keys(groups).forEach(g => {
+      html += '<div class="section-title mt12">' + escapeHtml(g) + ' <span class="muted text-xs">(' + groups[g].length + ')</span></div>';
+      groups[g].forEach(it => {
+        const dateStr = it.date ? ('来源：' + escapeHtml(it.src) + ' · ' + it.date) : ('来源：' + escapeHtml(it.src || '财经'));
+        html += '<div class="card" style="margin-bottom:10px"><div class="bold" style="font-size:13px;line-height:1.4">' + escapeHtml(it.title) + '</div>' +
+          '<div class="text-xs muted mt8">' + dateStr + '</div>' +
+          (it.desc ? '<div class="text-sm mt8" style="line-height:1.6">' + escapeHtml(it.desc) + '</div>' : '') +
+          (it.url && it.url !== '#' ? '<div class="mt8"><a class="look-link" href="' + escapeHtml(it.url) + '" target="_blank" rel="noopener">看原文 →</a></div>' : '') + '</div>';
+      });
     });
     body.innerHTML = html;
+    // 更新状态栏
+    const stEl = body.closest('.page')?.querySelector('.achv-banner .s');
+    if (stEl) stEl.textContent = modeLabel;
   }
 
   /* ---------------- 喝水提醒 ---------------- */

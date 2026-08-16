@@ -174,9 +174,14 @@ window.API = (function () {
     let d;
     try { d = JSON.parse(txt); } catch (e) { throw new Error('NET:天行数据返回内容无法解析（网络/代理异常）'); }
     console.log('[活力婷 API] 天行原始响应:', JSON.stringify(d).slice(0, 500));
-    // 天行成功格式：{code:200, msg:"success", newslist:[...]}
-    // 兼容：newslist 可能在不同字段名或嵌套层级
-    const list = d.newslist || d.data || d.list || d.result || (d.data && d.data.list) || [];
+    // 天行实际返回格式（v13 实测确认）：
+    //   {code:200, msg:"success", result:{curpage:1, allnum:30, newslist:[{...}]}}
+    // newslist 嵌套在 result 内！必须逐层提取
+    const list = d.newslist
+      || (d.result && d.result.newslist)
+      || (d.data && Array.isArray(d.data) ? d.data : d.data && d.data.list)
+      || (d.list && Array.isArray(d.list) ? d.list : [])
+      || [];
     if (d.code !== 200 && d.code !== '200') {
       throw new Error('TIAN:' + (TIAN_ERR[d.code] || ('接口返回 code=' + d.code + ', ' + (d.msg || '未知错误'))));
     }
@@ -357,7 +362,51 @@ window.API = (function () {
       })),
     };
   }
+
+  /* 天行数据·财经新闻（复用同一 Key，需开通「财经新闻」接口） */
+  async function fetchInvestTianapi(key) {
+    const raw = 'https://apis.tianapi.com/caijing/index?key=' + encodeURIComponent(key) + '&num=20';
+    let txt;
+    try {
+      const r = await fetch(raw, { signal: AbortSignal.timeout(9000) });
+      txt = await r.text();
+    } catch (e) { throw new Error('NET:无法连接天行数据'); }
+    let d;
+    try { d = JSON.parse(txt); } catch (e) { throw new Error('NET:返回内容解析失败'); }
+    console.log('[活力婷 API] 天行财经原始响应:', JSON.stringify(d).slice(0, 300));
+    const list = d.newslist || (d.result && d.result.newslist) || [];
+    if (d.code !== 200 && d.code !== '200') throw new Error('TIAN:' + (d.msg || ('code=' + d.code)));
+    if (!Array.isArray(list) || list.length === 0) throw new Error('TIAN:无财经数据（请确认已开通「财经新闻」接口）');
+    // 投资分类标签
+    const TAGS = [
+      { kw: ['新能源','光伏','锂电','储能','风电'], tag: '新能源' },
+      { kw: ['医药','生物','疫苗','临床','药'], tag: '医药' },
+      { kw: ['半导体','芯片','AI','算力','大模型'], tag: '科技' },
+      { kw: ['消费','零售','白酒','食品','家电'], tag: '消费' },
+      { kw: ['房地产','基建','建材','水泥'], tag: '地产基建' },
+    ];
+    function tagFor(t) {
+      for (const g of TAGS) if (g.kw.some(k => t.indexOf(k) >= 0)) return g.tag;
+      return '财经';
+    }
+    return {
+      isReal: true, mode: 'tianapi-caijing', sources: ['天行数据·财经新闻'],
+      items: list.slice(0, 20).map(it => ({
+        title: it.title || '', src: it.source || '天行财经', url: it.url || '#',
+        desc: it.description || '',
+        tag: tagFor(it.title || ''),
+        date: it.ctime ? it.ctime.split(' ')[0] : '',
+      })),
+    };
+  }
+
   async function fetchInvest() {
+    // 优先尝试天行财经（如果配了 Key）
+    const tianKey = cfg(K.tianapiKey, '');
+    if (tianKey) {
+      try { return await fetchInvestTianapi(tianKey); } catch (e) { console.log('[活力婷] 天行财经失败:', e.message); }
+    }
+    // 降级 RSS
     try { return await fetchInvestRSS(); } catch (e) { return null; }
   }
 
