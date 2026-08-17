@@ -318,13 +318,13 @@ body {
 .feedback-card { border: 1px solid var(--accent); background: var(--accent-soft); border-radius: 12px; padding: 14px; }
 .feedback-card .ft { font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 8px; }
 
-/* 时间四象限：窄屏单列铺满，宽屏(≥520px)才两列，避免内容拥挤 */
+/* 时间四象限：PWA 内容区固定约222px，过窄不宜两列，故始终单列纵向铺排，避免拥挤/溢出 */
 .quad-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
-.quad { border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; display: flex; flex-direction: column; }
-.quad .qh { font-size: 13px; font-weight: 700; margin-bottom: 6px; line-height: 1.35; }
+.quad { border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; display: flex; flex-direction: column; min-width: 0; }
+.quad .qh { font-size: 13px; font-weight: 700; margin-bottom: 6px; line-height: 1.35; display: flex; flex-direction: column; gap: 1px; }
+.quad .qh .muted { font-weight: 400; }
 @media (min-width: 520px) {
-  .quad-grid { grid-template-columns: 1fr 1fr; }
-  .quad { min-height: 120px; }
+  .quad { min-height: 0; }
 }
 .quad.q1 { border-color: #E5634D; background: #FFF4F1; } .quad.q1 .qh { color: #E5634D; }
 .quad.q2 { border-color: var(--accent); background: var(--accent-soft); } .quad.q2 .qh { color: var(--accent); }
@@ -332,9 +332,9 @@ body {
 .quad.q4 { border-color: var(--ink-3); background: #f6f7f9; } .quad.q4 .qh { color: var(--ink-3); }
 .quad .qlist { flex: 1; }
 .quad .qi { font-size: 12px; padding: 4px 0; display: flex; gap: 6px; align-items: flex-start; line-height: 1.4; }
-.quad .qi .qt { flex: 1; }
+.quad .qi .qt { flex: 1; overflow-wrap: anywhere; min-width: 0; }
 .quad .qi .qx { color: var(--ink-3); cursor: pointer; flex: none; }
-.quad .qadd { display: flex; gap: 6px; margin-top: 6px; }
+.quad .qadd { display: flex; gap: 6px; margin-top: 6px; flex-wrap: wrap; }
 .quad .qadd input { flex: 1; min-width: 0; border: 1px solid var(--line); border-radius: 8px; padding: 6px; font-size: 12px; }
 .quad .qadd-btn { border: none; background: var(--accent); color: #fff; border-radius: 8px; padding: 0 10px; font-size: 12px; cursor: pointer; flex: none; }
 
@@ -350,7 +350,7 @@ body {
 .sched-confirm { color: var(--ink-3); }
 .sched-confirm:hover { border-color: var(--accent); color: var(--accent); }
 .sched-sync { color: var(--accent); border-color: var(--accent); font-weight: 600; }
-.quad-pick { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 4px 0 8px; padding: 6px 8px; background: var(--accent-soft); border-radius: 8px; }
+.quad-pick { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 4px 0 8px; padding: 6px 8px; background: var(--accent-soft); border-radius: 8px; min-width: 0; overflow-wrap: anywhere; }
 .quad-pick .qp { font-size: 11px; padding: 3px 9px; border-radius: 999px; border: none; cursor: pointer; color: #fff; font-weight: 600; }
 .qp1 { background: #E5634D; } .qp2 { background: var(--accent); } .qp3 { background: #F4B740; } .qp4 { background: var(--ink-3); }
 .quad-pick .qp-x { background: #fff; color: #E5634D; border: 1px solid #E5634D; }
