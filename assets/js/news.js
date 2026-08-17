@@ -131,7 +131,7 @@ window.News = (function () {
   function renderNews(c) {
     c.innerHTML =
       '<div class="page-head"><h2>今日医药要闻</h2><div class="date">' + App.todayLabel() + '</div></div>' +
-      '<div id="brief-card">' + pharmaBriefingHtml() + '</div>' +
+      '<div id="brief-card"><div class="muted text-sm mt12">正在生成每日药闻简报…</div></div>' +
       '<div id="news-status" class="achv-banner" style="background:var(--accent-soft);color:var(--accent)">' +
         '<div class="big">📡</div><div class="grow"><div class="t" id="news-st-t">加载中…</div>' +
         '<div class="s text-xs" id="news-st-s" style="opacity:1">来源：' + srcLine + '</div></div>' +
@@ -144,12 +144,12 @@ window.News = (function () {
         '③ 去「设置 → 今日医药要闻」，把接口切到「天行数据 tianapi」并填入免费 AppKey（tianapi.com 申请），成功率最高；<br>' +
         '④ 仍不行就是当前网络限制，App 会展示示例并保持你的已读进度，不影响使用。</div></div>';
     document.getElementById('news-refresh').onclick = () => backgroundLoad(c, true);
-    bindPharmaBrief(c);
 
     // Step 1: 立即展示缓存（如果有有效数据）
     const cache = App.dget('newsCache', null);
     if (cache && cache.date === App.today() && cache.data && !cache.isMock) {
       renderData(cache.data, false);
+      renderAutoBrief(c, cache.data);
     } else if (cache && cache.date === App.today() && cache.isMock) {
       // mock 缓存 → 显示占位，但一定要重新拉取
       renderData(null, true);
@@ -224,6 +224,7 @@ window.News = (function () {
       const cacheEntry = { date: App.today(), data: data, isMock: false, fetchTime: Date.now() };
       App.dset('newsCache', cacheEntry);
       renderData(data, false);   // ← 强制刷新 UI（含状态栏）
+      renderAutoBrief(c, data);  // ← 同步刷新顶部每日简报
       App.toast('已刷新真实要闻 ' + total + ' 条 ✓');
     } else {
       // 拉取失败：检查是否已有今天的真实缓存（有就不覆盖，保留已显示的真数据）
@@ -345,39 +346,67 @@ window.News = (function () {
     const m = (text || '').match(/pharma-briefing-(\d{4}-\d{2}-\d{2})/i);
     return m ? m[1] : App.today();
   }
-  function pharmaBriefingHtml() {
-    const store = briefStore();
+  /* ====== 每日药闻简报（自动生成 + 私有简报补充） ====== */
+  function autoBriefHtml(data, date, myBriefDate) {
+    const groups = (data && data.grouped) || {};
+    const myBrief = briefStore()[myBriefDate || date] || briefStore()[App.today()] || null;
+    let sections = '';
+    let total = 0;
+    MODS.forEach(m => {
+      const list = groups[m] || [];
+      if (!list.length) return;
+      const items = list.slice(0, 2).map(it => {
+        let point = (it.desc || '').replace(/\s+/g, ' ').trim();
+        if (point.length > 60) point = point.slice(0, 60) + '…';
+        const titleShort = it.title.length > 36 ? it.title.slice(0, 36) + '…' : it.title;
+        return '<li class="ab-li"><b>' + escapeHtml(titleShort) + '</b>' +
+          (point ? '<div class="muted text-xs" style="line-height:1.5;margin-top:2px">' + escapeHtml(point) + '</div>' : '') +
+          '</li>';
+      }).join('');
+      sections += '<div class="ab-sec"><div class="ab-h">' + m + ' <span class="muted" style="font-weight:400;font-size:11px">· ' + list.length + ' 条</span></div><ul class="ab-list">' + items + '</ul></div>';
+      total += list.length;
+    });
+    if (myBrief && myBrief.text) {
+      const t = myBrief.text;
+      sections += '<div class="ab-sec"><div class="ab-h">📌 我的私有简报 <span class="muted" style="font-weight:400;font-size:11px">· 来自 WorkBuddy 空间</span></div>' +
+        '<div style="line-height:1.7;white-space:pre-wrap;font-size:12.5px">' + escapeHtml(t.length > 360 ? t.slice(0, 360) + '…' : t) + '</div></div>';
+    }
+    const body = (total === 0 && !myBrief)
+      ? '<div class="muted text-sm">今日公开源暂无可用要闻，可稍后刷新，或下方粘贴你的私有简报。</div>'
+      : sections;
+    const srcs = (data && data.sources) || [];
     const dates = briefDates();
-    const hasToday = !!store[App.today()];
-    const dispDate = hasToday ? App.today() : (dates[0] || null);
-    const entry = dispDate ? store[dispDate] : null;
-    const selOpts = dates.length
-      ? dates.map(d => '<option value="' + d + '"' + (d === dispDate ? ' selected' : '') + '>' + d + (d === App.today() ? '（今天）' : '') + '</option>').join('')
-      : '<option>— 暂无存档 —</option>';
-    const body = entry
-      ? '<div style="line-height:1.75;white-space:pre-wrap;font-size:13px">' + escapeHtml(entry.text) + '</div>'
-      : '<div class="muted text-sm">还没有今日简报。点下方「粘贴今日简报」，从你的 WorkBuddy 空间复制后粘贴并保存，即按日期存档、每日自动呈现。</div>';
+    const histSel = dates.length
+      ? '<div class="flex mt8" style="gap:6px;align-items:center"><span class="muted text-xs">历史：</span><select id="brief-sel" style="border:1px solid var(--line);border-radius:8px;padding:3px 6px;font-size:12px;flex:1;min-width:0">' +
+        dates.map(d => '<option value="' + d + '">' + d + (d === App.today() ? '（今天）' : '') + '</option>').join('') +
+        '</select></div>'
+      : '';
     return '<div class="card mt12" style="border-color:var(--accent)">' +
-      '<div class="section-title">📋 每日药闻简报 · WorkBuddy 同步</div>' +
-      '<div class="muted text-xs" style="margin:-4px 0 8px;line-height:1.5">来源：你的 WorkBuddy 每日简报空间（每日更新）。' +
-        '<a href="' + PHARMA_BRIEF_URL + '" target="_blank" rel="noopener" style="color:var(--accent)">打开空间 ↗</a></div>' +
-      (dates.length ? '<div class="flex" style="gap:6px;align-items:center;margin-bottom:8px"><span class="muted text-xs">查看：</span><select id="brief-sel" style="border:1px solid var(--line);border-radius:8px;padding:4px 6px;font-size:12px;flex:1;min-width:0">' + selOpts + '</select></div>' : '') +
-      '<div id="brief-body">' + body + '</div>' +
-      '<details class="mt8"><summary style="cursor:pointer;color:var(--accent);font-size:12px">＋ 粘贴今日简报（从空间复制后粘贴，按日期存档）</summary>' +
-        '<textarea id="brief-in" class="full mt8" placeholder="粘贴 pharma-briefing-YYYY-MM-DD 内容…&#10;（若首行含日期，将自动归入对应日期；否则归入今天）" style="border:1px solid var(--line);border-radius:10px;padding:8px;font-size:13px;min-height:90px"></textarea>' +
-        '<button class="btn sm mt8" id="brief-save">保存为今日/对应日期简报</button>' +
+      '<div class="section-title">📋 每日药闻简报 <span class="muted" style="font-weight:400;font-size:11px">· ' + date + '</span></div>' +
+      '<div class="muted text-xs" style="margin:-4px 0 8px;line-height:1.5">基于公开实时源（' + escapeHtml(srcs.join('、') || '—') + '）自动生成，打开即更新。需私人简报可 <a href="' + PHARMA_BRIEF_URL + '" target="_blank" rel="noopener" style="color:var(--accent)">打开 WorkBuddy 空间 ↗</a></div>' +
+      body +
+      '<details class="mt8"><summary style="cursor:pointer;color:var(--accent);font-size:12px">＋ 补充我的私有简报（从空间复制粘贴存档）</summary>' +
+        '<textarea id="brief-in" class="full mt8" placeholder="粘贴 pharma-briefing-YYYY-MM-DD 内容…（首行含日期将归入对应日期，否则归今天）" style="border:1px solid var(--line);border-radius:10px;padding:8px;font-size:13px;min-height:80px"></textarea>' +
+        '<button class="btn sm mt8" id="brief-save">保存我的私有简报</button>' +
         '<span id="brief-msg" class="muted text-xs ml8"></span>' +
+        histSel +
       '</details>' +
       '</div>';
   }
-  function bindPharmaBrief(c) {
+  function renderAutoBrief(c, data) {
+    const card = document.getElementById('brief-card');
+    if (!card) return;
+    card.innerHTML = autoBriefHtml(data, App.today());
+    bindBriefSave(c);
+  }
+  function bindBriefSave(c) {
     const sel = document.getElementById('brief-sel');
     if (sel) sel.onchange = () => {
-      const d = sel.value; const e = briefStore()[d];
-      const body = document.getElementById('brief-body');
-      if (body) body.innerHTML = e
-        ? '<div style="line-height:1.75;white-space:pre-wrap;font-size:13px">' + escapeHtml(e.text) + '</div>'
-        : '<div class="muted text-sm">该日期暂无简报。</div>';
+      const d = sel.value;
+      const cache = App.dget('newsCache', null);
+      const data = (cache && cache.date === App.today() && cache.data) ? cache.data : null;
+      const card = document.getElementById('brief-card');
+      if (card) { card.innerHTML = autoBriefHtml(data, App.today(), d); bindBriefSave(c); }
     };
     const save = document.getElementById('brief-save');
     if (save) save.onclick = () => {
@@ -388,9 +417,10 @@ window.News = (function () {
       const store = briefStore();
       store[date] = { text: txt, savedAt: Date.now() };
       App.set('pharmaBrief', store);
+      const cache = App.dget('newsCache', null);
       const card = document.getElementById('brief-card');
-      if (card) { card.innerHTML = pharmaBriefingHtml(); bindPharmaBrief(c); }
-      App.toast('简报已保存：' + date);
+      if (card) { card.innerHTML = autoBriefHtml(cache && cache.data, App.today()); bindBriefSave(c); }
+      App.toast('私有简报已保存：' + date);
     };
   }
 
