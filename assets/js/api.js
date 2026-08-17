@@ -15,8 +15,8 @@ window.API = (function () {
   function cfg(k, d) { return App.get(k, d); }
   function setCfg(k, v) { App.set(k, v); }
 
-  /* 新闻 5 大模块（全局） */
-  const MODS = ['行业政策与市场', '新药与管线', '企业产品动态', '临床研究', '趋势与观点'];
+  /* 医药要闻三大模块（后台自动归类展示） */
+  const MODS = ['国内新药/临床/科研', '海外FDA与全球进展', '政策/医保/行业'];
   /* 天行数据错误码 → 中文提示 */
   const TIAN_ERR = {
     100: '接口无返回信息', 110: '接口不存在或暂未开通（请在天行控制台开通「国内新闻」接口）',
@@ -160,139 +160,104 @@ window.API = (function () {
     return { isReal: true, mode: 'rss', grouped, sources: RSS_FEEDS.map(f => f.label) };
   }
 
-  async function fetchNewsTianapi(key) {
-    // 天行数据·健康经纬（医药专用，需开通该接口）。该接口已开启 CORS（Access-Control-Allow-Origin: *），
-    // 浏览器可【直接】调用，无需经任何代理。请在控制台开通「健康经纬」接口并填有效 AppKey。
-    // 备选：国内新闻(guonei)返回全品类新闻(含煤炭等非医药内容)，不适合医药要闻场景。
-    const raw = 'https://apis.tianapi.com/health/index?key=' + encodeURIComponent(key) + '&num=30';
+  /* ====== GDELT 全球监测：三大模块并行查询（免费·无需 key·浏览器直连·已验证可跨域） ======
+   * 每个模块用一条针对性查询【直接归类】，避免依赖脆弱的关键词猜分类导致某桶为空。
+   * 这是医药要闻的【主数据源】，默认即生效，无需任何配置。 */
+  const NEWS_CATS = [
+    {
+      cat: '国内新药/临床/科研',
+      q: '(新药 OR 临床 OR 医药 OR 研发 OR 创新药 OR 生物制药) sourcecountry:China OR (China pharmaceutical OR Chinese drug OR China biotech OR "China FDA")',
+      max: 12,
+    },
+    {
+      cat: '海外FDA与全球进展',
+      q: '(FDA OR EMA) (drug OR vaccine OR approves OR approved OR trial) OR domain:fda.gov',
+      max: 12,
+    },
+    {
+      cat: '政策/医保/行业',
+      q: '(domain:nhsa.gov.cn OR domain:nmpa.gov.cn OR domain:nhc.gov.cn OR domain:gov.cn) OR (pharmaceutical (policy OR industry OR pricing OR market))',
+      max: 12,
+    },
+  ];
+
+  async function fetchNewsGdeltCats() {
+    const results = await Promise.all(NEWS_CATS.map(async c => {
+      const url = 'https://api.gdeltproject.org/api/v2/doc/doc?query=' + encodeURIComponent(c.q) +
+        '&mode=ArtList&format=json&maxrecords=' + c.max + '&sortby=datedesc';
+      try {
+        const r = await fetch(url, { signal: AbortSignal.timeout(9000) });
+        if (!r.ok) return [];
+        const d = await r.json();
+        const arts = d.articles || [];
+        return arts.filter(a => a.title).map(a => ({
+          title: a.title, src: a.domain || 'GDELT', url: a.url || '#',
+          date: fmtPub(a.seendate || ''), module: c.cat,
+        }));
+      } catch (e) { return []; }
+    }));
+    const grouped = {}; NEWS_CATS.forEach(c => grouped[c.cat] = []);
+    results.forEach(list => list.forEach(it => { (grouped[it.module] = grouped[it.module] || []).push(it); }));
+    const total = NEWS_CATS.reduce((s, c) => s + grouped[c.cat].length, 0);
+    if (!total) return null;
+    const sources = [];
+    NEWS_CATS.forEach((c, i) => { if (results[i] && results[i].length) sources.push('GDELT·' + c.cat); });
+    return { isReal: true, mode: 'gdelt', grouped, sources };
+  }
+
+  /* 可选增强：天行「国内新闻 guonei」接口（需 key + 开通）。
+   * 仅取【标题含医药关键词】的条目，按三大模块归类后并入，避免把煤炭/地产等泛新闻混进来。 */
+  function categorize3(text) {
+    const t = text || '';
+    if (/FDA|EMA|fda\.gov|European Medicines|approved|trial|海外|global|美国|欧盟|欧洲/i.test(t)) return '海外FDA与全球进展';
+    if (/医保|集采|政策|药监局|卫健委|目录|招标|控费|DRG|行业|市场|融资|营收|药企|医保局|改革/.test(t)) return '政策/医保/行业';
+    return '国内新药/临床/科研';
+  }
+  async function fetchNewsTianapiGuonei(key) {
+    const raw = 'https://apis.tianapi.com/guonei/index?key=' + encodeURIComponent(key) + '&num=30';
     let txt;
-    try {
-      const r = await fetch(raw, { signal: AbortSignal.timeout(9000) });
-      txt = await r.text();
-    } catch (e) {
-      throw new Error('NET:天行数据请求失败：浏览器无法连接 apis.tianapi.com（请检查网络；若所在网络限制该域名，请在「设置→今日医药要闻」切回 RSS 模式）');
-    }
-    let d;
-    try { d = JSON.parse(txt); } catch (e) { throw new Error('NET:天行数据返回内容无法解析（网络/代理异常）'); }
-    console.log('[活力婷 API] 天行原始响应:', JSON.stringify(d).slice(0, 500));
-    // 天行实际返回格式（v13 实测确认）：
-    //   {code:200, msg:"success", result:{curpage:1, allnum:30, newslist:[{...}]}}
-    // newslist 嵌套在 result 内！必须逐层提取
-    const list = d.newslist
-      || (d.result && d.result.newslist)
-      || (d.data && Array.isArray(d.data) ? d.data : d.data && d.data.list)
-      || (d.list && Array.isArray(d.list) ? d.list : [])
-      || [];
-    if (d.code !== 200 && d.code !== '200') {
-      throw new Error('TIAN:' + (TIAN_ERR[d.code] || ('接口返回 code=' + d.code + ', ' + (d.msg || '未知错误'))));
-    }
-    if (!Array.isArray(list) || list.length === 0) {
-      // 调试：把返回的所有 key 打出来，方便手机端排查
-      const keys = Object.keys(d).join(', ');
-      const preview = JSON.stringify(d).slice(0, 200);
-      throw new Error('TIAN:接口返回成功(code=200)但无新闻数据。返回内容: ' + preview + '（可能原因：①该Key未开通「健康经纬」接口 ②接口返回格式变更 ③请求频率超限）。请到天行控制台确认已开通「健康经纬」');
-    }
-    // 按医疗相关度分类（health 接口已为医药专类，此处做细分类）
-    const med = [], other = [];
-    list.forEach(it => {
-      if (!it.title) return;
-      const mod = categorize(it.title);
-      // 解析日期：支持 "2024-08-16" / "08-16 14:30" / "2024年08月16日" 等格式
-      let dateStr = '';
-      const rawDate = it.date || it.time || it.pubdate || '';
-      if (rawDate) {
-        const d = rawDate.replace(/年|月/g, '-').replace(/日/g, '').trim();
-        if (d.length >= 10) dateStr = d.slice(5, 10).replace('-', '/') + (d.length > 10 ? ' ' + d.slice(11, 16) : '');
-        else if (d.length >= 5) dateStr = d.replace('-', '/');
-        else dateStr = rawDate;
-      }
-      // URL 清理：确保是完整链接
-      let url = (it.url || it.link || '').trim();
-      if (url && !url.startsWith('http') && url !== '#') url = 'https://' + url;
-      if (!url) url = '#';
-      const obj = { title: it.title, src: it.source || '天行数据', url: url, date: dateStr || '今日', module: mod };
-      med.push(obj);  // health 接口全是医药相关，不再分 med/other
-    });
-    const picked = med.concat(other).slice(0, 30);
+    try { txt = await (await fetch(raw, { signal: AbortSignal.timeout(9000) })).text(); }
+    catch (e) { throw new Error('NET:天行数据请求失败'); }
+    let d; try { d = JSON.parse(txt); } catch (e) { throw new Error('NET:返回解析失败'); }
+    if (d.code !== 200 && d.code !== '200') throw new Error('TIAN:' + (TIAN_ERR[d.code] || ('接口返回 code=' + d.code)));
+    const list = d.newslist || (d.result && d.result.newslist) || [];
+    if (!list.length) throw new Error('TIAN:无国内新闻数据（请确认已开通「国内新闻」接口）');
+    const kws = ['药', '临床', '医保', '集采', 'FDA', '疫苗', '生物', '研发', '管线', '医疗', '健康', '制药', '新药', '中医药'];
+    const picked = list.filter(it => it.title && kws.some(k => it.title.indexOf(k) >= 0)).slice(0, 20);
     const grouped = {}; MODS.forEach(m => grouped[m] = []);
-    picked.forEach(o => { (grouped[o.module] = grouped[o.module] || []).push(o); });
-    MODS.forEach(m => grouped[m] = (grouped[m] || []).slice(0, 6));
-    return { isReal: true, mode: 'tianapi', grouped, sources: ['天行数据·健康经纬'] };
+    picked.forEach(it => {
+      let url = (it.url || '').trim(); if (url && !url.startsWith('http')) url = 'https://' + url; if (!url) url = '#';
+      const mod = categorize3(it.title);
+      grouped[mod].push({ title: it.title, src: it.source || '天行·国内', url, date: (it.date || '').slice(5, 10).replace('-', '/') || '今日', module: mod });
+    });
+    return { isReal: true, mode: 'tianapi', grouped, sources: ['天行数据·国内新闻(医药过滤)'] };
   }
 
-  async function fetchNewsGdelt() {
-    const q = '医药 医疗 医保 创新药 临床';
-    const url = 'https://api.gdeltproject.org/api/v2/doc/doc?query=' + encodeURIComponent(q) +
-      '&mode=ArtList&format=json&maxrecords=30&sortby=datedesc';
-    try {
-      const r = await fetch(url, { signal: AbortSignal.timeout(9000) });
-      if (!r.ok) return null;
-      const d = await r.json();
-      const arts = d.articles || [];
-      if (!arts.length) return null;
-      const grouped = {}; MODS.forEach(m => grouped[m] = []);
-      arts.forEach(a => {
-        const t = a.title || '';
-        if (!t) return;
-        const mod = categorize(t);
-        grouped[mod].push({ title: t, src: a.domain || 'GDELT', url: a.url || '#', date: fmtPub(a.seendate || ''), module: mod });
-      });
-      MODS.forEach(m => grouped[m] = (grouped[m] || []).slice(0, 6));
-      const total = MODS.reduce((s, m) => s + grouped[m].length, 0);
-      if (!total) return null;
-      return { isReal: true, mode: 'gdelt', grouped, sources: ['GDELT 全球媒体监测'] };
-    } catch (e) { return null; }
-  }
-
-  /* 全网补充源：从官方政策站点（gov.cn 系）抓取「行业政策与市场」要闻。
-   * GDELT 支持按域名过滤，可覆盖国家医保局/卫健委/药监局/国务院政策库/上海阳光采购网等。
-   * best-effort：CORS 或网络不通时静默跳过，不影响主流程。 */
-  async function fetchNewsGdeltPolicy() {
-    const domains = ['nhsa.gov.cn', 'nhc.gov.cn', 'nmpa.gov.cn', 'gov.cn', 'samr.gov.cn', 'ybj.sh.gov.cn'];
-    const q = domains.map(d => 'domain:' + d).join(' ');
-    const url = 'https://api.gdeltproject.org/api/v2/doc/doc?query=' + encodeURIComponent(q) +
-      '&mode=ArtList&format=json&maxrecords=25&sortby=datedesc';
-    try {
-      const r = await fetch(url, { signal: AbortSignal.timeout(9000) });
-      if (!r.ok) return null;
-      const d = await r.json();
-      const arts = d.articles || [];
-      if (!arts.length) return null;
-      return arts.filter(a => a.title).map(a => ({
-        title: a.title, src: a.domain || 'GDELT政策源', url: a.url || '#',
-        date: fmtPub(a.seendate || ''), module: '行业政策与市场'
-      }));
-    } catch (e) { return null; }
-  }
-
-  // 统一入口（带每日缓存，默认优先天行数据）
+  // 统一入口（带每日缓存，GDELT 为主源）
   async function fetchNews() {
-    const mode = cfg(K.newsMode, 'tianapi');  // v11: 默认改天行（RSS 公共代理已全挂）
+    const mode = cfg(K.newsMode, 'gdelt');  // 默认 GDELT 全球监测（免费·无需 key）
+    let data = null;
+    try { data = await fetchNewsGdeltCats(); }
+    catch (e) { console.warn('[活力婷 API] GDELT 失败:', e.message); }
+    if (!data) return null;  // 极端断网 → 由调用方回退示例
+    // 可选增强：模式为 tianapi 且已填 key 时，补充国内新闻（仅医药相关，去重并入）
     if (mode === 'tianapi') {
       const key = cfg(K.tianapiKey, '');
-      if (!key) throw new Error('NO_KEY:未填写天行数据 AppKey（请到「设置 → 今日医药要闻」填写）');
-      console.log('[活力婷 API] 走天行数据模式拉取新闻...');
-      let data = await fetchNewsTianapi(key); // 可能抛 TIAN:/NET: 错误，由新闻页展示原因
-      // 全网补充：从官方政策站点（医保局/卫健委/药监局/国务院政策库等 gov.cn 系）补充「行业政策与市场」要闻
-      try {
-        const pol = await fetchNewsGdeltPolicy();
-        if (pol && pol.length) {
-          data.grouped['行业政策与市场'] = (data.grouped['行业政策与市场'] || []).concat(pol).slice(0, 8);
-          data.sources = (data.sources || []).concat(['GDELT·官方政策源(全网监测)']);
-        }
-      } catch (e) { console.warn('[活力婷 API] 政策源补充失败(忽略):', e.message); }
-      return data;
+      if (key) {
+        try {
+          const t = await fetchNewsTianapiGuonei(key);
+          if (t) {
+            MODS.forEach(m => {
+              const exist = data.grouped[m] || [];
+              const extra = (t.grouped[m] || []).filter(x => !exist.some(y => y.title === x.title));
+              data.grouped[m] = exist.concat(extra).slice(0, 10);
+            });
+            data.sources = (data.sources || []).concat(t.sources);
+          }
+        } catch (e) { console.warn('[活力婷 API] 天行补充失败(忽略):', e.message); }
+      }
     }
-    // RSS 模式：先公开 RSS，再 GDELT，最后兜底天行（仅当用户已配 Key）
-    console.log('[活力婷 API] 走 RSS 模式拉取新闻...');
-    let res = null;
-    try { res = await fetchNewsRSS(); } catch (e) { console.warn('[活力婷 API] RSS 失败:', e); res = null; }
-    if (!res) { try { res = await fetchNewsGdelt(); } catch (e) { console.warn('[活力婷 API] GDELT 失败:', e); res = null; } }
-    if (!res && cfg(K.tianapiKey, '')) {
-      console.log('[活力婷 API] RSS/GDELT 均失败，尝试天行兜底...');
-      try { res = await fetchNewsTianapi(cfg(K.tianapiKey, '')); } catch (e) { throw e; }  // v11: 不再静默吞错
-    }
-    return res;
+    return data;
   }
 
   /* ---------- 大模型：OpenAI 兼容（稳健版） ---------- */

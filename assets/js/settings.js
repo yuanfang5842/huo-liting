@@ -9,10 +9,10 @@ window.Settings = (function () {
         '<div class="field"><label>城市（用于真实天气）</label><input id="set-city" value="' + escapeHtml(v(K.weatherCity) || '上海') + '" placeholder="如：上海 / 北京 / 杭州" style="border:1px solid var(--line);border-radius:10px;padding:8px;width:100%"/></div></div>' +
       '<div class="card"><div class="section-title">今日医药要闻</div>' +
         '<div class="field"><label>新闻接口</label><select id="set-news" style="border:1px solid var(--line);border-radius:10px;padding:8px;width:100%">' +
-          '<option value="rss">公开 RSS 聚合（免费·无需 key）</option>' +
-          '<option value="tianapi">天行数据 tianapi（更稳定·需 key）</option></select></div>' +
+          '<option value="gdelt">GDELT 全球监测（免费·无需 key·默认）</option>' +
+          '<option value="tianapi">GDELT + 天行国内新闻补充（需 key）</option></select></div>' +
         '<div class="field"><label>天行数据 AppKey</label><input id="set-tianapi" type="password" value="' + escapeHtml(v(K.tianapiKey)) + '" placeholder="在 tianapi.com 免费申请" style="border:1px solid var(--line);border-radius:10px;padding:8px;width:100%"/></div>' +
-        '<div class="muted text-xs">选「天行数据」并填有效 AppKey（控制台需开通「<b>健康经纬</b>」接口）即可<b>实时更新</b>医药要闻——该接口已支持浏览器直连，无需代理。同一 Key 还可用于「投资机会参考」（需额外开通「<b>财经新闻</b>」）和「今日娱乐热点」（需「<b>体育</b>」「<b>科学探索</b>」）。RSS 模式为公开源聚合，受网络限制可能回退示例。</div></div>' +
+        '<div class="muted text-xs">默认 <b>GDELT 全球监测</b>（免费、无需 Key、浏览器直连），自动把要闻归入「国内新药/临床/科研 · 海外FDA与全球进展 · 政策/医保/行业」三大分类。若你还填了天行 AppKey，可选「GDELT + 天行国内新闻补充」（控制台需开通「<b>国内新闻</b>」接口）进一步丰富国内源。同一 Key 还可用于「投资机会参考」「今日娱乐热点」。</div></div>' +
       '<div class="card"><div class="section-title">大模型配置（口语训练 / 管理技能）</div>' +
         '<div class="muted text-xs" style="margin:-2px 0 8px;line-height:1.7">随时切换：<b>免费</b>模型零成本可用，<b>收费</b>模型效果更好。选「本地规则引擎」完全免费、无需 Key，用内置启发式规则点评（不联网）。</div>' +
         '<div class="field"><label>模型提供方</label><select id="set-llmprovider" style="border:1px solid var(--line);border-radius:10px;padding:8px;width:100%">' +
@@ -59,7 +59,7 @@ window.Settings = (function () {
       '<div class="muted text-xs mt12">所有密钥仅保存在本机浏览器 localStorage，不会上传到除你填写的接口之外的任何地方。</div>';
     c.innerHTML = html;
 
-    document.getElementById('set-news').value = v(K.newsMode) || 'rss';
+    document.getElementById('set-news').value = v(K.newsMode) || 'gdelt';
     document.getElementById('set-ttson').value = v(K.ttsOn) ? '1' : '0';
     document.getElementById('set-llmproxy').value = v(K.llmProxy) ? '1' : '0';
     const LLM_PROVIDERS = {

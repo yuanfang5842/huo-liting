@@ -1,6 +1,6 @@
 /* ============ 今日医药要闻（真实接口 + 降级） v11-网络优先 ============ */
 window.News = (function () {
-  const MODS = ['行业政策与市场', '新药与管线', '企业产品动态', '临床研究', '趋势与观点'];
+  const MODS = ['国内新药/临床/科研', '海外FDA与全球进展', '政策/医保/行业'];
   const srcLine = DATA.newsSources.join(' · ');
   // 用户的 WorkBuddy 每日药闻简报空间（带登录态的私有空间，客户端无法自动抓取，提供「打开+粘贴存档」工作流）
   const PHARMA_BRIEF_URL = 'https://www.workbuddy.cn/space/d/9cUvRmOIFcQtkLQeOYns9O?ext2=copy_link';
@@ -23,7 +23,7 @@ window.News = (function () {
       { n: '中国政府网', u: 'https://www.gov.cn/' },
     ];
     const chips = sites.map(s => '<a class="chip gov-link" href="' + s.u + '" target="_blank" rel="noopener" style="flex-direction:row;justify-content:flex-start;margin-bottom:6px">' + escapeHtml(s.n) + ' ↗</a>').join('');
-    return '<div class="card mt12" style="border-color:var(--accent)"><div class="section-title">🏛 官方政策源 · 行业政策与市场首选</div>' +
+    return '<div class="card mt12" style="border-color:var(--accent)"><div class="section-title">🏛 官方政策源 · 政策/医保/行业首选</div>' +
       '<div class="muted text-xs" style="margin:-4px 0 8px;line-height:1.65">以下为权威官方发布渠道，建议直接查看最新医药政策/文件。本区要闻也会通过 GDELT 全网监测从这些站点做补充。</div>' +
       '<div class="row" style="flex-wrap:wrap;gap:6px">' + chips + '</div></div>';
   }
@@ -131,25 +131,23 @@ window.News = (function () {
   function renderNews(c) {
     c.innerHTML =
       '<div class="page-head"><h2>今日医药要闻</h2><div class="date">' + App.todayLabel() + '</div></div>' +
-      '<div id="brief-card"><div class="muted text-sm mt12">正在生成每日药闻简报…</div></div>' +
       '<div id="news-status" class="achv-banner" style="background:var(--accent-soft);color:var(--accent)">' +
         '<div class="big">📡</div><div class="grow"><div class="t" id="news-st-t">加载中…</div>' +
         '<div class="s text-xs" id="news-st-s" style="opacity:1">来源：' + srcLine + '</div></div>' +
         '<button class="btn sm" id="news-refresh">刷新</button></div>' +
       '<div id="news-body"><div class="muted text-sm mt12">加载中…</div></div>' +
-      '<div class="card mt12" id="news-help"><div class="section-title">🔧 刷新不出来？按这 4 步排查</div>' +
-        '<div class="text-sm" style="line-height:1.75;color:var(--ink-2)">最稳的方式是用「天行数据 tianapi」：它已支持<b>浏览器直连、无需代理</b>。RSS 模式经公共代理，在部分网络下会被拦截。按顺序试：<br>' +
-        '① 确认手机已联网，切到稳定的 Wi-Fi 或 4G/5G；<br>' +
-        '② 回到本页点右上角「刷新」多试 1-2 次；<br>' +
-        '③ 去「设置 → 今日医药要闻」，把接口切到「天行数据 tianapi」并填入免费 AppKey（tianapi.com 申请），成功率最高；<br>' +
-        '④ 仍不行就是当前网络限制，App 会展示示例并保持你的已读进度，不影响使用。</div></div>';
+      '<div id="private-brief-slot"></div>' +
+      '<div class="card mt12" id="news-help"><div class="section-title">ℹ️ 关于医药要闻来源</div>' +
+        '<div class="text-sm" style="line-height:1.75;color:var(--ink-2)">要闻由 <b>GDELT 全球媒体监测</b>实时拉取并自动归入三大分类（免费、无需配置、浏览器直连）。如某分类暂为空，点右上角「刷新」重试即可；极端断网时展示示例并保持已读进度。想参考你 WorkBuddy 空间的每日简报，见下方「我的私有简报」。</div></div>';
     document.getElementById('news-refresh').onclick = () => backgroundLoad(c, true);
+    // 注入"我的私有简报"入口（参考 WorkBuddy 空间链接内容，本地存档）
+    const pb = document.getElementById('private-brief-slot');
+    if (pb) { pb.innerHTML = privateBriefHtml(); bindPrivateBrief(c); }
 
     // Step 1: 立即展示缓存（如果有有效数据）
     const cache = App.dget('newsCache', null);
     if (cache && cache.date === App.today() && cache.data && !cache.isMock) {
       renderData(cache.data, false);
-      renderAutoBrief(c, cache.data);
     } else if (cache && cache.date === App.today() && cache.isMock) {
       // mock 缓存 → 显示占位，但一定要重新拉取
       renderData(null, true);
@@ -194,7 +192,7 @@ window.News = (function () {
     if (!st || !ss || !sta) return;
     if (!data) return;
     st.textContent = '真实要闻 · ' + (data.mode === 'tianapi' ? '天行·健康经纬' : data.mode === 'gdelt' ? 'GDELT 全球监测' : '公开 RSS 聚合');
-    ss.innerHTML = '实时来源：' + (data.sources || []).join('、') + ' · 已按 5 模块分类 · 更新于 ' + new Date().toLocaleTimeString('zh-CN', {hour:'2-digit',minute:'2-digit'});
+    ss.innerHTML = '实时来源：' + (data.sources || []).join('、') + ' · 已按 3 大分类展示 · 更新于 ' + new Date().toLocaleTimeString('zh-CN', {hour:'2-digit',minute:'2-digit'});
     sta.style.background = 'var(--accent-soft)'; sta.style.color = 'var(--accent)';
   }
 
@@ -224,7 +222,6 @@ window.News = (function () {
       const cacheEntry = { date: App.today(), data: data, isMock: false, fetchTime: Date.now() };
       App.dset('newsCache', cacheEntry);
       renderData(data, false);   // ← 强制刷新 UI（含状态栏）
-      renderAutoBrief(c, data);  // ← 同步刷新顶部每日简报
       App.toast('已刷新真实要闻 ' + total + ' 条 ✓');
     } else {
       // 拉取失败：检查是否已有今天的真实缓存（有就不覆盖，保留已显示的真数据）
@@ -346,68 +343,24 @@ window.News = (function () {
     const m = (text || '').match(/pharma-briefing-(\d{4}-\d{2}-\d{2})/i);
     return m ? m[1] : App.today();
   }
-  /* ====== 每日药闻简报（自动生成 + 私有简报补充） ====== */
-  function autoBriefHtml(data, date, myBriefDate) {
-    const groups = (data && data.grouped) || {};
-    const myBrief = briefStore()[myBriefDate || date] || briefStore()[App.today()] || null;
-    let sections = '';
-    let total = 0;
-    MODS.forEach(m => {
-      const list = groups[m] || [];
-      if (!list.length) return;
-      const items = list.slice(0, 2).map(it => {
-        let point = (it.desc || '').replace(/\s+/g, ' ').trim();
-        if (point.length > 60) point = point.slice(0, 60) + '…';
-        const titleShort = it.title.length > 36 ? it.title.slice(0, 36) + '…' : it.title;
-        return '<li class="ab-li"><b>' + escapeHtml(titleShort) + '</b>' +
-          (point ? '<div class="muted text-xs" style="line-height:1.5;margin-top:2px">' + escapeHtml(point) + '</div>' : '') +
-          '</li>';
-      }).join('');
-      sections += '<div class="ab-sec"><div class="ab-h">' + m + ' <span class="muted" style="font-weight:400;font-size:11px">· ' + list.length + ' 条</span></div><ul class="ab-list">' + items + '</ul></div>';
-      total += list.length;
-    });
-    if (myBrief && myBrief.text) {
-      const t = myBrief.text;
-      sections += '<div class="ab-sec"><div class="ab-h">📌 我的私有简报 <span class="muted" style="font-weight:400;font-size:11px">· 来自 WorkBuddy 空间</span></div>' +
-        '<div style="line-height:1.7;white-space:pre-wrap;font-size:12.5px">' + escapeHtml(t.length > 360 ? t.slice(0, 360) + '…' : t) + '</div></div>';
-    }
-    const body = (total === 0 && !myBrief)
-      ? '<div class="muted text-sm">今日公开源暂无可用要闻，可稍后刷新，或下方粘贴你的私有简报。</div>'
-      : sections;
-    const srcs = (data && data.sources) || [];
-    const dates = briefDates();
-    const histSel = dates.length
-      ? '<div class="flex mt8" style="gap:6px;align-items:center"><span class="muted text-xs">历史：</span><select id="brief-sel" style="border:1px solid var(--line);border-radius:8px;padding:3px 6px;font-size:12px;flex:1;min-width:0">' +
-        dates.map(d => '<option value="' + d + '">' + d + (d === App.today() ? '（今天）' : '') + '</option>').join('') +
-        '</select></div>'
+  /* ====== 我的私有简报（来自 WorkBuddy 空间，本地存档，可参考链接内容） ====== */
+  function privateBriefHtml() {
+    const store = briefStore();
+    const dates = Object.keys(store).sort().reverse();
+    const myBrief = store[App.today()] || (dates.length ? store[dates[0]] : null);
+    const savedBlock = (myBrief && myBrief.text)
+      ? '<div class="card mt12" style="border-color:var(--accent)"><div class="section-title">📌 我的私有简报 <span class="muted" style="font-weight:400;font-size:11px">· ' + escapeHtml(myBrief.date || App.today()) + ' · 来自 WorkBuddy 空间</span></div>' +
+        '<div style="line-height:1.7;white-space:pre-wrap;font-size:13px">' + escapeHtml(myBrief.text.length > 600 ? myBrief.text.slice(0, 600) + '…' : myBrief.text) + '</div></div>'
       : '';
-    return '<div class="card mt12" style="border-color:var(--accent)">' +
-      '<div class="section-title">📋 每日药闻简报 <span class="muted" style="font-weight:400;font-size:11px">· ' + date + '</span></div>' +
-      '<div class="muted text-xs" style="margin:-4px 0 8px;line-height:1.5">基于公开实时源（' + escapeHtml(srcs.join('、') || '—') + '）自动生成，打开即更新。需私人简报可 <a href="' + PHARMA_BRIEF_URL + '" target="_blank" rel="noopener" style="color:var(--accent)">打开 WorkBuddy 空间 ↗</a></div>' +
-      body +
-      '<details class="mt8"><summary style="cursor:pointer;color:var(--accent);font-size:12px">＋ 补充我的私有简报（从空间复制粘贴存档）</summary>' +
-        '<textarea id="brief-in" class="full mt8" placeholder="粘贴 pharma-briefing-YYYY-MM-DD 内容…（首行含日期将归入对应日期，否则归今天）" style="border:1px solid var(--line);border-radius:10px;padding:8px;font-size:13px;min-height:80px"></textarea>' +
+    return savedBlock +
+      '<details class="card mt12"><summary style="cursor:pointer;color:var(--accent);font-size:13px">＋ 补充 / 更新我的私有简报（参考 WorkBuddy 空间）</summary>' +
+        '<div class="muted text-xs mt8">打开 <a href="' + PHARMA_BRIEF_URL + '" target="_blank" rel="noopener" style="color:var(--accent)">pharma-briefing 空间 ↗</a>，复制当天简报内容粘贴到下方存档，即可在此长期查看（不影响上方自动归类的实时要闻）。</div>' +
+        '<textarea id="brief-in" class="full mt8" placeholder="粘贴 pharma-briefing-YYYY-MM-DD 内容…（首行含日期将归入对应日期，否则归今天）" style="border:1px solid var(--line);border-radius:10px;padding:8px;font-size:13px;min-height:90px"></textarea>' +
         '<button class="btn sm mt8" id="brief-save">保存我的私有简报</button>' +
         '<span id="brief-msg" class="muted text-xs ml8"></span>' +
-        histSel +
-      '</details>' +
-      '</div>';
+      '</details>';
   }
-  function renderAutoBrief(c, data) {
-    const card = document.getElementById('brief-card');
-    if (!card) return;
-    card.innerHTML = autoBriefHtml(data, App.today());
-    bindBriefSave(c);
-  }
-  function bindBriefSave(c) {
-    const sel = document.getElementById('brief-sel');
-    if (sel) sel.onchange = () => {
-      const d = sel.value;
-      const cache = App.dget('newsCache', null);
-      const data = (cache && cache.date === App.today() && cache.data) ? cache.data : null;
-      const card = document.getElementById('brief-card');
-      if (card) { card.innerHTML = autoBriefHtml(data, App.today(), d); bindBriefSave(c); }
-    };
+  function bindPrivateBrief(c) {
     const save = document.getElementById('brief-save');
     if (save) save.onclick = () => {
       const ta = document.getElementById('brief-in');
@@ -415,11 +368,10 @@ window.News = (function () {
       if (!txt) { App.toast('请先粘贴简报内容'); return; }
       const date = detectBriefDate(txt);
       const store = briefStore();
-      store[date] = { text: txt, savedAt: Date.now() };
+      store[date] = { text: txt, savedAt: Date.now(), date };
       App.set('pharmaBrief', store);
-      const cache = App.dget('newsCache', null);
-      const card = document.getElementById('brief-card');
-      if (card) { card.innerHTML = autoBriefHtml(cache && cache.data, App.today()); bindBriefSave(c); }
+      const slot = document.getElementById('private-brief-slot');
+      if (slot) { slot.innerHTML = privateBriefHtml(); bindPrivateBrief(c); }
       App.toast('私有简报已保存：' + date);
     };
   }
