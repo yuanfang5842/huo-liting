@@ -20,6 +20,20 @@ window.App = (function () {
   function dget(k, d) { return get(dkey(k), d); }
   function dset(k, v) { set(dkey(k), v); }
 
+  /* 按指定日期读写每日数据（精进日志/四象限跨日规划用） */
+  function dgetOn(k, d, dateStr) { return get('D:' + (dateStr || today()) + ':' + k, d); }
+  function dsetOn(k, v, dateStr) { set('D:' + (dateStr || today()) + ':' + k, v); }
+
+  /* 日期工具 */
+  function parseDate(s) { const p = (s || today()).split('-'); return new Date(+p[0], +p[1] - 1, +p[2]); }
+  function fmtDate(d) { return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); }
+  function shiftDate(s, delta) { const d = parseDate(s); d.setDate(d.getDate() + delta); return fmtDate(d); }
+  function dateLabel(s) {
+    const d = parseDate(s);
+    const wk = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'][d.getDay()];
+    return (d.getMonth() + 1) + '月' + d.getDate() + '日 ' + wk;
+  }
+
   /* 简单 hash */
   function hash(str) { let h = 0; for (let i = 0; i < str.length; i++) { h = (h << 5) - h + str.charCodeAt(i); h |= 0; } return Math.abs(h); }
 
@@ -117,10 +131,11 @@ window.App = (function () {
   }
 
   /* 版本号（用于确认浏览器是否加载了最新代码） */
-  window.HUOLITING_VERSION = 'v22';
+  window.HUOLITING_VERSION = 'v23';
 
   return {
-    get, set, dget, dset, today, todayLabel, dayIndex, isWeekend, hash,
+    get, set, dget, dset, dgetOn, dsetOn, today, todayLabel, dayIndex, isWeekend, hash,
     applyDailyTheme, themeName, icon, toast, register, go, onAchieve, achieve, h, exportCSV,
+    parseDate, fmtDate, shiftDate, dateLabel,
   };
 })();

@@ -42,19 +42,20 @@ window.Overview = (function () {
     return '<div class="card mt12"><div class="section-title">今日聚焦</div>' + items + '</div>';
   }
 
-  /* ---------- 精进日志 ---------- */
+  /* ---------- 精进日志（支持按日期查看/规划未来与翻看以往） ---------- */
   const MAX_TASKS = 3;
+  let selDate = App.today(); // 当前选中的日志日期（默認今天，可前后翻/跳到未来规划）
   function blank() { return { tasks: [], goals: {}, schedule: [], record: '', feeling: '' }; }
-  function getJ() { return App.dget('journal', null) || blank(); }
-  function saveJ(j) { App.dset('journal', j); }
+  function getJ() { return App.dgetOn('journal', null, selDate) || blank(); }
+  function saveJ(j) { App.dsetOn('journal', j, selDate); }
 
   // AI 精进日志反馈系统提示（自由文本，无需 JSON；由 callLLMText 返回纯文本）
   const JOURNAL_FB_SYS = '你是个人成长教练。用户会给你今天的「要事+策略/方法+时间安排+精进记录+感悟」。请输出一段真诚、具体、可执行的反馈与明天建议（250 字以内）：点出今天的亮点，指出 1-2 个可改进的具体点，并给一句明天的行动建议。用自然口语、分点叙述，不要使用 JSON 格式，直接给纯文本。';
-  /* 每日日志快照归档（用于跨日导出全部日志） */
+  /* 每日日志快照归档（用于跨日导出全部日志；按当前选中日期归档，未来/以往均正确） */
   function archiveJournal(j) {
     const arr = App.get('journalArchive', []) || [];
     const snap = {
-      date: App.today(),
+      date: selDate,
       tasks: j.tasks || [],
       goals: j.goals || {},
       schedule: j.schedule || [],
@@ -69,6 +70,11 @@ window.Overview = (function () {
   function renderJournal(c) {
     let j = getJ();
     const tasks = j.tasks || [];
+
+    const isToday = selDate === App.today();
+    const dt = selDate === App.shiftDate(App.today(), 1) ? '明天' :
+      selDate === App.shiftDate(App.today(), -1) ? '昨天' : (isToday ? '今天' : '');
+    const dateTag = dt || (selDate > App.today() ? '未来规划' : '历史记录');
 
     let taskHtml = '<div id="task-list"></div>';
     if (tasks.length >= MAX_TASKS) taskHtml += '<div class="muted text-xs mt8">最多 3 件（与策略/方法一一对应）</div>';
@@ -92,11 +98,24 @@ window.Overview = (function () {
     }
 
     c.innerHTML =
-      '<div class="page-head"><h2>精进日志</h2><div class="date">' + App.todayLabel() + '</div></div>' +
+      '<div class="page-head"><h2>精进日志</h2><div class="date">' + App.dateLabel(selDate) + '</div></div>' +
+      '<div class="card" style="padding:10px 12px">' +
+        '<div class="flex" style="align-items:center;justify-content:space-between">' +
+          '<button class="btn sm" id="date-prev" style="width:38px">‹</button>' +
+          '<div style="text-align:center;line-height:1.3"><div class="bold text-sm">' + App.dateLabel(selDate) + '</div>' +
+          '<div class="muted text-xs" style="color:var(--accent)">' + dateTag + '</div></div>' +
+          '<button class="btn sm" id="date-next" style="width:38px">›</button>' +
+        '</div>' +
+        '<div class="flex mt8" style="gap:6px;align-items:center;justify-content:center">' +
+          '<button class="btn sm ghost" id="date-today">回到今天</button>' +
+          '<input type="date" id="date-pick" value="' + selDate + '" style="border:1px solid var(--line);border-radius:8px;padding:5px 6px;font-size:12px;color:var(--ink-2)"/>' +
+        '</div>' +
+      '</div>' +
       quadCardHtml() +
       '<div class="card"><div class="section-title">今日要事（最多 3 件）</div>' + taskHtml + '</div>' +
       '<div class="card"><div class="section-title">策略 & 方法（对应要事）</div>' + goalHtml + '</div>' +
       '<div class="card"><div class="section-title">时间安排</div>' +
+        '<div class="muted text-xs" style="margin:-4px 0 8px;line-height:1.6">勾选「确认」标记已定的安排（含未来已确定事项），再点「→四象限」放入本周计划，避免重复填写。</div>' +
         '<div id="sched-list"></div>' +
         '<div class="flex mt8"><input id="sched-time" placeholder="09:00" style="width:70px;border:1px solid var(--line);border-radius:10px;padding:8px;font-size:13px"/>' +
         '<input id="sched-text" class="full ml8" placeholder="安排事项…" style="border:1px solid var(--line);border-radius:10px;padding:8px;font-size:13px"/>' +
@@ -111,6 +130,13 @@ window.Overview = (function () {
     renderTasks(c);
     renderSched(c);
     renderQuad(c);
+
+    // 日期导航：前后翻 / 回到今天 / 跳到指定日期（含未来规划与历史回看）
+    const rebindDate = () => renderJournal(c);
+    document.getElementById('date-prev').onclick = () => { selDate = App.shiftDate(selDate, -1); rebindDate(); };
+    document.getElementById('date-next').onclick = () => { selDate = App.shiftDate(selDate, 1); rebindDate(); };
+    document.getElementById('date-today').onclick = () => { selDate = App.today(); rebindDate(); };
+    document.getElementById('date-pick').onchange = (e) => { if (e.target.value) { selDate = e.target.value; rebindDate(); } };
 
     const addBtn = document.getElementById('task-add');
     if (addBtn) addBtn.onclick = () => {
@@ -130,7 +156,7 @@ window.Overview = (function () {
       if (!tx) return;
       const jj = getJ();
       jj.schedule = jj.schedule || [];
-      jj.schedule.push({ id: Date.now(), time: tm, text: tx });
+      jj.schedule.push({ id: Date.now(), time: tm, text: tx, done: false, confirmed: false, syncedQ: 0 });
       saveJ(jj);
       document.getElementById('sched-time').value = '';
       document.getElementById('sched-text').value = '';
@@ -265,21 +291,33 @@ window.Overview = (function () {
 
   function truncate(s, n) { s = (s || ''); return s.length > n ? s.slice(0, n) + '…' : s; }
 
-  /* ---------- 本周《时间四象限》管理法（按 ISO 周持久化） ---------- */
-  function weekKey() {
-    const d = new Date();
+  /* ---------- 本周《时间四象限》管理法（按选中日期所在周持久化） ---------- */
+  function weekKeyFor(dateStr) {
+    const d = App.parseDate(dateStr);
     const onejan = new Date(d.getFullYear(), 0, 1);
     const wk = Math.ceil((((d - onejan) / 86400000) + onejan.getDay() + 1) / 7);
     return d.getFullYear() + '-W' + wk;
   }
-  function getQuad() {
-    const cur = weekKey();
-    let q = App.get('quad', null);
-    if (!q || q.week !== cur) q = { week: cur, items: { 1: [], 2: [], 3: [], 4: [] } };
+  function weekRangeLabel(dateStr) {
+    const d = App.parseDate(dateStr);
+    const dow = (d.getDay() + 6) % 7; // 周一为 0
+    const mon = new Date(d); mon.setDate(d.getDate() - dow);
+    const sun = new Date(mon); sun.setDate(mon.getDate() + 6);
+    return App.fmtDate(mon).slice(5) + ' ~ ' + App.fmtDate(sun).slice(5);
+  }
+  function getQuad(wk) {
+    let q = App.get('quad_' + wk, null);
+    if (!q) {
+      // 兼容旧版：若曾用单一 quad 且周一致，则迁移
+      const legacy = App.get('quad', null);
+      if (legacy && legacy.week === wk) { q = legacy; App.set('quad_' + wk, q); App.set('quad', null); }
+      else q = { week: wk, items: { 1: [], 2: [], 3: [], 4: [] } };
+    }
     return q;
   }
-  function saveQuad(q) { App.set('quad', q); }
+  function saveQuad(q, wk) { App.set('quad_' + wk, q); }
   function quadCardHtml() {
+    const wk = weekKeyFor(selDate);
     const Q = [
       { n: 1, t: '重要 · 紧急', sub: '立刻做' },
       { n: 2, t: '重要 · 不紧急', sub: '排计划做（成长关键）' },
@@ -287,7 +325,8 @@ window.Overview = (function () {
       { n: 4, t: '不重要 · 不紧急', sub: '少做或删掉' },
     ];
     let g = '<div class="card"><div class="section-title">📊 本周《时间四象限》管理法</div>' +
-      '<div class="muted text-xs" style="margin:-6px 0 10px;line-height:1.6">把本周的事放进四个格子：先搞定「重要且紧急」，留出时间做「重要不紧急」（这才是成长关键），「紧急不重要」尽量授权，「不重要不紧急」少做或删掉。</div>' +
+      '<div class="muted text-xs" style="margin:-6px 0 6px;color:var(--accent)">周期：' + weekRangeLabel(selDate) + '（' + (wk === weekKeyFor(App.today()) ? '本周' : '所选日期所在周') + '）</div>' +
+      '<div class="muted text-xs" style="margin:0 0 10px;line-height:1.6">把本周的事放进四个格子：先搞定「重要且紧急」，留出时间做「重要不紧急」（这才是成长关键），「紧急不重要」尽量授权，「不重要不紧急」少做或删掉。安排项点「→四象限」可一键放入。</div>' +
       '<div class="quad-grid">';
     Q.forEach(q => {
       g += '<div class="quad q' + q.n + '"><div class="qh">' + q.t + ' <span class="muted text-xs">· ' + q.sub + '</span></div>' +
@@ -299,17 +338,19 @@ window.Overview = (function () {
     return g;
   }
   function renderQuad(c) {
-    const q = getQuad();
+    const wk = weekKeyFor(selDate);
+    const q = getQuad(wk);
     [1, 2, 3, 4].forEach(n => {
       const list = document.getElementById('q-list-' + n);
       if (!list) return;
       list.innerHTML = '';
       (q.items[n] || []).forEach(it => {
-        const row = App.h('<div class="qi"><span class="qt">' + escapeHtml(it.text) + '</span><span class="qx">✕</span></div>');
+        const tag = it.fromSched ? ' <span class="qi-link" title="来自时间安排同步">🔗</span>' : '';
+        const row = App.h('<div class="qi"><span class="qt">' + escapeHtml(it.text) + tag + '</span><span class="qx">✕</span></div>');
         row.querySelector('.qx').onclick = () => {
-          const qq = getQuad();
+          const qq = getQuad(wk);
           qq.items[n] = (qq.items[n] || []).filter(x => x.id !== it.id);
-          saveQuad(qq); renderQuad(c);
+          saveQuad(qq, wk); renderQuad(c);
         };
         list.appendChild(row);
       });
@@ -320,10 +361,10 @@ window.Overview = (function () {
         const inp = document.getElementById('q-in-' + n);
         const v = inp.value.trim();
         if (!v) return;
-        const qq = getQuad();
+        const qq = getQuad(wk);
         qq.items[n] = qq.items[n] || [];
         qq.items[n].push({ id: Date.now(), text: v });
-        saveQuad(qq);
+        saveQuad(qq, wk);
         inp.value = '';
         renderQuad(c);
       };
@@ -362,22 +403,98 @@ window.Overview = (function () {
     });
   }
 
+  /* 安排项「→四象限」当前展开的选择器（仅一个项同时展开） */
+  let schedPickerFor = 0;
+
   function renderSched(c) {
     const j = getJ();
     const list = document.getElementById('sched-list');
     if (!list) return;
     list.innerHTML = '';
     (j.schedule || []).forEach(s => {
-      const row = App.h('<div class="row sched-row ' + (s.done ? 'done' : '') + '">' +
-        '<span class="check ' + (s.done ? 'done' : 'fail') + '">' + (s.done ? '✓' : '') + '</span>' +
-        '<span class="dot"></span><span class="bold text-sm" style="width:46px">' + s.time + '</span>' +
-        '<span class="grow">' + escapeHtml(s.text) + '</span><span class="del">✕</span></div>');
-      const toggle = () => { s.done = !s.done; saveJ(j); renderSched(c); };
-      row.querySelector('.check').onclick = (e) => { e.stopPropagation(); toggle(); };
-      row.querySelector('.grow').onclick = () => toggle();
-      row.querySelector('.del').onclick = (e) => { e.stopPropagation(); j.schedule = (j.schedule || []).filter(x => x.id !== s.id); saveJ(j); renderSched(c); };
+      const syncLabel = s.syncedQ ? ('Q' + s.syncedQ + ' ✓') : '→四象限';
+      const row = App.h('<div class="sched-row ' + (s.done ? 'done' : '') + (s.confirmed ? ' confirmed' : '') + '">' +
+        '<div class="sr1"><span class="check ' + (s.done ? 'done' : 'fail') + '">' + (s.done ? '✓' : '') + '</span>' +
+        '<span class="bold text-sm" style="width:44px">' + escapeHtml(s.time || '') + '</span>' +
+        '<span class="grow">' + escapeHtml(s.text) + '</span></div>' +
+        '<div class="sr2">' +
+          '<span class="sched-confirm" data-id="' + s.id + '">' + (s.confirmed ? '已确认' : '确认') + '</span>' +
+          '<span class="sched-sync" data-id="' + s.id + '">' + syncLabel + '</span>' +
+          '<span class="del" data-id="' + s.id + '">✕</span>' +
+        '</div></div>');
+      row.querySelector('.check').onclick = (e) => { e.stopPropagation(); s.done = !s.done; saveJ(j); renderSched(c); };
+      row.querySelector('.grow').onclick = () => { s.done = !s.done; saveJ(j); renderSched(c); };
+      row.querySelector('.sched-confirm').onclick = () => { s.confirmed = !s.confirmed; saveJ(j); renderSched(c); };
+      row.querySelector('.sched-sync').onclick = () => { schedPickerFor = (schedPickerFor === s.id ? 0 : s.id); renderSched(c); };
+      row.querySelector('.del').onclick = (e) => { e.stopPropagation(); removeSched(c, s); };
       list.appendChild(row);
+      // 内联象限选择器
+      if (schedPickerFor === s.id) {
+        const wk = weekKeyFor(selDate);
+        const q = getQuad(wk);
+        const picker = App.h('<div class="quad-pick" data-id="' + s.id + '">' +
+          '<span class="muted text-xs">放入：</span>' +
+          [1, 2, 3, 4].map(n => '<button class="qp qp' + n + '" data-q="' + n + '">Q' + n + '</button>').join('') +
+          (s.syncedQ ? '<button class="qp qp-x" data-q="0">移除</button>' : '') +
+          '</div>');
+        picker.querySelectorAll('.qp').forEach(b => {
+          b.onclick = () => {
+            const n = +b.dataset.q;
+            if (n === 0) unsyncSched(c, s);
+            else syncSchedToQuad(c, s, n);
+            schedPickerFor = 0;
+          };
+        });
+        list.appendChild(picker);
+      }
     });
+    if ((j.schedule || []).length === 0) {
+      list.innerHTML = '<div class="muted text-xs" style="padding:4px 2px">还没有时间安排。可填写当天或未来已确定的事项，确认后同步到本周四象限。</div>';
+    }
+  }
+
+  function removeSched(c, s) {
+    const j = getJ();
+    if (s.syncedQ) {
+      const wk = weekKeyFor(selDate);
+      const q = getQuad(wk);
+      q.items[s.syncedQ] = (q.items[s.syncedQ] || []).filter(x => x.fromSched !== s.id);
+      saveQuad(q, wk);
+    }
+    j.schedule = (j.schedule || []).filter(x => x.id !== s.id);
+    saveJ(j);
+    renderSched(c); renderQuad(c);
+  }
+
+  /* 把已确认安排同步进本周四象限（按当前日志日期所在周） */
+  function syncSchedToQuad(c, s, qn) {
+    const j = getJ();
+    const it = (j.schedule || []).find(x => x.id === s.id);
+    if (!it) return;
+    const wk = weekKeyFor(selDate);
+    const q = getQuad(wk);
+    // 先移除该安排在此象限的旧副本（支持改放其他象限）
+    q.items[qn] = (q.items[qn] || []).filter(x => x.fromSched !== it.id);
+    q.items[qn].push({ id: Date.now(), text: (it.time ? it.time + ' ' : '') + it.text, fromSched: it.id });
+    saveQuad(q, wk);
+    it.syncedQ = qn;
+    saveJ(j);
+    renderSched(c); renderQuad(c);
+    App.toast('已同步到本周四象限 Q' + qn);
+  }
+
+  function unsyncSched(c, s) {
+    const j = getJ();
+    const it = (j.schedule || []).find(x => x.id === s.id);
+    if (!it || !it.syncedQ) return;
+    const wk = weekKeyFor(selDate);
+    const q = getQuad(wk);
+    q.items[it.syncedQ] = (q.items[it.syncedQ] || []).filter(x => x.fromSched !== it.id);
+    saveQuad(q, wk);
+    const prev = it.syncedQ; it.syncedQ = 0;
+    saveJ(j);
+    renderSched(c); renderQuad(c);
+    App.toast('已从本周四象限 Q' + prev + ' 移除');
   }
 
   function escapeHtml(s) { return (s || '').replace(/[&<>]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[m])); }
