@@ -1,37 +1,63 @@
 {
-  "updated": "2026-08-18 09:03 UTC",
+  "updated": "2026-08-18 14:02 UTC",
   "offline": false,
   "sources": [
-    "GDELT·国内新药/临床/科研"
+    "GDELT·海外FDA与全球进展",
+    "GDELT·政策/医保/行业"
   ],
   "grouped": {
-    "国内新药/临床/科研": [
+    "国内新药/临床/科研": [],
+    "海外FDA与全球进展": [
       {
-        "title": "Stramsen Biotech Thanks the FDA for Their Review and Positive Feedback on Pre IND Application for SBX - 1977 Wound Care Medicine",
+        "title": "Study : FDA approves more orphan drugs with specific cancer , pediatric indications over EMA",
+        "src": "raps.org",
+        "url": "https://www.raps.org/resource/study-fda-approves-more-orphan-drugs-with-specific-cancer-pediatric-indications-over-ema.html",
+        "date": "6月3日",
+        "desc": "",
+        "dom": false
+      },
+      {
+        "title": "Study : Regulators often diverge from FDA on expedited oncology approvals",
+        "src": "raps.org",
+        "url": "https://www.raps.org/resource/study-regulators-often-diverge-from-fda-on-expedited-oncology-approvals.html",
+        "date": "6月22日",
+        "desc": "",
+        "dom": false
+      },
+      {
+        "title": "Vanda Pharmaceuticals Announces EMA Positive Opinion for Orphan Drug Designation of Imsidolimab for Generalized Pustular Psoriasis - A Milestone Recognition of GPP as a Distinct Rare Disease in Europe",
         "src": "prnewswire.com",
-        "url": "https://www.prnewswire.com/news-releases/stramsen-biotech-thanks-the-fda-for-their-review-and-positive-feedback-on-pre-ind-application-for-sbx-1977-wound-care-medicine-302788594.html",
-        "date": "6月2日",
-        "desc": "",
-        "dom": false
-      },
-      {
-        "title": "Shanghai Ark Biopharmaceutical Co ., Ltd .: ArkBio RSV Antiviral Drug Ziresovir Receives FDA Approval for Phase II Clinical Trial",
-        "src": "finanznachrichten.de",
-        "url": "https://www.finanznachrichten.de/nachrichten-2026-08/69314640-shanghai-ark-biopharmaceutical-co-ltd-arkbio-s-rsv-antiviral-drug-ziresovir-receives-fda-approval-for-phase-ii-clinical-trial-008.htm",
-        "date": "8月14日",
-        "desc": "",
-        "dom": false
-      },
-      {
-        "title": "ArkBio RSV Antiviral Drug Ziresovir Receives FDA Approval for Phase II Clinical Trial",
-        "src": "thailand-business-news.com",
-        "url": "https://www.thailand-business-news.com/pr-news/arkbios-rsv-antiviral-drug-ziresovir-receives-fda-approval-for-phase-ii-clinical-trial",
-        "date": "8月14日",
+        "url": "http://www.prnewswire.com/news-releases/vanda-pharmaceuticals-announces-ema-positive-opinion-for-orphan-drug-designation-of-imsidolimab-for-generalized-pustular-psoriasis--a-milestone-recognition-of-gpp-as-a-distinct-rare-disease-in-europe-302827934.html",
+        "date": "7月16日",
         "desc": "",
         "dom": false
       }
     ],
-    "海外FDA与全球进展": [],
-    "政策/医保/行业": []
+    "政策/医保/行业": [
+      {
+        "title": "NMPA Accepts New Indication Application for Sacituzumab Tirumotecan ( sac - TMT ) as First - Line Treatment for Advanced TNBC",
+        "src": "manilatimes.net",
+        "url": "https://www.manilatimes.net/2026/07/30/tmt-newswire/pr-newswire/nmpa-accepts-new-indication-application-for-sacituzumab-tirumotecan-sac-tmt-as-first-line-treatment-for-advanced-tnbc/2394775",
+        "date": "7月30日",
+        "desc": "",
+        "dom": false
+      },
+      {
+        "title": "Asia - Pacific Roundup : TGA seeks feedback on increasing transparency of GMP inspection outcomes",
+        "src": "raps.org",
+        "url": "https://www.raps.org/resource/asia-pacific-roundup-tga-seeks-feedback-on-increasing-transparency-of-gmp-inspection-outcomes.html",
+        "date": "6月16日",
+        "desc": "",
+        "dom": false
+      },
+      {
+        "title": "2026 - 07 - 26 | Ascentage Pharma Chairman and CEO Dr . Dajun Yang Named to The Medicine Maker Power List 2026 | NDAQ : AAPG",
+        "src": "stockhouse.com",
+        "url": "https://stockhouse.com/news/press-releases/2026/07/26/ascentage-pharma-chairman-and-ceo-dr-dajun-yang-named-to-the-medicine-maker",
+        "date": "7月27日",
+        "desc": "",
+        "dom": false
+      }
+    ]
   }
 }
