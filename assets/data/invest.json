@@ -1,138 +1,94 @@
 {
-  "updated": "2026-08-18 02:37 UTC",
+  "updated": "2026-08-18 03:16 UTC",
   "offline": false,
   "sources": [
-    "GDELT·新能源",
-    "GDELT·金融"
+    "GDELT·商业航天产业政策与进展",
+    "GDELT·消费产业政策与进展"
   ],
-  "items": [
+  "modules": [
     {
-      "title": "Lithium Prices Have Crashed , So Why Are Investors Still Watching Pilbara Minerals ? - PILBARA MINERALS LTD",
-      "src": "benzinga.com",
-      "url": "https://www.benzinga.com/Opinion/26/06/53037727/lithium-prices-have-crashed-so-why-are-investors-still-watching-pilbara-minerals",
-      "date": "6月5日",
-      "tag": "新能源",
-      "desc": ""
+      "name": "昨日美股等国外股市表现",
+      "items": []
     },
     {
-      "title": "Exide Industries : can its lithium - ion bet drive returns over the next 3 years ?",
-      "src": "livemint.com",
-      "url": "https://www.livemint.com/market/stock-market-news/exide-industries-can-its-lithium-ion-bet-drive-returns-over-the-next-3-years-11784548306083.html",
-      "date": "7月21日",
-      "tag": "新能源",
-      "desc": ""
+      "name": "半导体产业政策与进展及风险",
+      "items": []
     },
     {
-      "title": "Africa : Critical Minerals - the Hidden Resources Powering the Clean Energy Future",
-      "src": "allafrica.com",
-      "url": "https://allafrica.com/stories/202607220025.html",
-      "date": "7月22日",
-      "tag": "新能源",
-      "desc": ""
+      "name": "商业航天产业政策与进展",
+      "items": [
+        {
+          "title": "Space Sector is Test Bed for New Whole - of - Nation System",
+          "src": "jamestown.org",
+          "url": "https://jamestown.org/space-sector-is-test-bed-for-new-whole-of-nation-system/",
+          "date": "8月5日"
+        },
+        {
+          "title": "Contract Manufacturing and Technology Transfer Risks",
+          "src": "jamestown.org",
+          "url": "http://jamestown.org/contract-manufacturing-and-technology-transfer-risks/",
+          "date": "6月2日"
+        },
+        {
+          "title": "《 TAIPEI TIMES 》 ITRI obtains Green UAS certification for drones - 焦點",
+          "src": "news.ltn.com.tw",
+          "url": "https://news.ltn.com.tw/news/focus/breakingnews/5461266",
+          "date": "6月4日"
+        },
+        {
+          "title": "中國軍事力量篇 -- 開欄文 ： 中國第四艘航母將使用核能為動力 --- A . Mendelson - 時事論壇",
+          "src": "city.udn.com",
+          "url": "https://city.udn.com/2976/7247294?raid=7295943",
+          "date": "5月30日"
+        },
+        {
+          "title": "At least five dead as rain floods Chiba Prefecture",
+          "src": "taipeitimes.com",
+          "url": "https://www.taipeitimes.com/News/front/archives/2026/08/15/2003862525",
+          "date": "8月14日"
+        }
+      ]
     },
     {
-      "title": "Vale ( VALE ) Gets A Higher Target As Operational Expectations Improve",
-      "src": "finance.yahoo.com",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/vale-vale-gets-higher-target-133046107.html",
-      "date": "6月5日",
-      "tag": "新能源",
-      "desc": ""
+      "name": "新能源产业政策与进展",
+      "items": []
     },
     {
-      "title": "Elektros , Inc .: As U . S . Financial Markets Continue Booming to Record All - Time Highs , ELEKTROS Inc . Believes America is Once Again Leading the World Into a New Era of Innovation and Opportunity Reminiscent of the Historic Dot - Com Boom",
-      "src": "finanznachrichten.de",
-      "url": "https://www.finanznachrichten.de/nachrichten-2026-06/68754328-elektros-inc-as-u-s-financial-markets-continue-booming-to-record-all-time-highs-elektros-inc-believes-america-is-once-again-leading-the-world-in-200.htm",
-      "date": "6月12日",
-      "tag": "新能源",
-      "desc": ""
+      "name": "医药行业产业政策与进展",
+      "items": []
     },
     {
-      "title": "EV , Battery & Charging News : Vattenfall InCharge , WirelessCar , BMW Group , EVelution Energy , Wallbox & CATL",
-      "src": "autoconnectedcar.com",
-      "url": "https://www.autoconnectedcar.com/2026/07/ev-battery-charging-news-vattenfall-incharge-wirelesscar-bmw-group-evelution-energy-wallbox-catl/",
-      "date": "7月5日",
-      "tag": "新能源",
-      "desc": ""
+      "name": "消费产业政策与进展",
+      "items": [
+        {
+          "title": "Bitget Onchain Tokenized Stocks Trading Fees Is Gaining Momentum ; Here Is Where Crypto Traders Should Start - 链影行者",
+          "src": "blog.udn.com",
+          "url": "https://blog.udn.com:443/7855f5b7/191117704",
+          "date": "7月6日"
+        },
+        {
+          "title": "《 TAIPEI TIMES 》 More than 3m registered for civil defense program - 焦點",
+          "src": "news.ltn.com.tw",
+          "url": "https://news.ltn.com.tw/news/focus/breakingnews/5518579",
+          "date": "7月26日"
+        },
+        {
+          "title": "相约费城 ！ 浙大管院AOM招聘现场等你来",
+          "src": "163.com",
+          "url": "https://www.163.com/dy/article/L21UMI240516ATFG.html",
+          "date": "7月17日"
+        },
+        {
+          "title": "卡尼惊慌失措 ， 加拿大人突然停止飞行 - 博客",
+          "src": "blog.wenxuecity.com",
+          "url": "https://blog.wenxuecity.com/myblog/72696/202607/4732.html",
+          "date": "7月8日"
+        }
+      ]
     },
     {
-      "title": "Himadri Speciality Chemicals bets big on EV battery materials with 100 GWh manufacturing facility",
-      "src": "livemint.com",
-      "url": "https://www.livemint.com/market/stock-market-news/himadri-speciality-chemicals-bets-big-on-ev-battery-materials-with-100-gwh-manufacturing-facility-11782736245052.html",
-      "date": "6月29日",
-      "tag": "新能源",
-      "desc": ""
-    },
-    {
-      "title": "Lithium Is on the Rise Again . Does That Make Albemarle a Buy ?",
-      "src": "fool.com",
-      "url": "https://www.fool.com/investing/2026/06/29/lithium-is-on-the-rise-does-that-make-ablemarle/?source=iedfolrf0000001",
-      "date": "6月29日",
-      "tag": "新能源",
-      "desc": ""
-    },
-    {
-      "title": "长线资金密集加仓红利股 ！ 看好中国股市前景 _ 东方财富网",
-      "src": "finance.eastmoney.com",
-      "url": "https://finance.eastmoney.com/a/202605313755118441.html",
-      "date": "5月31日",
-      "tag": "金融",
-      "desc": ""
-    },
-    {
-      "title": "长线资金 ， 密集加仓红利股 ！",
-      "src": "finance.sina.com.cn",
-      "url": "https://finance.sina.com.cn/stock/zqgd/2026-05-31/doc-inhztucv9540076.shtml",
-      "date": "5月31日",
-      "tag": "金融",
-      "desc": ""
-    },
-    {
-      "title": "长线资金密集加仓红利股 ！ 看好中国股市前景 _ 天天基金网",
-      "src": "fund.eastmoney.com",
-      "url": "https://fund.eastmoney.com/a/202605313755118441.html",
-      "date": "5月31日",
-      "tag": "金融",
-      "desc": ""
-    },
-    {
-      "title": "罕见券商股与科技股共振 这一波行情或许不同 ？ _ 东方财富网",
-      "src": "finance.eastmoney.com",
-      "url": "https://finance.eastmoney.com/a/202606223778099278.html",
-      "date": "6月22日",
-      "tag": "金融",
-      "desc": ""
-    },
-    {
-      "title": "陆家嘴论坛政策红包 非银金融估值修复加速 - CFi . CN 中财网",
-      "src": "cfi.net.cn",
-      "url": "http://www.cfi.net.cn/p20260622000360.html",
-      "date": "6月22日",
-      "tag": "金融",
-      "desc": ""
-    },
-    {
-      "title": "非银中报业绩超预期在即 券商保险配置价值凸显 - CFi . CN 中财网",
-      "src": "cfi.net.cn",
-      "url": "http://www.cfi.net.cn/p20260714001820.html",
-      "date": "7月14日",
-      "tag": "金融",
-      "desc": ""
-    },
-    {
-      "title": "险资投资  南向通  债券开闸 ！ 首批试点以头部机构为主 _ 东方财富网",
-      "src": "finance.eastmoney.com",
-      "url": "https://finance.eastmoney.com/a/202606123770151957.html",
-      "date": "6月12日",
-      "tag": "金融",
-      "desc": ""
-    },
-    {
-      "title": "UBS Boosts China Tech Bets , Adds Kuaishou and Meituan to Focus List",
-      "src": "econotimes.com",
-      "url": "http://www.econotimes.com/UBS-Boosts-China-Tech-Bets-Adds-Kuaishou-and-Meituan-to-Focus-List-1746890",
-      "date": "7月16日",
-      "tag": "金融",
-      "desc": ""
+      "name": "其它重大政策及事件",
+      "items": []
     }
   ]
 }
