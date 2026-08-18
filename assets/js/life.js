@@ -165,7 +165,8 @@ window.Life = (function () {
       if (!items.length) { html += '<div class="muted text-xs">暂无相关动态</div>'; }
       items.forEach(it => {
         const dateStr = it.date ? ('来源：' + escapeHtml(it.src) + ' · ' + it.date) : ('来源：' + escapeHtml(it.src || '财经'));
-        html += '<div class="card" style="margin-bottom:10px"><div class="bold" style="font-size:13px;line-height:1.4">' + escapeHtml(it.title) + '</div>' +
+        const intlTag = (it.dom === false) ? '<span style="font-size:10px;color:#1E9E83;border:1px solid #1E9E83;border-radius:6px;padding:1px 5px;margin-right:6px;vertical-align:middle">国际</span>' : '';
+        html += '<div class="card" style="margin-bottom:10px"><div class="bold" style="font-size:13px;line-height:1.4">' + intlTag + escapeHtml(it.title) + '</div>' +
           '<div class="text-xs muted mt8">' + dateStr + '</div>' +
           (it.desc ? '<div class="text-sm mt8" style="line-height:1.6">' + escapeHtml(it.desc) + '</div>' : '') +
           (it.url && it.url !== '#' ? '<div class="mt8"><a class="look-link" href="' + escapeHtml(it.url) + '" target="_blank" rel="noopener">看原文 →</a></div>' : '') + '</div>';

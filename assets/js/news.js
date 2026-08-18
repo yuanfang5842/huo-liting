@@ -271,8 +271,9 @@ window.News = (function () {
       list.forEach(it => {
         const id = itemId(it);
         const isRead = read.includes(id);
+        const intlTag = (it.dom === false) ? '<span style="font-size:10px;color:#1E9E83;border:1px solid #1E9E83;border-radius:6px;padding:1px 5px;margin-right:6px;vertical-align:middle">国际</span>' : '';
         html += '<div class="news-item">' +
-          '<div class="title">' + (isRead ? '✓ ' : '') + escapeHtml(it.title) + '</div>' +
+          '<div class="title">' + intlTag + (isRead ? '✓ ' : '') + escapeHtml(it.title) + '</div>' +
           '<div class="meta"><span class="src">' + escapeHtml(it.src) + '</span><span>' + (it.date || '') + '</span></div>' +
           '<div class="news-actions">' +
             '<span class="orig" data-interpret data-id="' + id + '" data-t="' + escAttr(it.title) + '" data-src="' + escAttr(it.src) + '" data-date="' + escAttr(it.date || '') + '" data-url="' + escAttr(it.url) + '" data-desc="' + escAttr(it.desc || '') + '">解读 💡</span>' +

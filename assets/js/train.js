@@ -690,12 +690,26 @@ window.Train = (function () {
     const trend = prev == null ? '' : (last.overall > prev ? ' ↑较上次 +' + (last.overall - prev) : (last.overall < prev ? ' ↓较上次 ' + (last.overall - prev) : ' →持平'));
     return '<div class="text-sm" id="assess-summary-' + kind + '">当前梯队：<b class="accent">' + tierName(last.tier) + '</b>　最新 ' + last.overall + ' 分　最佳 ' + best + ' 分' + trend + '<div class="muted text-xs mt4">已考 ' + hist.length + ' 次</div></div>';
   }
+  /* 每日口语话题：优先从「实时医药要闻」抽取，与新闻更新实时联动 */
   function pickSpeakTopic() {
-    const tier = App.get('speakTier', 0);
-    let pool = DATA.speakTopics;
-    if (tier === 1) pool = DATA.speakTopics.filter(x => ['工作生活', '社会热点'].includes(x.cat));
-    else if (tier === 3) pool = DATA.speakTopics.filter(x => x.cat === '医药要闻');
-    if (!pool.length) pool = DATA.speakTopics;
+    const cache = App.dget('newsCache', null);
+    const grouped = cache && cache.data && cache.data.grouped;
+    let pool = [];
+    if (grouped) {
+      Object.keys(grouped).forEach(cat => {
+        (grouped[cat] || []).forEach(it => {
+          if (it && it.title) pool.push({ t: it.title, cat: '医药要闻' });
+        });
+      });
+    }
+    if (!pool.length) {
+      // 新闻缓存暂未就绪 → 回退到内置题库（保留梯队逻辑）
+      const tier = App.get('speakTier', 0);
+      let fb = DATA.speakTopics;
+      if (tier === 1) fb = DATA.speakTopics.filter(x => ['工作生活', '社会热点'].includes(x.cat));
+      else if (tier === 3) fb = DATA.speakTopics.filter(x => x.cat === '医药要闻');
+      pool = fb.length ? fb : DATA.speakTopics;
+    }
     return pool[App.dayIndex() % pool.length];
   }
 
