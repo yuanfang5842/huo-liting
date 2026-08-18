@@ -1,8 +1,138 @@
 {
-  "updated": "2026-08-18 00:59 UTC",
-  "offline": true,
+  "updated": "2026-08-18 01:42 UTC",
+  "offline": false,
   "sources": [
-    "东方财富 / 财联社"
+    "GDELT·科技",
+    "GDELT·新能源"
   ],
-  "items": []
+  "items": [
+    {
+      "title": "Dow Jones Hangs On While Memory Chips Take Another Beating",
+      "src": "fool.com",
+      "url": "https://www.fool.com/investing/2026/07/16/dow-jones-hangs-on-while-memory-chips-take-another/?source=iedfolrf0000001",
+      "date": "7月16日",
+      "tag": "科技",
+      "desc": ""
+    },
+    {
+      "title": "Chip stocks decline : Why Nvidia , AMD , Micron and SK Hynix shares are falling",
+      "src": "hindustantimes.com",
+      "url": "https://www.hindustantimes.com/world-news/us-news/chip-stocks-decline-why-nvidia-amd-micron-and-sk-hynix-shares-are-falling-101783952497001.html",
+      "date": "7月13日",
+      "tag": "科技",
+      "desc": ""
+    },
+    {
+      "title": "CXMT 466 % listing pop makes it China most valuable firm",
+      "src": "economictimes.indiatimes.com",
+      "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/cxmts-466-listing-pop-makes-it-chinas-most-valuable-firm/articleshow/132673059.cms",
+      "date": "7月28日",
+      "tag": "科技",
+      "desc": ""
+    },
+    {
+      "title": "[ 미국 특징주 ] 세레브라스 , 가이던스 상향에도 시간외 14 % 급락",
+      "src": "newspim.com",
+      "url": "https://www.newspim.com/news/view/20260813000028",
+      "date": "8月12日",
+      "tag": "科技",
+      "desc": ""
+    },
+    {
+      "title": "Global Market : China stocks face steep weekly losses as CXMT IPO sparks liquidity crunch fears",
+      "src": "economictimes.indiatimes.com",
+      "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/global-market-china-stocks-face-steep-weekly-losses-as-cxmt-ipo-sparks-liquidity-crunch-fears/articleshow/132453628.cms",
+      "date": "7月17日",
+      "tag": "科技",
+      "desc": ""
+    },
+    {
+      "title": "Chinese AI , chip firms are driving an onshore IPO rebound",
+      "src": "moneycontrol.com",
+      "url": "https://www.moneycontrol.com/news/business/markets/chinese-ai-chip-firms-are-driving-an-onshore-ipo-rebound-13959523.html",
+      "date": "6月26日",
+      "tag": "科技",
+      "desc": ""
+    },
+    {
+      "title": "SK Hynix Stock Trades at Around 5 Times Next Year Earnings Even After Revenue Grew 257 %. Here What a Multiple That Low Usually Signals About a Cyclical Business .",
+      "src": "fool.com",
+      "url": "https://www.fool.com/investing/2026/08/16/sk-hynixs-stock-trades-at-around-5-times-next-year/?source=iedfolrf0000001",
+      "date": "8月17日",
+      "tag": "科技",
+      "desc": ""
+    },
+    {
+      "title": "KOSPI Rout Spills Into US Chip ETFs Ahead of Micron Earnings Report - VanEck Semiconductor ETF ( NASDA",
+      "src": "benzinga.com",
+      "url": "https://www.benzinga.com/etfs/sector-etfs/26/06/60051651/south-koreas-tech-rout-spills-into-us-semiconductor-etfs-ahead-of-microns-make-or-break-report",
+      "date": "6月23日",
+      "tag": "科技",
+      "desc": ""
+    },
+    {
+      "title": "Lithium Prices Have Crashed , So Why Are Investors Still Watching Pilbara Minerals ? - PILBARA MINERALS LTD",
+      "src": "benzinga.com",
+      "url": "https://www.benzinga.com/Opinion/26/06/53037727/lithium-prices-have-crashed-so-why-are-investors-still-watching-pilbara-minerals",
+      "date": "6月5日",
+      "tag": "新能源",
+      "desc": ""
+    },
+    {
+      "title": "Exide Industries : can its lithium - ion bet drive returns over the next 3 years ?",
+      "src": "livemint.com",
+      "url": "https://www.livemint.com/market/stock-market-news/exide-industries-can-its-lithium-ion-bet-drive-returns-over-the-next-3-years-11784548306083.html",
+      "date": "7月21日",
+      "tag": "新能源",
+      "desc": ""
+    },
+    {
+      "title": "Africa : Critical Minerals - the Hidden Resources Powering the Clean Energy Future",
+      "src": "allafrica.com",
+      "url": "https://allafrica.com/stories/202607220025.html",
+      "date": "7月22日",
+      "tag": "新能源",
+      "desc": ""
+    },
+    {
+      "title": "Vale ( VALE ) Gets A Higher Target As Operational Expectations Improve",
+      "src": "finance.yahoo.com",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/vale-vale-gets-higher-target-133046107.html",
+      "date": "6月5日",
+      "tag": "新能源",
+      "desc": ""
+    },
+    {
+      "title": "Elektros , Inc .: As U . S . Financial Markets Continue Booming to Record All - Time Highs , ELEKTROS Inc . Believes America is Once Again Leading the World Into a New Era of Innovation and Opportunity Reminiscent of the Historic Dot - Com Boom",
+      "src": "finanznachrichten.de",
+      "url": "https://www.finanznachrichten.de/nachrichten-2026-06/68754328-elektros-inc-as-u-s-financial-markets-continue-booming-to-record-all-time-highs-elektros-inc-believes-america-is-once-again-leading-the-world-in-200.htm",
+      "date": "6月12日",
+      "tag": "新能源",
+      "desc": ""
+    },
+    {
+      "title": "EV , Battery & Charging News : Vattenfall InCharge , WirelessCar , BMW Group , EVelution Energy , Wallbox & CATL",
+      "src": "autoconnectedcar.com",
+      "url": "https://www.autoconnectedcar.com/2026/07/ev-battery-charging-news-vattenfall-incharge-wirelesscar-bmw-group-evelution-energy-wallbox-catl/",
+      "date": "7月5日",
+      "tag": "新能源",
+      "desc": ""
+    },
+    {
+      "title": "Himadri Speciality Chemicals bets big on EV battery materials with 100 GWh manufacturing facility",
+      "src": "livemint.com",
+      "url": "https://www.livemint.com/market/stock-market-news/himadri-speciality-chemicals-bets-big-on-ev-battery-materials-with-100-gwh-manufacturing-facility-11782736245052.html",
+      "date": "6月29日",
+      "tag": "新能源",
+      "desc": ""
+    },
+    {
+      "title": "Lithium Is on the Rise Again . Does That Make Albemarle a Buy ?",
+      "src": "fool.com",
+      "url": "https://www.fool.com/investing/2026/06/29/lithium-is-on-the-rise-does-that-make-ablemarle/?source=iedfolrf0000001",
+      "date": "6月29日",
+      "tag": "新能源",
+      "desc": ""
+    }
+  ]
 }
