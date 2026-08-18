@@ -15,6 +15,15 @@ window.API = (function () {
   function cfg(k, d) { return App.get(k, d); }
   function setCfg(k, v) { App.set(k, v); }
 
+  /* 读取同域 JSON（GitHub Actions 定时生成的真实数据，无跨域/无网络墙，手机稳定） */
+  async function fetchJsonCached(path, ms) {
+    try {
+      const r = await fetch(path + '?t=' + Date.now(), { signal: AbortSignal.timeout(ms) });
+      if (!r.ok) return null;
+      return await r.json();
+    } catch (e) { return null; }
+  }
+
   /* 医药要闻三大模块（后台自动归类展示） */
   const MODS = ['国内新药/临床/科研', '海外FDA与全球进展', '政策/医保/行业'];
   /* 天行数据错误码 → 中文提示 */
@@ -233,8 +242,21 @@ window.API = (function () {
     return { isReal: true, mode: 'tianapi', grouped, sources: ['天行数据·国内新闻(医药过滤)'] };
   }
 
-  // 统一入口（带每日缓存，GDELT 为主源）
+  // 统一入口：优先读同域定时 JSON（稳定），JSON 暂缺时退回浏览器直连 GDELT 兜底
   async function fetchNews() {
+    const cached = await fetchJsonCached('assets/data/news.json', 8000);
+    if (cached && cached.grouped) {
+      const total = Object.values(cached.grouped).reduce((a, b) => a + (b ? b.length : 0), 0);
+      if (total > 0) {
+        return {
+          isReal: true, mode: 'cached',
+          grouped: cached.grouped,
+          sources: cached.sources || ['GitHub Actions 定时更新'],
+          updated: cached.updated || '',
+        };
+      }
+    }
+    // 同域 JSON 暂缺（首次 Actions 未跑）→ 退回浏览器直连 GDELT 兜底
     const mode = cfg(K.newsMode, 'gdelt');  // 默认 GDELT 全球监测（免费·无需 key）
     let data = null;
     try { data = await fetchNewsGdeltCats(); }
@@ -497,12 +519,15 @@ window.API = (function () {
   }
 
   async function fetchInvest() {
-    // 优先尝试天行财经（如果配了 Key）
+    // 优先读取同域定时 JSON（稳定、无跨域）；JSON 暂缺时退回天行/财经 RSS 兜底
+    const cached = await fetchJsonCached('assets/data/invest.json', 8000);
+    if (cached && cached.items && cached.items.length) {
+      return { isReal: true, mode: 'cached', sources: cached.sources || ['GitHub Actions 定时更新'], items: cached.items };
+    }
     const tianKey = cfg(K.tianapiKey, '');
     if (tianKey) {
       try { return await fetchInvestTianapi(tianKey); } catch (e) { console.log('[活力婷] 天行财经失败:', e.message); }
     }
-    // 降级 RSS
     try { return await fetchInvestRSS(); } catch (e) { return null; }
   }
 

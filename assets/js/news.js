@@ -138,7 +138,7 @@ window.News = (function () {
       '<div id="news-body"><div class="muted text-sm mt12">加载中…</div></div>' +
       '<div id="private-brief-slot"></div>' +
       '<div class="card mt12" id="news-help"><div class="section-title">ℹ️ 关于医药要闻来源</div>' +
-        '<div class="text-sm" style="line-height:1.75;color:var(--ink-2)">要闻由 <b>GDELT 全球媒体监测</b>实时拉取并自动归入三大分类（免费、无需配置、浏览器直连）。如某分类暂为空，点右上角「刷新」重试即可；极端断网时展示示例并保持已读进度。想参考你 WorkBuddy 空间的每日简报，见下方「我的私有简报」。</div></div>';
+        '<div class="text-sm" style="line-height:1.75;color:var(--ink-2)">要闻由 <b>GitHub Actions 每 6 小时自动更新</b>（GDELT 全球媒体监测拉取、归入三大分类），无需手机联网即可稳定显示真实要闻。想参考你 WorkBuddy 空间的每日简报，见下方「我的私有简报」。</div></div>';
     document.getElementById('news-refresh').onclick = () => backgroundLoad(c, true);
     // 注入"我的私有简报"入口（参考 WorkBuddy 空间链接内容，本地存档）
     const pb = document.getElementById('private-brief-slot');
@@ -191,8 +191,9 @@ window.News = (function () {
     const sta = document.getElementById('news-status');
     if (!st || !ss || !sta) return;
     if (!data) return;
-    st.textContent = '真实要闻 · ' + (data.mode === 'tianapi' ? '天行·健康经纬' : data.mode === 'gdelt' ? 'GDELT 全球监测' : '公开 RSS 聚合');
-    ss.innerHTML = '实时来源：' + (data.sources || []).join('、') + ' · 已按 3 大分类展示 · 更新于 ' + new Date().toLocaleTimeString('zh-CN', {hour:'2-digit',minute:'2-digit'});
+    st.textContent = '真实要闻 · ' + (data.mode === 'tianapi' ? '天行·健康经纬' : data.mode === 'gdelt' ? 'GDELT 全球监测' : data.mode === 'cached' ? '定时更新（每6小时）' : '公开 RSS 聚合');
+    const upd = data.updated ? (' · 数据更新于 ' + data.updated) : '';
+    ss.innerHTML = '实时来源：' + (data.sources || []).join('、') + ' · 已按 3 大分类展示 · 更新于 ' + new Date().toLocaleTimeString('zh-CN', {hour:'2-digit',minute:'2-digit'}) + upd;
     sta.style.background = 'var(--accent-soft)'; sta.style.color = 'var(--accent)';
   }
 

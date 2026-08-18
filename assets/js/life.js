@@ -84,13 +84,9 @@ window.Life = (function () {
     c.innerHTML =
       '<div class="page-head"><h2>投资机会参考</h2><div class="date">' + todayStr + '</div></div>' +
       '<div class="achv-banner" style="background:var(--accent-soft);color:var(--accent)"><div class="big">📈</div><div class="grow"><div class="t">数据来源</div>' +
-        '<div class="s" style="opacity:1">' + (mode === 'live' ? '实时财经 RSS（联网拉取）' : '示例数据 · 每日轮换') + '</div></div>' +
+        '<div class="s" style="opacity:1">每日定时更新（GitHub Actions 每6小时）· 真实财经要闻</div></div>' +
         '<button class="btn sm" id="invest-refresh">刷新</button></div>' +
-      '<div class="muted text-xs mb" style="margin:8px 0">' +
-        (mode === 'live'
-          ? '已开启实时财经源：尝试拉取东方财富 / 财联社等 RSS，失败自动回退示例。'
-          : '当前为示例内容，按日轮换保证每天不一样（非实时）。到「设置 → 投资机会参考 · 数据源」可切换为实时财经 RSS。') +
-      '</div>' +
+      '<div class="muted text-xs mb" style="margin:8px 0">要闻由 <b>GitHub Actions 每 6 小时自动拉取</b>东方财富 / 财联社等真实财经源并分类；联网失败或首次未生成时，展示每日轮换示例。</div>' +
       '<div id="invest-body"><div class="muted text-sm mt12">加载中…</div></div>';
 
     document.getElementById('invest-refresh').onclick = () => renderInvestBody(c, true);
@@ -98,38 +94,34 @@ window.Life = (function () {
   }
 
   async function renderInvestBody(c, force) {
-    const mode = API.cfg(API.K.investMode, 'rotate');
     const body = document.getElementById('invest-body');
     if (!body) return;
-    if (mode === 'live') {
-      if (force) body.innerHTML = '<div class="muted text-sm mt12">重新拉取实时财经中…</div>';
-      // v11: 网络优先 — 先展示缓存，后台始终尝试刷新
-      let data = null;
-      const cache = App.dget('investCache', null);
-      if (cache && cache.date === App.today() && cache.isReal && !force) {
-        data = cache;  // 有今天有效缓存 → 先展示
-        renderInvestLive(data);
-      }
-      // 后台拉取（距上次 > 10 分钟 或 强制 或 无缓存）
-      const now = Date.now();
-      const lastFetch = cache ? (cache.fetchTime || 0) : 0;
-      const needFetch = force || !data || (now - lastFetch > 10 * 60 * 1000);
-      if (needFetch) {
-        try {
-          console.log('[活力婷] 拉取投资数据...');
-          const fresh = await API.fetchInvest();
-          if (fresh && fresh.isReal) {
-            App.dset('investCache', Object.assign({ date: App.today(), fetchTime: Date.now() }, fresh));
-            renderInvestLive(fresh);  // 用新数据替换
-            return;
-          }
-        } catch (e) { console.warn('[活力婷] 投资数据拉取失败:', e); }
-      }
-      if (data && data.isReal) return;  // 已展示缓存，不需要回退
-      App.toast('实时拉取失败，显示每日轮换示例');
-      renderInvestRotated(body, App.todayLabel());
+    // 用户若选择"仅示例"，直接展示每日轮换，不走真实源
+    const mode = API.cfg(API.K.investMode, 'auto');
+    if (mode === 'example') { renderInvestRotated(body, App.todayLabel()); return; }
+    // 始终优先展示真实数据（GitHub Actions 定时生成，已缓存到本地）
+    const cache = App.dget('investCache', null);
+    if (cache && cache.date === App.today() && cache.isReal && !force) {
+      renderInvestLive(cache);
       return;
     }
+    const now = Date.now();
+    const lastFetch = cache ? (cache.fetchTime || 0) : 0;
+    const needFetch = force || !cache || !cache.isReal || cache.date !== App.today() || (now - lastFetch > 10 * 60 * 1000);
+    if (needFetch) {
+      if (force) body.innerHTML = '<div class="muted text-sm mt12">重新拉取实时财经中…</div>';
+      try {
+        console.log('[活力婷] 拉取投资数据...');
+        const fresh = await API.fetchInvest();
+        if (fresh && fresh.isReal) {
+          App.dset('investCache', Object.assign({ date: App.today(), fetchTime: Date.now() }, fresh));
+          renderInvestLive(fresh);
+          return;
+        }
+      } catch (e) { console.warn('[活力婷] 投资数据拉取失败:', e); }
+    }
+    if (cache && cache.isReal) return;  // 已展示缓存，不需要回退
+    if (force) App.toast('实时拉取失败，显示每日轮换示例');
     renderInvestRotated(body, App.todayLabel());
   }
 
@@ -164,7 +156,7 @@ window.Life = (function () {
 
   function renderInvestLive(data) {
     const body = document.getElementById('invest-body');
-    const modeLabel = data.mode === 'tianapi-caijing' ? '天行数据·财经新闻（实时）' : '实时财经 RSS（联网拉取）';
+    const modeLabel = data.mode === 'tianapi-caijing' ? '天行数据·财经新闻（实时）' : data.mode === 'cached' ? 'GitHub Actions 定时更新（真实财经）' : '实时财经 RSS（联网拉取）';
     let html = '<div class="muted text-xs" style="margin:4px 0 8px;color:#1E9E83">● 实时数据 · 来源：' + (data.sources || []).join('、') + '</div>';
     // 按标签分组显示
     const groups = {};

@@ -51,9 +51,9 @@ window.Settings = (function () {
         '<button class="btn sm mt8" id="set-ttstest">测试朗读</button></div>' +
       '<div class="card"><div class="section-title">投资机会参考 · 数据源</div>' +
         '<div class="field"><label>数据来源</label><select id="set-invest" style="border:1px solid var(--line);border-radius:10px;padding:8px;width:100%">' +
-          '<option value="rotate">示例·每日轮换（默认·离线可用）</option>' +
-          '<option value="live">实时财经 RSS（需联网）</option></select></div>' +
-        '<div class="muted text-xs">默认每天轮换示例内容，保证每天不一样；选择"实时"会尝试拉取财经 RSS（东方财富/新浪等），失败自动回退示例。</div></div>' +
+          '<option value="auto">每日定时更新（真实财经·默认）</option>' +
+          '<option value="example">仅每日轮换示例</option></select></div>' +
+        '<div class="muted text-xs">默认由 <b>GitHub Actions 每 6 小时自动拉取</b>真实财经要闻并分板块展示（无需手机联网）；选择"仅示例"则固定显示每日轮换的示例内容。</div></div>' +
       '<button class="btn block mt12" id="set-save">保存设置</button>' +
       '<button class="btn block mt12 ghost" id="set-install">安装到桌面 / 手机</button>' +
       '<div class="muted text-xs mt12">所有密钥仅保存在本机浏览器 localStorage，不会上传到除你填写的接口之外的任何地方。</div>';
@@ -90,7 +90,7 @@ window.Settings = (function () {
       provSel.value = savedProv;
       applyProvider(savedProv);
     }
-    document.getElementById('set-invest').value = v(K.investMode) || 'rotate';
+    document.getElementById('set-invest').value = v(K.investMode) || 'auto';
 
     document.getElementById('set-save').onclick = () => {
       API.setCfg(K.weatherCity, document.getElementById('set-city').value.trim() || '上海');
