@@ -1,8 +1,9 @@
 {
-  "updated": "2026-08-18 03:16 UTC",
+  "updated": "2026-08-18 04:09 UTC",
   "offline": false,
   "sources": [
-    "GDELT·商业航天产业政策与进展",
+    "GDELT·半导体产业政策与进展及风险",
+    "GDELT·新能源产业政策与进展",
     "GDELT·消费产业政策与进展"
   ],
   "modules": [
@@ -12,46 +13,31 @@
     },
     {
       "name": "半导体产业政策与进展及风险",
-      "items": []
-    },
-    {
-      "name": "商业航天产业政策与进展",
       "items": [
         {
-          "title": "Space Sector is Test Bed for New Whole - of - Nation System",
-          "src": "jamestown.org",
-          "url": "https://jamestown.org/space-sector-is-test-bed-for-new-whole-of-nation-system/",
-          "date": "8月5日"
-        },
-        {
-          "title": "Contract Manufacturing and Technology Transfer Risks",
-          "src": "jamestown.org",
-          "url": "http://jamestown.org/contract-manufacturing-and-technology-transfer-risks/",
-          "date": "6月2日"
-        },
-        {
-          "title": "《 TAIPEI TIMES 》 ITRI obtains Green UAS certification for drones - 焦點",
-          "src": "news.ltn.com.tw",
-          "url": "https://news.ltn.com.tw/news/focus/breakingnews/5461266",
-          "date": "6月4日"
-        },
-        {
-          "title": "中國軍事力量篇 -- 開欄文 ： 中國第四艘航母將使用核能為動力 --- A . Mendelson - 時事論壇",
-          "src": "city.udn.com",
-          "url": "https://city.udn.com/2976/7247294?raid=7295943",
-          "date": "5月30日"
-        },
-        {
-          "title": "At least five dead as rain floods Chiba Prefecture",
-          "src": "taipeitimes.com",
-          "url": "https://www.taipeitimes.com/News/front/archives/2026/08/15/2003862525",
-          "date": "8月14日"
+          "title": "China reaches major milestone as domestic DUV chip tools enter mass production",
+          "src": "thenews.com.pk",
+          "url": "https://www.thenews.com.pk/latest/1410425-china-reaches-major-milestone-as-domestic-duv-chip-tools-enter-mass-production",
+          "date": "7月27日",
+          "dom": false
         }
       ]
     },
     {
-      "name": "新能源产业政策与进展",
+      "name": "商业航天产业政策与进展",
       "items": []
+    },
+    {
+      "name": "新能源产业政策与进展",
+      "items": [
+        {
+          "title": "【 AICC Original Article 】 Exports of Anhui new energy vehicles , lithium batteries and photovoltaic products doubled",
+          "src": "english.anhuinews.com",
+          "url": "http://english.anhuinews.com/newscenter/headline/202606/t20260616_9332090.html",
+          "date": "6月16日",
+          "dom": false
+        }
+      ]
     },
     {
       "name": "医药行业产业政策与进展",
@@ -61,28 +47,11 @@
       "name": "消费产业政策与进展",
       "items": [
         {
-          "title": "Bitget Onchain Tokenized Stocks Trading Fees Is Gaining Momentum ; Here Is Where Crypto Traders Should Start - 链影行者",
-          "src": "blog.udn.com",
-          "url": "https://blog.udn.com:443/7855f5b7/191117704",
-          "date": "7月6日"
-        },
-        {
-          "title": "《 TAIPEI TIMES 》 More than 3m registered for civil defense program - 焦點",
-          "src": "news.ltn.com.tw",
-          "url": "https://news.ltn.com.tw/news/focus/breakingnews/5518579",
-          "date": "7月26日"
-        },
-        {
-          "title": "相约费城 ！ 浙大管院AOM招聘现场等你来",
-          "src": "163.com",
-          "url": "https://www.163.com/dy/article/L21UMI240516ATFG.html",
-          "date": "7月17日"
-        },
-        {
-          "title": "卡尼惊慌失措 ， 加拿大人突然停止飞行 - 博客",
-          "src": "blog.wenxuecity.com",
-          "url": "https://blog.wenxuecity.com/myblog/72696/202607/4732.html",
-          "date": "7月8日"
+          "title": "Retail moves seen boosting economy",
+          "src": "usa.chinadaily.com.cn",
+          "url": "http://usa.chinadaily.com.cn/a/202607/10/WS6a5047e9a310986e2b464840.html",
+          "date": "7月10日",
+          "dom": false
         }
       ]
     },
