@@ -1,12 +1,183 @@
 {
-  "updated": "2026-08-18 00:59 UTC",
-  "offline": true,
+  "updated": "2026-08-18 02:37 UTC",
+  "offline": false,
   "sources": [
-    "GDELT 全球监测"
+    "GDELT·国内新药/临床/科研",
+    "GDELT·海外FDA与全球进展"
   ],
   "grouped": {
-    "国内新药/临床/科研": [],
-    "海外FDA与全球进展": [],
+    "国内新药/临床/科研": [
+      {
+        "title": "Calls for collaboration on drug innovation mount",
+        "src": "europe.chinadaily.com.cn",
+        "url": "http://europe.chinadaily.com.cn/a/202606/06/WS6a237bb9a310d6866eb4cc17.html",
+        "date": "6月6日",
+        "module": "国内新药/临床/科研"
+      },
+      {
+        "title": "Calls for collaboration on drug innovation mount",
+        "src": "usa.chinadaily.com.cn",
+        "url": "http://usa.chinadaily.com.cn/a/202606/06/WS6a237bb9a310d6866eb4cc17.html",
+        "date": "6月6日",
+        "module": "国内新药/临床/科研"
+      },
+      {
+        "title": "Systemic leap : China drug innovation push yields bumper crop",
+        "src": "scmp.com",
+        "url": "https://www.scmp.com/business/china-business/article/3361181/systemic-leap-chinas-drug-innovation-push-yields-bumper-crop",
+        "date": "7月20日",
+        "module": "国内新药/临床/科研"
+      },
+      {
+        "title": "China Drug Company Tests Cancer Drug on US Patients | Pharma Race Intensifies",
+        "src": "divyamarathi.bhaskar.com",
+        "url": "https://divyamarathi.bhaskar.com/business/news/china-drug-company-tests-cancer-drug-us-patients-138091287.html",
+        "date": "6月3日",
+        "module": "国内新药/临床/科研"
+      },
+      {
+        "title": "失智症醫療邁向精準化與智慧化 ！ 中醫大附醫舉辦高峰會 ， 聚焦AI與精準醫療",
+        "src": "n.yam.com",
+        "url": "https://n.yam.com/Article/20260602123111",
+        "date": "6月2日",
+        "module": "国内新药/临床/科研"
+      },
+      {
+        "title": "全球首款乙肝功能性治愈药物  南京造 -- 健康 · 生活 -- 人民网",
+        "src": "health.people.com.cn",
+        "url": "http://health.people.com.cn/n1/2026/0720/c14739-40763835.html",
+        "date": "7月20日",
+        "module": "国内新药/临床/科研"
+      },
+      {
+        "title": "全球首创 ！ 乙肝治疗再突破",
+        "src": "baijiahao.baidu.com",
+        "url": "https://baijiahao.baidu.com/s?id=1871124111413315773",
+        "date": "7月19日",
+        "module": "国内新药/临床/科研"
+      },
+      {
+        "title": "別只看輔大東吳 ！ 台灣最強私立大學 「 世界排名打敗台大清大 」， 競爭力強出路好 、 業界都搶人 | 蔡惠芯 | 風生活",
+        "src": "storm.mg",
+        "url": "https://www.storm.mg/lifestyle/11153897",
+        "date": "8月4日",
+        "module": "国内新药/临床/科研"
+      },
+      {
+        "title": "蕭美琴副總統稱許中醫大體系亞洲生技大展AI醫療與精準醫學創新量能",
+        "src": "cna.com.tw",
+        "url": "https://www.cna.com.tw:443/postwrite/chi/439401",
+        "date": "7月20日",
+        "module": "国内新药/临床/科研"
+      },
+      {
+        "title": "把愛種下 ， 讓希望長大 ！ 竹縣衛生局肯定中醫大新竹附醫植栽傳遞器捐價值",
+        "src": "n.yam.com",
+        "url": "https://n.yam.com/Article/20260610146654",
+        "date": "6月10日",
+        "module": "国内新药/临床/科研"
+      },
+      {
+        "title": "全球首创 ！ 乙肝治疗再突破",
+        "src": "yangtse.com",
+        "url": "https://www.yangtse.com/news/jiangsu/nanjing/202607/t20260719_373754.html",
+        "date": "7月19日",
+        "module": "国内新药/临床/科研"
+      },
+      {
+        "title": "直腸癌保肛手術挑戰高 ！ 兩醫院跨院區整合治療照護 ， 達文西手術成功保肛",
+        "src": "n.yam.com",
+        "url": "https://n.yam.com/Article/20260811840481",
+        "date": "8月11日",
+        "module": "国内新药/临床/科研"
+      }
+    ],
+    "海外FDA与全球进展": [
+      {
+        "title": "Study : FDA approves more orphan drugs with specific cancer , pediatric indications over EMA",
+        "src": "raps.org",
+        "url": "https://www.raps.org/resource/study-fda-approves-more-orphan-drugs-with-specific-cancer-pediatric-indications-over-ema.html",
+        "date": "6月3日",
+        "module": "海外FDA与全球进展"
+      },
+      {
+        "title": "Nuovi farmaci contro colesterolo psoriasi e malattie rare | la decisine dellEma cambia tutto per i pazienti",
+        "src": "zazoom.it",
+        "url": "https://www.zazoom.it/2026-07-30/nuovi-farmaci-contro-colesterolo-psoriasi-e-malattie-rare-la-decisine-dellema-cambia-tutto-per-i-pazienti/19518584/",
+        "date": "7月30日",
+        "module": "海外FDA与全球进展"
+      },
+      {
+        "title": "Medicines watchdog approves first - ever mRNA - based flu shot in the US",
+        "src": "euronews.com",
+        "url": "https://www.euronews.com/health/2026/08/06/medicines-watchdog-approves-first-ever-mrna-based-flu-shot-in-the-us",
+        "date": "8月6日",
+        "module": "海外FDA与全球进展"
+      },
+      {
+        "title": "Discordance in orphan drug approvals between the U . S . Food and Drug Administration and the European Medicines Agency : A retrospective observational analysis",
+        "src": "journals.plos.org",
+        "url": "https://journals.plos.org:443/plosmedicine/article?id=10.1371/journal.pmed.1004861",
+        "date": "7月6日",
+        "module": "海外FDA与全球进展"
+      },
+      {
+        "title": "Study : Regulators often diverge from FDA on expedited oncology approvals",
+        "src": "raps.org",
+        "url": "https://www.raps.org/resource/study-regulators-often-diverge-from-fda-on-expedited-oncology-approvals.html",
+        "date": "6月22日",
+        "module": "海外FDA与全球进展"
+      },
+      {
+        "title": "Recon : WHO releases first interim list of medical device authorities ; AstraZeneca using AI to hedge late - stage risks",
+        "src": "raps.org",
+        "url": "https://www.raps.org/resource/recon-who-releases-first-interim-list-of-medical-device-authorities-astrazeneca-using-ai-to-hedge-late-stage-risks.html",
+        "date": "7月27日",
+        "module": "海外FDA与全球进展"
+      },
+      {
+        "title": "New kind of flu shot is on the way as the FDA approves Moderna mRNA - based vaccine",
+        "src": "isp.netscape.com",
+        "url": "https://isp.netscape.com:443/news/story/0001/20260806/59d991a6bf70c26e2f0c210cc8ca87f1",
+        "date": "8月6日",
+        "module": "海外FDA与全球进展"
+      },
+      {
+        "title": "FDA approves new mRNA - based flu vaccine",
+        "src": "upi.com",
+        "url": "https://www.upi.com/Top_News/US/2026/08/06/FDA-approves-new-mrna-flu-vaccine/7331786020145/",
+        "date": "8月6日",
+        "module": "海外FDA与全球进展"
+      },
+      {
+        "title": "New kind of flu shot is on the way as the FDA approves Moderna mRNA - based vaccine – KTBB News , Weather , Talk",
+        "src": "ktbb.com",
+        "url": "https://ktbb.com/post/?p=1531136",
+        "date": "8月6日",
+        "module": "海外FDA与全球进展"
+      },
+      {
+        "title": "FDA approves first mRNA - based flu vaccine",
+        "src": "wmur.com",
+        "url": "https://www.wmur.com/article/moderna-first-mrna-flu-vaccine-fda-approval/73364300",
+        "date": "8月6日",
+        "module": "海外FDA与全球进展"
+      },
+      {
+        "title": "FDA approves first mRNA - based flu vaccine",
+        "src": "wtae.com",
+        "url": "https://www.wtae.com/article/moderna-first-mrna-flu-vaccine-fda-approval/73364300",
+        "date": "8月6日",
+        "module": "海外FDA与全球进展"
+      },
+      {
+        "title": "FDA approves first mRNA - based flu vaccine",
+        "src": "wbaltv.com",
+        "url": "https://www.wbaltv.com/article/moderna-first-mrna-flu-vaccine-fda-approval/73364300",
+        "date": "8月6日",
+        "module": "海外FDA与全球进展"
+      }
+    ],
     "政策/医保/行业": []
   }
 }

@@ -1,75 +1,11 @@
 {
-  "updated": "2026-08-18 01:42 UTC",
+  "updated": "2026-08-18 02:37 UTC",
   "offline": false,
   "sources": [
-    "GDELT·科技",
-    "GDELT·新能源"
+    "GDELT·新能源",
+    "GDELT·金融"
   ],
   "items": [
-    {
-      "title": "Dow Jones Hangs On While Memory Chips Take Another Beating",
-      "src": "fool.com",
-      "url": "https://www.fool.com/investing/2026/07/16/dow-jones-hangs-on-while-memory-chips-take-another/?source=iedfolrf0000001",
-      "date": "7月16日",
-      "tag": "科技",
-      "desc": ""
-    },
-    {
-      "title": "Chip stocks decline : Why Nvidia , AMD , Micron and SK Hynix shares are falling",
-      "src": "hindustantimes.com",
-      "url": "https://www.hindustantimes.com/world-news/us-news/chip-stocks-decline-why-nvidia-amd-micron-and-sk-hynix-shares-are-falling-101783952497001.html",
-      "date": "7月13日",
-      "tag": "科技",
-      "desc": ""
-    },
-    {
-      "title": "CXMT 466 % listing pop makes it China most valuable firm",
-      "src": "economictimes.indiatimes.com",
-      "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/cxmts-466-listing-pop-makes-it-chinas-most-valuable-firm/articleshow/132673059.cms",
-      "date": "7月28日",
-      "tag": "科技",
-      "desc": ""
-    },
-    {
-      "title": "[ 미국 특징주 ] 세레브라스 , 가이던스 상향에도 시간외 14 % 급락",
-      "src": "newspim.com",
-      "url": "https://www.newspim.com/news/view/20260813000028",
-      "date": "8月12日",
-      "tag": "科技",
-      "desc": ""
-    },
-    {
-      "title": "Global Market : China stocks face steep weekly losses as CXMT IPO sparks liquidity crunch fears",
-      "src": "economictimes.indiatimes.com",
-      "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/global-market-china-stocks-face-steep-weekly-losses-as-cxmt-ipo-sparks-liquidity-crunch-fears/articleshow/132453628.cms",
-      "date": "7月17日",
-      "tag": "科技",
-      "desc": ""
-    },
-    {
-      "title": "Chinese AI , chip firms are driving an onshore IPO rebound",
-      "src": "moneycontrol.com",
-      "url": "https://www.moneycontrol.com/news/business/markets/chinese-ai-chip-firms-are-driving-an-onshore-ipo-rebound-13959523.html",
-      "date": "6月26日",
-      "tag": "科技",
-      "desc": ""
-    },
-    {
-      "title": "SK Hynix Stock Trades at Around 5 Times Next Year Earnings Even After Revenue Grew 257 %. Here What a Multiple That Low Usually Signals About a Cyclical Business .",
-      "src": "fool.com",
-      "url": "https://www.fool.com/investing/2026/08/16/sk-hynixs-stock-trades-at-around-5-times-next-year/?source=iedfolrf0000001",
-      "date": "8月17日",
-      "tag": "科技",
-      "desc": ""
-    },
-    {
-      "title": "KOSPI Rout Spills Into US Chip ETFs Ahead of Micron Earnings Report - VanEck Semiconductor ETF ( NASDA",
-      "src": "benzinga.com",
-      "url": "https://www.benzinga.com/etfs/sector-etfs/26/06/60051651/south-koreas-tech-rout-spills-into-us-semiconductor-etfs-ahead-of-microns-make-or-break-report",
-      "date": "6月23日",
-      "tag": "科技",
-      "desc": ""
-    },
     {
       "title": "Lithium Prices Have Crashed , So Why Are Investors Still Watching Pilbara Minerals ? - PILBARA MINERALS LTD",
       "src": "benzinga.com",
@@ -132,6 +68,70 @@
       "url": "https://www.fool.com/investing/2026/06/29/lithium-is-on-the-rise-does-that-make-ablemarle/?source=iedfolrf0000001",
       "date": "6月29日",
       "tag": "新能源",
+      "desc": ""
+    },
+    {
+      "title": "长线资金密集加仓红利股 ！ 看好中国股市前景 _ 东方财富网",
+      "src": "finance.eastmoney.com",
+      "url": "https://finance.eastmoney.com/a/202605313755118441.html",
+      "date": "5月31日",
+      "tag": "金融",
+      "desc": ""
+    },
+    {
+      "title": "长线资金 ， 密集加仓红利股 ！",
+      "src": "finance.sina.com.cn",
+      "url": "https://finance.sina.com.cn/stock/zqgd/2026-05-31/doc-inhztucv9540076.shtml",
+      "date": "5月31日",
+      "tag": "金融",
+      "desc": ""
+    },
+    {
+      "title": "长线资金密集加仓红利股 ！ 看好中国股市前景 _ 天天基金网",
+      "src": "fund.eastmoney.com",
+      "url": "https://fund.eastmoney.com/a/202605313755118441.html",
+      "date": "5月31日",
+      "tag": "金融",
+      "desc": ""
+    },
+    {
+      "title": "罕见券商股与科技股共振 这一波行情或许不同 ？ _ 东方财富网",
+      "src": "finance.eastmoney.com",
+      "url": "https://finance.eastmoney.com/a/202606223778099278.html",
+      "date": "6月22日",
+      "tag": "金融",
+      "desc": ""
+    },
+    {
+      "title": "陆家嘴论坛政策红包 非银金融估值修复加速 - CFi . CN 中财网",
+      "src": "cfi.net.cn",
+      "url": "http://www.cfi.net.cn/p20260622000360.html",
+      "date": "6月22日",
+      "tag": "金融",
+      "desc": ""
+    },
+    {
+      "title": "非银中报业绩超预期在即 券商保险配置价值凸显 - CFi . CN 中财网",
+      "src": "cfi.net.cn",
+      "url": "http://www.cfi.net.cn/p20260714001820.html",
+      "date": "7月14日",
+      "tag": "金融",
+      "desc": ""
+    },
+    {
+      "title": "险资投资  南向通  债券开闸 ！ 首批试点以头部机构为主 _ 东方财富网",
+      "src": "finance.eastmoney.com",
+      "url": "https://finance.eastmoney.com/a/202606123770151957.html",
+      "date": "6月12日",
+      "tag": "金融",
+      "desc": ""
+    },
+    {
+      "title": "UBS Boosts China Tech Bets , Adds Kuaishou and Meituan to Focus List",
+      "src": "econotimes.com",
+      "url": "http://www.econotimes.com/UBS-Boosts-China-Tech-Bets-Adds-Kuaishou-and-Meituan-to-Focus-List-1746890",
+      "date": "7月16日",
+      "tag": "金融",
       "desc": ""
     }
   ]
