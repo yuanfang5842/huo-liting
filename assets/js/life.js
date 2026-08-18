@@ -102,8 +102,10 @@ window.Life = (function () {
     // 始终优先展示真实数据（GitHub Actions 定时生成，已缓存到本地）
     const cache = App.dget('investCache', null);
     if (cache && cache.date === App.today() && cache.isReal && !force) {
-      renderInvestLive(cache);
-      return;
+      const totalItems = (cache.modules || []).reduce((s, m) => s + ((m && m.items) ? m.items.length : 0), 0);
+      if (totalItems > 0) { renderInvestLive(cache); return; }
+      // 缓存存在但模块全空，当 force 时重拉，否则直接回退示例
+      if (!force) { renderInvestRotated(body, App.todayLabel()); return; }
     }
     const now = Date.now();
     const lastFetch = cache ? (cache.fetchTime || 0) : 0;
@@ -114,14 +116,17 @@ window.Life = (function () {
         console.log('[活力婷] 拉取投资数据...');
         const fresh = await API.fetchInvest();
         if (fresh && fresh.isReal) {
-          App.dset('investCache', Object.assign({ date: App.today(), fetchTime: Date.now() }, fresh));
-          renderInvestLive(fresh);
-          return;
+          const totalItems = (fresh.modules || []).reduce((s, m) => s + ((m && m.items) ? m.items.length : 0), 0);
+          if (totalItems > 0) {
+            App.dset('investCache', Object.assign({ date: App.today(), fetchTime: Date.now() }, fresh));
+            renderInvestLive(fresh);
+            return;
+          }
         }
       } catch (e) { console.warn('[活力婷] 投资数据拉取失败:', e); }
     }
-    if (cache && cache.isReal) return;  // 已展示缓存，不需要回退
-    if (force) App.toast('实时拉取失败，显示每日轮换示例');
+    if (cache && cache.isReal) return;  // 已展示缓存（即便空也不重复回退）
+    if (force) App.toast('实时拉取失败或数据为空，显示每日轮换示例');
     renderInvestRotated(body, App.todayLabel());
   }
 
@@ -152,6 +157,9 @@ window.Life = (function () {
       });
     });
     body.innerHTML = html;
+    // 回退示例时同步更新顶部状态栏
+    const stEl = body.closest('.page')?.querySelector('.achv-banner .s');
+    if (stEl) stEl.textContent = '每日轮换示例 · GitHub Actions 数据为空或未生成';
   }
 
   function renderInvestLive(data) {

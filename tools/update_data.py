@@ -48,11 +48,15 @@ def region_of(a):
         return 'dom' if is_cjk(a.get('title', '')) else 'intl'
     return 'intl'
 
+# 医药要闻：强医药核心词过滤，防止健康/养生/泛财经内容混入
+MED_CORE_KWS = ["药", "临床", "FDA", "EMA", "医保", "集采", "谈判", "目录", "疫苗", "生物", "制药", "医药", "医疗", "健康", "疾病", "医院", "医生", "患者", "疗法", "治疗", "药品", "新药", "中医药", "中成药", "化药", "仿制药", "创新药", "抗体", "ADC", "CAR-T", "mRNA", "PD-1", "双抗", "基因治疗", "罕见病", "孤儿药"]
+
 # 医药要闻三大分类（GDELT 中文优先查询 + 英文兜底）
 NEWS_CATS = [
     {
         "cat": "国内新药/临床/科研",
         "q": 'sourcelang:Chinese (新药 OR 临床 OR 创新药 OR 生物医药 OR 临床试验 OR 研发 获批)',
+        "q_en": 'sourcelang:English (new drug OR clinical trial OR innovative drug OR biotech OR drug approval)',
         "fallback": '(新药 OR 临床 OR 创新药 OR 生物医药 OR 临床试验)',
         "kws": ["新药", "临床", "创新药", "生物医药", "研发", "获批", "上市", "试验", "疫苗", "管线", "适应症", "双抗", "ADC", "CAR-T", "基因治疗", "生物类似药"],
         "max": 30,
@@ -60,6 +64,7 @@ NEWS_CATS = [
     {
         "cat": "海外FDA与全球进展",
         "q": 'sourcelang:Chinese (FDA OR EMA OR 美国 药 获批 OR 海外 新药 OR 全球 疫苗 OR 欧盟 药品)',
+        "q_en": 'sourcelang:English (FDA OR EMA OR drug approval OR orphan drug OR expedited approval)',
         "fallback": '(FDA OR EMA OR 海外 新药 OR 全球 医药)',
         "kws": ["FDA", "EMA", "美国", "欧盟", "海外", "全球", "国际", "辉瑞", "默沙东", "诺华", "罗氏", "强生", "阿斯利康", "礼来", "诺和诺德", "赛诺菲"],
         "max": 30,
@@ -67,6 +72,7 @@ NEWS_CATS = [
     {
         "cat": "政策/医保/行业",
         "q": 'sourcelang:Chinese (医保 OR 集采 OR 医药政策 OR 医疗改革 OR 药品 谈判 OR 中成药 OR 医药 行业)',
+        "q_en": 'sourcelang:English (China healthcare OR drug reimbursement OR centralized procurement OR NDRC healthcare)',
         "fallback": '(医保 OR 集采 OR 医药 政策 OR 医疗 改革)',
         "kws": ["医保", "集采", "政策", "医改", "医疗改革", "药品", "谈判", "中成药", "医药", "国家医保", "卫健委", "药监局", "NMPA", "国务院", "医保局", "DRG", "DIP"],
         "max": 30,
@@ -231,14 +237,22 @@ def take_unique(items, n, global_seen, domestic, require_kws=None):
     return out
 
 
-def build_tianxing_pool():
-    """预拉取天行三大接口，合并为国内源池。"""
-    pool = []
+def build_tianxing_health_pool():
+    """预拉取天行健康资讯（仅用于医药要闻），并严格过滤医药核心词。"""
     if not TIANXING_KEY:
-        return pool
-    pool += fetch_tianxing("health", num=50)
-    pool += fetch_tianxing("guonei", num=50)
-    pool += fetch_tianxing("caijing", num=50)
+        return []
+    raw = fetch_tianxing("health", num=80)
+    # 标题必须命中至少一个医药核心词，否则视为养生/科普/泛健康内容丢弃
+    return [a for a in raw if matches_kws(a.get("title", ""), MED_CORE_KWS)]
+
+
+def build_tianxing_invest_pool():
+    """预拉取天行财经/国内新闻（仅用于投资机会），合并为国内财经源池。"""
+    if not TIANXING_KEY:
+        return []
+    pool = []
+    pool += fetch_tianxing("caijing", num=60)
+    pool += fetch_tianxing("guonei", num=60)
     return pool
 
 
@@ -246,15 +260,15 @@ def build_news(global_seen):
     grouped = {c["cat"]: [] for c in NEWS_CATS}
     sources = []
 
-    # 预拉天行国内池（全部视为国内中文）
-    tian_pool = build_tianxing_pool()
+    # 医药要闻国内源：仅天行 health 接口 + 强医药核心词过滤
+    tian_pool = build_tianxing_health_pool()
     if tian_pool:
-        sources.append("天行数据·国内")
+        sources.append("天行数据·健康资讯")
 
     for c in NEWS_CATS:
         print("[news] querying:", c["cat"], file=sys.stderr)
 
-        # 国内 7 条：优先天行按关键词过滤
+        # 国内 7 条：优先天行按分类关键词过滤（已保证命中医药核心词）
         dom_from_tian = [a for a in tian_pool if matches_kws(a.get("title", ""), c["kws"])]
         # 天行不足时，用 GDELT 中文优先 + sourcecountry:China 补国内
         gdelt_dom = []
@@ -266,13 +280,14 @@ def build_news(global_seen):
 
         items_dom = take_unique(dom_from_tian + gdelt_dom, DOM_PER_CAT, global_seen, True)
 
-        # 国际 3 条：GDELT 国际英文/中文
+        # 国际 3 条：GDELT 国际英文/中文（该分类的国际查询）
         intl_pool = fetch_gdelt(c["q"], c["max"])
         if not intl_pool and c.get("fallback"):
+            # fallback 英文查询去掉中文泛词，避免命中泛财经/加密内容
             intl_pool = fetch_gdelt(c["fallback"], c["max"])
         intl = [a for a in intl_pool if region_of(a) == "intl"]
-        if len(intl) < INTL_PER_CAT:
-            extra = fetch_gdelt(c["fallback"], c["max"]) if c.get("fallback") else []
+        if len(intl) < INTL_PER_CAT and c.get("q_en"):
+            extra = fetch_gdelt(c["q_en"], c["max"])
             intl += [a for a in extra if region_of(a) == "intl"]
         items_intl = take_unique(intl, INTL_PER_CAT, global_seen, False)
 
@@ -290,8 +305,8 @@ def build_invest(global_seen):
     modules = []
     sources = []
 
-    # 预拉天行财经/国内池（全部视为国内中文）
-    tian_pool = build_tianxing_pool() if TIANXING_KEY else []
+    # 投资机会国内源：天行 caijing + guonei（财经/国内新闻）
+    tian_pool = build_tianxing_invest_pool()
     if tian_pool:
         sources.append("天行数据·财经/国内")
 

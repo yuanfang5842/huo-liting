@@ -519,10 +519,13 @@ window.API = (function () {
   }
 
   async function fetchInvest() {
-    // 优先读取同域定时 JSON（稳定、无跨域）；JSON 暂缺时退回天行/财经 RSS 兜底
+    // 优先读取同域定时 JSON（稳定、无跨域）；JSON 暂缺或模块全空时回退示例/兜底
     const cached = await fetchJsonCached('assets/data/invest.json', 8000);
     if (cached && cached.modules && cached.modules.length) {
-      return { isReal: true, mode: 'cached', sources: cached.sources || ['GitHub Actions 定时更新'], modules: cached.modules };
+      const totalItems = cached.modules.reduce((s, m) => s + ((m && m.items) ? m.items.length : 0), 0);
+      if (totalItems > 0) {
+        return { isReal: true, mode: 'cached', sources: cached.sources || ['GitHub Actions 定时更新'], modules: cached.modules };
+      }
     }
     // 兜底：天行财经 / 财经 RSS（返回 items，按 tag 归并为 modules 适配渲染）
     const tianKey = cfg(K.tianapiKey, '');
