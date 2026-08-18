@@ -1,93 +1,119 @@
 {
-  "updated": "2026-08-18 06:26 UTC",
+  "updated": "2026-08-18 07:25 UTC",
   "offline": false,
   "sources": [
-    "GDELT·海外FDA与全球进展"
+    "GDELT·国内新药/临床/科研",
+    "GDELT·政策/医保/行业"
   ],
   "grouped": {
-    "国内新药/临床/科研": [],
-    "海外FDA与全球进展": [
+    "国内新药/临床/科研": [
       {
-        "title": "Bitcoin , Altcoins Selloff Amid Rising ETF Outflows",
-        "src": "cointelegraph.com",
-        "url": "https://cointelegraph.com/markets/price-predictions-527-btc-eth-bnb-xrp-sol-doge-hype-zec-ada-xmr",
-        "date": "5月27日",
+        "title": "Wednesday Exclusive Tour",
+        "src": "thebeijinger.com",
+        "url": "https://www.thebeijinger.com/events/2026/may/wednesday-exclusive-tour",
+        "date": "5月26日",
         "desc": "",
         "dom": true
       },
       {
-        "title": "Bitcoin Faces a  Likely  Breakdown From a 50 - Month Trend Line",
-        "src": "cointelegraph.com",
-        "url": "https://cointelegraph.com/markets/bitcoin-copying-2022-almost-perfectly-as-trader-sees-key-support-failing",
-        "date": "6月3日",
+        "title": "Real friend vs Deal friend - 博客",
+        "src": "blog.wenxuecity.com",
+        "url": "https://blog.wenxuecity.com/myblog/82763/202606/15251.html",
+        "date": "6月20日",
         "desc": "",
         "dom": true
       },
       {
-        "title": "Bitcoin  Compressed  at $62 , 000 as a Four - Year Adoption Trend Stays Intact",
-        "src": "cointelegraph.com",
-        "url": "https://cointelegraph.com/markets/bitcoin-four-year-trend-calls-for-76k-as-analysis-says-btc-price-not-broken",
+        "title": "Guidance raised after exceptional 2Q26 earnings - 宏观研究报告 _ 数据中心 _ 东方财富网",
+        "src": "data.eastmoney.com",
+        "url": "https://data.eastmoney.com/report/zw_stock.jshtml?encodeUrl=HagcmlRLa+iJHADDyqAEY5593tuRG7bYyhGW4mXB8lw=",
+        "date": "8月4日",
+        "desc": "",
+        "dom": true
+      },
+      {
+        "title": "Shenzhen Dapeng New District Sports Center opens to public",
+        "src": "goguangdong.southcn.com",
+        "url": "https://goguangdong.southcn.com/node_34d0836583/ac96579fbd.shtml",
+        "date": "8月12日",
+        "desc": "",
+        "dom": true
+      },
+      {
+        "title": "2026年卡地亚完整品牌指南 ： 3大发展阶段 ， 经典款平均保值率超75 %， 入手不亏",
+        "src": "k.sina.com.cn",
+        "url": "https://k.sina.com.cn/article_7857141524_1d452771401903kvbk.html",
+        "date": "6月25日",
+        "desc": "",
+        "dom": true
+      },
+      {
+        "title": "温德姆奖赏计划 | 在全球各地获取积分",
+        "src": "k.sina.com.cn",
+        "url": "https://k.sina.com.cn/article_7857141524_1d4527714019047seu.html",
+        "date": "7月20日",
+        "desc": "",
+        "dom": true
+      },
+      {
+        "title": "2026年百达翡丽手雷5167 / 1A二手行情 ： 保值率约85 %， 是二手热门表TOP3 ， 入手不亏",
+        "src": "k.sina.com.cn",
+        "url": "https://k.sina.com.cn/article_7857141524_1d452771401903k5rc.html",
         "date": "6月24日",
         "desc": "",
         "dom": true
       },
       {
-        "title": "Bitcoin NUPL Bottom Not Yet in Sight With BTC Due New Lows",
-        "src": "cointelegraph.com",
-        "url": "https://cointelegraph.com/markets/bitcoin-can-fall-below-58k-if-one-of-its-cleanest-metrics-copies-history-analysis",
-        "date": "7月7日",
-        "desc": "",
-        "dom": true
-      },
-      {
-        "title": "Gold holds ground at $4 , 000 and moves higher",
-        "src": "kitco.com",
-        "url": "http://www.kitco.com/opinion/2026-07-21/gold-holds-ground-4000-and-moves-higher",
-        "date": "7月22日",
-        "desc": "",
-        "dom": true
-      },
-      {
-        "title": "Iran Pressure and US PCE Inflation Takes Bitcoin to Lowest Since Mid - April",
-        "src": "cointelegraph.com",
-        "url": "https://cointelegraph.com/markets/bitcoin-price-falls-to-six-week-lows-as-us-pce-inflation-hits-highest-since-2023",
-        "date": "5月28日",
-        "desc": "",
-        "dom": true
-      },
-      {
-        "title": "الصين بصدد فتح أسوقها أمام حبوب القهوة المؤهلة من 53 دولة أفريقية بدءا من 20 يوليو القادم",
-        "src": "arabic.people.com.cn",
-        "url": "http://arabic.people.com.cn/n3/2026/0528/c31664-20461542.html",
-        "date": "5月28日",
-        "desc": "",
-        "dom": true
-      },
-      {
-        "title": "Discordance in orphan drug approvals between the U . S . Food and Drug Administration and the European Medicines Agency : A retrospective observational analysis",
-        "src": "journals.plos.org",
-        "url": "https://journals.plos.org:443/plosmedicine/article?id=10.1371/journal.pmed.1004861",
-        "date": "7月6日",
+        "title": "Stramsen Biotech Thanks the FDA for Their Review and Positive Feedback on Pre IND Application for SBX - 1977 Wound Care Medicine",
+        "src": "prnewswire.com",
+        "url": "https://www.prnewswire.com/news-releases/stramsen-biotech-thanks-the-fda-for-their-review-and-positive-feedback-on-pre-ind-application-for-sbx-1977-wound-care-medicine-302788594.html",
+        "date": "6月2日",
         "desc": "",
         "dom": false
       },
       {
-        "title": "Study : Regulators often diverge from FDA on expedited oncology approvals",
-        "src": "raps.org",
-        "url": "https://www.raps.org/resource/study-regulators-often-diverge-from-fda-on-expedited-oncology-approvals.html",
-        "date": "6月22日",
+        "title": "Shanghai Ark Biopharmaceutical Co ., Ltd .: ArkBio RSV Antiviral Drug Ziresovir Receives FDA Approval for Phase II Clinical Trial",
+        "src": "finanznachrichten.de",
+        "url": "https://www.finanznachrichten.de/nachrichten-2026-08/69314640-shanghai-ark-biopharmaceutical-co-ltd-arkbio-s-rsv-antiviral-drug-ziresovir-receives-fda-approval-for-phase-ii-clinical-trial-008.htm",
+        "date": "8月14日",
         "desc": "",
         "dom": false
       },
       {
-        "title": "Study : FDA approves more orphan drugs with specific cancer , pediatric indications over EMA",
-        "src": "raps.org",
-        "url": "https://www.raps.org/resource/study-fda-approves-more-orphan-drugs-with-specific-cancer-pediatric-indications-over-ema.html",
-        "date": "6月3日",
+        "title": "Shanghai Ark Biopharmaceutical Co ., Ltd .: ArkBio Announces China IND Approval for its Antiviral Drug - Fc Conjugate ( AFC ) Candidate AK0406 for Influenza Prophylaxis",
+        "src": "finanznachrichten.de",
+        "url": "https://www.finanznachrichten.de/nachrichten-2026-08/69296513-shanghai-ark-biopharmaceutical-co-ltd-arkbio-announces-china-ind-approval-for-its-antiviral-drug-fc-conjugate-afc-candidate-ak0406-for-influenza-008.htm",
+        "date": "8月13日",
         "desc": "",
         "dom": false
       }
     ],
-    "政策/医保/行业": []
+    "海外FDA与全球进展": [],
+    "政策/医保/行业": [
+      {
+        "title": "AI in healthcare : India has built the foundation , but 3 barriers are blocking scale",
+        "src": "businesstoday.in",
+        "url": "https://www.businesstoday.in/industry/pharma/story/ai-in-healthcare-india-has-built-the-foundation-but-3-barriers-are-blocking-scale-548168-2026-08-09",
+        "date": "8月9日",
+        "desc": "",
+        "dom": false
+      },
+      {
+        "title": "Yidu Tech Gong Yingying at Summer Davos : Building Evidence Infrastructure to Expand Access to Innovative Medicines",
+        "src": "prnewswire.com",
+        "url": "http://www.prnewswire.com/news-releases/yidu-techs-gong-yingying-at-summer-davos-building-evidence-infrastructure-to-expand-access-to-innovative-medicines-302809095.html",
+        "date": "6月24日",
+        "desc": "",
+        "dom": false
+      },
+      {
+        "title": "AI in MedTech can transform healthcare , report paper highlights five priorities",
+        "src": "news.webindia123.com",
+        "url": "https://news.webindia123.com/news/Articles/India/20260808/4484942.html",
+        "date": "8月8日",
+        "desc": "",
+        "dom": false
+      }
+    ]
   }
 }
