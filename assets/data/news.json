@@ -1,17 +1,108 @@
 {
-  "updated": "2026-08-18 04:09 UTC",
+  "updated": "2026-08-18 05:37 UTC",
   "offline": false,
   "sources": [
+    "GDELT·国内新药/临床/科研",
     "GDELT·海外FDA与全球进展"
   ],
   "grouped": {
-    "国内新药/临床/科研": [],
+    "国内新药/临床/科研": [
+      {
+        "title": "Wednesday Exclusive Tour",
+        "src": "thebeijinger.com",
+        "url": "https://www.thebeijinger.com/events/2026/may/wednesday-exclusive-tour",
+        "date": "5月26日",
+        "desc": "",
+        "dom": true
+      },
+      {
+        "title": "Real friend vs Deal friend - 博客",
+        "src": "blog.wenxuecity.com",
+        "url": "https://blog.wenxuecity.com/myblog/82763/202606/15251.html",
+        "date": "6月20日",
+        "desc": "",
+        "dom": true
+      },
+      {
+        "title": "Guidance raised after exceptional 2Q26 earnings - 宏观研究报告 _ 数据中心 _ 东方财富网",
+        "src": "data.eastmoney.com",
+        "url": "https://data.eastmoney.com/report/zw_stock.jshtml?encodeUrl=HagcmlRLa+iJHADDyqAEY5593tuRG7bYyhGW4mXB8lw=",
+        "date": "8月4日",
+        "desc": "",
+        "dom": true
+      },
+      {
+        "title": "Shenzhen Dapeng New District Sports Center opens to public",
+        "src": "goguangdong.southcn.com",
+        "url": "https://goguangdong.southcn.com/node_34d0836583/ac96579fbd.shtml",
+        "date": "8月12日",
+        "desc": "",
+        "dom": true
+      },
+      {
+        "title": "2026年卡地亚完整品牌指南 ： 3大发展阶段 ， 经典款平均保值率超75 %， 入手不亏",
+        "src": "k.sina.com.cn",
+        "url": "https://k.sina.com.cn/article_7857141524_1d452771401903kvbk.html",
+        "date": "6月25日",
+        "desc": "",
+        "dom": true
+      },
+      {
+        "title": "温德姆奖赏计划 | 在全球各地获取积分",
+        "src": "k.sina.com.cn",
+        "url": "https://k.sina.com.cn/article_7857141524_1d4527714019047seu.html",
+        "date": "7月20日",
+        "desc": "",
+        "dom": true
+      },
+      {
+        "title": "2026年百达翡丽手雷5167 / 1A二手行情 ： 保值率约85 %， 是二手热门表TOP3 ， 入手不亏",
+        "src": "k.sina.com.cn",
+        "url": "https://k.sina.com.cn/article_7857141524_1d452771401903k5rc.html",
+        "date": "6月24日",
+        "desc": "",
+        "dom": true
+      }
+    ],
     "海外FDA与全球进展": [
+      {
+        "title": "盤房來料丨港股跌勢未止 暫險守二萬三",
+        "src": "finance.now.com",
+        "url": "https://finance.now.com/news/post.php?id=975795",
+        "date": "6月25日",
+        "desc": "",
+        "dom": true
+      },
+      {
+        "title": "# SpaceX 新聞 | 鉅亨網",
+        "src": "news.cnyes.com",
+        "url": "https://news.cnyes.com/tag/SpaceX",
+        "date": "6月15日",
+        "desc": "",
+        "dom": true
+      },
+      {
+        "title": "【 A股收評 】 三大指數延續個別發展 創業板指漲2 . 05 %",
+        "src": "hkcd.com",
+        "url": "https://www.hkcd.com/hkcdweb/content/2026/06/18/content_8760641.html",
+        "date": "6月18日",
+        "desc": "",
+        "dom": true
+      },
+      {
+        "title": "# CSP 新聞 | 鉅亨網",
+        "src": "news.cnyes.com",
+        "url": "https://news.cnyes.com/tag/CSP",
+        "date": "6月3日",
+        "desc": "",
+        "dom": true
+      },
       {
         "title": "Discordance in orphan drug approvals between the U . S . Food and Drug Administration and the European Medicines Agency : A retrospective observational analysis",
         "src": "journals.plos.org",
         "url": "https://journals.plos.org:443/plosmedicine/article?id=10.1371/journal.pmed.1004861",
         "date": "7月6日",
+        "desc": "",
         "dom": false
       },
       {
@@ -19,6 +110,7 @@
         "src": "raps.org",
         "url": "https://www.raps.org/resource/study-regulators-often-diverge-from-fda-on-expedited-oncology-approvals.html",
         "date": "6月22日",
+        "desc": "",
         "dom": false
       },
       {
@@ -26,6 +118,7 @@
         "src": "raps.org",
         "url": "https://www.raps.org/resource/study-fda-approves-more-orphan-drugs-with-specific-cancer-pediatric-indications-over-ema.html",
         "date": "6月3日",
+        "desc": "",
         "dom": false
       }
     ],
