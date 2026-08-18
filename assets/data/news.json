@@ -1,34 +1,34 @@
 {
-  "updated": "2026-08-18 03:16 UTC",
+  "updated": "2026-08-18 04:09 UTC",
   "offline": false,
   "sources": [
-    "GDELT·国内新药/临床/科研"
+    "GDELT·海外FDA与全球进展"
   ],
   "grouped": {
-    "国内新药/临床/科研": [
+    "国内新药/临床/科研": [],
+    "海外FDA与全球进展": [
       {
-        "title": "Real friend vs Deal friend - 博客",
-        "src": "blog.wenxuecity.com",
-        "url": "https://blog.wenxuecity.com/myblog/82763/202606/15251.html",
-        "date": "6月20日",
-        "module": "国内新药/临床/科研"
+        "title": "Discordance in orphan drug approvals between the U . S . Food and Drug Administration and the European Medicines Agency : A retrospective observational analysis",
+        "src": "journals.plos.org",
+        "url": "https://journals.plos.org:443/plosmedicine/article?id=10.1371/journal.pmed.1004861",
+        "date": "7月6日",
+        "dom": false
       },
       {
-        "title": "《 TAIPEI TIMES 》 School health amendments advance - 焦點",
-        "src": "news.ltn.com.tw",
-        "url": "https://news.ltn.com.tw/news/focus/breakingnews/5537958",
-        "date": "8月12日",
-        "module": "国内新药/临床/科研"
+        "title": "Study : Regulators often diverge from FDA on expedited oncology approvals",
+        "src": "raps.org",
+        "url": "https://www.raps.org/resource/study-regulators-often-diverge-from-fda-on-expedited-oncology-approvals.html",
+        "date": "6月22日",
+        "dom": false
       },
       {
-        "title": "Guidance raised after exceptional 2Q26 earnings - 宏观研究报告 _ 数据中心 _ 东方财富网",
-        "src": "data.eastmoney.com",
-        "url": "https://data.eastmoney.com/report/zw_stock.jshtml?encodeUrl=HagcmlRLa+iJHADDyqAEY5593tuRG7bYyhGW4mXB8lw=",
-        "date": "8月4日",
-        "module": "国内新药/临床/科研"
+        "title": "Study : FDA approves more orphan drugs with specific cancer , pediatric indications over EMA",
+        "src": "raps.org",
+        "url": "https://www.raps.org/resource/study-fda-approves-more-orphan-drugs-with-specific-cancer-pediatric-indications-over-ema.html",
+        "date": "6月3日",
+        "dom": false
       }
     ],
-    "海外FDA与全球进展": [],
     "政策/医保/行业": []
   }
 }
