@@ -86,7 +86,7 @@ window.Life = (function () {
       '<div class="achv-banner" style="background:var(--accent-soft);color:var(--accent)"><div class="big">📈</div><div class="grow"><div class="t">数据来源</div>' +
         '<div class="s" style="opacity:1">每日定时更新（GitHub Actions 每6小时）· 真实财经要闻</div></div>' +
         '<button class="btn sm" id="invest-refresh">刷新</button></div>' +
-      '<div class="muted text-xs mb" style="margin:8px 0">要闻由 <b>GitHub Actions 每 6 小时自动拉取</b>东方财富 / 财联社等真实财经源并分类；联网失败或首次未生成时，展示每日轮换示例。</div>' +
+      '<div class="muted text-xs mb" style="margin:8px 0">要闻由 <b>GitHub Actions 每 6 小时自动拉取</b>全球及中文财经源（GDELT 中文优先），归入 7 大行业模块、每模块 5 条、跨模块去重；联网失败或首次未生成时，展示每日轮换示例。</div>' +
       '<div id="invest-body"><div class="muted text-sm mt12">加载中…</div></div>';
 
     document.getElementById('invest-refresh').onclick = () => renderInvestBody(c, true);
@@ -158,16 +158,12 @@ window.Life = (function () {
     const body = document.getElementById('invest-body');
     const modeLabel = data.mode === 'tianapi-caijing' ? '天行数据·财经新闻（实时）' : data.mode === 'cached' ? 'GitHub Actions 定时更新（真实财经）' : '实时财经 RSS（联网拉取）';
     let html = '<div class="muted text-xs" style="margin:4px 0 8px;color:#1E9E83">● 实时数据 · 来源：' + (data.sources || []).join('、') + '</div>';
-    // 按标签分组显示
-    const groups = {};
-    (data.items || []).forEach(it => {
-      const g = it.tag || '财经';
-      if (!groups[g]) groups[g] = [];
-      groups[g].push(it);
-    });
-    Object.keys(groups).forEach(g => {
-      html += '<div class="section-title mt12">' + escapeHtml(g) + ' <span class="muted text-xs">(' + groups[g].length + ')</span></div>';
-      groups[g].forEach(it => {
+    // 按固定 7 大模块展示（每模块 5 条，跨模块已去重）
+    (data.modules || []).forEach(m => {
+      const items = m.items || [];
+      html += '<div class="section-title mt12">' + escapeHtml(m.name) + ' <span class="muted text-xs">(' + items.length + ')</span></div>';
+      if (!items.length) { html += '<div class="muted text-xs">暂无相关动态</div>'; }
+      items.forEach(it => {
         const dateStr = it.date ? ('来源：' + escapeHtml(it.src) + ' · ' + it.date) : ('来源：' + escapeHtml(it.src || '财经'));
         html += '<div class="card" style="margin-bottom:10px"><div class="bold" style="font-size:13px;line-height:1.4">' + escapeHtml(it.title) + '</div>' +
           '<div class="text-xs muted mt8">' + dateStr + '</div>' +

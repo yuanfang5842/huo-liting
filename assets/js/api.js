@@ -175,17 +175,17 @@ window.API = (function () {
   const NEWS_CATS = [
     {
       cat: '国内新药/临床/科研',
-      q: '("China pharmaceutical" OR "China biotech" OR "Chinese drug" OR "China clinical trial" OR "new drug China")',
+      q: 'sourcelang:Chinese (新药 OR 临床 OR 创新药 OR 生物医药 OR 临床试验 OR 研发 获批)',
       max: 12,
     },
     {
       cat: '海外FDA与全球进展',
-      q: '(FDA OR EMA) (drug OR vaccine OR approves OR approved OR approval)',
+      q: 'sourcelang:Chinese (FDA OR EMA OR 美国 药 获批 OR 海外 新药 OR 全球 疫苗 OR 欧盟 药品)',
       max: 12,
     },
     {
       cat: '政策/医保/行业',
-      q: '("drug pricing" OR "pharmaceutical policy" OR "healthcare policy" OR "drug reimbursement" OR "generic drug")',
+      q: 'sourcelang:Chinese (医保 OR 集采 OR 医药政策 OR 医疗改革 OR 药品 谈判 OR 中成药 OR 医药 行业)',
       max: 12,
     },
   ];
@@ -521,14 +521,23 @@ window.API = (function () {
   async function fetchInvest() {
     // 优先读取同域定时 JSON（稳定、无跨域）；JSON 暂缺时退回天行/财经 RSS 兜底
     const cached = await fetchJsonCached('assets/data/invest.json', 8000);
-    if (cached && cached.items && cached.items.length) {
-      return { isReal: true, mode: 'cached', sources: cached.sources || ['GitHub Actions 定时更新'], items: cached.items };
+    if (cached && cached.modules && cached.modules.length) {
+      return { isReal: true, mode: 'cached', sources: cached.sources || ['GitHub Actions 定时更新'], modules: cached.modules };
     }
+    // 兜底：天行财经 / 财经 RSS（返回 items，按 tag 归并为 modules 适配渲染）
     const tianKey = cfg(K.tianapiKey, '');
-    if (tianKey) {
-      try { return await fetchInvestTianapi(tianKey); } catch (e) { console.log('[活力婷] 天行财经失败:', e.message); }
+    let fallback = null;
+    if (tianKey) { try { fallback = await fetchInvestTianapi(tianKey); } catch (e) { console.log('[活力婷] 天行财经失败:', e.message); } }
+    if (!fallback) { try { fallback = await fetchInvestRSS(); } catch (e) { return null; } }
+    if (fallback && fallback.items && fallback.items.length) {
+      const groups = {};
+      fallback.items.forEach(it => { const g = it.tag || '财经'; (groups[g] = groups[g] || []).push(it); });
+      return {
+        isReal: true, mode: fallback.mode || 'invest', sources: fallback.sources || ['实时财经'],
+        modules: Object.keys(groups).map(n => ({ name: n, items: groups[n] })),
+      };
     }
-    try { return await fetchInvestRSS(); } catch (e) { return null; }
+    return null;
   }
 
   return {
