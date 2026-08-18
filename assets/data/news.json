@@ -1,9 +1,9 @@
 {
-  "updated": "2026-08-18 07:25 UTC",
+  "updated": "2026-08-18 07:57 UTC",
   "offline": false,
   "sources": [
     "GDELT·国内新药/临床/科研",
-    "GDELT·政策/医保/行业"
+    "GDELT·海外FDA与全球进展"
   ],
   "grouped": {
     "国内新药/临床/科研": [
@@ -62,58 +62,66 @@
         "date": "6月24日",
         "desc": "",
         "dom": true
+      }
+    ],
+    "海外FDA与全球进展": [
+      {
+        "title": "盤房來料丨港股跌勢未止 暫險守二萬三",
+        "src": "finance.now.com",
+        "url": "https://finance.now.com/news/post.php?id=975795",
+        "date": "6月25日",
+        "desc": "",
+        "dom": true
       },
       {
-        "title": "Stramsen Biotech Thanks the FDA for Their Review and Positive Feedback on Pre IND Application for SBX - 1977 Wound Care Medicine",
-        "src": "prnewswire.com",
-        "url": "https://www.prnewswire.com/news-releases/stramsen-biotech-thanks-the-fda-for-their-review-and-positive-feedback-on-pre-ind-application-for-sbx-1977-wound-care-medicine-302788594.html",
-        "date": "6月2日",
+        "title": "# SpaceX 新聞 | 鉅亨網",
+        "src": "news.cnyes.com",
+        "url": "https://news.cnyes.com/tag/SpaceX",
+        "date": "6月15日",
+        "desc": "",
+        "dom": true
+      },
+      {
+        "title": "【 A股收評 】 三大指數延續個別發展 創業板指漲2 . 05 %",
+        "src": "hkcd.com",
+        "url": "https://www.hkcd.com/hkcdweb/content/2026/06/18/content_8760641.html",
+        "date": "6月18日",
+        "desc": "",
+        "dom": true
+      },
+      {
+        "title": "# CSP 新聞 | 鉅亨網",
+        "src": "news.cnyes.com",
+        "url": "https://news.cnyes.com/tag/CSP",
+        "date": "6月3日",
+        "desc": "",
+        "dom": true
+      },
+      {
+        "title": "Discordance in orphan drug approvals between the U . S . Food and Drug Administration and the European Medicines Agency : A retrospective observational analysis",
+        "src": "journals.plos.org",
+        "url": "https://journals.plos.org:443/plosmedicine/article?id=10.1371/journal.pmed.1004861",
+        "date": "7月6日",
         "desc": "",
         "dom": false
       },
       {
-        "title": "Shanghai Ark Biopharmaceutical Co ., Ltd .: ArkBio RSV Antiviral Drug Ziresovir Receives FDA Approval for Phase II Clinical Trial",
-        "src": "finanznachrichten.de",
-        "url": "https://www.finanznachrichten.de/nachrichten-2026-08/69314640-shanghai-ark-biopharmaceutical-co-ltd-arkbio-s-rsv-antiviral-drug-ziresovir-receives-fda-approval-for-phase-ii-clinical-trial-008.htm",
-        "date": "8月14日",
+        "title": "Study : Regulators often diverge from FDA on expedited oncology approvals",
+        "src": "raps.org",
+        "url": "https://www.raps.org/resource/study-regulators-often-diverge-from-fda-on-expedited-oncology-approvals.html",
+        "date": "6月22日",
         "desc": "",
         "dom": false
       },
       {
-        "title": "Shanghai Ark Biopharmaceutical Co ., Ltd .: ArkBio Announces China IND Approval for its Antiviral Drug - Fc Conjugate ( AFC ) Candidate AK0406 for Influenza Prophylaxis",
-        "src": "finanznachrichten.de",
-        "url": "https://www.finanznachrichten.de/nachrichten-2026-08/69296513-shanghai-ark-biopharmaceutical-co-ltd-arkbio-announces-china-ind-approval-for-its-antiviral-drug-fc-conjugate-afc-candidate-ak0406-for-influenza-008.htm",
-        "date": "8月13日",
+        "title": "Study : FDA approves more orphan drugs with specific cancer , pediatric indications over EMA",
+        "src": "raps.org",
+        "url": "https://www.raps.org/resource/study-fda-approves-more-orphan-drugs-with-specific-cancer-pediatric-indications-over-ema.html",
+        "date": "6月3日",
         "desc": "",
         "dom": false
       }
     ],
-    "海外FDA与全球进展": [],
-    "政策/医保/行业": [
-      {
-        "title": "AI in healthcare : India has built the foundation , but 3 barriers are blocking scale",
-        "src": "businesstoday.in",
-        "url": "https://www.businesstoday.in/industry/pharma/story/ai-in-healthcare-india-has-built-the-foundation-but-3-barriers-are-blocking-scale-548168-2026-08-09",
-        "date": "8月9日",
-        "desc": "",
-        "dom": false
-      },
-      {
-        "title": "Yidu Tech Gong Yingying at Summer Davos : Building Evidence Infrastructure to Expand Access to Innovative Medicines",
-        "src": "prnewswire.com",
-        "url": "http://www.prnewswire.com/news-releases/yidu-techs-gong-yingying-at-summer-davos-building-evidence-infrastructure-to-expand-access-to-innovative-medicines-302809095.html",
-        "date": "6月24日",
-        "desc": "",
-        "dom": false
-      },
-      {
-        "title": "AI in MedTech can transform healthcare , report paper highlights five priorities",
-        "src": "news.webindia123.com",
-        "url": "https://news.webindia123.com/news/Articles/India/20260808/4484942.html",
-        "date": "8月8日",
-        "desc": "",
-        "dom": false
-      }
-    ]
+    "政策/医保/行业": []
   }
 }

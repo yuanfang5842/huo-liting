@@ -1,11 +1,8 @@
 {
-  "updated": "2026-08-18 07:25 UTC",
+  "updated": "2026-08-18 07:57 UTC",
   "offline": false,
   "sources": [
-    "GDELT·新能源产业政策与进展",
-    "GDELT·医药行业产业政策与进展",
-    "GDELT·消费产业政策与进展",
-    "GDELT·其它重大政策及事件"
+    "GDELT·新能源产业政策与进展"
   ],
   "modules": [
     {
@@ -35,42 +32,15 @@
     },
     {
       "name": "医药行业产业政策与进展",
-      "items": [
-        {
-          "title": "Eli Lilly strikes a $3 billion Chinese drug deal",
-          "src": "theblaze.com",
-          "url": "https://www.theblaze.com/news/eli-lilly-strikes-a-3-billion-chinese-drug-deal",
-          "date": "6月1日",
-          "desc": "",
-          "dom": false
-        }
-      ]
+      "items": []
     },
     {
       "name": "消费产业政策与进展",
-      "items": [
-        {
-          "title": "Retail moves seen boosting economy",
-          "src": "usa.chinadaily.com.cn",
-          "url": "http://usa.chinadaily.com.cn/a/202607/10/WS6a5047e9a310986e2b464840.html",
-          "date": "7月10日",
-          "desc": "",
-          "dom": false
-        }
-      ]
+      "items": []
     },
     {
       "name": "其它重大政策及事件",
-      "items": [
-        {
-          "title": "China central bank to strengthen financial support for key areas",
-          "src": "china.org.cn",
-          "url": "http://www.china.org.cn/2026-08/13/content_118645285.shtml",
-          "date": "8月13日",
-          "desc": "",
-          "dom": false
-        }
-      ]
+      "items": []
     }
   ]
 }
