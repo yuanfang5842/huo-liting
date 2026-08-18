@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-活力婷 · 定时数据生成器 (v35)
+活力婷 · 定时数据生成器 (v36)
 - 医药要闻：天行数据（国内中文主力源） + GDELT（国际英文补充源）。
   每个分类 10 条 = 7 条中国国内(含中国台湾) + 3 条国际；跨分类/跨模块全局去重。
 - 投资机会：天行财经/国内（国内主力源） + GDELT（国际英文补充源）。
@@ -309,6 +309,30 @@ def build_news(global_seen):
 
     # 2) 每个分类独立查询，互不抢条目
     #    —— 根治旧版「首分类把相关条目吸干、后续分类全空」的分配 bug
+    #    国际候选额外做「语义重归类」：先按分类拉取英文池，再按标题关键词算最佳分类，
+    #    避免 FDA 新闻被第一个分类抢走。
+    raw_intl_by_cat = {}
+    for c in NEWS_CATS:
+        cat = c["cat"]
+        pool = []
+        if c.get("q_en"):
+            pool += fetch_gdelt(c["q_en"], c["max"])
+        if len(pool) < INTL_PER_CAT and c.get("fallback"):
+            pool += fetch_gdelt(c["fallback"], c["max"])
+        norm = []
+        for a in pool:
+            a = normalize_gdelt(a)
+            if a and matches_kws(a["title"], MED_CORE_KWS) and not is_cjk(a["title"]):
+                norm.append(a)
+        raw_intl_by_cat[cat] = norm
+
+    # 把每条国际候选归到得分最高的分类（按该分类 kws）
+    intl_best = {c["cat"]: [] for c in NEWS_CATS}
+    for cat, items in raw_intl_by_cat.items():
+        for a in items:
+            best = max(NEWS_CATS, key=lambda c: score_kws(a["title"], c["kws"]))
+            intl_best[best["cat"]].append(a)
+
     for c in NEWS_CATS:
         cat = c["cat"]
 
@@ -322,17 +346,8 @@ def build_news(global_seen):
         dom_candidates.sort(key=lambda a: score_kws(a["title"], c["kws"]), reverse=True)
         items_dom = take_unique(dom_candidates, DOM_PER_CAT, global_seen, True, require_kws=MED_CORE_KWS)
 
-        # 国际候选：该分类专属英文查询，标题命中医药核心词且为英文（非中文）
-        intl_candidates = []
-        pool = []
-        if c.get("q_en"):
-            pool += fetch_gdelt(c["q_en"], c["max"])
-        if len(pool) < INTL_PER_CAT and c.get("fallback"):
-            pool += fetch_gdelt(c["fallback"], c["max"])
-        for a in pool:
-            a = normalize_gdelt(a)
-            if a and matches_kws(a["title"], MED_CORE_KWS) and not is_cjk(a["title"]):
-                intl_candidates.append(a)
+        # 国际候选：从语义最佳分类池中取，标题命中医药核心词且为英文（非中文）
+        intl_candidates = intl_best.get(cat, [])
         intl_candidates.sort(key=lambda a: score_kws(a["title"], c["kws"]), reverse=True)
         items_intl = take_unique(intl_candidates, INTL_PER_CAT, global_seen, False, require_kws=MED_CORE_KWS)
 
@@ -359,12 +374,17 @@ def build_invest(global_seen):
     for m in INVEST_MODULES:
         name = m["name"]
 
-        # 国内候选：天行按模块关键词 + GDELT 中文 sourcecountry:China（中文标题）
+        # 国内候选：天行按模块关键词 + GDELT 中文多策略兜底（中文标题）
         dom_candidates = [a for a in tian_pool if matches_kws(a["title"], m["kws"])]
-        gdelt_dom = fetch_gdelt(m["q"] + " sourcecountry:China", m["max"])
+        gdelt_dom = []
+        # 策略1：中文 + sourcecountry:China
+        gdelt_dom += fetch_gdelt(m["q"] + " sourcecountry:China", m["max"])
+        # 策略2：仅中文（部分中文报道未标注国家，可补漏）
         if len(gdelt_dom) < DOM_PER_MODULE:
-            # 兜底：用模块关键词构造更宽泛的中文查询，避免模块因特定词无结果而空白
-            broad = "sourcelang:Chinese (" + " OR ".join(m["kws"][:4]) + ") sourcecountry:China"
+            gdelt_dom += fetch_gdelt(m["q"], m["max"])
+        # 策略3：宽泛中文查询
+        if len(gdelt_dom) < DOM_PER_MODULE:
+            broad = "sourcelang:Chinese (" + " OR ".join(m["kws"][:6]) + ")"
             gdelt_dom += fetch_gdelt(broad, m["max"])
         for a in gdelt_dom:
             a = normalize_gdelt(a)
@@ -373,11 +393,16 @@ def build_invest(global_seen):
         dom_candidates.sort(key=lambda a: score_kws(a["title"], m["kws"]), reverse=True)
         dom_items = take_unique(dom_candidates, DOM_PER_MODULE, global_seen, True)
 
-        # 国际英文候选：模块专属 q_en，标题命中模块关键词且为英文（非中文）
+        # 国际英文候选：模块专属 q_en + 多策略英文兜底（非中文）
         intl_candidates = []
-        pool = fetch_gdelt(m.get("q_en") or m["q"], m["max"])
+        pool = []
+        if m.get("q_en"):
+            pool += fetch_gdelt(m["q_en"], m["max"])
         if len(pool) < INTL_PER_MODULE:
-            pool += fetch_gdelt("sourcelang:English (" + " OR ".join(m["kws"][:4]) + ")", m["max"])
+            pool += fetch_gdelt("sourcelang:English (" + " OR ".join(m["kws"][:6]) + ")", m["max"])
+        if len(pool) < INTL_PER_MODULE:
+            # 再兜底：把模块关键词直接用英文 OR 查询
+            pool += fetch_gdelt("sourcelang:English (" + " OR ".join(m["kws"][:8]) + ")", m["max"])
         for a in pool:
             a = normalize_gdelt(a)
             if a and matches_kws(a["title"], m["kws"]) and not is_cjk(a["title"]):
