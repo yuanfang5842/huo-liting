@@ -175,17 +175,17 @@ window.API = (function () {
   const NEWS_CATS = [
     {
       cat: '国内新药/临床/科研',
-      q: '(新药 OR 临床 OR 医药 OR 研发 OR 创新药 OR 生物制药) sourcecountry:China OR (China pharmaceutical OR Chinese drug OR China biotech OR "China FDA")',
+      q: '("China pharmaceutical" OR "China biotech" OR "Chinese drug" OR "China clinical trial" OR "new drug China")',
       max: 12,
     },
     {
       cat: '海外FDA与全球进展',
-      q: '(FDA OR EMA) (drug OR vaccine OR approves OR approved OR trial) OR domain:fda.gov',
+      q: '(FDA OR EMA) (drug OR vaccine OR approves OR approved OR approval)',
       max: 12,
     },
     {
       cat: '政策/医保/行业',
-      q: '(domain:nhsa.gov.cn OR domain:nmpa.gov.cn OR domain:nhc.gov.cn OR domain:gov.cn) OR (pharmaceutical (policy OR industry OR pricing OR market))',
+      q: '("drug pricing" OR "pharmaceutical policy" OR "healthcare policy" OR "drug reimbursement" OR "generic drug")',
       max: 12,
     },
   ];

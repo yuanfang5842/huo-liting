@@ -23,17 +23,20 @@ UA = {"User-Agent": "Mozilla/5.0 (compatible; HuoLitingBot/1.0)"}
 NEWS_CATS = [
     {
         "cat": "国内新药/临床/科研",
-        "q": '(新药 OR 临床 OR 医药 OR 研发 OR 创新药 OR 生物制药) sourcecountry:China OR (China pharmaceutical OR Chinese drug OR China biotech OR "China FDA")',
+        "q": '("China pharmaceutical" OR "China biotech" OR "Chinese drug" OR "China clinical trial" OR "new drug China")',
+        "fallback": '(pharmaceutical OR biotech OR "clinical trial") China',
         "max": 12,
     },
     {
         "cat": "海外FDA与全球进展",
-        "q": '(FDA OR EMA) (drug OR vaccine OR approves OR approved OR trial) OR domain:fda.gov',
+        "q": '(FDA OR EMA) (drug OR vaccine OR approves OR approved OR approval)',
+        "fallback": '("FDA approves" OR "EMA approves" OR "FDA drug" OR "vaccine approval")',
         "max": 12,
     },
     {
         "cat": "政策/医保/行业",
-        "q": '(domain:nhsa.gov.cn OR domain:nmpa.gov.cn OR domain:nhc.gov.cn OR domain:gov.cn) OR (pharmaceutical (policy OR industry OR pricing OR market))',
+        "q": '("drug pricing" OR "pharmaceutical policy" OR "healthcare policy" OR "drug reimbursement" OR "generic drug")',
+        "fallback": '("pharma industry" OR "pharmaceutical market" OR "drug policy")',
         "max": 12,
     },
 ]
@@ -89,9 +92,14 @@ def build_news():
     grouped = {c["cat"]: [] for c in NEWS_CATS}
     sources = []
     for c in NEWS_CATS:
+        print("[news] querying:", c["cat"], file=sys.stderr)
         arts = fetch_gdelt(c["q"], c["max"])
+        if not arts and c.get("fallback"):
+            print("[news] primary empty, trying fallback for", c["cat"], file=sys.stderr)
+            arts = fetch_gdelt(c["fallback"], c["max"])
         if arts:
             sources.append("GDELT·" + c["cat"])
+        print("[news]", c["cat"], "got", len(arts), "articles", file=sys.stderr)
         for a in arts:
             title = (a.get("title") or "").strip()
             if not title:
