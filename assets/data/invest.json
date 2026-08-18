@@ -1,8 +1,8 @@
 {
-  "updated": "2026-08-18 07:57 UTC",
+  "updated": "2026-08-18 09:03 UTC",
   "offline": false,
   "sources": [
-    "GDELT·新能源产业政策与进展"
+    "GDELT·半导体产业政策与进展及风险"
   ],
   "modules": [
     {
@@ -11,7 +11,16 @@
     },
     {
       "name": "半导体产业政策与进展及风险",
-      "items": []
+      "items": [
+        {
+          "title": "Samsung Joins TSMC in Stalling ASML High NA EUV Rollout , Pushing the Costly Machines to 1nm Chips",
+          "src": "wccftech.com",
+          "url": "https://wccftech.com/samsung-joins-tsmc-in-stalling-asmls-high-na-euv-rollout-pushing-the-costly-machines-to-1nm-chips/",
+          "date": "8月11日",
+          "desc": "",
+          "dom": false
+        }
+      ]
     },
     {
       "name": "商业航天产业政策与进展",
@@ -19,16 +28,7 @@
     },
     {
       "name": "新能源产业政策与进展",
-      "items": [
-        {
-          "title": "【 AICC Original Article 】 Exports of Anhui new energy vehicles , lithium batteries and photovoltaic products doubled",
-          "src": "english.anhuinews.com",
-          "url": "http://english.anhuinews.com/newscenter/headline/202606/t20260616_9332090.html",
-          "date": "6月16日",
-          "desc": "",
-          "dom": false
-        }
-      ]
+      "items": []
     },
     {
       "name": "医药行业产业政策与进展",
