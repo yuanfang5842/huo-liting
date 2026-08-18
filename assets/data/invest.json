@@ -1,10 +1,8 @@
 {
-  "updated": "2026-08-18 04:09 UTC",
+  "updated": "2026-08-18 07:57 UTC",
   "offline": false,
   "sources": [
-    "GDELT·半导体产业政策与进展及风险",
-    "GDELT·新能源产业政策与进展",
-    "GDELT·消费产业政策与进展"
+    "GDELT·新能源产业政策与进展"
   ],
   "modules": [
     {
@@ -13,15 +11,7 @@
     },
     {
       "name": "半导体产业政策与进展及风险",
-      "items": [
-        {
-          "title": "China reaches major milestone as domestic DUV chip tools enter mass production",
-          "src": "thenews.com.pk",
-          "url": "https://www.thenews.com.pk/latest/1410425-china-reaches-major-milestone-as-domestic-duv-chip-tools-enter-mass-production",
-          "date": "7月27日",
-          "dom": false
-        }
-      ]
+      "items": []
     },
     {
       "name": "商业航天产业政策与进展",
@@ -35,6 +25,7 @@
           "src": "english.anhuinews.com",
           "url": "http://english.anhuinews.com/newscenter/headline/202606/t20260616_9332090.html",
           "date": "6月16日",
+          "desc": "",
           "dom": false
         }
       ]
@@ -45,15 +36,7 @@
     },
     {
       "name": "消费产业政策与进展",
-      "items": [
-        {
-          "title": "Retail moves seen boosting economy",
-          "src": "usa.chinadaily.com.cn",
-          "url": "http://usa.chinadaily.com.cn/a/202607/10/WS6a5047e9a310986e2b464840.html",
-          "date": "7月10日",
-          "dom": false
-        }
-      ]
+      "items": []
     },
     {
       "name": "其它重大政策及事件",
