@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-活力婷 · 定时数据生成器 (v36)
+活力婷 · 定时数据生成器 (v37)
 - 医药要闻：天行数据（国内中文主力源） + GDELT（国际英文补充源）。
   每个分类 10 条 = 7 条中国国内(含中国台湾) + 3 条国际；跨分类/跨模块全局去重。
 - 投资机会：天行财经/国内（国内主力源） + GDELT（国际英文补充源）。
@@ -166,16 +166,24 @@ def fmt_pub(s):
     return s[:10]
 
 
-def fetch_gdelt(q, max_records=12):
+def fetch_gdelt(q, max_records=12, retries=1):
     url = ("https://api.gdeltproject.org/api/v2/doc/doc?query=" + urllib.parse.quote(q) +
            "&mode=ArtList&format=json&maxrecords=%d&sortby=datedesc" % max_records)
-    try:
-        txt = http_get(url)
-        d = json.loads(txt)
-        return d.get("articles", []) or []
-    except Exception as e:
-        print("  [warn] GDELT 拉取失败:", e, file=sys.stderr)
-        return []
+    last_err = None
+    for attempt in range(retries + 1):
+        try:
+            txt = http_get(url, timeout=12)
+            d = json.loads(txt)
+            arts = d.get("articles", []) or []
+            print("  [gdelt] q=%s -> %d 条" % (q[:60], len(arts)), file=sys.stderr)
+            return arts
+        except Exception as e:
+            last_err = e
+            print("  [warn] GDELT 拉取失败 (attempt %d/%d): %s" % (attempt + 1, retries + 1, e), file=sys.stderr)
+            if attempt < retries:
+                import time
+                time.sleep(2 ** attempt)  # 1s 退避
+    return []
 
 
 def fetch_tianxing(endpoint, num=50, word=None):
@@ -191,6 +199,10 @@ def fetch_tianxing(endpoint, num=50, word=None):
     try:
         txt = http_get(url, timeout=25)
         d = json.loads(txt)
+        code = d.get("code")
+        if code and str(code) != "200":
+            print("  [warn] 天行 %s 返回错误码 %s: %s" % (endpoint, code, d.get("msg", "")), file=sys.stderr)
+            return []
         # 天行同时支持旧格式 newslist 与新格式 result.list
         arr = d.get("newslist") or d.get("result", {}).get("list") or []
         out = []
@@ -283,19 +295,41 @@ def take_unique(items, n, global_seen, domestic, require_kws=None):
 
 
 def build_tianxing_news_pool():
-    """预拉取天行健康 + 国内新闻（仅用于医药要闻），并严格过滤医药核心词。"""
+    """预拉取天行健康 + 国内新闻（仅用于医药要闻）。
+
+    天行 health 本身就是健康/医药垂直频道，不过度过滤，只踢掉明显非医药标题；
+    天行 guonei 是综合国内新闻，需要命中医药核心词才保留。
+    """
     if not TIANXING_KEY:
+        print("  [tianxing] 未配置 TIANXING_API_KEY，跳过天行新闻源", file=sys.stderr)
         return []
-    raw = fetch_tianxing("health", num=80) + fetch_tianxing("guonei", num=60)
-    # 标题必须命中至少一个医药核心词
-    return [a for a in raw if matches_kws(a.get("title", ""), MED_CORE_KWS)]
+    health = fetch_tianxing("health", num=80)
+    guonei = fetch_tianxing("guonei", num=60)
+    # health 频道：只排除明显养生/健康科普/生活类标题（未命中任何医药核心词且标题含常见泛健康词）
+    NON_MED_HINTS = ["养生", "食疗", "美容", "减肥", "护肤", "睡眠", "运动", "瑜伽", "健身", "心理", "情绪"]
+    health_keep = []
+    for a in health:
+        t = a.get("title", "")
+        if matches_kws(t, MED_CORE_KWS):
+            health_keep.append(a)
+        elif not matches_kws(t, NON_MED_HINTS):
+            # 未命中医药核心词，但也不像纯养生，保留给后续分类关键词二次筛选
+            health_keep.append(a)
+    guonei_keep = [a for a in guonei if matches_kws(a.get("title", ""), MED_CORE_KWS)]
+    print("  [tianxing-news] health=%d guonei=%d -> keep health=%d guonei=%d" %
+          (len(health), len(guonei), len(health_keep), len(guonei_keep)), file=sys.stderr)
+    return health_keep + guonei_keep
 
 
 def build_tianxing_invest_pool():
     """预拉取天行财经 + 国内新闻（仅用于投资机会）。"""
     if not TIANXING_KEY:
+        print("  [tianxing] 未配置 TIANXING_API_KEY，跳过天行投资源", file=sys.stderr)
         return []
-    return fetch_tianxing("caijing", num=80) + fetch_tianxing("guonei", num=60)
+    caijing = fetch_tianxing("caijing", num=80)
+    guonei = fetch_tianxing("guonei", num=60)
+    print("  [tianxing-invest] caijing=%d guonei=%d" % (len(caijing), len(guonei)), file=sys.stderr)
+    return caijing + guonei
 
 
 def build_news(global_seen):
@@ -338,11 +372,14 @@ def build_news(global_seen):
 
         # 国内候选：天行按分类关键词匹配 + GDELT 中文 sourcecountry:China（标题须为中文，避免英文中国源误判国内）
         dom_candidates = [a for a in tian_pool if matches_kws(a["title"], c["kws"])]
-        gdelt_dom = fetch_gdelt(c["q"] + " sourcecountry:China", c["max"])
-        for a in gdelt_dom:
+        tian_matched = len(dom_candidates)
+        gdelt_dom_raw = fetch_gdelt(c["q"] + " sourcecountry:China", c["max"])
+        gdelt_matched = 0
+        for a in gdelt_dom_raw:
             a = normalize_gdelt(a)
             if a and matches_kws(a["title"], c["kws"]) and matches_kws(a["title"], MED_CORE_KWS) and is_cjk(a["title"]):
                 dom_candidates.append(a)
+                gdelt_matched += 1
         dom_candidates.sort(key=lambda a: score_kws(a["title"], c["kws"]), reverse=True)
         items_dom = take_unique(dom_candidates, DOM_PER_CAT, global_seen, True, require_kws=MED_CORE_KWS)
 
@@ -354,7 +391,8 @@ def build_news(global_seen):
         grouped[cat] = items_dom + items_intl
         if items_dom or items_intl:
             sources.append("GDELT·" + cat)
-        print("[news] %s dom=%d intl=%d" % (cat, len(items_dom), len(items_intl)), file=sys.stderr)
+        print("[news] %s tian=%d gdelt_raw=%d gdelt_ok=%d -> dom=%d intl=%d" %
+              (cat, tian_matched, len(gdelt_dom_raw), gdelt_matched, len(items_dom), len(items_intl)), file=sys.stderr)
 
     total = sum(len(v) for v in grouped.values())
     offline = total == 0
@@ -370,50 +408,68 @@ def build_invest(global_seen):
     if tian_pool:
         sources.append("天行数据·财经/国内")
 
-    # 2) 每个模块独立查询：国内=天行/中文GDELT，国际=模块专属英文查询
+    # 2) 预拉取共享 GDELT 池，避免每个模块单独多次查询导致 Actions 超时
+    #    国内：2 次中文查询（带/不带 sourcecountry:China）覆盖所有模块关键词
+    #    国际：2 次英文查询覆盖所有模块关键词
+    all_kws = []
+    for m in INVEST_MODULES:
+        all_kws.extend(m["kws"][:4])
+    all_kws = list(dict.fromkeys(all_kws))  # 去重保持顺序
+
+    shared_cn = []
+    # 分块避免 URL 过长；每块约 8 个关键词
+    chunk = 8
+    for i in range(0, len(all_kws), chunk):
+        part = all_kws[i:i + chunk]
+        shared_cn += fetch_gdelt("sourcelang:Chinese (" + " OR ".join(part) + ") sourcecountry:China", 20)
+    # 再补一次不带 sourcecountry 的中文（部分中文报道未标注国家）
+    shared_cn += fetch_gdelt("sourcelang:Chinese (" + " OR ".join(all_kws[:chunk]) + ")", 20)
+    shared_cn_norm = [normalize_gdelt(a) for a in shared_cn if normalize_gdelt(a)]
+
+    shared_en = []
+    for i in range(0, len(all_kws), chunk):
+        part = all_kws[i:i + chunk]
+        shared_en += fetch_gdelt("sourcelang:English (" + " OR ".join(part) + ")", 20)
+    shared_en_norm = [normalize_gdelt(a) for a in shared_en if normalize_gdelt(a)]
+
+    # 3) 每个模块从天行 + 共享池取数
     for m in INVEST_MODULES:
         name = m["name"]
 
-        # 国内候选：天行按模块关键词 + GDELT 中文多策略兜底（中文标题）
+        # 国内：天行按模块关键词 + 共享中文池
         dom_candidates = [a for a in tian_pool if matches_kws(a["title"], m["kws"])]
-        gdelt_dom = []
-        # 策略1：中文 + sourcecountry:China
-        gdelt_dom += fetch_gdelt(m["q"] + " sourcecountry:China", m["max"])
-        # 策略2：仅中文（部分中文报道未标注国家，可补漏）
-        if len(gdelt_dom) < DOM_PER_MODULE:
-            gdelt_dom += fetch_gdelt(m["q"], m["max"])
-        # 策略3：宽泛中文查询
-        if len(gdelt_dom) < DOM_PER_MODULE:
-            broad = "sourcelang:Chinese (" + " OR ".join(m["kws"][:6]) + ")"
-            gdelt_dom += fetch_gdelt(broad, m["max"])
-        for a in gdelt_dom:
-            a = normalize_gdelt(a)
-            if a and matches_kws(a["title"], m["kws"]) and is_cjk(a["title"]):
+        tian_matched = len(dom_candidates)
+        cn_from_shared = 0
+        for a in shared_cn_norm:
+            if matches_kws(a["title"], m["kws"]) and is_cjk(a["title"]):
                 dom_candidates.append(a)
+                cn_from_shared += 1
         dom_candidates.sort(key=lambda a: score_kws(a["title"], m["kws"]), reverse=True)
         dom_items = take_unique(dom_candidates, DOM_PER_MODULE, global_seen, True)
 
-        # 国际英文候选：模块专属 q_en + 多策略英文兜底（非中文）
+        # 国际：模块专属 q_en + 共享英文池
         intl_candidates = []
-        pool = []
+        intl_raw = 0
         if m.get("q_en"):
-            pool += fetch_gdelt(m["q_en"], m["max"])
-        if len(pool) < INTL_PER_MODULE:
-            pool += fetch_gdelt("sourcelang:English (" + " OR ".join(m["kws"][:6]) + ")", m["max"])
-        if len(pool) < INTL_PER_MODULE:
-            # 再兜底：把模块关键词直接用英文 OR 查询
-            pool += fetch_gdelt("sourcelang:English (" + " OR ".join(m["kws"][:8]) + ")", m["max"])
-        for a in pool:
-            a = normalize_gdelt(a)
-            if a and matches_kws(a["title"], m["kws"]) and not is_cjk(a["title"]):
+            pool = fetch_gdelt(m["q_en"], m["max"])
+            intl_raw = len(pool)
+            for a in pool:
+                a = normalize_gdelt(a)
+                if a and matches_kws(a["title"], m["kws"]) and not is_cjk(a["title"]):
+                    intl_candidates.append(a)
+        en_from_shared = 0
+        for a in shared_en_norm:
+            if matches_kws(a["title"], m["kws"]) and not is_cjk(a["title"]):
                 intl_candidates.append(a)
+                en_from_shared += 1
         intl_candidates.sort(key=lambda a: score_kws(a["title"], m["kws"]), reverse=True)
         intl_items = take_unique(intl_candidates, INTL_PER_MODULE, global_seen, False)
 
         modules.append({"name": name, "items": dom_items + intl_items})
         if dom_items or intl_items:
             sources.append("GDELT·" + name)
-        print("[invest] %s dom=%d intl=%d" % (name, len(dom_items), len(intl_items)), file=sys.stderr)
+        print("[invest] %s tian=%d cn_shared=%d intl_raw=%d en_shared=%d -> dom=%d intl=%d" %
+              (name, tian_matched, cn_from_shared, intl_raw, en_from_shared, len(dom_items), len(intl_items)), file=sys.stderr)
 
     total = sum(len(m["items"]) for m in modules)
     offline = total == 0
@@ -435,26 +491,22 @@ def main():
         print("[warn] 未配置 TIANXING_API_KEY，将只使用 GDELT 源。", file=sys.stderr)
 
     grouped, nsources, n_offline = build_news(global_seen)
-    if n_offline and os.path.exists(NEWS_PATH):
-        print("[news] 本次拉取为空，保留已有文件，不覆盖。")
-    else:
-        save_json(NEWS_PATH, {
-            "updated": now,
-            "offline": n_offline,
-            "sources": nsources,
-            "grouped": grouped,
-        })
+    # 始终写入本次结果：即使本次拉取为空，也覆盖旧文件，避免用户看到旧脏数据。
+    # 若为空，offline 标记会提示用户数据未生成。
+    save_json(NEWS_PATH, {
+        "updated": now,
+        "offline": n_offline,
+        "sources": nsources,
+        "grouped": grouped,
+    })
 
     modules, isources, i_offline = build_invest(global_seen)
-    if i_offline and os.path.exists(INVEST_PATH):
-        print("[invest] 本次拉取为空，保留已有文件，不覆盖。")
-    else:
-        save_json(INVEST_PATH, {
-            "updated": now,
-            "offline": i_offline,
-            "sources": isources,
-            "modules": modules,
-        })
+    save_json(INVEST_PATH, {
+        "updated": now,
+        "offline": i_offline,
+        "sources": isources,
+        "modules": modules,
+    })
 
 
 if __name__ == "__main__":
