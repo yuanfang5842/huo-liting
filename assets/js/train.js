@@ -690,7 +690,11 @@ window.Train = (function () {
     const trend = prev == null ? '' : (last.overall > prev ? ' ↑较上次 +' + (last.overall - prev) : (last.overall < prev ? ' ↓较上次 ' + (last.overall - prev) : ' →持平'));
     return '<div class="text-sm" id="assess-summary-' + kind + '">当前梯队：<b class="accent">' + tierName(last.tier) + '</b>　最新 ' + last.overall + ' 分　最佳 ' + best + ' 分' + trend + '<div class="muted text-xs mt4">已考 ' + hist.length + ' 次</div></div>';
   }
-  /* 每日口语话题：优先从「实时医药要闻」抽取，与新闻更新实时联动 */
+  /* 每日口语话题：优先从「实时医药要闻」的中文国内内容抽取，与新闻更新实时联动 */
+  const CJK_RE = /[\u4e00-\u9fff]/;
+  function isChineseTopic(it) {
+    return it && it.title && (it.dom === true || CJK_RE.test(it.title));
+  }
   function pickSpeakTopic() {
     const cache = App.dget('newsCache', null);
     const grouped = cache && cache.data && cache.data.grouped;
@@ -698,17 +702,18 @@ window.Train = (function () {
     if (grouped) {
       Object.keys(grouped).forEach(cat => {
         (grouped[cat] || []).forEach(it => {
-          if (it && it.title) pool.push({ t: it.title, cat: '医药要闻' });
+          if (isChineseTopic(it)) pool.push({ t: it.title, cat: '医药要闻' });
         });
       });
     }
     if (!pool.length) {
-      // 新闻缓存暂未就绪 → 回退到内置题库（保留梯队逻辑）
+      // 新闻缓存暂未就绪 → 回退到内置题库（仅保留中文医药要闻类，确保话题可讨论）
       const tier = App.get('speakTier', 0);
       let fb = DATA.speakTopics;
       if (tier === 1) fb = DATA.speakTopics.filter(x => ['工作生活', '社会热点'].includes(x.cat));
       else if (tier === 3) fb = DATA.speakTopics.filter(x => x.cat === '医药要闻');
-      pool = fb.length ? fb : DATA.speakTopics;
+      fb = fb.filter(x => x.t && CJK_RE.test(x.t));
+      pool = fb.length ? fb : DATA.speakTopics.filter(x => x.t && CJK_RE.test(x.t));
     }
     return pool[App.dayIndex() % pool.length];
   }

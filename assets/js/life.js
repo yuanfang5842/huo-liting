@@ -163,19 +163,113 @@ window.Life = (function () {
       const items = m.items || [];
       html += '<div class="section-title mt12">' + escapeHtml(m.name) + ' <span class="muted text-xs">(' + items.length + ')</span></div>';
       if (!items.length) { html += '<div class="muted text-xs">暂无相关动态</div>'; }
-      items.forEach(it => {
+      items.forEach((it, idx) => {
         const dateStr = it.date ? ('来源：' + escapeHtml(it.src) + ' · ' + it.date) : ('来源：' + escapeHtml(it.src || '财经'));
         const intlTag = (it.dom === false) ? '<span style="font-size:10px;color:#1E9E83;border:1px solid #1E9E83;border-radius:6px;padding:1px 5px;margin-right:6px;vertical-align:middle">国际</span>' : '';
-        html += '<div class="card" style="margin-bottom:10px"><div class="bold" style="font-size:13px;line-height:1.4">' + intlTag + escapeHtml(it.title) + '</div>' +
+        const interpBtn = '<span class="orig invest-interpret" data-mod="' + escAttr(m.name) + '" data-t="' + escAttr(it.title) + '" data-src="' + escAttr(it.src || '') + '" data-date="' + escAttr(it.date || '') + '" data-url="' + escAttr(it.url || '') + '" data-desc="' + escAttr(it.desc || '') + '">解读 💡</span>';
+        html += '<div class="card invest-card" data-idx="' + idx + '" style="margin-bottom:10px"><div class="bold" style="font-size:13px;line-height:1.4">' + intlTag + escapeHtml(it.title) + '</div>' +
           '<div class="text-xs muted mt8">' + dateStr + '</div>' +
           (it.desc ? '<div class="text-sm mt8" style="line-height:1.6">' + escapeHtml(it.desc) + '</div>' : '') +
-          (it.url && it.url !== '#' ? '<div class="mt8"><a class="look-link" href="' + escapeHtml(it.url) + '" target="_blank" rel="noopener">看原文 →</a></div>' : '') + '</div>';
+          '<div class="invest-actions mt8">' + interpBtn +
+          (it.url && it.url !== '#' ? '<a class="look-link" href="' + escapeHtml(it.url) + '" target="_blank" rel="noopener">看原文 →</a>' : '') + '</div></div>';
       });
     });
     body.innerHTML = html;
+    bindInvestInterpret(body);
     // 更新状态栏
     const stEl = body.closest('.page')?.querySelector('.achv-banner .s');
     if (stEl) stEl.textContent = modeLabel;
+  }
+
+  /* 投资机会「解读」浮层 - 规则引擎 + 可选 AI 增强 */
+  function showInvestInterpret(el) {
+    const it = { t: el.dataset.t, src: el.dataset.src, date: el.dataset.date, url: el.dataset.url, desc: el.dataset.desc, mod: el.dataset.mod };
+    const body = document.getElementById('detail-body');
+    if (!body) return;
+
+    const title = it.t || '';
+    let interp = '';
+    const isPolicy = /政策|国务院|央行|发改委|医保|集采|补贴|税收|监管|改革|规划|方案/.test(title);
+    const isTech = /芯片|半导体|光刻机|AI|人工智能|新能源|光伏|锂电|储能|卫星|火箭|航天|低空|5G|量子/.test(title);
+    const isMarket = /美股|A股|港股|指数|大涨|大跌|收盘|营收|利润|亏损|盈利|IPO|并购|收购|估值|融资/.test(title);
+    const isConsumer = /消费|零售|白酒|家电|汽车|餐饮|文旅|电商|直播|促销|内需/.test(title);
+    const isPharma = /医药|创新药|生物|疫苗|医疗器械|CXO|集采|医保谈判|中医药/.test(title);
+
+    if (isPharma) {
+      interp += '<p><b>💊 医药视角：</b>该条涉及医药行业政策或市场动态。关注对研发管线、准入门槛、定价空间、企业盈利的影响，以及产业链（原料-制剂-流通）的传导逻辑。</p>';
+    }
+    if (isPolicy) {
+      interp += '<p><b>📋 政策视角：</b>政策变化往往是板块行情的触发器。需判断政策力度、落地节奏、受益/受损环节，以及地方配套细则出台的时间窗口。</p>';
+    }
+    if (isTech) {
+      interp += '<p><b>🔬 产业视角：</b>硬科技相关动态需区分「主题炒作」与「业绩兑现」。关注订单、产能、客户验证、国产替代进度及海外供应链风险。</p>';
+    }
+    if (isConsumer) {
+      interp += '<p><b>🛒 消费视角：</b>消费政策/数据影响居民支出意愿与企业收入预期。结合社零、CPI、就业率等宏观指标判断复苏斜率与龙头集中度变化。</p>';
+    }
+    if (isMarket) {
+      interp += '<p><b>📈 市场视角：</b>资本市场波动受流动性、盈利预期、风险偏好共同驱动。短期看资金博弈，中长期看盈利增速与估值匹配度。</p>';
+    }
+    if (!interp) {
+      interp = '<p>该条为产业/财经要闻。建议从「政策意图 → 产业链传导 → 相关标的 → 风险点」四个层次跟踪，避免只看消息面追涨杀跌。</p>';
+    }
+
+    const llmOk = (API.llmReady && API.llmReady());
+    const llmNote = llmOk ? '' :
+      '<div class="muted text-xs mt8" style="color:var(--ink-3)">💡 配置大模型 Key 后可获取 AI 深度解读（当前为规则引擎分析）。到「设置 → 大模型配置」填写即可启用。</div>';
+    const aiBlock = llmOk
+      ? '<button class="btn sm mt8" id="ai-invest-interp-btn">🤖 AI 深度解读</button><div id="ai-invest-interp-box"></div>'
+      : llmNote;
+
+    const descHtml = it.desc && it.desc.trim()
+      ? '<div class="text-sm" style="line-height:1.75"><b>📝 要点摘要：</b>' + escapeHtml(it.desc) + '</div>'
+      : '';
+
+    body.innerHTML =
+      '<div class="page-head"><h2 style="font-size:17px">📖 投资解读</h2></div>' +
+      '<div class="bold" style="font-size:14px;line-height:1.55">' + escapeHtml(it.t) + '</div>' +
+      '<div class="text-xs muted mt8">模块：' + escapeHtml(it.mod || '') + (it.src ? ' · 来源：' + escapeHtml(it.src) : '') + (it.date ? ' · ' + escapeHtml(it.date) : '') + '</div>' +
+      '<div class="card mt12"><div class="section-title">多维度解读</div>' + descHtml + '<div style="line-height:1.8">' + interp + '</div>' + aiBlock + '</div>' +
+      (it.url && it.url !== '#' ? '<div class="mt12"><a class="look-link" href="' + escAttr(it.url) + '" target="_blank" rel="noopener">🔗 看完整原文 →</a></div>' : '<div class="muted text-xs mt12">⚠️ 该条暂无原文链接</div>');
+    document.getElementById('detail-modal').classList.remove('hidden');
+
+    const aiBtn = document.getElementById('ai-invest-interp-btn');
+    if (aiBtn) aiBtn.onclick = () => genAiInvestInterp(it);
+  }
+
+  /* 调用大模型生成投资机会自由文本解读 */
+  async function genAiInvestInterp(it) {
+    const box = document.getElementById('ai-invest-interp-box');
+    const btn = document.getElementById('ai-invest-interp-btn');
+    if (!box) return;
+    if (btn) { btn.disabled = true; btn.textContent = '生成中…'; }
+    box.innerHTML = '<div class="muted text-sm">🤖 AI 深度解读生成中…</div>';
+    const sys = '你是资深产业与宏观分析师，擅长把财经/产业新闻翻译成投资决策语言。用户会给你一条产业要闻的标题、模块与摘要。请输出一段面向投资者/从业者的深度解读（300 字以内）：① 一句话讲清这条新闻是什么；② 对产业链/板块/企业的具体影响；③ 潜在投资机会与风险。用自然口语、分点叙述，不要使用 JSON 格式，直接给纯文本。';
+    const userPrompt = '模块：' + (it.mod || '') + '\n新闻标题：' + (it.t || '') + '\n' +
+      (it.desc ? ('要点摘要：' + it.desc + '\n') : '') +
+      '来源：' + (it.src || '未知');
+    try {
+      const text = await API.callLLMText(sys, userPrompt);
+      box.innerHTML =
+        '<div class="card mt12" style="border-color:var(--accent)"><div class="section-title">🤖 AI 深度解读</div>' +
+        '<div style="line-height:1.8">' + escapeHtml(text).replace(/\n/g, '<br>') + '</div>' +
+        '<div class="muted text-xs mt8" style="color:var(--ink-3)">由「设置 → 大模型配置」所选模型实时生成。</div></div>';
+    } catch (e) {
+      const m = e.message || '';
+      if (m.indexOf('LOCAL_ENGINE') === 0 || m.indexOf('NO_KEY') === 0) {
+        box.innerHTML = '<div class="muted text-xs mt8" style="color:var(--ink-3)">💡 在「设置 → 大模型配置」填写 Key 后即可获取 AI 深度解读。</div>';
+      } else {
+        box.innerHTML = '<div class="muted text-xs mt8" style="color:var(--ink-3)">⚠️ AI 解读生成失败（' + escapeHtml(m.slice(0, 60)) + '），已为你保留上方规则引擎解读。</div>';
+      }
+    } finally {
+      if (btn) { btn.disabled = false; btn.textContent = '🤖 AI 深度解读'; }
+    }
+  }
+
+  function bindInvestInterpret(root) {
+    root.querySelectorAll('.invest-interpret').forEach(el => {
+      el.onclick = () => showInvestInterpret(el);
+    });
   }
 
   /* ---------------- 喝水提醒 ---------------- */

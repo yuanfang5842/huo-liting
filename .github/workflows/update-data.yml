@@ -23,6 +23,8 @@ jobs:
           python-version: '3.11'
 
       - name: Generate data JSON
+        env:
+          TIANXING_API_KEY: ${{ secrets.TIANXING_API_KEY }}
         run: python tools/update_data.py
 
       - name: Commit & push if changed
