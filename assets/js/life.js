@@ -99,37 +99,38 @@ window.Life = (function () {
     // 用户若选择"仅示例"，直接展示每日轮换，不走真实源
     const mode = API.cfg(API.K.investMode, 'auto');
     if (mode === 'example') { renderInvestRotated(body, App.todayLabel()); return; }
-    // 始终优先展示真实数据（GitHub Actions 定时生成，已缓存到本地）
+    // 始终只展示实时数据（GitHub Actions 定时生成 / 浏览器实时源），不回退示例
     const cache = App.dget('investCache', null);
-    if (cache && cache.date === App.today() && cache.isReal && !force) {
-      const totalItems = (cache.modules || []).reduce((s, m) => s + ((m && m.items) ? m.items.length : 0), 0);
-      if (totalItems > 0) { renderInvestLive(cache); return; }
-      // 缓存存在但模块全空，当 force 时重拉，否则直接回退示例
-      if (!force) { renderInvestRotated(body, App.todayLabel()); return; }
-    }
-    const now = Date.now();
-    const lastFetch = cache ? (cache.fetchTime || 0) : 0;
-    const needFetch = force || !cache || !cache.isReal || cache.date !== App.today() || (now - lastFetch > 10 * 60 * 1000);
-    if (needFetch) {
-      if (force) body.innerHTML = '<div class="muted text-sm mt12">重新拉取实时财经中…</div>';
-      try {
-        console.log('[活力婷] 拉取投资数据...');
-        const fresh = await API.fetchInvest();
-        if (fresh && fresh.isReal) {
-          const totalItems = (fresh.modules || []).reduce((s, m) => s + ((m && m.items) ? m.items.length : 0), 0);
-          if (totalItems > 0) {
-            App.dset('investCache', Object.assign({ date: App.today(), fetchTime: Date.now() }, fresh));
-            renderInvestLive(fresh);
-            return;
-          }
-        }
-      } catch (e) { console.warn('[活力婷] 投资数据拉取失败:', e); }
-    }
-    // cache 存在但模块全空，同样回退示例，避免页面卡在"重新拉取..."
     const cacheTotal = cache && cache.modules ? cache.modules.reduce((s, m) => s + ((m && m.items) ? m.items.length : 0), 0) : 0;
-    if (cacheTotal > 0) return;  // 已展示有效缓存
-    if (force) App.toast('实时拉取失败或数据为空，显示每日轮换示例');
-    renderInvestRotated(body, App.todayLabel());
+    const cacheFresh = cache && cache.isReal && cache.date === App.today() && (Date.now() - (cache.fetchTime || 0) < 10 * 60 * 1000);
+
+    // 已有当日有效实时数据，直接展示
+    if (!force && cacheFresh && cacheTotal > 0) {
+      renderInvestLive(cache);
+      return;
+    }
+
+    // 需要拉取实时数据；实时为空/失败均不再展示示例内容
+    body.innerHTML = '<div class="muted text-sm mt12" id="invest-loading">实时财经数据生成中…</div>';
+    try {
+      console.log('[活力婷] 拉取投资实时数据...');
+      const fresh = await API.fetchInvest();
+      if (fresh && fresh.isReal) {
+        const totalItems = (fresh.modules || []).reduce((s, m) => s + ((m && m.items) ? m.items.length : 0), 0);
+        App.dset('investCache', Object.assign({ date: App.today(), fetchTime: Date.now() }, fresh));
+        if (totalItems > 0) { renderInvestLive(fresh); return; }
+        // 实时数据为空（如 GitHub Actions 尚未生成该模块）——明确提示，不展示示例
+        body.innerHTML = '<div class="muted text-sm mt12">实时财经数据暂未生成（GitHub Actions 每 6 小时自动更新）。稍后刷新页面即可看到最新内容，此处不展示示例数据。</div>';
+        const stEl = body.closest('.page')?.querySelector('.achv-banner .s');
+        if (stEl) stEl.textContent = '实时数据为空 · 等待 GitHub Actions 生成';
+        return;
+      }
+    } catch (e) { console.warn('[活力婷] 投资数据拉取失败:', e); }
+
+    // 拉取失败：展示实时错误状态，不展示示例
+    body.innerHTML = '<div class="muted text-sm mt12">实时财经数据暂时拉取不到，请稍后点击「重新拉取」重试。数据来自 GitHub Actions 实时生成，非示例内容。</div>';
+    const stEl2 = body.closest('.page')?.querySelector('.achv-banner .s');
+    if (stEl2) stEl2.textContent = '实时拉取失败';
   }
 
   function renderInvestRotated(body, todayStr) {
