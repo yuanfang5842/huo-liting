@@ -210,7 +210,7 @@ def matches_kws(title, kws):
     if not title:
         return False
     t = title.lower()
-    return any(k in t for k in kws)
+    return any(k.lower() in t for k in kws)
 
 
 def take_unique(items, n, global_seen, domestic, require_kws=None):
@@ -280,16 +280,16 @@ def build_news(global_seen):
 
         items_dom = take_unique(dom_from_tian + gdelt_dom, DOM_PER_CAT, global_seen, True)
 
-        # 国际 3 条：GDELT 国际英文/中文（该分类的国际查询）
-        intl_pool = fetch_gdelt(c["q"], c["max"])
-        if not intl_pool and c.get("fallback"):
-            # fallback 英文查询去掉中文泛词，避免命中泛财经/加密内容
-            intl_pool = fetch_gdelt(c["fallback"], c["max"])
+        # 国际 3 条：优先用纯英文医药查询 q_en；再回退中文查询；严格过滤 MED_CORE_KWS，防止 Bitcoin/泛财经混入
+        intl_pool = []
+        if c.get("q_en"):
+            intl_pool += fetch_gdelt(c["q_en"], c["max"])
+        if len(intl_pool) < INTL_PER_CAT:
+            intl_pool += fetch_gdelt(c["q"], c["max"])
+        if len(intl_pool) < INTL_PER_CAT and c.get("fallback"):
+            intl_pool += fetch_gdelt(c["fallback"], c["max"])
         intl = [a for a in intl_pool if region_of(a) == "intl"]
-        if len(intl) < INTL_PER_CAT and c.get("q_en"):
-            extra = fetch_gdelt(c["q_en"], c["max"])
-            intl += [a for a in extra if region_of(a) == "intl"]
-        items_intl = take_unique(intl, INTL_PER_CAT, global_seen, False)
+        items_intl = take_unique(intl, INTL_PER_CAT, global_seen, False, require_kws=MED_CORE_KWS)
 
         grouped[c["cat"]] = items_dom + items_intl
         if items_dom or items_intl:
@@ -325,9 +325,9 @@ def build_invest(global_seen):
 
         dom_items = take_unique(dom_from_tian + gdelt_dom, DOM_PER_MODULE, global_seen, True)
 
-        # 国际英文 1 条：GDELT 英文查询
+        # 国际英文 1 条：GDELT 英文查询，按模块关键词过滤，避免无关内容
         en_pool = fetch_gdelt(m.get("q_en") or m["q"], m["max"])
-        intl_items = take_unique(en_pool, INTL_PER_MODULE, global_seen, False)
+        intl_items = take_unique(en_pool, INTL_PER_MODULE, global_seen, False, require_kws=m["kws"])
 
         modules.append({"name": m["name"], "items": dom_items + intl_items})
         if dom_items or intl_items:

@@ -125,7 +125,9 @@ window.Life = (function () {
         }
       } catch (e) { console.warn('[活力婷] 投资数据拉取失败:', e); }
     }
-    if (cache && cache.isReal) return;  // 已展示缓存（即便空也不重复回退）
+    // cache 存在但模块全空，同样回退示例，避免页面卡在"重新拉取..."
+    const cacheTotal = cache && cache.modules ? cache.modules.reduce((s, m) => s + ((m && m.items) ? m.items.length : 0), 0) : 0;
+    if (cacheTotal > 0) return;  // 已展示有效缓存
     if (force) App.toast('实时拉取失败或数据为空，显示每日轮换示例');
     renderInvestRotated(body, App.todayLabel());
   }
