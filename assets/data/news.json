@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-18 04:09 UTC",
+  "updated": "2026-08-18 06:26 UTC",
   "offline": false,
   "sources": [
     "GDELT·海外FDA与全球进展"
@@ -8,10 +8,67 @@
     "国内新药/临床/科研": [],
     "海外FDA与全球进展": [
       {
+        "title": "Bitcoin , Altcoins Selloff Amid Rising ETF Outflows",
+        "src": "cointelegraph.com",
+        "url": "https://cointelegraph.com/markets/price-predictions-527-btc-eth-bnb-xrp-sol-doge-hype-zec-ada-xmr",
+        "date": "5月27日",
+        "desc": "",
+        "dom": true
+      },
+      {
+        "title": "Bitcoin Faces a  Likely  Breakdown From a 50 - Month Trend Line",
+        "src": "cointelegraph.com",
+        "url": "https://cointelegraph.com/markets/bitcoin-copying-2022-almost-perfectly-as-trader-sees-key-support-failing",
+        "date": "6月3日",
+        "desc": "",
+        "dom": true
+      },
+      {
+        "title": "Bitcoin  Compressed  at $62 , 000 as a Four - Year Adoption Trend Stays Intact",
+        "src": "cointelegraph.com",
+        "url": "https://cointelegraph.com/markets/bitcoin-four-year-trend-calls-for-76k-as-analysis-says-btc-price-not-broken",
+        "date": "6月24日",
+        "desc": "",
+        "dom": true
+      },
+      {
+        "title": "Bitcoin NUPL Bottom Not Yet in Sight With BTC Due New Lows",
+        "src": "cointelegraph.com",
+        "url": "https://cointelegraph.com/markets/bitcoin-can-fall-below-58k-if-one-of-its-cleanest-metrics-copies-history-analysis",
+        "date": "7月7日",
+        "desc": "",
+        "dom": true
+      },
+      {
+        "title": "Gold holds ground at $4 , 000 and moves higher",
+        "src": "kitco.com",
+        "url": "http://www.kitco.com/opinion/2026-07-21/gold-holds-ground-4000-and-moves-higher",
+        "date": "7月22日",
+        "desc": "",
+        "dom": true
+      },
+      {
+        "title": "Iran Pressure and US PCE Inflation Takes Bitcoin to Lowest Since Mid - April",
+        "src": "cointelegraph.com",
+        "url": "https://cointelegraph.com/markets/bitcoin-price-falls-to-six-week-lows-as-us-pce-inflation-hits-highest-since-2023",
+        "date": "5月28日",
+        "desc": "",
+        "dom": true
+      },
+      {
+        "title": "الصين بصدد فتح أسوقها أمام حبوب القهوة المؤهلة من 53 دولة أفريقية بدءا من 20 يوليو القادم",
+        "src": "arabic.people.com.cn",
+        "url": "http://arabic.people.com.cn/n3/2026/0528/c31664-20461542.html",
+        "date": "5月28日",
+        "desc": "",
+        "dom": true
+      },
+      {
         "title": "Discordance in orphan drug approvals between the U . S . Food and Drug Administration and the European Medicines Agency : A retrospective observational analysis",
         "src": "journals.plos.org",
         "url": "https://journals.plos.org:443/plosmedicine/article?id=10.1371/journal.pmed.1004861",
         "date": "7月6日",
+        "desc": "",
         "dom": false
       },
       {
@@ -19,6 +76,7 @@
         "src": "raps.org",
         "url": "https://www.raps.org/resource/study-regulators-often-diverge-from-fda-on-expedited-oncology-approvals.html",
         "date": "6月22日",
+        "desc": "",
         "dom": false
       },
       {
@@ -26,6 +84,7 @@
         "src": "raps.org",
         "url": "https://www.raps.org/resource/study-fda-approves-more-orphan-drugs-with-specific-cancer-pediatric-indications-over-ema.html",
         "date": "6月3日",
+        "desc": "",
         "dom": false
       }
     ],
