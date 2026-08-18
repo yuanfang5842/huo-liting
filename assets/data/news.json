@@ -1,12 +1,37 @@
 {
-  "updated": "2026-08-18 14:02 UTC",
+  "updated": "2026-08-18 16:03 UTC",
   "offline": false,
   "sources": [
-    "GDELT·海外FDA与全球进展",
-    "GDELT·政策/医保/行业"
+    "GDELT·国内新药/临床/科研",
+    "GDELT·海外FDA与全球进展"
   ],
   "grouped": {
-    "国内新药/临床/科研": [],
+    "国内新药/临床/科研": [
+      {
+        "title": "Industry asks FDA for harmonization , clarification in fermentation , semi - synthetic antibiotics guidance",
+        "src": "raps.org",
+        "url": "https://www.raps.org/resource/industry-asks-fda-for-harmonization-clarification-in-fermentation-semi-synthetic-antibiotics-guidance.html",
+        "date": "6月24日",
+        "desc": "",
+        "dom": false
+      },
+      {
+        "title": "2026 - 07 - 26 | Ascentage Pharma Chairman and CEO Dr . Dajun Yang Named to The Medicine Maker Power List 2026 | NDAQ : AAPG",
+        "src": "stockhouse.com",
+        "url": "https://stockhouse.com/news/press-releases/2026/07/26/ascentage-pharma-chairman-and-ceo-dr-dajun-yang-named-to-the-medicine-maker",
+        "date": "7月27日",
+        "desc": "",
+        "dom": false
+      },
+      {
+        "title": "Vanda Pharmaceuticals Announces EMA Positive Opinion for Orphan Drug Designation of Imsidolimab for Generalized Pustular Psoriasis - A Milestone Recognition of GPP as a Distinct Rare Disease in Europe",
+        "src": "prnewswire.com",
+        "url": "http://www.prnewswire.com/news-releases/vanda-pharmaceuticals-announces-ema-positive-opinion-for-orphan-drug-designation-of-imsidolimab-for-generalized-pustular-psoriasis--a-milestone-recognition-of-gpp-as-a-distinct-rare-disease-in-europe-302827934.html",
+        "date": "7月16日",
+        "desc": "",
+        "dom": false
+      }
+    ],
     "海外FDA与全球进展": [
       {
         "title": "Study : FDA approves more orphan drugs with specific cancer , pediatric indications over EMA",
@@ -25,39 +50,14 @@
         "dom": false
       },
       {
-        "title": "Vanda Pharmaceuticals Announces EMA Positive Opinion for Orphan Drug Designation of Imsidolimab for Generalized Pustular Psoriasis - A Milestone Recognition of GPP as a Distinct Rare Disease in Europe",
-        "src": "prnewswire.com",
-        "url": "http://www.prnewswire.com/news-releases/vanda-pharmaceuticals-announces-ema-positive-opinion-for-orphan-drug-designation-of-imsidolimab-for-generalized-pustular-psoriasis--a-milestone-recognition-of-gpp-as-a-distinct-rare-disease-in-europe-302827934.html",
-        "date": "7月16日",
+        "title": "Recon : Vertex buys Crinetics for $10B ; EMA fast tracks Revolution metastatic pancreatic cancer drug",
+        "src": "raps.org",
+        "url": "https://www.raps.org/resource/recon-vertex-buys-crinetics-for-10b-ema-fast-tracks-revolution-s-metastatic-pancreatic-cancer-drug.html",
+        "date": "7月7日",
         "desc": "",
         "dom": false
       }
     ],
-    "政策/医保/行业": [
-      {
-        "title": "NMPA Accepts New Indication Application for Sacituzumab Tirumotecan ( sac - TMT ) as First - Line Treatment for Advanced TNBC",
-        "src": "manilatimes.net",
-        "url": "https://www.manilatimes.net/2026/07/30/tmt-newswire/pr-newswire/nmpa-accepts-new-indication-application-for-sacituzumab-tirumotecan-sac-tmt-as-first-line-treatment-for-advanced-tnbc/2394775",
-        "date": "7月30日",
-        "desc": "",
-        "dom": false
-      },
-      {
-        "title": "Asia - Pacific Roundup : TGA seeks feedback on increasing transparency of GMP inspection outcomes",
-        "src": "raps.org",
-        "url": "https://www.raps.org/resource/asia-pacific-roundup-tga-seeks-feedback-on-increasing-transparency-of-gmp-inspection-outcomes.html",
-        "date": "6月16日",
-        "desc": "",
-        "dom": false
-      },
-      {
-        "title": "2026 - 07 - 26 | Ascentage Pharma Chairman and CEO Dr . Dajun Yang Named to The Medicine Maker Power List 2026 | NDAQ : AAPG",
-        "src": "stockhouse.com",
-        "url": "https://stockhouse.com/news/press-releases/2026/07/26/ascentage-pharma-chairman-and-ceo-dr-dajun-yang-named-to-the-medicine-maker",
-        "date": "7月27日",
-        "desc": "",
-        "dom": false
-      }
-    ]
+    "政策/医保/行业": []
   }
 }
