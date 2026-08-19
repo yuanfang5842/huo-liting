@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-活力婷 · 定时数据生成器 (v38)
+活力婷 · 定时数据生成器 (v39)
 - 医药要闻：天行数据（国内中文主力源） + GDELT（国际英文补充源）。
   每个分类 10 条 = 7 条中国国内(含中国台湾) + 3 条国际；跨分类/跨模块全局去重。
 - 投资机会：天行财经/国内（国内主力源） + GDELT（国际英文补充源）。
@@ -166,29 +166,44 @@ def fmt_pub(s):
     return s[:10]
 
 
-def fetch_gdelt(q, max_records=12, retries=1):
+def fetch_gdelt(q, max_records=12, retries=2):
+    """从 GDELT 拉取文章。失败时自动重试（指数退避），429 限流时睡长一点。
+    返回的 articles 列表；连续失败返回空列表。
+    总查询次数限制：build_news ~9 次 + build_invest ~8 次，
+    每次 3 次尝试（retries=2），单次最坏 60s，总耗时 15 分钟左右，刚好不超 Actions 超时。
+    """
+    import time as _time
     url = ("https://api.gdeltproject.org/api/v2/doc/doc?query=" + urllib.parse.quote(q) +
            "&mode=ArtList&format=json&maxrecords=%d&sortby=datedesc" % max_records)
     last_err = None
     for attempt in range(retries + 1):
         try:
-            txt = http_get(url, timeout=12)
+            txt = http_get(url, timeout=18)
             d = json.loads(txt)
             arts = d.get("articles", []) or []
             print("  [gdelt] q=%s -> %d 条" % (q[:60], len(arts)), file=sys.stderr)
             return arts
         except Exception as e:
             last_err = e
-            print("  [warn] GDELT 拉取失败 (attempt %d/%d): %s" % (attempt + 1, retries + 1, e), file=sys.stderr)
+            msg = str(e)
+            # 429 限流时睡久一点（限流窗口通常 1 分钟）
+            is_rate = "429" in msg or "Too Many" in msg
+            backoff = 5 * (attempt + 1) if is_rate else 2 ** attempt  # 5/10/15s or 1/2/4s
+            print("  [warn] GDELT 拉取失败 (attempt %d/%d, backoff=%ds): %s" %
+                  (attempt + 1, retries + 1, backoff, msg[:80]), file=sys.stderr)
             if attempt < retries:
-                import time
-                time.sleep(2 ** attempt)  # 1s 退避
+                _time.sleep(backoff)
+    print("  [error] GDELT 全部重试失败，返回空。query=%s" % q[:80], file=sys.stderr)
     return []
 
 
-def fetch_tianxing(endpoint, num=50, word=None):
-    """调用天行数据接口，返回统一格式的文章列表（全部视为国内中文源）。"""
+def fetch_tianxing(endpoint, num=50, word=None, retries=2):
+    """调用天行数据接口，返回统一格式的文章列表（全部视为国内中文源）。
+    重试 2 次（每次超时 25s），429 限流时退避 5/10s。
+    """
+    import time as _time
     if not TIANXING_KEY:
+        print("  [tianxing] %s -> 0 条（未配置 KEY）" % endpoint, file=sys.stderr)
         return []
     base = TIANXING_ENDPOINTS.get(endpoint)
     if not base:
@@ -196,35 +211,44 @@ def fetch_tianxing(endpoint, num=50, word=None):
     url = base + "?key=" + urllib.parse.quote(TIANXING_KEY) + "&num=" + str(num)
     if word:
         url += "&word=" + urllib.parse.quote(word)
-    try:
-        txt = http_get(url, timeout=25)
-        d = json.loads(txt)
-        code = d.get("code")
-        if code and str(code) != "200":
-            print("  [warn] 天行 %s 返回错误码 %s: %s" % (endpoint, code, d.get("msg", "")), file=sys.stderr)
-            return []
-        # 天行同时支持旧格式 newslist 与新格式 result.list
-        arr = d.get("newslist") or d.get("result", {}).get("list") or []
-        out = []
-        for it in arr:
-            title = (it.get("title") or "").strip()
-            if not title:
-                continue
-            desc = (it.get("description") or it.get("digest") or "").strip()
-            out.append({
-                "title": title,
-                "url": it.get("url") or "#",
-                "src": it.get("source") or ("天行·" + endpoint),
-                "date": fmt_pub(it.get("ctime") or it.get("pubDate") or ""),
-                "desc": desc,
-                "dom": True,
-                "_from": "tianxing",
-            })
-        print("  [tianxing] %s -> %d 条" % (endpoint, len(out)), file=sys.stderr)
-        return out
-    except Exception as e:
-        print("  [warn] 天行 %s 失败:" % endpoint, e, file=sys.stderr)
-        return []
+    last_err = None
+    for attempt in range(retries + 1):
+        try:
+            txt = http_get(url, timeout=25)
+            d = json.loads(txt)
+            code = d.get("code")
+            if code and str(code) != "200":
+                print("  [warn] 天行 %s 返回错误码 %s: %s" % (endpoint, code, d.get("msg", "")), file=sys.stderr)
+                return []
+            # 天行同时支持旧格式 newslist 与新格式 result.list
+            arr = d.get("newslist") or d.get("result", {}).get("list") or []
+            out = []
+            for it in arr:
+                title = (it.get("title") or "").strip()
+                if not title:
+                    continue
+                desc = (it.get("description") or it.get("digest") or "").strip()
+                out.append({
+                    "title": title,
+                    "url": it.get("url") or "#",
+                    "src": it.get("source") or ("天行·" + endpoint),
+                    "date": fmt_pub(it.get("ctime") or it.get("pubDate") or ""),
+                    "desc": desc,
+                    "dom": True,
+                    "_from": "tianxing",
+                })
+            print("  [tianxing] %s -> %d 条" % (endpoint, len(out)), file=sys.stderr)
+            return out
+        except Exception as e:
+            last_err = e
+            msg = str(e)
+            is_rate = "429" in msg or "Too Many" in msg
+            backoff = 5 * (attempt + 1) if is_rate else 3 ** attempt
+            print("  [warn] 天行 %s 失败 (attempt %d/%d, backoff=%ds): %s" %
+                  (endpoint, attempt + 1, retries + 1, backoff, msg[:80]), file=sys.stderr)
+            if attempt < retries:
+                _time.sleep(backoff)
+    return []
 
 
 def is_junk_domain(domain):
@@ -376,14 +400,18 @@ def build_news(global_seen):
     # 2) 每个分类独立查询 GDELT，按语义归类。
     #    不再按 sourcecountry:China 死过滤（GDELT 实际返回的多为英文标题的中国新闻），
     #    最终国内/国际由 is_domestic() 动态判定（标题中文/China 关键词/.cn 域名 → 国内）。
+    #    优先 q_en（英文数据源丰富，能稳定拉到数据），中文 q 作为补充。
     raw_by_cat = {}
     for c in NEWS_CATS:
         cat = c["cat"]
         pool = []
-        # 中文查询（核心）+ 英文 q_en（补充）
-        pool += fetch_gdelt(c["q"], c["max"])
-        if len(pool) < DOM_PER_CAT + INTL_PER_CAT and c.get("q_en"):
+        # 1) 优先 q_en（英文数据源最丰富，实测能拉到 4+ 条）
+        if c.get("q_en"):
             pool += fetch_gdelt(c["q_en"], c["max"])
+        # 2) 不足时用 q（中文）补充
+        if len(pool) < DOM_PER_CAT + INTL_PER_CAT:
+            pool += fetch_gdelt(c["q"], c["max"])
+        # 3) 再不足用宽泛 fallback 兜底
         if len(pool) < DOM_PER_CAT + INTL_PER_CAT and c.get("fallback"):
             pool += fetch_gdelt(c["fallback"], c["max"])
         norm = []
@@ -392,6 +420,8 @@ def build_news(global_seen):
             if a and matches_kws(a["title"], MED_CORE_KWS):
                 norm.append(a)
         raw_by_cat[cat] = norm
+        print("  [news-raw] %s raw=%d -> kept=%d" %
+              (cat, len(pool), len(norm)), file=sys.stderr)
 
     # 按标题关键词得分把每条候选归到最佳分类
     best_by_cat = {c["cat"]: [] for c in NEWS_CATS}
@@ -438,7 +468,7 @@ def build_invest(global_seen):
     if tian_pool:
         sources.append("天行数据·财经/国内")
 
-    # 2) 预拉取共享 GDELT 池（中文+英文），避免每个模块多次查询导致超时
+    # 2) 预拉取共享 GDELT 池（英文优先+中文补充），避免每个模块多次查询导致超时
     #    不再硬加 sourcecountry:China 过滤（v37 验证该过滤实际把数据滤没了）。
     #    最终每条的 dom 字段由 is_domestic() 动态判定。
     all_kws = []
@@ -446,16 +476,17 @@ def build_invest(global_seen):
         all_kws.extend(m["kws"][:4])
     all_kws = list(dict.fromkeys(all_kws))  # 去重保持顺序
 
-    shared_cn = []
     shared_en = []
+    shared_cn = []
     chunk = 8
     for i in range(0, len(all_kws), chunk):
         part = all_kws[i:i + chunk]
-        shared_cn += fetch_gdelt("sourcelang:Chinese (" + " OR ".join(part) + ")", 20)
+        # 优先英文（GDELT 英文数据源丰富，能稳定拉到数据）
         shared_en += fetch_gdelt("sourcelang:English (" + " OR ".join(part) + ")", 20)
-    shared_norm = [normalize_gdelt(a) for a in shared_cn + shared_en if normalize_gdelt(a)]
-    print("  [invest-shared] cn_raw=%d en_raw=%d -> norm=%d" %
-          (len(shared_cn), len(shared_en), len(shared_norm)), file=sys.stderr)
+        shared_cn += fetch_gdelt("sourcelang:Chinese (" + " OR ".join(part) + ")", 20)
+    shared_norm = [normalize_gdelt(a) for a in shared_en + shared_cn if normalize_gdelt(a)]
+    print("  [invest-shared] en_raw=%d cn_raw=%d -> norm=%d" %
+          (len(shared_en), len(shared_cn), len(shared_norm)), file=sys.stderr)
 
     # 3) 每个模块从天行 + 共享池取数，dom 由 is_domestic 判定
     for m in INVEST_MODULES:
