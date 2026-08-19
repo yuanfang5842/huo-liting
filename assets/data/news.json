@@ -1,9 +1,20 @@
 {
-  "updated": "2026-08-19 13:38 UTC",
-  "offline": true,
-  "sources": [],
+  "updated": "2026-08-19 14:05 UTC",
+  "offline": false,
+  "sources": [
+    "GDELT·国内新药/临床/科研"
+  ],
   "grouped": {
-    "国内新药/临床/科研": [],
+    "国内新药/临床/科研": [
+      {
+        "title": "Asia - Pacific Roundup : TGA seeks feedback on increasing transparency of GMP inspection outcomes",
+        "src": "raps.org",
+        "url": "https://www.raps.org/resource/asia-pacific-roundup-tga-seeks-feedback-on-increasing-transparency-of-gmp-inspection-outcomes.html",
+        "date": "6月16日",
+        "desc": "",
+        "dom": false
+      }
+    ],
     "海外FDA与全球进展": [],
     "政策/医保/行业": []
   }
