@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-19 03:13 UTC",
+  "updated": "2026-08-19 07:57 UTC",
   "offline": false,
   "sources": [
     "GDELT·国内新药/临床/科研",
@@ -8,36 +8,68 @@
   "grouped": {
     "国内新药/临床/科研": [
       {
-        "title": "Shanghai Ark Biopharmaceutical Co ., Ltd .: ArkBio Announces China IND Approval for its Antiviral Drug - Fc Conjugate ( AFC ) Candidate AK0406 for Influenza Prophylaxis",
-        "src": "finanznachrichten.de",
-        "url": "https://www.finanznachrichten.de/nachrichten-2026-08/69296513-shanghai-ark-biopharmaceutical-co-ltd-arkbio-announces-china-ind-approval-for-its-antiviral-drug-fc-conjugate-afc-candidate-ak0406-for-influenza-008.htm",
-        "date": "8月13日",
+        "title": "《 TAIPEI TIMES 》 New standards from Ministry of Interior slated to boost rooftop solar development - 焦點",
+        "src": "news.ltn.com.tw",
+        "url": "https://news.ltn.com.tw/news/focus/breakingnews/5518586",
+        "date": "7月26日",
+        "desc": "",
+        "dom": true
+      },
+      {
+        "title": "GSK partner Hansoh Pharma succeeds in Chinese Phase III SCLC ADC trial",
+        "src": "yahoo.com",
+        "url": "https://www.yahoo.com/news/science/articles/gsk-partner-hansoh-pharma-succeeds-103917835.html",
+        "date": "7月13日",
+        "desc": "",
+        "dom": true
+      },
+      {
+        "title": "Industry asks FDA for harmonization , clarification in fermentation , semi - synthetic antibiotics guidance",
+        "src": "raps.org",
+        "url": "https://www.raps.org/resource/industry-asks-fda-for-harmonization-clarification-in-fermentation-semi-synthetic-antibiotics-guidance.html",
+        "date": "6月24日",
         "desc": "",
         "dom": false
       },
       {
-        "title": "ArkBio Announces China IND Approval for its Antiviral Drug - Fc Conjugate ( AFC ) Candidate AK0406 for Influenza Prophylaxis",
+        "title": "2026 - 07 - 26 | Ascentage Pharma Chairman and CEO Dr . Dajun Yang Named to The Medicine Maker Power List 2026 | NDAQ : AAPG",
+        "src": "stockhouse.com",
+        "url": "https://stockhouse.com/news/press-releases/2026/07/26/ascentage-pharma-chairman-and-ceo-dr-dajun-yang-named-to-the-medicine-maker",
+        "date": "7月27日",
+        "desc": "",
+        "dom": false
+      },
+      {
+        "title": "Vanda Pharmaceuticals Announces EMA Positive Opinion for Orphan Drug Designation of Imsidolimab for Generalized Pustular Psoriasis - A Milestone Recognition of GPP as a Distinct Rare Disease in Europe",
         "src": "prnewswire.com",
-        "url": "https://www.prnewswire.com/news-releases/arkbio-announces-china-ind-approval-for-its-antiviral-drug-fc-conjugate-afc-candidate-ak0406-for-influenza-prophylaxis-302849797.html",
-        "date": "8月13日",
+        "url": "http://www.prnewswire.com/news-releases/vanda-pharmaceuticals-announces-ema-positive-opinion-for-orphan-drug-designation-of-imsidolimab-for-generalized-pustular-psoriasis--a-milestone-recognition-of-gpp-as-a-distinct-rare-disease-in-europe-302827934.html",
+        "date": "7月16日",
         "desc": "",
         "dom": false
       }
     ],
     "海外FDA与全球进展": [
       {
-        "title": "Shanghai Ark Biopharmaceutical Co ., Ltd .: ArkBio RSV Antiviral Drug Ziresovir Receives FDA Approval for Phase II Clinical Trial",
-        "src": "finanznachrichten.de",
-        "url": "https://www.finanznachrichten.de/nachrichten-2026-08/69314640-shanghai-ark-biopharmaceutical-co-ltd-arkbio-s-rsv-antiviral-drug-ziresovir-receives-fda-approval-for-phase-ii-clinical-trial-008.htm",
-        "date": "8月14日",
+        "title": "Study : FDA approves more orphan drugs with specific cancer , pediatric indications over EMA",
+        "src": "raps.org",
+        "url": "https://www.raps.org/resource/study-fda-approves-more-orphan-drugs-with-specific-cancer-pediatric-indications-over-ema.html",
+        "date": "6月3日",
         "desc": "",
         "dom": false
       },
       {
-        "title": "ArkBio RSV Antiviral Drug Ziresovir Receives FDA Approval for Phase II Clinical Trial",
-        "src": "thailand-business-news.com",
-        "url": "https://www.thailand-business-news.com/pr-news/arkbios-rsv-antiviral-drug-ziresovir-receives-fda-approval-for-phase-ii-clinical-trial",
-        "date": "8月14日",
+        "title": "Study : Regulators often diverge from FDA on expedited oncology approvals",
+        "src": "raps.org",
+        "url": "https://www.raps.org/resource/study-regulators-often-diverge-from-fda-on-expedited-oncology-approvals.html",
+        "date": "6月22日",
+        "desc": "",
+        "dom": false
+      },
+      {
+        "title": "Recon : Vertex buys Crinetics for $10B ; EMA fast tracks Revolution metastatic pancreatic cancer drug",
+        "src": "raps.org",
+        "url": "https://www.raps.org/resource/recon-vertex-buys-crinetics-for-10b-ema-fast-tracks-revolution-s-metastatic-pancreatic-cancer-drug.html",
+        "date": "7月7日",
         "desc": "",
         "dom": false
       }
