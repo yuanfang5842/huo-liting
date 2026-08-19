@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-活力婷 · 定时数据生成器 (v37)
+活力婷 · 定时数据生成器 (v38)
 - 医药要闻：天行数据（国内中文主力源） + GDELT（国际英文补充源）。
   每个分类 10 条 = 7 条中国国内(含中国台湾) + 3 条国际；跨分类/跨模块全局去重。
 - 投资机会：天行财经/国内（国内主力源） + GDELT（国际英文补充源）。
@@ -250,6 +250,36 @@ def score_kws(title, kws):
     return len({k.lower() for k in kws if k.lower() in t})
 
 
+# 国内/国际综合判定（按内容本身判定，而非依赖 GDELT 的 sourcecountry 字段）
+# 实际场景中 GDELT 的 sourcecountry 字段常常错标（如中国企业的英文新闻被标 US），
+# 且 sourcecountry:China 过滤会把真正的中文国内源也漏掉，所以改为综合判定。
+_CN_HINTS_RE = re.compile(
+    r'\b(china|chinese|beijing|shanghai|hong\s*kong|taiwan|shenzhen|guangzhou|prc|mainland)\b',
+    re.IGNORECASE
+)
+
+def is_domestic(item):
+    """综合判定是否国内中文源。判定规则：
+    ① 标题含中文 → 国内；
+    ② 标题含 China/Chinese/Shanghai/Beijing 等中国关键词 → 国内（中国企业英文新闻）；
+    ③ 域名 .cn/.com.cn/.com.tw/.com.hk → 国内；
+    ④ GDELT sourcecountry 为 China/Taiwan/Hong Kong/Macao → 国内。
+    其余视为国际。
+    """
+    title = item.get("title", "") or ""
+    if is_cjk(title):
+        return True
+    if _CN_HINTS_RE.search(title):
+        return True
+    domain = (item.get("domain") or item.get("src") or "").lower()
+    if domain.endswith(".cn") or ".com.cn" in domain or ".com.tw" in domain or ".com.hk" in domain or domain.endswith(".tw") or domain.endswith(".hk"):
+        return True
+    sc = (item.get("sourcecountry", "") or "").upper()
+    if sc in ("CHINA", "TAIWAN", "HONG KONG", "MACAU"):
+        return True
+    return False
+
+
 def normalize_gdelt(a):
     """把 GDELT 返回的文章转换为统一格式。"""
     title = (a.get("title") or "").strip()
@@ -267,8 +297,10 @@ def normalize_gdelt(a):
     }
 
 
-def take_unique(items, n, global_seen, domestic, require_kws=None):
-    """从 items 中取出 n 条，要求：不重复、命中 require_kws、非垃圾源。"""
+def take_unique(items, n, global_seen, require_kws=None):
+    """从 items 中取出 n 条，要求：不重复、命中 require_kws、非垃圾源。
+    dom 字段用 is_domestic() 动态判定，不再依赖调用方传入。
+    """
     out = []
     for a in items:
         title = (a.get("title") or "").strip()
@@ -287,7 +319,7 @@ def take_unique(items, n, global_seen, domestic, require_kws=None):
             "url": a.get("url") or "#",
             "date": a.get("date") or "",
             "desc": a.get("desc", ""),
-            "dom": domestic,
+            "dom": is_domestic(a),
         })
         if len(out) >= n:
             break
@@ -341,58 +373,56 @@ def build_news(global_seen):
     if tian_pool:
         sources.append("天行数据·健康/国内")
 
-    # 2) 每个分类独立查询，互不抢条目
-    #    —— 根治旧版「首分类把相关条目吸干、后续分类全空」的分配 bug
-    #    国际候选额外做「语义重归类」：先按分类拉取英文池，再按标题关键词算最佳分类，
-    #    避免 FDA 新闻被第一个分类抢走。
-    raw_intl_by_cat = {}
+    # 2) 每个分类独立查询 GDELT，按语义归类。
+    #    不再按 sourcecountry:China 死过滤（GDELT 实际返回的多为英文标题的中国新闻），
+    #    最终国内/国际由 is_domestic() 动态判定（标题中文/China 关键词/.cn 域名 → 国内）。
+    raw_by_cat = {}
     for c in NEWS_CATS:
         cat = c["cat"]
         pool = []
-        if c.get("q_en"):
+        # 中文查询（核心）+ 英文 q_en（补充）
+        pool += fetch_gdelt(c["q"], c["max"])
+        if len(pool) < DOM_PER_CAT + INTL_PER_CAT and c.get("q_en"):
             pool += fetch_gdelt(c["q_en"], c["max"])
-        if len(pool) < INTL_PER_CAT and c.get("fallback"):
+        if len(pool) < DOM_PER_CAT + INTL_PER_CAT and c.get("fallback"):
             pool += fetch_gdelt(c["fallback"], c["max"])
         norm = []
         for a in pool:
             a = normalize_gdelt(a)
-            if a and matches_kws(a["title"], MED_CORE_KWS) and not is_cjk(a["title"]):
+            if a and matches_kws(a["title"], MED_CORE_KWS):
                 norm.append(a)
-        raw_intl_by_cat[cat] = norm
+        raw_by_cat[cat] = norm
 
-    # 把每条国际候选归到得分最高的分类（按该分类 kws）
-    intl_best = {c["cat"]: [] for c in NEWS_CATS}
-    for cat, items in raw_intl_by_cat.items():
+    # 按标题关键词得分把每条候选归到最佳分类
+    best_by_cat = {c["cat"]: [] for c in NEWS_CATS}
+    for cat, items in raw_by_cat.items():
         for a in items:
             best = max(NEWS_CATS, key=lambda c: score_kws(a["title"], c["kws"]))
-            intl_best[best["cat"]].append(a)
+            best_by_cat[best["cat"]].append(a)
 
     for c in NEWS_CATS:
         cat = c["cat"]
 
-        # 国内候选：天行按分类关键词匹配 + GDELT 中文 sourcecountry:China（标题须为中文，避免英文中国源误判国内）
+        # 国内候选：天行按分类关键词 + 该分类的语义最佳池中"国内"条目
         dom_candidates = [a for a in tian_pool if matches_kws(a["title"], c["kws"])]
         tian_matched = len(dom_candidates)
-        gdelt_dom_raw = fetch_gdelt(c["q"] + " sourcecountry:China", c["max"])
-        gdelt_matched = 0
-        for a in gdelt_dom_raw:
-            a = normalize_gdelt(a)
-            if a and matches_kws(a["title"], c["kws"]) and matches_kws(a["title"], MED_CORE_KWS) and is_cjk(a["title"]):
+        cat_pool = best_by_cat.get(cat, [])
+        for a in cat_pool:
+            if is_domestic(a) and matches_kws(a["title"], c["kws"]):
                 dom_candidates.append(a)
-                gdelt_matched += 1
         dom_candidates.sort(key=lambda a: score_kws(a["title"], c["kws"]), reverse=True)
-        items_dom = take_unique(dom_candidates, DOM_PER_CAT, global_seen, True, require_kws=MED_CORE_KWS)
+        items_dom = take_unique(dom_candidates, DOM_PER_CAT, global_seen, require_kws=MED_CORE_KWS)
 
-        # 国际候选：从语义最佳分类池中取，标题命中医药核心词且为英文（非中文）
-        intl_candidates = intl_best.get(cat, [])
+        # 国际候选：从该分类的语义最佳池中取非国内 + 不重复
+        intl_candidates = [a for a in cat_pool if not is_domestic(a)]
         intl_candidates.sort(key=lambda a: score_kws(a["title"], c["kws"]), reverse=True)
-        items_intl = take_unique(intl_candidates, INTL_PER_CAT, global_seen, False, require_kws=MED_CORE_KWS)
+        items_intl = take_unique(intl_candidates, INTL_PER_CAT, global_seen, require_kws=MED_CORE_KWS)
 
         grouped[cat] = items_dom + items_intl
         if items_dom or items_intl:
             sources.append("GDELT·" + cat)
-        print("[news] %s tian=%d gdelt_raw=%d gdelt_ok=%d -> dom=%d intl=%d" %
-              (cat, tian_matched, len(gdelt_dom_raw), gdelt_matched, len(items_dom), len(items_intl)), file=sys.stderr)
+        print("[news] %s tian=%d cat_pool=%d dom=%d intl=%d" %
+              (cat, tian_matched, len(cat_pool), len(items_dom), len(items_intl)), file=sys.stderr)
 
     total = sum(len(v) for v in grouped.values())
     offline = total == 0
@@ -408,68 +438,53 @@ def build_invest(global_seen):
     if tian_pool:
         sources.append("天行数据·财经/国内")
 
-    # 2) 预拉取共享 GDELT 池，避免每个模块单独多次查询导致 Actions 超时
-    #    国内：2 次中文查询（带/不带 sourcecountry:China）覆盖所有模块关键词
-    #    国际：2 次英文查询覆盖所有模块关键词
+    # 2) 预拉取共享 GDELT 池（中文+英文），避免每个模块多次查询导致超时
+    #    不再硬加 sourcecountry:China 过滤（v37 验证该过滤实际把数据滤没了）。
+    #    最终每条的 dom 字段由 is_domestic() 动态判定。
     all_kws = []
     for m in INVEST_MODULES:
         all_kws.extend(m["kws"][:4])
     all_kws = list(dict.fromkeys(all_kws))  # 去重保持顺序
 
     shared_cn = []
-    # 分块避免 URL 过长；每块约 8 个关键词
+    shared_en = []
     chunk = 8
     for i in range(0, len(all_kws), chunk):
         part = all_kws[i:i + chunk]
-        shared_cn += fetch_gdelt("sourcelang:Chinese (" + " OR ".join(part) + ") sourcecountry:China", 20)
-    # 再补一次不带 sourcecountry 的中文（部分中文报道未标注国家）
-    shared_cn += fetch_gdelt("sourcelang:Chinese (" + " OR ".join(all_kws[:chunk]) + ")", 20)
-    shared_cn_norm = [normalize_gdelt(a) for a in shared_cn if normalize_gdelt(a)]
-
-    shared_en = []
-    for i in range(0, len(all_kws), chunk):
-        part = all_kws[i:i + chunk]
+        shared_cn += fetch_gdelt("sourcelang:Chinese (" + " OR ".join(part) + ")", 20)
         shared_en += fetch_gdelt("sourcelang:English (" + " OR ".join(part) + ")", 20)
-    shared_en_norm = [normalize_gdelt(a) for a in shared_en if normalize_gdelt(a)]
+    shared_norm = [normalize_gdelt(a) for a in shared_cn + shared_en if normalize_gdelt(a)]
+    print("  [invest-shared] cn_raw=%d en_raw=%d -> norm=%d" %
+          (len(shared_cn), len(shared_en), len(shared_norm)), file=sys.stderr)
 
-    # 3) 每个模块从天行 + 共享池取数
+    # 3) 每个模块从天行 + 共享池取数，dom 由 is_domestic 判定
     for m in INVEST_MODULES:
         name = m["name"]
 
-        # 国内：天行按模块关键词 + 共享中文池
-        dom_candidates = [a for a in tian_pool if matches_kws(a["title"], m["kws"])]
-        tian_matched = len(dom_candidates)
-        cn_from_shared = 0
-        for a in shared_cn_norm:
-            if matches_kws(a["title"], m["kws"]) and is_cjk(a["title"]):
-                dom_candidates.append(a)
-                cn_from_shared += 1
-        dom_candidates.sort(key=lambda a: score_kws(a["title"], m["kws"]), reverse=True)
-        dom_items = take_unique(dom_candidates, DOM_PER_MODULE, global_seen, True)
+        # 候选：天行 + 共享池（统一池，按模块关键词筛选）
+        all_candidates = [a for a in tian_pool if matches_kws(a["title"], m["kws"])]
+        tian_matched = len(all_candidates)
+        shared_matched = 0
+        for a in shared_norm:
+            if matches_kws(a["title"], m["kws"]):
+                all_candidates.append(a)
+                shared_matched += 1
 
-        # 国际：模块专属 q_en + 共享英文池
-        intl_candidates = []
-        intl_raw = 0
-        if m.get("q_en"):
-            pool = fetch_gdelt(m["q_en"], m["max"])
-            intl_raw = len(pool)
-            for a in pool:
-                a = normalize_gdelt(a)
-                if a and matches_kws(a["title"], m["kws"]) and not is_cjk(a["title"]):
-                    intl_candidates.append(a)
-        en_from_shared = 0
-        for a in shared_en_norm:
-            if matches_kws(a["title"], m["kws"]) and not is_cjk(a["title"]):
-                intl_candidates.append(a)
-                en_from_shared += 1
+        # 国内：候选中 is_domestic() 判国内
+        dom_candidates = [a for a in all_candidates if is_domestic(a)]
+        dom_candidates.sort(key=lambda a: score_kws(a["title"], m["kws"]), reverse=True)
+        dom_items = take_unique(dom_candidates, DOM_PER_MODULE, global_seen)
+
+        # 国际：候选中非国内
+        intl_candidates = [a for a in all_candidates if not is_domestic(a)]
         intl_candidates.sort(key=lambda a: score_kws(a["title"], m["kws"]), reverse=True)
-        intl_items = take_unique(intl_candidates, INTL_PER_MODULE, global_seen, False)
+        intl_items = take_unique(intl_candidates, INTL_PER_MODULE, global_seen)
 
         modules.append({"name": name, "items": dom_items + intl_items})
         if dom_items or intl_items:
             sources.append("GDELT·" + name)
-        print("[invest] %s tian=%d cn_shared=%d intl_raw=%d en_shared=%d -> dom=%d intl=%d" %
-              (name, tian_matched, cn_from_shared, intl_raw, en_from_shared, len(dom_items), len(intl_items)), file=sys.stderr)
+        print("[invest] %s tian=%d shared=%d -> dom=%d intl=%d" %
+              (name, tian_matched, shared_matched, len(dom_items), len(intl_items)), file=sys.stderr)
 
     total = sum(len(m["items"]) for m in modules)
     offline = total == 0
