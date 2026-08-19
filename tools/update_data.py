@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-活力婷 · 定时数据生成器 (v39)
+活力婷 · 定时数据生成器 (v40)
 - 医药要闻：天行数据（国内中文主力源） + GDELT（国际英文补充源）。
   每个分类 10 条 = 7 条中国国内(含中国台湾) + 3 条国际；跨分类/跨模块全局去重。
 - 投资机会：天行财经/国内（国内主力源） + GDELT（国际英文补充源）。
@@ -166,11 +166,11 @@ def fmt_pub(s):
     return s[:10]
 
 
-def fetch_gdelt(q, max_records=12, retries=2):
+def fetch_gdelt(q, max_records=12, retries=1):
     """从 GDELT 拉取文章。失败时自动重试（指数退避），429 限流时睡长一点。
     返回的 articles 列表；连续失败返回空列表。
-    总查询次数限制：build_news ~9 次 + build_invest ~8 次，
-    每次 3 次尝试（retries=2），单次最坏 60s，总耗时 15 分钟左右，刚好不超 Actions 超时。
+    总查询次数限制：build_news 9 次 + build_invest 10 次 = 19 次，
+    每次 2 次尝试（retries=1），单次最坏 41s，总耗时 13 分钟左右，刚好不超 Actions 15 分钟超时。
     """
     import time as _time
     url = ("https://api.gdeltproject.org/api/v2/doc/doc?query=" + urllib.parse.quote(q) +
@@ -259,11 +259,28 @@ def is_junk_domain(domain):
     return d in JUNK_DOMAINS or any(j in d for j in JUNK_DOMAINS)
 
 
+# 单词边界正则（用于英文/数字短关键词，避免 NDA 命中 standards 这种子串误伤）
+_WORD_BOUNDARY = r'(?<![a-z0-9])'  # 前不是字母数字
+_WORD_END = r'(?![a-z0-9])'         # 后不是字母数字
+_ASCII_KW_RE = re.compile(r'^[a-z0-9+\-./]{1,6}$')
+
+
+def _kw_in_title(kl, t):
+    """判断关键词 kl 是否命中标题 t（已 lower）。
+    纯 ASCII 短关键词用单词边界匹配防止子串误伤；中文/长关键词用子串匹配。
+    """
+    if not kl:
+        return False
+    if _ASCII_KW_RE.match(kl):
+        return bool(re.search(_WORD_BOUNDARY + re.escape(kl) + _WORD_END, t))
+    return kl in t
+
+
 def matches_kws(title, kws):
     if not title or not kws:
         return False
     t = title.lower()
-    return any(k.lower() in t for k in kws)
+    return any(_kw_in_title(k.lower(), t) for k in kws)
 
 
 def score_kws(title, kws):
@@ -271,7 +288,7 @@ def score_kws(title, kws):
     if not title or not kws:
         return 0
     t = title.lower()
-    return len({k.lower() for k in kws if k.lower() in t})
+    return len({k.lower() for k in kws if _kw_in_title(k.lower(), t)})
 
 
 # 国内/国际综合判定（按内容本身判定，而非依赖 GDELT 的 sourcecountry 字段）
@@ -468,38 +485,45 @@ def build_invest(global_seen):
     if tian_pool:
         sources.append("天行数据·财经/国内")
 
-    # 2) 预拉取共享 GDELT 池（英文优先+中文补充），避免每个模块多次查询导致超时
-    #    不再硬加 sourcecountry:China 过滤（v37 验证该过滤实际把数据滤没了）。
-    #    最终每条的 dom 字段由 is_domestic() 动态判定。
+    # 2) 每个模块独立拉取 q_en（英文，GDELT 数据源最丰富，能稳定拉到数据）
+    #    7 模块 × 1 次英文查询 = 7 次
+    per_mod_en = {}  # cat_name -> normalized list
+    for m in INVEST_MODULES:
+        if not m.get("q_en"):
+            per_mod_en[m["name"]] = []
+            continue
+        raw = fetch_gdelt(m["q_en"], m["max"])
+        norm = [normalize_gdelt(a) for a in raw if normalize_gdelt(a)]
+        per_mod_en[m["name"]] = norm
+        print("  [invest-mod-en] %s raw=%d norm=%d" %
+              (m["name"], len(raw), len(norm)), file=sys.stderr)
+
+    # 3) 共享中文池（3 次，覆盖所有模块的中文关键词）
     all_kws = []
     for m in INVEST_MODULES:
         all_kws.extend(m["kws"][:4])
     all_kws = list(dict.fromkeys(all_kws))  # 去重保持顺序
-
-    shared_en = []
     shared_cn = []
     chunk = 8
     for i in range(0, len(all_kws), chunk):
         part = all_kws[i:i + chunk]
-        # 优先英文（GDELT 英文数据源丰富，能稳定拉到数据）
-        shared_en += fetch_gdelt("sourcelang:English (" + " OR ".join(part) + ")", 20)
         shared_cn += fetch_gdelt("sourcelang:Chinese (" + " OR ".join(part) + ")", 20)
-    shared_norm = [normalize_gdelt(a) for a in shared_en + shared_cn if normalize_gdelt(a)]
-    print("  [invest-shared] en_raw=%d cn_raw=%d -> norm=%d" %
-          (len(shared_en), len(shared_cn), len(shared_norm)), file=sys.stderr)
+    shared_cn_norm = [normalize_gdelt(a) for a in shared_cn if normalize_gdelt(a)]
+    print("  [invest-shared-cn] raw=%d -> norm=%d" % (len(shared_cn), len(shared_cn_norm)), file=sys.stderr)
 
-    # 3) 每个模块从天行 + 共享池取数，dom 由 is_domestic 判定
+    # 4) 每个模块：天行 + 模块英文池 + 共享中文池
     for m in INVEST_MODULES:
         name = m["name"]
 
-        # 候选：天行 + 共享池（统一池，按模块关键词筛选）
+        # 候选：天行 + 模块英文池 + 共享中文池
         all_candidates = [a for a in tian_pool if matches_kws(a["title"], m["kws"])]
         tian_matched = len(all_candidates)
-        shared_matched = 0
-        for a in shared_norm:
+        for a in per_mod_en.get(name, []):
             if matches_kws(a["title"], m["kws"]):
                 all_candidates.append(a)
-                shared_matched += 1
+        for a in shared_cn_norm:
+            if matches_kws(a["title"], m["kws"]):
+                all_candidates.append(a)
 
         # 国内：候选中 is_domestic() 判国内
         dom_candidates = [a for a in all_candidates if is_domestic(a)]
@@ -514,8 +538,9 @@ def build_invest(global_seen):
         modules.append({"name": name, "items": dom_items + intl_items})
         if dom_items or intl_items:
             sources.append("GDELT·" + name)
-        print("[invest] %s tian=%d shared=%d -> dom=%d intl=%d" %
-              (name, tian_matched, shared_matched, len(dom_items), len(intl_items)), file=sys.stderr)
+        print("[invest] %s tian=%d per_en=%d shared_cn=%d -> dom=%d intl=%d" %
+            (name, tian_matched, len(per_mod_en.get(name, [])),
+             len(shared_cn_norm), len(dom_items), len(intl_items)), file=sys.stderr)
 
     total = sum(len(m["items"]) for m in modules)
     offline = total == 0
