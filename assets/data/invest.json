@@ -1,9 +1,7 @@
 {
-  "updated": "2026-08-20 08:01 UTC",
-  "offline": false,
-  "sources": [
-    "GDELT·半导体产业政策与进展及风险"
-  ],
+  "updated": "2026-08-20 14:08 UTC",
+  "offline": true,
+  "sources": [],
   "modules": [
     {
       "name": "昨日美股等国外股市表现",
@@ -11,24 +9,7 @@
     },
     {
       "name": "半导体产业政策与进展及风险",
-      "items": [
-        {
-          "title": "China DUV Chip Tool Push Shakes Markets . ASML Dominance Faces Scrutiny , But Major Hurdles Remain",
-          "src": "ibtimes.com",
-          "url": "https://www.ibtimes.com/chinas-duv-chip-tool-push-shakes-markets-asmls-dominance-faces-scrutiny-major-hurdles-remain-3805802",
-          "date": "7月28日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Samsung Joins TSMC in Stalling ASML High NA EUV Rollout , Pushing the Costly Machines to 1nm Chips",
-          "src": "wccftech.com",
-          "url": "https://wccftech.com/samsung-joins-tsmc-in-stalling-asmls-high-na-euv-rollout-pushing-the-costly-machines-to-1nm-chips/",
-          "date": "8月11日",
-          "desc": "",
-          "dom": false
-        }
-      ]
+      "items": []
     },
     {
       "name": "商业航天产业政策与进展",
