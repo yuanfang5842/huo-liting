@@ -1,10 +1,10 @@
 {
-  "updated": "2026-08-21 13:58 UTC",
+  "updated": "2026-08-21 19:15 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
-    "GDELT·半导体产业政策与进展及风险",
     "GDELT·商业航天产业政策与进展",
+    "GDELT·新能源产业政策与进展",
     "GDELT·医药行业产业政策与进展",
     "GDELT·其它重大政策及事件"
   ],
@@ -15,48 +15,7 @@
     },
     {
       "name": "半导体产业政策与进展及风险",
-      "items": [
-        {
-          "title": "China reaches major milestone as domestic DUV chip tools enter mass production",
-          "src": "thenews.com.pk",
-          "url": "https://www.thenews.com.pk/latest/1410425-china-reaches-major-milestone-as-domestic-duv-chip-tools-enter-mass-production",
-          "date": "7月27日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "From isolation to independence : How China took its chip sector to the next level",
-          "src": "hani.co.kr",
-          "url": "https://www.hani.co.kr/arti/english_edition/e_business/1272806.html",
-          "date": "8月13日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Tau Scaling Law to rewrite rules for chip performance growth",
-          "src": "usa.chinadaily.com.cn",
-          "url": "http://usa.chinadaily.com.cn/a/202608/06/WS6a73e54aa310986e2b4693c3.html",
-          "date": "8月6日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China homegrown DUV jolts chip industry , but yield test looms",
-          "src": "koreaherald.com",
-          "url": "https://www.koreaherald.com/article/10833137",
-          "date": "8月6日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Samsung Joins TSMC in Stalling ASML High NA EUV Rollout , Pushing the Costly Machines to 1nm Chips",
-          "src": "wccftech.com",
-          "url": "https://wccftech.com/samsung-joins-tsmc-in-stalling-asmls-high-na-euv-rollout-pushing-the-costly-machines-to-1nm-chips/",
-          "date": "8月11日",
-          "desc": "",
-          "dom": false
-        }
-      ]
+      "items": []
     },
     {
       "name": "商业航天产业政策与进展",
@@ -105,7 +64,32 @@
     },
     {
       "name": "新能源产业政策与进展",
-      "items": []
+      "items": [
+        {
+          "title": "【 AICC Original Article 】 Exports of Anhui new energy vehicles , lithium batteries and photovoltaic products doubled",
+          "src": "english.anhuinews.com",
+          "url": "http://english.anhuinews.com/newscenter/headline/202606/t20260616_9332090.html",
+          "date": "6月16日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China Just Connected the World Biggest Hybrid Solar Plant to the Grid",
+          "src": "oilprice.com",
+          "url": "https://oilprice.com/Alternative-Energy/Solar-Energy/China-Just-Connected-the-Worlds-Biggest-Hybrid-Solar-Plant-to-the-Grid.html",
+          "date": "7月15日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "Vatrer 51 . 2V 100Ah Server Rack Lithium Battery with WIFI : Smart , Scalable Energy Storage for Off - Grid Living",
+          "src": "techtimes.com",
+          "url": "https://www.techtimes.com/articles/321647/20260727/vatrer-512v-100ah-server-rack-lithium-battery-wifi-smart-scalable-energy-storage-off-grid.htm",
+          "date": "7月27日",
+          "desc": "",
+          "dom": false
+        }
+      ]
     },
     {
       "name": "医药行业产业政策与进展",
