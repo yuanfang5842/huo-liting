@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-21 11:54 UTC",
+  "updated": "2026-08-21 12:40 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
@@ -23,6 +23,14 @@
         "date": "8月13日",
         "desc": "",
         "dom": true
+      },
+      {
+        "title": "Asia - Pacific Roundup : TGA seeks feedback on increasing transparency of GMP inspection outcomes",
+        "src": "raps.org",
+        "url": "https://www.raps.org/resource/asia-pacific-roundup-tga-seeks-feedback-on-increasing-transparency-of-gmp-inspection-outcomes.html",
+        "date": "6月16日",
+        "desc": "",
+        "dom": false
       }
     ],
     "海外FDA与全球进展": [
