@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-活力婷 · 定时数据生成器 (v40)
+活力婷 · 定时数据生成器 (v41)
 - 医药要闻：天行数据（国内中文主力源） + GDELT（国际英文补充源）。
   每个分类 10 条 = 7 条中国国内(含中国台湾) + 3 条国际；跨分类/跨模块全局去重。
 - 投资机会：天行财经/国内（国内主力源） + GDELT（国际英文补充源）。
@@ -554,30 +554,76 @@ def save_json(path, data):
     print("  saved:", path)
 
 
+def load_existing(path):
+    """读取已有 JSON（如果存在），返回 (data, total_count)。
+    total_count 是分组条目数或模块条目数之和。
+    """
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        if not isinstance(data, dict):
+            return None, 0
+        if "grouped" in data and isinstance(data["grouped"], dict):
+            total = sum(len(v) for v in data["grouped"].values() if isinstance(v, list))
+        elif "modules" in data and isinstance(data["modules"], list):
+            total = sum(len(m.get("items", [])) for m in data["modules"] if isinstance(m, dict))
+        else:
+            total = 0
+        return data, total
+    except (IOError, json.JSONDecodeError, ValueError, OSError):
+        return None, 0
+
+
 def main():
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     global_seen = set()
 
+    # 读取旧数据，作为本次拉取为空时的兜底（避免用户看到全空页面）
+    old_news, old_news_total = load_existing(NEWS_PATH)
+    old_invest, old_invest_total = load_existing(INVEST_PATH)
+    print("[boot] old news=%d invest=%d" % (old_news_total, old_invest_total), file=sys.stderr)
+
     if not TIANXING_KEY:
         print("[warn] 未配置 TIANXING_API_KEY，将只使用 GDELT 源。", file=sys.stderr)
 
+    # 1) 医药要闻
     grouped, nsources, n_offline = build_news(global_seen)
-    # 始终写入本次结果：即使本次拉取为空，也覆盖旧文件，避免用户看到旧脏数据。
-    # 若为空，offline 标记会提示用户数据未生成。
-    save_json(NEWS_PATH, {
-        "updated": now,
-        "offline": n_offline,
-        "sources": nsources,
-        "grouped": grouped,
-    })
+    new_total = sum(len(v) for v in grouped.values())
+    if new_total == 0 and old_news and old_news_total > 0:
+        # 本次拉取为空 → 保留上次成功数据（用户至少能看到真实历史数据）
+        print("[news] 本次为空 (0 条)，保留上次成功数据 (%d 条) - 时间 %s" %
+              (old_news_total, old_news.get("updated", "")), file=sys.stderr)
+        out_news = dict(old_news)
+        out_news["updated"] = now
+        out_news["offline"] = True
+        out_news["sources"] = list(out_news.get("sources") or []) + ["⚠ 保留上次成功数据（本次拉取为空）"]
+    else:
+        out_news = {
+            "updated": now,
+            "offline": n_offline,
+            "sources": nsources,
+            "grouped": grouped,
+        }
+    save_json(NEWS_PATH, out_news)
 
+    # 2) 投资机会
     modules, isources, i_offline = build_invest(global_seen)
-    save_json(INVEST_PATH, {
-        "updated": now,
-        "offline": i_offline,
-        "sources": isources,
-        "modules": modules,
-    })
+    new_inv_total = sum(len(m["items"]) for m in modules)
+    if new_inv_total == 0 and old_invest and old_invest_total > 0:
+        print("[invest] 本次为空 (0 条)，保留上次成功数据 (%d 条) - 时间 %s" %
+              (old_invest_total, old_invest.get("updated", "")), file=sys.stderr)
+        out_inv = dict(old_invest)
+        out_inv["updated"] = now
+        out_inv["offline"] = True
+        out_inv["sources"] = list(out_inv.get("sources") or []) + ["⚠ 保留上次成功数据（本次拉取为空）"]
+    else:
+        out_inv = {
+            "updated": now,
+            "offline": i_offline,
+            "sources": isources,
+            "modules": modules,
+        }
+    save_json(INVEST_PATH, out_inv)
 
 
 if __name__ == "__main__":
