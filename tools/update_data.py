@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-活力婷 · 定时数据生成器 (v41)
+活力婷 · 定时数据生成器 (v42)
 - 医药要闻：天行数据（国内中文主力源） + GDELT（国际英文补充源）。
   每个分类 10 条 = 7 条中国国内(含中国台湾) + 3 条国际；跨分类/跨模块全局去重。
 - 投资机会：天行财经/国内（国内主力源） + GDELT（国际英文补充源）。
@@ -94,37 +94,44 @@ INVEST_MODULES = [
     {"name": "昨日美股等国外股市表现",
      "q": 'sourcelang:Chinese (美股 OR 道指 OR 纳指 OR 标普 OR 美股 收评)',
      "q_en": 'sourcelang:English (US stock market OR Dow Jones OR Nasdaq OR S&P 500 OR Wall Street)',
-     "kws": ["美股", "道指", "纳指", "标普", "美债", "美联储", "华尔街", "股市", "收盘", "三大指数", "Dow", "Nasdaq", "S&P"],
+     "kws": ["美股", "道指", "纳指", "标普", "美债", "美联储", "华尔街", "股市", "收盘", "三大指数"],
+     "kws_en": ["stock market", "dow jones", "nasdaq", "s&p", "wall street", "federal reserve", "rate", "stocks", "equities"],
      "max": 12},
     {"name": "半导体产业政策与进展及风险",
      "q": 'sourcelang:Chinese (半导体 OR 芯片 OR 集成电路 OR 光刻机 OR 半导体 政策)',
      "q_en": 'sourcelang:English (semiconductor OR chip OR integrated circuit OR lithography OR chip policy)',
-     "kws": ["半导体", "芯片", "集成电路", "光刻机", "台积电", "中芯", "ASML", "晶圆", "先进制程", "Chiplet", "EDA"],
+     "kws": ["半导体", "芯片", "集成电路", "光刻机", "台积电", "中芯", "晶圆", "先进制程"],
+     "kws_en": ["semiconductor", "chip", "tsmc", "asml", "foundry", "lithography", "wafer"],
      "max": 12},
     {"name": "商业航天产业政策与进展",
      "q": 'sourcelang:Chinese (商业航天 OR 卫星互联网 OR 火箭 OR 低空经济 OR 航天 政策)',
      "q_en": 'sourcelang:English (commercial space OR satellite internet OR rocket OR space policy)',
-     "kws": ["商业航天", "卫星", "火箭", "低空经济", "航天", "卫星互联网", "空天", "发射", "星链", "遥感"],
+     "kws": ["商业航天", "卫星", "火箭", "低空经济", "航天", "卫星互联网", "发射", "星链"],
+     "kws_en": ["space", "rocket", "satellite", "spacex", "launch", "orbit"],
      "max": 12},
     {"name": "新能源产业政策与进展",
      "q": 'sourcelang:Chinese (新能源 OR 光伏 OR 锂电 OR 储能 OR 风电 OR 新能源 政策)',
      "q_en": 'sourcelang:English (new energy OR photovoltaic OR lithium battery OR energy storage OR EV policy)',
-     "kws": ["新能源", "光伏", "锂电", "储能", "风电", "动力电池", "充电桩", "氢能", "电动车", "宁德时代", "比亚迪"],
+     "kws": ["新能源", "光伏", "锂电", "储能", "风电", "动力电池", "充电桩", "氢能", "电动车"],
+     "kws_en": ["solar", "battery", "lithium", "energy storage", "ev", "wind", "photovoltaic"],
      "max": 12},
     {"name": "医药行业产业政策与进展",
      "q": 'sourcelang:Chinese (医药 政策 OR 创新药 OR 生物医药 OR 中医药 发展 OR 医药 产业)',
      "q_en": 'sourcelang:English (pharmaceutical policy OR biotech industry OR China pharma OR drug policy)',
-     "kws": ["医药", "创新药", "生物医药", "中医药", "医疗器械", "CXO", "仿制药", "医保", "集采", "药企"],
+     "kws": ["医药", "创新药", "生物医药", "中医药", "医疗器械", "仿制药", "医保", "集采"],
+     "kws_en": ["pharma", "biotech", "drug", "fda", "clinical", "innovative drug"],
      "max": 12},
     {"name": "消费产业政策与进展",
      "q": 'sourcelang:Chinese (消费 政策 OR 促消费 OR 消费 复苏 OR 零售 OR 白酒)',
      "q_en": 'sourcelang:English (consumer policy OR consumption recovery OR retail OR China consumer)',
-     "kws": ["消费", "促消费", "零售", "白酒", "家电", "汽车", "文旅", "餐饮", "电商", "直播带货", "内需"],
+     "kws": ["消费", "促消费", "零售", "白酒", "家电", "汽车", "文旅", "餐饮", "电商"],
+     "kws_en": ["consumer", "retail", "spending", "ecommerce", "shopping"],
      "max": 12},
     {"name": "其它重大政策及事件",
      "q": 'sourcelang:Chinese (国务院 OR 政策 发布 OR 重大 事件 OR 央行 OR 发改委 OR 经济 政策)',
      "q_en": 'sourcelang:English (State Council OR PBOC OR NDRC OR China policy OR economic policy)',
-     "kws": ["国务院", "央行", "发改委", "经济政策", "财政政策", "货币政策", "降准", "降息", "重大事件", "发布会"],
+     "kws": ["国务院", "央行", "发改委", "经济政策", "财政政策", "货币政策", "降准", "降息"],
+     "kws_en": ["policy", "pboc", "state council", "economic", "stimulus", "monetary"],
      "max": 12},
 ]
 
@@ -218,7 +225,14 @@ def fetch_tianxing(endpoint, num=50, word=None, retries=2):
             d = json.loads(txt)
             code = d.get("code")
             if code and str(code) != "200":
-                print("  [warn] 天行 %s 返回错误码 %s: %s" % (endpoint, code, d.get("msg", "")), file=sys.stderr)
+                # 天行错误码 → 中文提示，方便定位 Secret 是否配错/额度用尽
+                tx_err = {
+                    110: "接口不存在或未开通", 120: "没有使用权限", 130: "请求过于频繁",
+                    150: "当天免费额度已用尽", 210: "AppKey 错误/不存在", 230: "API密钥无效",
+                    240: "AppKey 被封禁",
+                }.get(int(code), "未知错误")
+                print("  [warn] 天行 %s 返回错误码 %s（%s）: %s" %
+                      (endpoint, code, tx_err, d.get("msg", "")), file=sys.stderr)
                 return []
             # 天行同时支持旧格式 newslist 与新格式 result.list
             arr = d.get("newslist") or d.get("result", {}).get("list") or []
@@ -514,25 +528,28 @@ def build_invest(global_seen):
     # 4) 每个模块：天行 + 模块英文池 + 共享中文池
     for m in INVEST_MODULES:
         name = m["name"]
+        kws_cn = m["kws"]
+        kws_en = m.get("kws_en", [])
+        kws_all = kws_cn + kws_en
 
-        # 候选：天行 + 模块英文池 + 共享中文池
-        all_candidates = [a for a in tian_pool if matches_kws(a["title"], m["kws"])]
+        # 候选：天行 + 模块英文池 + 共享中文池（英文标题用 kws_en 匹配，中文标题用 kws_cn 匹配）
+        all_candidates = [a for a in tian_pool if matches_kws(a["title"], kws_cn)]
         tian_matched = len(all_candidates)
         for a in per_mod_en.get(name, []):
-            if matches_kws(a["title"], m["kws"]):
+            if matches_kws(a["title"], kws_all):
                 all_candidates.append(a)
         for a in shared_cn_norm:
-            if matches_kws(a["title"], m["kws"]):
+            if matches_kws(a["title"], kws_cn):
                 all_candidates.append(a)
 
-        # 国内：候选中 is_domestic() 判国内
+        # 国内：候选中 is_domestic() 判国内（用中文关键词排序）
         dom_candidates = [a for a in all_candidates if is_domestic(a)]
-        dom_candidates.sort(key=lambda a: score_kws(a["title"], m["kws"]), reverse=True)
+        dom_candidates.sort(key=lambda a: score_kws(a["title"], kws_cn), reverse=True)
         dom_items = take_unique(dom_candidates, DOM_PER_MODULE, global_seen)
 
-        # 国际：候选中非国内
+        # 国际：候选中非国内（用英文关键词排序）
         intl_candidates = [a for a in all_candidates if not is_domestic(a)]
-        intl_candidates.sort(key=lambda a: score_kws(a["title"], m["kws"]), reverse=True)
+        intl_candidates.sort(key=lambda a: score_kws(a["title"], kws_en) + score_kws(a["title"], kws_cn), reverse=True)
         intl_items = take_unique(intl_candidates, INTL_PER_MODULE, global_seen)
 
         modules.append({"name": name, "items": dom_items + intl_items})
@@ -554,76 +571,35 @@ def save_json(path, data):
     print("  saved:", path)
 
 
-def load_existing(path):
-    """读取已有 JSON（如果存在），返回 (data, total_count)。
-    total_count 是分组条目数或模块条目数之和。
-    """
-    try:
-        with open(path, "r", encoding="utf-8") as f:
-            data = json.load(f)
-        if not isinstance(data, dict):
-            return None, 0
-        if "grouped" in data and isinstance(data["grouped"], dict):
-            total = sum(len(v) for v in data["grouped"].values() if isinstance(v, list))
-        elif "modules" in data and isinstance(data["modules"], list):
-            total = sum(len(m.get("items", [])) for m in data["modules"] if isinstance(m, dict))
-        else:
-            total = 0
-        return data, total
-    except (IOError, json.JSONDecodeError, ValueError, OSError):
-        return None, 0
-
-
 def main():
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     global_seen = set()
 
-    # 读取旧数据，作为本次拉取为空时的兜底（避免用户看到全空页面）
-    old_news, old_news_total = load_existing(NEWS_PATH)
-    old_invest, old_invest_total = load_existing(INVEST_PATH)
-    print("[boot] old news=%d invest=%d" % (old_news_total, old_invest_total), file=sys.stderr)
-
+    # 明确打印天行 KEY 状态（前 4 位 + 长度），方便排查 Secret 是否生效
     if not TIANXING_KEY:
-        print("[warn] 未配置 TIANXING_API_KEY，将只使用 GDELT 源。", file=sys.stderr)
+        print("[tianxing-key] ❌ 未配置 TIANXING_API_KEY —— 国内中文源（医药/投资）将完全缺失！", file=sys.stderr)
+        print("[tianxing-key] 请在仓库 Settings → Secrets and variables → Actions 添加名为 TIANXING_API_KEY 的 Secret（值=天行 AppKey）。", file=sys.stderr)
+    else:
+        mask = TIANXING_KEY[:4] + "****" if len(TIANXING_KEY) > 4 else "****"
+        print("[tianxing-key] ✅ 已配置（%s，长度 %d）" % (mask, len(TIANXING_KEY)), file=sys.stderr)
 
-    # 1) 医药要闻
+    # 医药要闻：始终写入本次真实结果（空则空，绝不回退示例/旧数据）
     grouped, nsources, n_offline = build_news(global_seen)
-    new_total = sum(len(v) for v in grouped.values())
-    if new_total == 0 and old_news and old_news_total > 0:
-        # 本次拉取为空 → 保留上次成功数据（用户至少能看到真实历史数据）
-        print("[news] 本次为空 (0 条)，保留上次成功数据 (%d 条) - 时间 %s" %
-              (old_news_total, old_news.get("updated", "")), file=sys.stderr)
-        out_news = dict(old_news)
-        out_news["updated"] = now
-        out_news["offline"] = True
-        out_news["sources"] = list(out_news.get("sources") or []) + ["⚠ 保留上次成功数据（本次拉取为空）"]
-    else:
-        out_news = {
-            "updated": now,
-            "offline": n_offline,
-            "sources": nsources,
-            "grouped": grouped,
-        }
-    save_json(NEWS_PATH, out_news)
+    save_json(NEWS_PATH, {
+        "updated": now,
+        "offline": n_offline,
+        "sources": nsources,
+        "grouped": grouped,
+    })
 
-    # 2) 投资机会
+    # 投资机会：始终写入本次真实结果（空则空，绝不回退示例/旧数据）
     modules, isources, i_offline = build_invest(global_seen)
-    new_inv_total = sum(len(m["items"]) for m in modules)
-    if new_inv_total == 0 and old_invest and old_invest_total > 0:
-        print("[invest] 本次为空 (0 条)，保留上次成功数据 (%d 条) - 时间 %s" %
-              (old_invest_total, old_invest.get("updated", "")), file=sys.stderr)
-        out_inv = dict(old_invest)
-        out_inv["updated"] = now
-        out_inv["offline"] = True
-        out_inv["sources"] = list(out_inv.get("sources") or []) + ["⚠ 保留上次成功数据（本次拉取为空）"]
-    else:
-        out_inv = {
-            "updated": now,
-            "offline": i_offline,
-            "sources": isources,
-            "modules": modules,
-        }
-    save_json(INVEST_PATH, out_inv)
+    save_json(INVEST_PATH, {
+        "updated": now,
+        "offline": i_offline,
+        "sources": isources,
+        "modules": modules,
+    })
 
 
 if __name__ == "__main__":
