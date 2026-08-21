@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-活力婷 · 定时数据生成器 (v43)
+活力婷 · 定时数据生成器 (v44)
 - 医药要闻：天行数据（国内中文主力源） + GDELT（国际英文补充源）。
   每个分类 10 条 = 7 条中国国内(含中国台湾) + 3 条国际；跨分类/跨模块全局去重。
 - 投资机会：天行财经/国内（国内主力源） + GDELT（国际英文补充源）。
@@ -454,18 +454,27 @@ def build_news(global_seen):
         print("  [news-raw] %s raw=%d -> kept=%d" %
               (cat, len(pool), len(norm)), file=sys.stderr)
 
-    # 按标题关键词得分把每条候选归到最佳分类
+    # 按标题关键词得分把每条候选归到最佳分类（GDELT 英文池）
     best_by_cat = {c["cat"]: [] for c in NEWS_CATS}
     for cat, items in raw_by_cat.items():
         for a in items:
             best = max(NEWS_CATS, key=lambda c: score_kws(a["title"], c["kws"]))
             best_by_cat[best["cat"]].append(a)
 
+    # 天行国内池也按语义归到最佳分类（而不是只按分类关键词硬匹配，避免漏掉）
+    tian_best_by_cat = {c["cat"]: [] for c in NEWS_CATS}
+    for a in tian_pool:
+        best = max(NEWS_CATS, key=lambda c: score_kws(a["title"], c["kws"]))
+        tian_best_by_cat[best["cat"]].append(a)
+        # 兜底：得分全 0 时归到「政策/医保/行业」（政策类标题多含医保/政策/国务院等）
+        if score_kws(a["title"], best["kws"]) == 0:
+            tian_best_by_cat["政策/医保/行业"].append(a)
+
     for c in NEWS_CATS:
         cat = c["cat"]
 
-        # 国内候选：天行按分类关键词 + 该分类的语义最佳池中"国内"条目
-        dom_candidates = [a for a in tian_pool if matches_kws(a["title"], c["kws"])]
+        # 国内候选：天行语义最佳池 + GDELT 语义最佳池中"国内"条目
+        dom_candidates = list(tian_best_by_cat.get(cat, []))
         tian_matched = len(dom_candidates)
         cat_pool = best_by_cat.get(cat, [])
         for a in cat_pool:

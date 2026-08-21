@@ -15,13 +15,21 @@ window.API = (function () {
   function cfg(k, d) { return App.get(k, d); }
   function setCfg(k, v) { App.set(k, v); }
 
-  /* 读取同域 JSON（GitHub Actions 定时生成的真实数据，无跨域/无网络墙，手机稳定） */
+  /* 读取同域 JSON（GitHub Actions 定时生成的真实数据，无跨域/无网络墙，手机稳定）。
+     增加超时(15s) + 重试(1次)，避免手机弱网/瞬时抖动导致拉取失败（尤其 invest.json 较大）。 */
   async function fetchJsonCached(path, ms) {
-    try {
-      const r = await fetch(path + '?t=' + Date.now(), { signal: AbortSignal.timeout(ms) });
-      if (!r.ok) return null;
-      return await r.json();
-    } catch (e) { return null; }
+    const timeout = ms || 15000;
+    for (let attempt = 0; attempt < 2; attempt++) {
+      try {
+        const r = await fetch(path + '?t=' + Date.now(), { signal: AbortSignal.timeout(timeout) });
+        if (!r.ok) { if (attempt === 0) continue; return null; }
+        return await r.json();
+      } catch (e) {
+        if (attempt === 0) { continue; }
+        return null;
+      }
+    }
+    return null;
   }
 
   /* 医药要闻三大模块（后台自动归类展示） */

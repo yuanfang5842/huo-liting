@@ -1,5 +1,5 @@
 /* ============ 活力婷 · Service Worker（离线缓存） ============ */
-const CACHE = 'huo-liting-v43';
+const CACHE = 'huo-liting-v44';
 const SHELL = [
   './',
   'index.html',
