@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-活力婷 · 定时数据生成器 (v42)
+活力婷 · 定时数据生成器 (v43)
 - 医药要闻：天行数据（国内中文主力源） + GDELT（国际英文补充源）。
   每个分类 10 条 = 7 条中国国内(含中国台湾) + 3 条国际；跨分类/跨模块全局去重。
 - 投资机会：天行财经/国内（国内主力源） + GDELT（国际英文补充源）。
@@ -585,6 +585,12 @@ def main():
 
     # 医药要闻：始终写入本次真实结果（空则空，绝不回退示例/旧数据）
     grouped, nsources, n_offline = build_news(global_seen)
+    # 把天行 KEY 状态塞进 sources 数组首位，让用户手机端状态栏能直接看到（不用看 Actions 日志）
+    nsources = list(nsources)
+    if TIANXING_KEY:
+        nsources.insert(0, "✅ 天行KEY已配置(%s****)" % TIANXING_KEY[:4])
+    else:
+        nsources.insert(0, "❌ 天行KEY未配置")
     save_json(NEWS_PATH, {
         "updated": now,
         "offline": n_offline,
@@ -594,6 +600,11 @@ def main():
 
     # 投资机会：始终写入本次真实结果（空则空，绝不回退示例/旧数据）
     modules, isources, i_offline = build_invest(global_seen)
+    isources = list(isources)
+    if TIANXING_KEY:
+        isources.insert(0, "✅ 天行KEY已配置(%s****)" % TIANXING_KEY[:4])
+    else:
+        isources.insert(0, "❌ 天行KEY未配置")
     save_json(INVEST_PATH, {
         "updated": now,
         "offline": i_offline,
