@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-21 19:15 UTC",
+  "updated": "2026-08-22 03:07 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
@@ -8,22 +8,6 @@
   ],
   "grouped": {
     "国内新药/临床/科研": [
-      {
-        "title": "Shanghai Ark Biopharmaceutical Co ., Ltd .: ArkBio Announces China IND Approval for its Antiviral Drug - Fc Conjugate ( AFC ) Candidate AK0406 for Influenza Prophylaxis",
-        "src": "finanznachrichten.de",
-        "url": "https://www.finanznachrichten.de/nachrichten-2026-08/69296513-shanghai-ark-biopharmaceutical-co-ltd-arkbio-announces-china-ind-approval-for-its-antiviral-drug-fc-conjugate-afc-candidate-ak0406-for-influenza-008.htm",
-        "date": "8月13日",
-        "desc": "",
-        "dom": true
-      },
-      {
-        "title": "ArkBio Announces China IND Approval for its Antiviral Drug - Fc Conjugate ( AFC ) Candidate AK0406 for Influenza Prophylaxis",
-        "src": "prnewswire.com",
-        "url": "https://www.prnewswire.com/news-releases/arkbio-announces-china-ind-approval-for-its-antiviral-drug-fc-conjugate-afc-candidate-ak0406-for-influenza-prophylaxis-302849797.html",
-        "date": "8月13日",
-        "desc": "",
-        "dom": true
-      },
       {
         "title": "GSK partner Hansoh Pharma succeeds in Chinese Phase III SCLC ADC trial",
         "src": "yahoo.com",
@@ -43,14 +27,6 @@
     ],
     "海外FDA与全球进展": [
       {
-        "title": "Shanghai Ark Biopharmaceutical Co ., Ltd .: ArkBio RSV Antiviral Drug Ziresovir Receives FDA Approval for Phase II Clinical Trial",
-        "src": "finanznachrichten.de",
-        "url": "https://www.finanznachrichten.de/nachrichten-2026-08/69314640-shanghai-ark-biopharmaceutical-co-ltd-arkbio-s-rsv-antiviral-drug-ziresovir-receives-fda-approval-for-phase-ii-clinical-trial-008.htm",
-        "date": "8月14日",
-        "desc": "",
-        "dom": true
-      },
-      {
         "title": "Study : FDA approves more orphan drugs with specific cancer , pediatric indications over EMA",
         "src": "raps.org",
         "url": "https://www.raps.org/resource/study-fda-approves-more-orphan-drugs-with-specific-cancer-pediatric-indications-over-ema.html",
@@ -59,18 +35,18 @@
         "dom": false
       },
       {
-        "title": "ArkBio RSV Antiviral Drug Ziresovir Receives FDA Approval for Phase II Clinical Trial",
-        "src": "thailand-business-news.com",
-        "url": "https://www.thailand-business-news.com/pr-news/arkbios-rsv-antiviral-drug-ziresovir-receives-fda-approval-for-phase-ii-clinical-trial",
-        "date": "8月14日",
-        "desc": "",
-        "dom": false
-      },
-      {
         "title": "Study : Regulators often diverge from FDA on expedited oncology approvals",
         "src": "raps.org",
         "url": "https://www.raps.org/resource/study-regulators-often-diverge-from-fda-on-expedited-oncology-approvals.html",
         "date": "6月22日",
+        "desc": "",
+        "dom": false
+      },
+      {
+        "title": "Vanda Pharmaceuticals Announces EMA Positive Opinion for Orphan Drug Designation of Imsidolimab for Generalized Pustular Psoriasis - A Milestone Recognition of GPP as a Distinct Rare Disease in Europe",
+        "src": "prnewswire.com",
+        "url": "http://www.prnewswire.com/news-releases/vanda-pharmaceuticals-announces-ema-positive-opinion-for-orphan-drug-designation-of-imsidolimab-for-generalized-pustular-psoriasis--a-milestone-recognition-of-gpp-as-a-distinct-rare-disease-in-europe-302827934.html",
+        "date": "7月16日",
         "desc": "",
         "dom": false
       }
