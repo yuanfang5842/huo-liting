@@ -1,16 +1,28 @@
 {
-  "updated": "2026-08-23 08:53 UTC",
+  "updated": "2026-08-23 09:04 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
+    "天行数据·财经/国内",
+    "GDELT·昨日美股等国外股市表现",
+    "GDELT·商业航天产业政策与进展",
     "GDELT·新能源产业政策与进展",
-    "GDELT·医药行业产业政策与进展",
-    "GDELT·消费产业政策与进展"
+    "GDELT·消费产业政策与进展",
+    "GDELT·其它重大政策及事件"
   ],
   "modules": [
     {
       "name": "昨日美股等国外股市表现",
-      "items": []
+      "items": [
+        {
+          "title": "40万亿美元！狂飙的美债如何危害全球",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202608/20/WS6a8672d2a3105d3d7a27bec4.html",
+          "date": "8月20日",
+          "desc": "2026-08-2011:20",
+          "dom": true
+        }
+      ]
     },
     {
       "name": "半导体产业政策与进展及风险",
@@ -18,7 +30,48 @@
     },
     {
       "name": "商业航天产业政策与进展",
-      "items": []
+      "items": [
+        {
+          "title": "China launches 24th batch of low - orbit internet satellites from Hainan site",
+          "src": "timesofindia.indiatimes.com",
+          "url": "https://timesofindia.indiatimes.com/world/china/china-launches-24th-batch-of-low-orbit-internet-satellites-from-hainan-site/articleshow/133273853.cms",
+          "date": "8月16日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China Long March 12 rocket launches new internet satellite group",
+          "src": "usa.chinadaily.com.cn",
+          "url": "http://usa.chinadaily.com.cn/a/202606/17/WS6a322a07a310986e2b4607c4.html",
+          "date": "6月17日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China Long March - 10B rocket feat lights up social media : is SpaceX set to lose crown ?",
+          "src": "scmp.com",
+          "url": "https://www.scmp.com/news/china/science/article/3360231/chinas-long-march-10b-rocket-feat-lights-social-media-spacex-set-lose-crown",
+          "date": "7月11日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China Long March - 12 rocket launches new internet satellite group",
+          "src": "english.anhuinews.com",
+          "url": "http://english.anhuinews.com/newscenter/headline/202606/t20260618_9336150.html",
+          "date": "6月18日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "Rocket Lab Is Set to Acquire Satellite Telecom Giant Iridium for $8 BIllion",
+          "src": "fool.com",
+          "url": "https://www.fool.com/investing/2026/06/29/rocket-lab-is-set-to-acquire-satellite-telecom-giant-iridium-for-8-billion/?source=iedfolrf0000001",
+          "date": "6月29日",
+          "desc": "",
+          "dom": false
+        }
+      ]
     },
     {
       "name": "新能源产业政策与进展",
@@ -51,20 +104,35 @@
     },
     {
       "name": "医药行业产业政策与进展",
-      "items": [
-        {
-          "title": "Royalty Pharma appoints Greg Raskin as Senior Vice President , Head of Academic Initiatives",
-          "src": "manilatimes.net",
-          "url": "https://www.manilatimes.net/2026/08/03/tmt-newswire/globenewswire/royalty-pharma-appoints-greg-raskin-as-senior-vice-president-head-of-academic-initiatives/2397043",
-          "date": "8月3日",
-          "desc": "",
-          "dom": false
-        }
-      ]
+      "items": []
     },
     {
       "name": "消费产业政策与进展",
       "items": [
+        {
+          "title": "央地打出消费“组合拳”  推动内需提质升级",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202608/19/WS6a8527e5a3105d3d7a27bb66.html",
+          "date": "8月19日",
+          "desc": "2026-08-1911:49",
+          "dom": true
+        },
+        {
+          "title": "9部门发文激发下沉市场活力 活跃县域消费",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202608/18/WS6a83e975a3105d3d7a27b7ad.html",
+          "date": "8月18日",
+          "desc": "2026-08-1813:10",
+          "dom": true
+        },
+        {
+          "title": "“追剧”成暑期文旅新潮流 联动解锁科普新场景",
+          "src": "中华国内",
+          "url": "https://news.china.com/domestic/945/20260822/49691702.html",
+          "date": "8月22日",
+          "desc": "",
+          "dom": true
+        },
         {
           "title": "Retail moves seen boosting economy",
           "src": "usa.chinadaily.com.cn",
@@ -72,28 +140,45 @@
           "date": "7月10日",
           "desc": "",
           "dom": true
-        },
-        {
-          "title": "China rolls out third trade - in fund tranche as weak retail data keeps stimulus pressure on",
-          "src": "investinglive.com",
-          "url": "https://investinglive.com:443/news/china-rolls-out-third-trade-in-fund-tranche-as-weak-retail-data-keeps-stimulus-pressure-on-20260618/",
-          "date": "6月18日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China Unveils First Stand - Alone Consumption Plan , Sets $8 . 85 Trillion Retail Target to Revive Domestic Demand",
-          "src": "slguardian.org",
-          "url": "https://slguardian.org/china-unveils-first-stand-alone-consumption-plan-sets-8-85-trillion-retail-target-to-revive-domestic-demand/",
-          "date": "7月14日",
-          "desc": "",
-          "dom": true
         }
       ]
     },
     {
       "name": "其它重大政策及事件",
-      "items": []
+      "items": [
+        {
+          "title": "Tailored easing favored over broad stimulus",
+          "src": "global.chinadaily.com.cn",
+          "url": "http://global.chinadaily.com.cn/a/202608/14/WS6a7e704ca31073853ec53408.html",
+          "date": "8月14日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China central bank vows flexible approach as it acknowledges uneven economic picture",
+          "src": "scmp.com",
+          "url": "https://www.scmp.com/economy/china-economy/article/3359942/chinas-central-bank-vows-flexible-approach-it-acknowledges-uneven-economic-picture",
+          "date": "7月9日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "PBOC sees stable RMB amid 2 - way fluctuations",
+          "src": "europe.chinadaily.com.cn",
+          "url": "http://europe.chinadaily.com.cn/a/202607/16/WS6a58122ca310986e2b46574e.html",
+          "date": "7月16日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China Central Bank Pledges Timely Policy Tool Adjustment",
+          "src": "english.aawsat.com",
+          "url": "https://english.aawsat.com/business/5302572-china%E2%80%99s-central-bank-pledges-timely-policy-tool-adjustment",
+          "date": "8月2日",
+          "desc": "",
+          "dom": true
+        }
+      ]
     }
   ]
 }
