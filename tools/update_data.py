@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-活力婷 · 定时数据生成器 (v46)
+活力婷 · 定时数据生成器 (v47)
 - 医药要闻：天行数据（国内中文主力源） + GDELT（国际英文补充源）。
   每个分类 10 条 = 7 条中国国内(含中国台湾) + 3 条国际；跨分类/跨模块全局去重。
 - 投资机会：天行财经/国内（国内主力源） + GDELT（国际英文补充源）。
@@ -405,15 +405,26 @@ def take_unique(items, n, global_seen, require_kws=None):
 def build_tianxing_news_pool():
     """预拉取天行健康 + 国内新闻（仅用于医药要闻）。
 
-    天行 health 本身就是健康/医药垂直频道，不过度过滤，只踢掉明显非医药标题；
-    天行 guonei 是综合国内新闻，需要命中医药核心词才保留。
+    天行 health 是健康/医药垂直频道；guonei 是综合国内新闻（需用关键词搜索才拿得到医药新闻）。
+    v47：guonei 改用「医药/药品/医保/新药」关键词搜索，而不是拉取全量综合新闻再过滤。
     """
     if not TIANXING_KEY:
         print("  [tianxing] 未配置 TIANXING_API_KEY，跳过天行新闻源", file=sys.stderr)
         return []
     health = fetch_tianxing("health", num=80)
-    guonei = fetch_tianxing("guonei", num=60)
-    # health 频道：只排除明显养生/健康科普/生活类标题（未命中任何医药核心词且标题含常见泛健康词）
+    # 国内新闻：用医药关键词搜索，拿到医药相关政策/新药/医保新闻
+    guonei = []
+    for kw in ["医药", "药品", "医保", "新药"]:
+        guonei += fetch_tianxing("guonei", num=40, word=kw)
+    # 去重（按标题）
+    seen = set()
+    guonei_dedup = []
+    for a in guonei:
+        t = a.get("title", "")
+        if t and t not in seen:
+            seen.add(t)
+            guonei_dedup.append(a)
+    # health 频道：只排除明显养生/健康科普/生活类标题
     NON_MED_HINTS = ["养生", "食疗", "美容", "减肥", "护肤", "睡眠", "运动", "瑜伽", "健身", "心理", "情绪"]
     health_keep = []
     for a in health:
@@ -421,11 +432,10 @@ def build_tianxing_news_pool():
         if matches_kws(t, MED_CORE_KWS):
             health_keep.append(a)
         elif not matches_kws(t, NON_MED_HINTS):
-            # 未命中医药核心词，但也不像纯养生，保留给后续分类关键词二次筛选
             health_keep.append(a)
-    guonei_keep = [a for a in guonei if matches_kws(a.get("title", ""), MED_CORE_KWS)]
-    print("  [tianxing-news] health=%d guonei=%d -> keep health=%d guonei=%d" %
-          (len(health), len(guonei), len(health_keep), len(guonei_keep)), file=sys.stderr)
+    guonei_keep = [a for a in guonei_dedup if matches_kws(a.get("title", ""), MED_CORE_KWS)]
+    print("  [tianxing-news] health=%d guonei(raw=%d dedup=%d) -> keep health=%d guonei=%d" %
+          (len(health), len(guonei), len(guonei_dedup), len(health_keep), len(guonei_keep)), file=sys.stderr)
     return health_keep + guonei_keep
 
 
@@ -485,11 +495,17 @@ def build_news(global_seen):
     # 天行国内池也按语义归到最佳分类（而不是只按分类关键词硬匹配，避免漏掉）
     tian_best_by_cat = {c["cat"]: [] for c in NEWS_CATS}
     for a in tian_pool:
-        best = max(NEWS_CATS, key=lambda c: score_kws(a["title"], c["kws"]))
-        tian_best_by_cat[best["cat"]].append(a)
-        # 兜底：得分全 0 时归到「政策/医保/行业」（政策类标题多含医保/政策/国务院等）
-        if score_kws(a["title"], best["kws"]) == 0:
-            tian_best_by_cat["政策/医保/行业"].append(a)
+        best_score = -1
+        best_cat = NEWS_CATS[0]["cat"]
+        for c in NEWS_CATS:
+            s = score_kws(a["title"], c["kws"])
+            if s > best_score:
+                best_score = s
+                best_cat = c["cat"]
+        if best_score == 0:
+            # 得分全 0 → 兜底归「政策/医保/行业」（政策类标题多含医保/政策/国务院等）
+            best_cat = "政策/医保/行业"
+        tian_best_by_cat[best_cat].append(a)
 
     for c in NEWS_CATS:
         cat = c["cat"]
