@@ -1,12 +1,12 @@
 {
-  "updated": "2026-08-23 09:04 UTC",
+  "updated": "2026-08-23 13:44 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
     "GDELT·昨日美股等国外股市表现",
     "GDELT·商业航天产业政策与进展",
-    "GDELT·新能源产业政策与进展",
+    "GDELT·医药行业产业政策与进展",
     "GDELT·消费产业政策与进展",
     "GDELT·其它重大政策及事件"
   ],
@@ -75,36 +75,20 @@
     },
     {
       "name": "新能源产业政策与进展",
+      "items": []
+    },
+    {
+      "name": "医药行业产业政策与进展",
       "items": [
         {
-          "title": "【 AICC Original Article 】 Exports of Anhui new energy vehicles , lithium batteries and photovoltaic products doubled",
-          "src": "english.anhuinews.com",
-          "url": "http://english.anhuinews.com/newscenter/headline/202606/t20260616_9332090.html",
-          "date": "6月16日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China Just Connected the World Biggest Hybrid Solar Plant to the Grid",
-          "src": "oilprice.com",
-          "url": "https://oilprice.com/Alternative-Energy/Solar-Energy/China-Just-Connected-the-Worlds-Biggest-Hybrid-Solar-Plant-to-the-Grid.html",
-          "date": "7月15日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Vatrer 51 . 2V 100Ah Server Rack Lithium Battery with WIFI : Smart , Scalable Energy Storage for Off - Grid Living",
-          "src": "techtimes.com",
-          "url": "https://www.techtimes.com/articles/321647/20260727/vatrer-512v-100ah-server-rack-lithium-battery-wifi-smart-scalable-energy-storage-off-grid.htm",
-          "date": "7月27日",
+          "title": "Royalty Pharma appoints Greg Raskin as Senior Vice President , Head of Academic Initiatives",
+          "src": "manilatimes.net",
+          "url": "https://www.manilatimes.net/2026/08/03/tmt-newswire/globenewswire/royalty-pharma-appoints-greg-raskin-as-senior-vice-president-head-of-academic-initiatives/2397043",
+          "date": "8月3日",
           "desc": "",
           "dom": false
         }
       ]
-    },
-    {
-      "name": "医药行业产业政策与进展",
-      "items": []
     },
     {
       "name": "消费产业政策与进展",
@@ -130,14 +114,6 @@
           "src": "中华国内",
           "url": "https://news.china.com/domestic/945/20260822/49691702.html",
           "date": "8月22日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Retail moves seen boosting economy",
-          "src": "usa.chinadaily.com.cn",
-          "url": "http://usa.chinadaily.com.cn/a/202607/10/WS6a5047e9a310986e2b464840.html",
-          "date": "7月10日",
           "desc": "",
           "dom": true
         }
