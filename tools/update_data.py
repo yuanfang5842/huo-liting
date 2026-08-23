@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-活力婷 · 定时数据生成器 (v45)
+活力婷 · 定时数据生成器 (v46)
 - 医药要闻：天行数据（国内中文主力源） + GDELT（国际英文补充源）。
   每个分类 10 条 = 7 条中国国内(含中国台湾) + 3 条国际；跨分类/跨模块全局去重。
 - 投资机会：天行财经/国内（国内主力源） + GDELT（国际英文补充源）。
@@ -173,18 +173,26 @@ def fmt_pub(s):
     return s[:10]
 
 
+# GDELT 请求限速：两次请求至少间隔 2 秒，降低 429 触发率（Actions 服务器 IP 易被限流）
+_LAST_GDELT_REQ = [0.0]
+
+
 def fetch_gdelt(q, max_records=12, retries=1):
     """从 GDELT 拉取文章。失败时自动重试（指数退避），429 限流时睡长一点。
     返回的 articles 列表；连续失败返回空列表。
-    总查询次数限制：build_news 9 次 + build_invest 10 次 = 19 次，
-    每次 2 次尝试（retries=1），单次最坏 41s，总耗时 13 分钟左右，刚好不超 Actions 15 分钟超时。
+    v46：加 2 秒请求间隔，降低 429。
     """
     import time as _time
+    # 请求间隔：距离上次请求 < 2s 时补齐
+    elapsed = _time.time() - _LAST_GDELT_REQ[0]
+    if elapsed < 2.0:
+        _time.sleep(2.0 - elapsed)
     url = ("https://api.gdeltproject.org/api/v2/doc/doc?query=" + urllib.parse.quote(q) +
            "&mode=ArtList&format=json&maxrecords=%d&sortby=datedesc" % max_records)
     last_err = None
     for attempt in range(retries + 1):
         try:
+            _LAST_GDELT_REQ[0] = _time.time()
             txt = http_get(url, timeout=18)
             d = json.loads(txt)
             arts = d.get("articles", []) or []
@@ -207,6 +215,7 @@ def fetch_gdelt(q, max_records=12, retries=1):
 def fetch_tianxing(endpoint, num=50, word=None, retries=2):
     """调用天行数据接口，返回统一格式的文章列表（全部视为国内中文源）。
     重试 2 次（每次超时 25s），429 限流时退避 5/10s。
+    v46：兼容更多返回格式；返回空时打印原始 JSON 前 300 字符（定位天行真实返回结构）。
     """
     import time as _time
     if not TIANXING_KEY:
@@ -225,7 +234,6 @@ def fetch_tianxing(endpoint, num=50, word=None, retries=2):
             d = json.loads(txt)
             code = d.get("code")
             if code and str(code) != "200":
-                # 天行错误码 → 中文提示，方便定位 Secret 是否配错/额度用尽
                 tx_err = {
                     110: "接口不存在或未开通", 120: "没有使用权限", 130: "请求过于频繁",
                     150: "当天免费额度已用尽", 210: "AppKey 错误/不存在", 230: "API密钥无效",
@@ -234,10 +242,19 @@ def fetch_tianxing(endpoint, num=50, word=None, retries=2):
                 print("  [warn] 天行 %s 返回错误码 %s（%s）: %s" %
                       (endpoint, code, tx_err, d.get("msg", "")), file=sys.stderr)
                 return []
-            # 天行同时支持旧格式 newslist 与新格式 result.list
-            arr = d.get("newslist") or d.get("result", {}).get("list") or []
+            # 兼容多种返回格式：newslist / result.list / result.newslist / result.data / data.list
+            arr = (d.get("newslist")
+                   or d.get("result", {}).get("list")
+                   or d.get("result", {}).get("newslist")
+                   or d.get("result", {}).get("data")
+                   or d.get("data", {}).get("list")
+                   or [])
+            if isinstance(arr, dict):
+                arr = arr.get("list") or arr.get("newslist") or []
             out = []
             for it in arr:
+                if not isinstance(it, dict):
+                    continue
                 title = (it.get("title") or "").strip()
                 if not title:
                     continue
@@ -251,6 +268,10 @@ def fetch_tianxing(endpoint, num=50, word=None, retries=2):
                     "dom": True,
                     "_from": "tianxing",
                 })
+            if not out:
+                # 返回空时打印原始 JSON 片段，定位天行真实返回结构
+                print("  [tianxing-debug] %s 返回空，原始 JSON 前300字符: %s" %
+                      (endpoint, txt[:300].replace("\n", " ")), file=sys.stderr)
             print("  [tianxing] %s -> %d 条" % (endpoint, len(out)), file=sys.stderr)
             return out
         except Exception as e:
