@@ -16,13 +16,13 @@ window.API = (function () {
   function setCfg(k, v) { App.set(k, v); }
 
   /* 读取同域 JSON（GitHub Actions 定时生成的真实数据，无跨域/无网络墙，手机稳定）。
-     v45 修复：去掉 ?t= 时间戳（避免某些手机浏览器/CDN 对带时间戳 URL 的诡异缓存行为），
-     用 cache: 'no-store' 强制不缓存；保留 15s 超时 + 1 次重试。 */
+     v48 修复：sw.js 已对 assets/data/*.json 不缓存（每次必走网络），
+     配合 cache: 'no-store' + 时间戳，最大限度保证拿到最新数据。 */
   async function fetchJsonCached(path, ms) {
     const timeout = ms || 15000;
     for (let attempt = 0; attempt < 2; attempt++) {
       try {
-        const r = await fetch(path, { signal: AbortSignal.timeout(timeout), cache: 'no-store' });
+        const r = await fetch(path + '?t=' + Date.now(), { signal: AbortSignal.timeout(timeout), cache: 'no-store' });
         if (!r.ok) { if (attempt === 0) continue; return null; }
         return await r.json();
       } catch (e) {
