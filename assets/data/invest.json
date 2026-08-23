@@ -1,11 +1,11 @@
 {
-  "updated": "2026-08-23 07:47 UTC",
+  "updated": "2026-08-23 08:53 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "GDELT·新能源产业政策与进展",
     "GDELT·医药行业产业政策与进展",
-    "GDELT·其它重大政策及事件"
+    "GDELT·消费产业政策与进展"
   ],
   "modules": [
     {
@@ -64,44 +64,36 @@
     },
     {
       "name": "消费产业政策与进展",
-      "items": []
-    },
-    {
-      "name": "其它重大政策及事件",
       "items": [
         {
-          "title": "Tailored easing favored over broad stimulus",
-          "src": "global.chinadaily.com.cn",
-          "url": "http://global.chinadaily.com.cn/a/202608/14/WS6a7e704ca31073853ec53408.html",
-          "date": "8月14日",
+          "title": "Retail moves seen boosting economy",
+          "src": "usa.chinadaily.com.cn",
+          "url": "http://usa.chinadaily.com.cn/a/202607/10/WS6a5047e9a310986e2b464840.html",
+          "date": "7月10日",
           "desc": "",
           "dom": true
         },
         {
-          "title": "China central bank vows flexible approach as it acknowledges uneven economic picture",
-          "src": "scmp.com",
-          "url": "https://www.scmp.com/economy/china-economy/article/3359942/chinas-central-bank-vows-flexible-approach-it-acknowledges-uneven-economic-picture",
-          "date": "7月9日",
+          "title": "China rolls out third trade - in fund tranche as weak retail data keeps stimulus pressure on",
+          "src": "investinglive.com",
+          "url": "https://investinglive.com:443/news/china-rolls-out-third-trade-in-fund-tranche-as-weak-retail-data-keeps-stimulus-pressure-on-20260618/",
+          "date": "6月18日",
           "desc": "",
           "dom": true
         },
         {
-          "title": "PBOC sees stable RMB amid 2 - way fluctuations",
-          "src": "europe.chinadaily.com.cn",
-          "url": "http://europe.chinadaily.com.cn/a/202607/16/WS6a58122ca310986e2b46574e.html",
-          "date": "7月16日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China Central Bank Pledges Timely Policy Tool Adjustment",
-          "src": "english.aawsat.com",
-          "url": "https://english.aawsat.com/business/5302572-china%E2%80%99s-central-bank-pledges-timely-policy-tool-adjustment",
-          "date": "8月2日",
+          "title": "China Unveils First Stand - Alone Consumption Plan , Sets $8 . 85 Trillion Retail Target to Revive Domestic Demand",
+          "src": "slguardian.org",
+          "url": "https://slguardian.org/china-unveils-first-stand-alone-consumption-plan-sets-8-85-trillion-retail-target-to-revive-domestic-demand/",
+          "date": "7月14日",
           "desc": "",
           "dom": true
         }
       ]
+    },
+    {
+      "name": "其它重大政策及事件",
+      "items": []
     }
   ]
 }
