@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-23 11:56 UTC",
+  "updated": "2026-08-23 13:44 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
@@ -33,6 +33,14 @@
         "date": "8月22日",
         "desc": "",
         "dom": true
+      },
+      {
+        "title": "Palvella Therapeutics ( PVLA ) Submits Initial Module of NDA For QTORIN",
+        "src": "finance.yahoo.com",
+        "url": "https://finance.yahoo.com/healthcare/articles/palvella-therapeutics-pvla-submits-initial-140151901.html",
+        "date": "7月16日",
+        "desc": "",
+        "dom": false
       }
     ],
     "海外FDA与全球进展": [
@@ -53,10 +61,10 @@
         "dom": false
       },
       {
-        "title": "Industry asks FDA for harmonization , clarification in fermentation , semi - synthetic antibiotics guidance",
-        "src": "raps.org",
-        "url": "https://www.raps.org/resource/industry-asks-fda-for-harmonization-clarification-in-fermentation-semi-synthetic-antibiotics-guidance.html",
-        "date": "6月24日",
+        "title": "Vanda Pharmaceuticals Announces EMA Positive Opinion for Orphan Drug Designation of Imsidolimab for Generalized Pustular Psoriasis - A Milestone Recognition of GPP as a Distinct Rare Disease in Europe",
+        "src": "prnewswire.com",
+        "url": "http://www.prnewswire.com/news-releases/vanda-pharmaceuticals-announces-ema-positive-opinion-for-orphan-drug-designation-of-imsidolimab-for-generalized-pustular-psoriasis--a-milestone-recognition-of-gpp-as-a-distinct-rare-disease-in-europe-302827934.html",
+        "date": "7月16日",
         "desc": "",
         "dom": false
       }
