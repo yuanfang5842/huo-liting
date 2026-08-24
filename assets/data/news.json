@@ -1,153 +1,29 @@
 {
-  "updated": "2026-08-24 13:32 UTC",
+  "updated": "2026-08-24 14:24 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·健康/国内",
-    "GDELT·国内新药/临床/科研",
-    "GDELT·海外FDA与全球进展",
     "GDELT·政策/医保/行业"
   ],
   "grouped": {
-    "国内新药/临床/科研": [
-      {
-        "title": "药品专利+数据保护 助力药企创新研发",
-        "src": "中华国内",
-        "url": "https://news.china.com/domestic/945/20260516/49496525.html",
-        "date": "5月16日",
-        "desc": "",
-        "dom": true
-      },
-      {
-        "title": "医保局:新冠疫苗费用达1200余亿元 在可承受范围内",
-        "src": "中华国内",
-        "url": "https://news.china.com/domestic/945/20220402/41841310.html",
-        "date": "4月2日",
-        "desc": "",
-        "dom": true
-      },
-      {
-        "title": "Shanghai Ark Biopharmaceutical Co ., Ltd .: ArkBio Announces China IND Approval for its Antiviral Drug - Fc Conjugate ( AFC ) Candidate AK0406 for Influenza Prophylaxis",
-        "src": "finanznachrichten.de",
-        "url": "https://www.finanznachrichten.de/nachrichten-2026-08/69296513-shanghai-ark-biopharmaceutical-co-ltd-arkbio-announces-china-ind-approval-for-its-antiviral-drug-fc-conjugate-afc-candidate-ak0406-for-influenza-008.htm",
-        "date": "8月13日",
-        "desc": "",
-        "dom": true
-      },
-      {
-        "title": "ArkBio Announces China IND Approval for its Antiviral Drug - Fc Conjugate ( AFC ) Candidate AK0406 for Influenza Prophylaxis",
-        "src": "prnewswire.com",
-        "url": "https://www.prnewswire.com/news-releases/arkbio-announces-china-ind-approval-for-its-antiviral-drug-fc-conjugate-afc-candidate-ak0406-for-influenza-prophylaxis-302849797.html",
-        "date": "8月13日",
-        "desc": "",
-        "dom": true
-      },
-      {
-        "title": "GSK partner Hansoh Pharma succeeds in Chinese Phase III SCLC ADC trial",
-        "src": "yahoo.com",
-        "url": "https://www.yahoo.com/news/science/articles/gsk-partner-hansoh-pharma-succeeds-103917835.html",
-        "date": "7月13日",
-        "desc": "",
-        "dom": true
-      },
-      {
-        "title": "Palvella Therapeutics ( PVLA ) Submits Initial Module of NDA For QTORIN",
-        "src": "finance.yahoo.com",
-        "url": "https://finance.yahoo.com/healthcare/articles/palvella-therapeutics-pvla-submits-initial-140151901.html",
-        "date": "7月16日",
-        "desc": "",
-        "dom": false
-      }
-    ],
-    "海外FDA与全球进展": [
-      {
-        "title": "Shanghai Ark Biopharmaceutical Co ., Ltd .: ArkBio RSV Antiviral Drug Ziresovir Receives FDA Approval for Phase II Clinical Trial",
-        "src": "finanznachrichten.de",
-        "url": "https://www.finanznachrichten.de/nachrichten-2026-08/69314640-shanghai-ark-biopharmaceutical-co-ltd-arkbio-s-rsv-antiviral-drug-ziresovir-receives-fda-approval-for-phase-ii-clinical-trial-008.htm",
-        "date": "8月14日",
-        "desc": "",
-        "dom": true
-      },
-      {
-        "title": "Study : FDA approves more orphan drugs with specific cancer , pediatric indications over EMA",
-        "src": "raps.org",
-        "url": "https://www.raps.org/resource/study-fda-approves-more-orphan-drugs-with-specific-cancer-pediatric-indications-over-ema.html",
-        "date": "6月3日",
-        "desc": "",
-        "dom": false
-      },
-      {
-        "title": "ArkBio RSV Antiviral Drug Ziresovir Receives FDA Approval for Phase II Clinical Trial",
-        "src": "thailand-business-news.com",
-        "url": "https://www.thailand-business-news.com/pr-news/arkbios-rsv-antiviral-drug-ziresovir-receives-fda-approval-for-phase-ii-clinical-trial",
-        "date": "8月14日",
-        "desc": "",
-        "dom": false
-      },
-      {
-        "title": "Study : Regulators often diverge from FDA on expedited oncology approvals",
-        "src": "raps.org",
-        "url": "https://www.raps.org/resource/study-regulators-often-diverge-from-fda-on-expedited-oncology-approvals.html",
-        "date": "6月22日",
-        "desc": "",
-        "dom": false
-      }
-    ],
+    "国内新药/临床/科研": [],
+    "海外FDA与全球进展": [],
     "政策/医保/行业": [
       {
-        "title": "医保商保“双目录”有啥新变化 新增药品提升保障水平",
-        "src": "中华国内",
-        "url": "https://news.china.com/socialgd/10000169/20251209/49060208.html",
-        "date": "12月9日",
-        "desc": "",
+        "title": "全国政协委员方向明：拓展中医药应用场景",
+        "src": "网易健康",
+        "url": "https://www.163.com/jiankang/article/KN8GRIJS0038804U.html",
+        "date": "3月5日",
+        "desc": "全国两会前夕，新一届全国政协委员、浙江大学医药学部副主任、九三学社浙江省委副主委方向明赴德清调研中医药创新发展问题。“了解到了一线的情况，中医药应用场景还可以也应该拓展。",
         "dom": true
       },
       {
-        "title": "医保谈判药品可这样购买！买药将有新变化",
-        "src": "中华国内",
-        "url": "https://news.china.com/domestic/945/20210512/39564853.html",
-        "date": "5月12日",
-        "desc": "",
-        "dom": true
-      },
-      {
-        "title": "药品降价保质，患者负担减轻 药品集采带来哪些实惠？",
-        "src": "中华国内",
-        "url": "https://news.china.com/domestic/945/20201009/38826600.html",
-        "date": "10月9日",
-        "desc": "中华国内",
-        "dom": true
-      },
-      {
-        "title": "药品零加成政策落地有喜有忧 有公立医院倒贴钱",
-        "src": "搜狐国内",
-        "url": "http://news.sohu.com/20170515/n493018955.shtml",
-        "date": "5月15日",
-        "desc": "按照全面推开公立医院综合改革的通知，国内各级各类公立医院将于今年9月底前全部取消药品加成。《经济参考...阅读全文&gt;&gt;",
-        "dom": true
-      },
-      {
-        "title": "药品加成全部取消！一图看懂北京医药分开改革",
-        "src": "搜狐国内",
-        "url": "http://news.sohu.com/20170322/n484259961.shtml",
-        "date": "3月22日",
-        "desc": "今天，《北京市医药分开综合改革实施方案》正式发布。据悉，该方案将于4月8日全面实施，涉及全市3600...阅读全文&gt;&gt;",
-        "dom": true
-      },
-      {
-        "title": "医保局公布5起骗取生育保险基金案例 警示参保单位和个人",
-        "src": "中华国内",
-        "url": "https://news.china.com/socialgd/10000169/20251203/49043464.html",
-        "date": "12月3日",
-        "desc": "",
-        "dom": true
-      },
-      {
-        "title": "医保局：2026年底前全面实现基本医保基金即时结算",
-        "src": "中华国内",
-        "url": "https://news.china.com/domestic/945/20250116/47879063.html",
-        "date": "1月16日",
-        "desc": "",
+        "title": "医生提醒：流感用药要避开这些误区",
+        "src": "网易健康",
+        "url": "https://www.163.com/jiankang/article/KHMRO24U0038804U.html",
+        "date": "12月26日",
+        "desc": "流感和普通感冒不是一回事，用药也不能一概而论。",
         "dom": true
       }
     ]
