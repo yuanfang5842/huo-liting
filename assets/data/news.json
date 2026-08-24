@@ -1,10 +1,11 @@
 {
-  "updated": "2026-08-24 08:25 UTC",
+  "updated": "2026-08-24 13:32 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·健康/国内",
     "GDELT·国内新药/临床/科研",
+    "GDELT·海外FDA与全球进展",
     "GDELT·政策/医保/行业"
   ],
   "grouped": {
@@ -16,9 +17,82 @@
         "date": "5月16日",
         "desc": "",
         "dom": true
+      },
+      {
+        "title": "医保局:新冠疫苗费用达1200余亿元 在可承受范围内",
+        "src": "中华国内",
+        "url": "https://news.china.com/domestic/945/20220402/41841310.html",
+        "date": "4月2日",
+        "desc": "",
+        "dom": true
+      },
+      {
+        "title": "Shanghai Ark Biopharmaceutical Co ., Ltd .: ArkBio Announces China IND Approval for its Antiviral Drug - Fc Conjugate ( AFC ) Candidate AK0406 for Influenza Prophylaxis",
+        "src": "finanznachrichten.de",
+        "url": "https://www.finanznachrichten.de/nachrichten-2026-08/69296513-shanghai-ark-biopharmaceutical-co-ltd-arkbio-announces-china-ind-approval-for-its-antiviral-drug-fc-conjugate-afc-candidate-ak0406-for-influenza-008.htm",
+        "date": "8月13日",
+        "desc": "",
+        "dom": true
+      },
+      {
+        "title": "ArkBio Announces China IND Approval for its Antiviral Drug - Fc Conjugate ( AFC ) Candidate AK0406 for Influenza Prophylaxis",
+        "src": "prnewswire.com",
+        "url": "https://www.prnewswire.com/news-releases/arkbio-announces-china-ind-approval-for-its-antiviral-drug-fc-conjugate-afc-candidate-ak0406-for-influenza-prophylaxis-302849797.html",
+        "date": "8月13日",
+        "desc": "",
+        "dom": true
+      },
+      {
+        "title": "GSK partner Hansoh Pharma succeeds in Chinese Phase III SCLC ADC trial",
+        "src": "yahoo.com",
+        "url": "https://www.yahoo.com/news/science/articles/gsk-partner-hansoh-pharma-succeeds-103917835.html",
+        "date": "7月13日",
+        "desc": "",
+        "dom": true
+      },
+      {
+        "title": "Palvella Therapeutics ( PVLA ) Submits Initial Module of NDA For QTORIN",
+        "src": "finance.yahoo.com",
+        "url": "https://finance.yahoo.com/healthcare/articles/palvella-therapeutics-pvla-submits-initial-140151901.html",
+        "date": "7月16日",
+        "desc": "",
+        "dom": false
       }
     ],
-    "海外FDA与全球进展": [],
+    "海外FDA与全球进展": [
+      {
+        "title": "Shanghai Ark Biopharmaceutical Co ., Ltd .: ArkBio RSV Antiviral Drug Ziresovir Receives FDA Approval for Phase II Clinical Trial",
+        "src": "finanznachrichten.de",
+        "url": "https://www.finanznachrichten.de/nachrichten-2026-08/69314640-shanghai-ark-biopharmaceutical-co-ltd-arkbio-s-rsv-antiviral-drug-ziresovir-receives-fda-approval-for-phase-ii-clinical-trial-008.htm",
+        "date": "8月14日",
+        "desc": "",
+        "dom": true
+      },
+      {
+        "title": "Study : FDA approves more orphan drugs with specific cancer , pediatric indications over EMA",
+        "src": "raps.org",
+        "url": "https://www.raps.org/resource/study-fda-approves-more-orphan-drugs-with-specific-cancer-pediatric-indications-over-ema.html",
+        "date": "6月3日",
+        "desc": "",
+        "dom": false
+      },
+      {
+        "title": "ArkBio RSV Antiviral Drug Ziresovir Receives FDA Approval for Phase II Clinical Trial",
+        "src": "thailand-business-news.com",
+        "url": "https://www.thailand-business-news.com/pr-news/arkbios-rsv-antiviral-drug-ziresovir-receives-fda-approval-for-phase-ii-clinical-trial",
+        "date": "8月14日",
+        "desc": "",
+        "dom": false
+      },
+      {
+        "title": "Study : Regulators often diverge from FDA on expedited oncology approvals",
+        "src": "raps.org",
+        "url": "https://www.raps.org/resource/study-regulators-often-diverge-from-fda-on-expedited-oncology-approvals.html",
+        "date": "6月22日",
+        "desc": "",
+        "dom": false
+      }
+    ],
     "政策/医保/行业": [
       {
         "title": "医保商保“双目录”有啥新变化 新增药品提升保障水平",
