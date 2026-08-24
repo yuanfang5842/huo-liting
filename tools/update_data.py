@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-活力婷 · 定时数据生成器 (v49)
+活力婷 · 定时数据生成器 (v50)
 - 医药要闻：天行数据（国内中文主力源） + GDELT（国际英文补充源）。
   每个分类 10 条 = 7 条中国国内(含中国台湾) + 3 条国际；跨分类/跨模块全局去重。
 - 投资机会：天行财经/国内（国内主力源） + GDELT（国际英文补充源）。
@@ -405,25 +405,17 @@ def take_unique(items, n, global_seen, require_kws=None):
 def build_tianxing_news_pool():
     """预拉取天行健康 + 国内新闻（仅用于医药要闻）。
 
-    天行 health 是健康/医药垂直频道；guonei 是综合国内新闻（需用关键词搜索才拿得到医药新闻）。
-    v47：guonei 改用「医药/药品/医保/新药」关键词搜索，而不是拉取全量综合新闻再过滤。
+    天行 health 是健康/医药垂直频道；guonei 是综合国内新闻。
+    v50：guonei 改回「不带 word 拉实时最新」+ num 加大到 100，再按医药核心词过滤。
+    之前 v47 用 word=医药/药品 关键词搜索返回的是**历史新闻**（最相关非最新），
+    用户反馈"天行此前能显示实时新闻"，故改回实时拉取。
     """
     if not TIANXING_KEY:
         print("  [tianxing] 未配置 TIANXING_API_KEY，跳过天行新闻源", file=sys.stderr)
         return []
     health = fetch_tianxing("health", num=80)
-    # 国内新闻：用医药关键词搜索，拿到医药相关政策/新药/医保新闻
-    guonei = []
-    for kw in ["医药", "药品", "医保", "新药"]:
-        guonei += fetch_tianxing("guonei", num=40, word=kw)
-    # 去重（按标题）
-    seen = set()
-    guonei_dedup = []
-    for a in guonei:
-        t = a.get("title", "")
-        if t and t not in seen:
-            seen.add(t)
-            guonei_dedup.append(a)
+    # 国内新闻：不带 word 拉最新（实时），num 加大拿更多，再按医药核心词过滤
+    guonei = fetch_tianxing("guonei", num=100)
     # health 频道：只排除明显养生/健康科普/生活类标题
     NON_MED_HINTS = ["养生", "食疗", "美容", "减肥", "护肤", "睡眠", "运动", "瑜伽", "健身", "心理", "情绪"]
     health_keep = []
@@ -433,9 +425,9 @@ def build_tianxing_news_pool():
             health_keep.append(a)
         elif not matches_kws(t, NON_MED_HINTS):
             health_keep.append(a)
-    guonei_keep = [a for a in guonei_dedup if matches_kws(a.get("title", ""), MED_CORE_KWS)]
-    print("  [tianxing-news] health=%d guonei(raw=%d dedup=%d) -> keep health=%d guonei=%d" %
-          (len(health), len(guonei), len(guonei_dedup), len(health_keep), len(guonei_keep)), file=sys.stderr)
+    guonei_keep = [a for a in guonei if matches_kws(a.get("title", ""), MED_CORE_KWS)]
+    print("  [tianxing-news] health=%d guonei=%d -> keep health=%d guonei=%d" %
+          (len(health), len(guonei), len(health_keep), len(guonei_keep)), file=sys.stderr)
     return health_keep + guonei_keep
 
 
@@ -445,7 +437,7 @@ def build_tianxing_invest_pool():
         print("  [tianxing] 未配置 TIANXING_API_KEY，跳过天行投资源", file=sys.stderr)
         return []
     caijing = fetch_tianxing("caijing", num=80)
-    guonei = fetch_tianxing("guonei", num=60)
+    guonei = fetch_tianxing("guonei", num=100)
     print("  [tianxing-invest] caijing=%d guonei=%d" % (len(caijing), len(guonei)), file=sys.stderr)
     return caijing + guonei
 
