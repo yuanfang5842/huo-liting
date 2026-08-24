@@ -131,7 +131,7 @@ window.App = (function () {
   }
 
   /* 版本号（用于确认浏览器是否加载了最新代码） */
-  window.HUOLITING_VERSION = 'v48';
+  window.HUOLITING_VERSION = 'v49';
 
   return {
     get, set, dget, dset, dgetOn, dsetOn, today, todayLabel, dayIndex, isWeekend, hash,

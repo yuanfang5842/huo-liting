@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-活力婷 · 定时数据生成器 (v47)
+活力婷 · 定时数据生成器 (v49)
 - 医药要闻：天行数据（国内中文主力源） + GDELT（国际英文补充源）。
   每个分类 10 条 = 7 条中国国内(含中国台湾) + 3 条国际；跨分类/跨模块全局去重。
 - 投资机会：天行财经/国内（国内主力源） + GDELT（国际英文补充源）。
@@ -450,6 +450,24 @@ def build_tianxing_invest_pool():
     return caijing + guonei
 
 
+# 天行国内新闻按优先级分类（避免"药品/医药"这类泛词把所有新闻都吸进"政策/医保/行业"）
+_TIANXING_FDA_KWS = ["FDA", "EMA", "海外", "全球", "欧盟", "美国", "进口"]
+_TIANXING_NEWDRUG_KWS = ["新药", "临床", "创新药", "获批", "上市", "试验", "研发", "疫苗", "管线", "适应症", "基因", "细胞", "生物药", "抗体"]
+_TIANXING_POLICY_KWS = ["医保", "集采", "政策", "医改", "谈判", "目录", "国务院", "卫健委", "药监局", "药品", "医药", "降价", "零加成", "医院"]
+
+
+def classify_tianxing(title):
+    """天行国内新闻按优先级分类：
+    ① 海外FDA（FDA/EMA/海外/全球） → ② 国内新药/临床/科研（新药/临床/研发） → ③ 政策/医保/行业（兜底）。
+    这样「药品专利助力药企创新研发」会归国内新药，而不是被「药品」吸到政策类。
+    """
+    if matches_kws(title, _TIANXING_FDA_KWS):
+        return "海外FDA与全球进展"
+    if matches_kws(title, _TIANXING_NEWDRUG_KWS):
+        return "国内新药/临床/科研"
+    return "政策/医保/行业"
+
+
 def build_news(global_seen):
     grouped = {c["cat"]: [] for c in NEWS_CATS}
     sources = []
@@ -492,20 +510,11 @@ def build_news(global_seen):
             best = max(NEWS_CATS, key=lambda c: score_kws(a["title"], c["kws"]))
             best_by_cat[best["cat"]].append(a)
 
-    # 天行国内池也按语义归到最佳分类（而不是只按分类关键词硬匹配，避免漏掉）
+    # 天行国内池按优先级分类（v49：用 classify_tianxing 优先级分类，避免泛词堆积）
     tian_best_by_cat = {c["cat"]: [] for c in NEWS_CATS}
     for a in tian_pool:
-        best_score = -1
-        best_cat = NEWS_CATS[0]["cat"]
-        for c in NEWS_CATS:
-            s = score_kws(a["title"], c["kws"])
-            if s > best_score:
-                best_score = s
-                best_cat = c["cat"]
-        if best_score == 0:
-            # 得分全 0 → 兜底归「政策/医保/行业」（政策类标题多含医保/政策/国务院等）
-            best_cat = "政策/医保/行业"
-        tian_best_by_cat[best_cat].append(a)
+        cat = classify_tianxing(a["title"])
+        tian_best_by_cat[cat].append(a)
 
     for c in NEWS_CATS:
         cat = c["cat"]
