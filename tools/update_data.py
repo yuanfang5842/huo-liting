@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-活力婷 · 定时数据生成器 (v50)
+活力婷 · 定时数据生成器 (v51)
 - 医药要闻：天行数据（国内中文主力源） + GDELT（国际英文补充源）。
   每个分类 10 条 = 7 条中国国内(含中国台湾) + 3 条国际；跨分类/跨模块全局去重。
 - 投资机会：天行财经/国内（国内主力源） + GDELT（国际英文补充源）。
@@ -572,15 +572,30 @@ def build_invest(global_seen):
     shared_cn_norm = [normalize_gdelt(a) for a in shared_cn if normalize_gdelt(a)]
     print("  [invest-shared-cn] raw=%d -> norm=%d" % (len(shared_cn), len(shared_cn_norm)), file=sys.stderr)
 
-    # 4) 每个模块：天行 + 模块英文池 + 共享中文池
+    # 3.5) 天行财经/国内数据语义归类（得分全 0 兜底归「其它重大政策及事件」，
+    #       避免天行 caijing 财经新闻因不命中模块关键词被丢弃）
+    tian_best_by_mod = {m["name"]: [] for m in INVEST_MODULES}
+    for a in tian_pool:
+        best_score = -1
+        best_name = INVEST_MODULES[0]["name"]
+        for m in INVEST_MODULES:
+            s = score_kws(a["title"], m["kws"]) + score_kws(a["title"], m.get("kws_en", []))
+            if s > best_score:
+                best_score = s
+                best_name = m["name"]
+        if best_score == 0:
+            best_name = "其它重大政策及事件"
+        tian_best_by_mod[best_name].append(a)
+
+    # 4) 每个模块：天行语义池 + 模块英文池 + 共享中文池
     for m in INVEST_MODULES:
         name = m["name"]
         kws_cn = m["kws"]
         kws_en = m.get("kws_en", [])
         kws_all = kws_cn + kws_en
 
-        # 候选：天行 + 模块英文池 + 共享中文池（英文标题用 kws_en 匹配，中文标题用 kws_cn 匹配）
-        all_candidates = [a for a in tian_pool if matches_kws(a["title"], kws_cn)]
+        # 候选：天行语义池 + 模块英文池 + 共享中文池（英文标题用 kws_en 匹配，中文标题用 kws_cn 匹配）
+        all_candidates = list(tian_best_by_mod.get(name, []))
         tian_matched = len(all_candidates)
         for a in per_mod_en.get(name, []):
             if matches_kws(a["title"], kws_all):
