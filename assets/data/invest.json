@@ -1,12 +1,12 @@
 {
-  "updated": "2026-08-23 13:44 UTC",
+  "updated": "2026-08-24 08:25 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
     "GDELT·昨日美股等国外股市表现",
     "GDELT·商业航天产业政策与进展",
-    "GDELT·医药行业产业政策与进展",
+    "GDELT·新能源产业政策与进展",
     "GDELT·消费产业政策与进展",
     "GDELT·其它重大政策及事件"
   ],
@@ -75,20 +75,20 @@
     },
     {
       "name": "新能源产业政策与进展",
-      "items": []
+      "items": [
+        {
+          "title": "这支团队破解光伏数据采集时延难题",
+          "src": "中华国内",
+          "url": "https://news.china.com/domestic/945/20260824/49693761.html",
+          "date": "8月24日",
+          "desc": "",
+          "dom": true
+        }
+      ]
     },
     {
       "name": "医药行业产业政策与进展",
-      "items": [
-        {
-          "title": "Royalty Pharma appoints Greg Raskin as Senior Vice President , Head of Academic Initiatives",
-          "src": "manilatimes.net",
-          "url": "https://www.manilatimes.net/2026/08/03/tmt-newswire/globenewswire/royalty-pharma-appoints-greg-raskin-as-senior-vice-president-head-of-academic-initiatives/2397043",
-          "date": "8月3日",
-          "desc": "",
-          "dom": false
-        }
-      ]
+      "items": []
     },
     {
       "name": "消费产业政策与进展",
@@ -110,10 +110,18 @@
           "dom": true
         },
         {
-          "title": "“追剧”成暑期文旅新潮流 联动解锁科普新场景",
+          "title": "上海楼市“沪八条”施行 新政组合拳激活消费需求",
           "src": "中华国内",
-          "url": "https://news.china.com/domestic/945/20260822/49691702.html",
-          "date": "8月22日",
+          "url": "https://news.china.com/domestic/945/20260824/49693842.html",
+          "date": "8月24日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "聚焦大湾区丨穗深开启双向常态化海上文旅航线",
+          "src": "中华国内",
+          "url": "https://news.china.com/domestic/945/20260824/49693971.html",
+          "date": "8月24日",
           "desc": "",
           "dom": true
         }
