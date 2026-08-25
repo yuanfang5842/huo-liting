@@ -1,11 +1,10 @@
 {
-  "updated": "2026-08-25 03:15 UTC",
+  "updated": "2026-08-25 08:06 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
     "GDELT·昨日美股等国外股市表现",
-    "GDELT·商业航天产业政策与进展",
     "GDELT·消费产业政策与进展",
     "GDELT·其它重大政策及事件"
   ],
@@ -29,48 +28,7 @@
     },
     {
       "name": "商业航天产业政策与进展",
-      "items": [
-        {
-          "title": "China launches 24th batch of low - orbit internet satellites from Hainan site",
-          "src": "timesofindia.indiatimes.com",
-          "url": "https://timesofindia.indiatimes.com/world/china/china-launches-24th-batch-of-low-orbit-internet-satellites-from-hainan-site/articleshow/133273853.cms",
-          "date": "8月16日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China Long March 12 rocket launches new internet satellite group",
-          "src": "usa.chinadaily.com.cn",
-          "url": "http://usa.chinadaily.com.cn/a/202606/17/WS6a322a07a310986e2b4607c4.html",
-          "date": "6月17日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China Long March - 10B rocket feat lights up social media : is SpaceX set to lose crown ?",
-          "src": "scmp.com",
-          "url": "https://www.scmp.com/news/china/science/article/3360231/chinas-long-march-10b-rocket-feat-lights-social-media-spacex-set-lose-crown",
-          "date": "7月11日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China Long March - 12 rocket launches new internet satellite group",
-          "src": "english.anhuinews.com",
-          "url": "http://english.anhuinews.com/newscenter/headline/202606/t20260618_9336150.html",
-          "date": "6月18日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Rocket Lab Is Set to Acquire Satellite Telecom Giant Iridium for $8 BIllion",
-          "src": "fool.com",
-          "url": "https://www.fool.com/investing/2026/06/29/rocket-lab-is-set-to-acquire-satellite-telecom-giant-iridium-for-8-billion/?source=iedfolrf0000001",
-          "date": "6月29日",
-          "desc": "",
-          "dom": false
-        }
-      ]
+      "items": []
     },
     {
       "name": "新能源产业政策与进展",
@@ -97,22 +55,6 @@
           "url": "//caijing.chinadaily.com.cn/a/202608/18/WS6a83e975a3105d3d7a27b7ad.html",
           "date": "8月18日",
           "desc": "2026-08-1813:10",
-          "dom": true
-        },
-        {
-          "title": "Retail moves seen boosting economy",
-          "src": "usa.chinadaily.com.cn",
-          "url": "http://usa.chinadaily.com.cn/a/202607/10/WS6a5047e9a310986e2b464840.html",
-          "date": "7月10日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China rolls out third trade - in fund tranche as weak retail data keeps stimulus pressure on",
-          "src": "investinglive.com",
-          "url": "https://investinglive.com:443/news/china-rolls-out-third-trade-in-fund-tranche-as-weak-retail-data-keeps-stimulus-pressure-on-20260618/",
-          "date": "6月18日",
-          "desc": "",
           "dom": true
         }
       ]
