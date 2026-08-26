@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-26 03:34 UTC",
+  "updated": "2026-08-26 08:08 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
@@ -23,14 +23,6 @@
         "src": "finance.yahoo.com",
         "url": "https://finance.yahoo.com/healthcare/articles/palvella-therapeutics-pvla-submits-initial-140151901.html",
         "date": "7月16日",
-        "desc": "",
-        "dom": false
-      },
-      {
-        "title": "Asia - Pacific Roundup : TGA seeks feedback on increasing transparency of GMP inspection outcomes",
-        "src": "raps.org",
-        "url": "https://www.raps.org/resource/asia-pacific-roundup-tga-seeks-feedback-on-increasing-transparency-of-gmp-inspection-outcomes.html",
-        "date": "6月16日",
         "desc": "",
         "dom": false
       }
