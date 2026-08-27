@@ -1,66 +1,14 @@
 {
-  "updated": "2026-08-27 05:16 UTC",
+  "updated": "2026-08-27 16:55 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·健康/国内",
-    "GDELT·国内新药/临床/科研",
-    "GDELT·海外FDA与全球进展",
     "GDELT·政策/医保/行业"
   ],
   "grouped": {
-    "国内新药/临床/科研": [
-      {
-        "title": "GSK partner Hansoh Pharma succeeds in Chinese Phase III SCLC ADC trial",
-        "src": "yahoo.com",
-        "url": "https://www.yahoo.com/news/science/articles/gsk-partner-hansoh-pharma-succeeds-103917835.html",
-        "date": "7月13日",
-        "desc": "",
-        "dom": true
-      },
-      {
-        "title": "Positive Phase 2 Results for New Oral GLP - 1 for Obesity",
-        "src": "medscape.com",
-        "url": "https://www.medscape.com/viewarticle/positive-phase-2-results-new-oral-glp-1-obesity-2026a1000mpj",
-        "date": "7月6日",
-        "desc": "",
-        "dom": false
-      },
-      {
-        "title": "Asia - Pacific Roundup : TGA seeks feedback on increasing transparency of GMP inspection outcomes",
-        "src": "raps.org",
-        "url": "https://www.raps.org/resource/asia-pacific-roundup-tga-seeks-feedback-on-increasing-transparency-of-gmp-inspection-outcomes.html",
-        "date": "6月16日",
-        "desc": "",
-        "dom": false
-      }
-    ],
-    "海外FDA与全球进展": [
-      {
-        "title": "Study : Regulators often diverge from FDA on expedited oncology approvals",
-        "src": "raps.org",
-        "url": "https://www.raps.org/resource/study-regulators-often-diverge-from-fda-on-expedited-oncology-approvals.html",
-        "date": "6月22日",
-        "desc": "",
-        "dom": false
-      },
-      {
-        "title": "Industry asks FDA for harmonization , clarification in fermentation , semi - synthetic antibiotics guidance",
-        "src": "raps.org",
-        "url": "https://www.raps.org/resource/industry-asks-fda-for-harmonization-clarification-in-fermentation-semi-synthetic-antibiotics-guidance.html",
-        "date": "6月24日",
-        "desc": "",
-        "dom": false
-      },
-      {
-        "title": "Recon : Vertex buys Crinetics for $10B ; EMA fast tracks Revolution metastatic pancreatic cancer drug",
-        "src": "raps.org",
-        "url": "https://www.raps.org/resource/recon-vertex-buys-crinetics-for-10b-ema-fast-tracks-revolution-s-metastatic-pancreatic-cancer-drug.html",
-        "date": "7月7日",
-        "desc": "",
-        "dom": false
-      }
-    ],
+    "国内新药/临床/科研": [],
+    "海外FDA与全球进展": [],
     "政策/医保/行业": [
       {
         "title": "全国政协委员方向明：拓展中医药应用场景",

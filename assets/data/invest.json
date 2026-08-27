@@ -1,11 +1,11 @@
 {
-  "updated": "2026-08-27 05:16 UTC",
+  "updated": "2026-08-27 16:55 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
     "GDELT·昨日美股等国外股市表现",
-    "GDELT·半导体产业政策与进展及风险",
+    "GDELT·商业航天产业政策与进展",
     "GDELT·新能源产业政策与进展",
     "GDELT·消费产业政策与进展",
     "GDELT·其它重大政策及事件"
@@ -26,52 +26,52 @@
     },
     {
       "name": "半导体产业政策与进展及风险",
+      "items": []
+    },
+    {
+      "name": "商业航天产业政策与进展",
       "items": [
         {
-          "title": "China reaches major milestone as domestic DUV chip tools enter mass production",
-          "src": "thenews.com.pk",
-          "url": "https://www.thenews.com.pk/latest/1410425-china-reaches-major-milestone-as-domestic-duv-chip-tools-enter-mass-production",
-          "date": "7月27日",
+          "title": "China launches 24th batch of low - orbit internet satellites from Hainan site",
+          "src": "timesofindia.indiatimes.com",
+          "url": "https://timesofindia.indiatimes.com/world/china/china-launches-24th-batch-of-low-orbit-internet-satellites-from-hainan-site/articleshow/133273853.cms",
+          "date": "8月16日",
           "desc": "",
           "dom": true
         },
         {
-          "title": "Chinese Chip Toolmakers Post 400 % Profit Surge as Overseas Supplier Two - Year Backlogs Reshape the Industry",
-          "src": "wccftech.com",
-          "url": "https://wccftech.com/chinese-chip-toolmakers-post-400-profit-surge-as-overseas-suppliers-two-year-backlogs-reshape-the-industry/",
-          "date": "8月19日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "From isolation to independence : How China took its chip sector to the next level",
-          "src": "hani.co.kr",
-          "url": "https://www.hani.co.kr/arti/english_edition/e_business/1272806.html",
-          "date": "8月13日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Tau Scaling Law to rewrite rules for chip performance growth",
+          "title": "China Long March 12 rocket launches new internet satellite group",
           "src": "usa.chinadaily.com.cn",
-          "url": "http://usa.chinadaily.com.cn/a/202608/06/WS6a73e54aa310986e2b4693c3.html",
-          "date": "8月6日",
+          "url": "http://usa.chinadaily.com.cn/a/202606/17/WS6a322a07a310986e2b4607c4.html",
+          "date": "6月17日",
           "desc": "",
           "dom": true
         },
         {
-          "title": "Samsung Joins TSMC in Stalling ASML High NA EUV Rollout , Pushing the Costly Machines to 1nm Chips",
-          "src": "wccftech.com",
-          "url": "https://wccftech.com/samsung-joins-tsmc-in-stalling-asmls-high-na-euv-rollout-pushing-the-costly-machines-to-1nm-chips/",
-          "date": "8月11日",
+          "title": "China Long March - 10B rocket feat lights up social media : is SpaceX set to lose crown ?",
+          "src": "scmp.com",
+          "url": "https://www.scmp.com/news/china/science/article/3360231/chinas-long-march-10b-rocket-feat-lights-social-media-spacex-set-lose-crown",
+          "date": "7月11日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China Long March - 12 rocket launches new internet satellite group",
+          "src": "english.anhuinews.com",
+          "url": "http://english.anhuinews.com/newscenter/headline/202606/t20260618_9336150.html",
+          "date": "6月18日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "Rocket Lab Is Set to Acquire Satellite Telecom Giant Iridium for $8 BIllion",
+          "src": "fool.com",
+          "url": "https://www.fool.com/investing/2026/06/29/rocket-lab-is-set-to-acquire-satellite-telecom-giant-iridium-for-8-billion/?source=iedfolrf0000001",
+          "date": "6月29日",
           "desc": "",
           "dom": false
         }
       ]
-    },
-    {
-      "name": "商业航天产业政策与进展",
-      "items": []
     },
     {
       "name": "新能源产业政策与进展",
