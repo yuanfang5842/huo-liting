@@ -1,58 +1,14 @@
 {
-  "updated": "2026-08-28 01:49 UTC",
+  "updated": "2026-08-28 17:45 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·健康/国内",
-    "GDELT·国内新药/临床/科研",
-    "GDELT·海外FDA与全球进展",
     "GDELT·政策/医保/行业"
   ],
   "grouped": {
-    "国内新药/临床/科研": [
-      {
-        "title": "GSK partner Hansoh Pharma succeeds in Chinese Phase III SCLC ADC trial",
-        "src": "yahoo.com",
-        "url": "https://www.yahoo.com/news/science/articles/gsk-partner-hansoh-pharma-succeeds-103917835.html",
-        "date": "7月13日",
-        "desc": "",
-        "dom": true
-      },
-      {
-        "title": "Palvella Therapeutics ( PVLA ) Submits Initial Module of NDA For QTORIN",
-        "src": "finance.yahoo.com",
-        "url": "https://finance.yahoo.com/healthcare/articles/palvella-therapeutics-pvla-submits-initial-140151901.html",
-        "date": "7月16日",
-        "desc": "",
-        "dom": false
-      }
-    ],
-    "海外FDA与全球进展": [
-      {
-        "title": "Study : Regulators often diverge from FDA on expedited oncology approvals",
-        "src": "raps.org",
-        "url": "https://www.raps.org/resource/study-regulators-often-diverge-from-fda-on-expedited-oncology-approvals.html",
-        "date": "6月22日",
-        "desc": "",
-        "dom": false
-      },
-      {
-        "title": "Rasonque earns FDA approval for pancreatic cancer",
-        "src": "healio.com",
-        "url": "https://www.healio.com/news/hematology-oncology/20260826/rasonque-nabs-fda-approval-for-previously-treated-metastatic-pancreatic-adenocarcinoma",
-        "date": "8月26日",
-        "desc": "",
-        "dom": false
-      },
-      {
-        "title": "Vanda Pharmaceuticals Announces EMA Positive Opinion for Orphan Drug Designation of Imsidolimab for Generalized Pustular Psoriasis - A Milestone Recognition of GPP as a Distinct Rare Disease in Europe",
-        "src": "prnewswire.com",
-        "url": "http://www.prnewswire.com/news-releases/vanda-pharmaceuticals-announces-ema-positive-opinion-for-orphan-drug-designation-of-imsidolimab-for-generalized-pustular-psoriasis--a-milestone-recognition-of-gpp-as-a-distinct-rare-disease-in-europe-302827934.html",
-        "date": "7月16日",
-        "desc": "",
-        "dom": false
-      }
-    ],
+    "国内新药/临床/科研": [],
+    "海外FDA与全球进展": [],
     "政策/医保/行业": [
       {
         "title": "全国政协委员方向明：拓展中医药应用场景",
