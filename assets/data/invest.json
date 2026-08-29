@@ -1,11 +1,10 @@
 {
-  "updated": "2026-08-28 17:45 UTC",
+  "updated": "2026-08-29 01:12 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
     "GDELT·昨日美股等国外股市表现",
-    "GDELT·新能源产业政策与进展",
     "GDELT·消费产业政策与进展",
     "GDELT·其它重大政策及事件"
   ],
@@ -33,40 +32,7 @@
     },
     {
       "name": "新能源产业政策与进展",
-      "items": [
-        {
-          "title": "充电桩也有身份证了 电车充电桩强制3C认证落地",
-          "src": "中华国内",
-          "url": "https://news.china.com/domestic/945/20260827/49701285.html",
-          "date": "8月27日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "【 AICC Original Article 】 Exports of Anhui new energy vehicles , lithium batteries and photovoltaic products doubled",
-          "src": "english.anhuinews.com",
-          "url": "http://english.anhuinews.com/newscenter/headline/202606/t20260616_9332090.html",
-          "date": "6月16日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China Just Connected the World Biggest Hybrid Solar Plant to the Grid",
-          "src": "oilprice.com",
-          "url": "https://oilprice.com/Alternative-Energy/Solar-Energy/China-Just-Connected-the-Worlds-Biggest-Hybrid-Solar-Plant-to-the-Grid.html",
-          "date": "7月15日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Vatrer 51 . 2V 100Ah Server Rack Lithium Battery with WIFI : Smart , Scalable Energy Storage for Off - Grid Living",
-          "src": "techtimes.com",
-          "url": "https://www.techtimes.com/articles/321647/20260727/vatrer-512v-100ah-server-rack-lithium-battery-wifi-smart-scalable-energy-storage-off-grid.htm",
-          "date": "7月27日",
-          "desc": "",
-          "dom": false
-        }
-      ]
+      "items": []
     },
     {
       "name": "医药行业产业政策与进展",
@@ -89,14 +55,6 @@
           "url": "//caijing.chinadaily.com.cn/a/202608/18/WS6a83e975a3105d3d7a27b7ad.html",
           "date": "8月18日",
           "desc": "2026-08-1813:10",
-          "dom": true
-        },
-        {
-          "title": "山河有约 风景正好——文旅新“县”象一线观察",
-          "src": "中华国内",
-          "url": "https://news.china.com/domestic/945/20260828/49704438.html",
-          "date": "8月28日",
-          "desc": "",
           "dom": true
         }
       ]
