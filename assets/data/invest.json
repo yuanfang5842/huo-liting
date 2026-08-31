@@ -1,10 +1,11 @@
 {
-  "updated": "2026-08-31 11:56 UTC",
+  "updated": "2026-08-31 18:24 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
     "GDELT·昨日美股等国外股市表现",
+    "GDELT·消费产业政策与进展",
     "GDELT·其它重大政策及事件"
   ],
   "modules": [
@@ -39,7 +40,32 @@
     },
     {
       "name": "消费产业政策与进展",
-      "items": []
+      "items": [
+        {
+          "title": "Retail moves seen boosting economy",
+          "src": "usa.chinadaily.com.cn",
+          "url": "http://usa.chinadaily.com.cn/a/202607/10/WS6a5047e9a310986e2b464840.html",
+          "date": "7月10日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China rolls out third trade - in fund tranche as weak retail data keeps stimulus pressure on",
+          "src": "investinglive.com",
+          "url": "https://investinglive.com:443/news/china-rolls-out-third-trade-in-fund-tranche-as-weak-retail-data-keeps-stimulus-pressure-on-20260618/",
+          "date": "6月18日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China Unveils First Stand - Alone Consumption Plan , Sets $8 . 85 Trillion Retail Target to Revive Domestic Demand",
+          "src": "slguardian.org",
+          "url": "https://slguardian.org/china-unveils-first-stand-alone-consumption-plan-sets-8-85-trillion-retail-target-to-revive-domestic-demand/",
+          "date": "7月14日",
+          "desc": "",
+          "dom": true
+        }
+      ]
     },
     {
       "name": "其它重大政策及事件",
