@@ -1,10 +1,11 @@
 {
-  "updated": "2026-09-01 02:12 UTC",
+  "updated": "2026-09-01 10:36 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
-    "GDELT·昨日美股等国外股市表现",
+    "GDELT·商业航天产业政策与进展",
+    "GDELT·新能源产业政策与进展",
     "GDELT·医药行业产业政策与进展",
     "GDELT·消费产业政策与进展",
     "GDELT·其它重大政策及事件"
@@ -12,16 +13,7 @@
   "modules": [
     {
       "name": "昨日美股等国外股市表现",
-      "items": [
-        {
-          "title": "40万亿美元！狂飙的美债如何危害全球",
-          "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202608/20/WS6a8672d2a3105d3d7a27bec4.html",
-          "date": "8月20日",
-          "desc": "2026-08-2011:20",
-          "dom": true
-        }
-      ]
+      "items": []
     },
     {
       "name": "半导体产业政策与进展及风险",
@@ -29,11 +21,77 @@
     },
     {
       "name": "商业航天产业政策与进展",
-      "items": []
+      "items": [
+        {
+          "title": "China launches 24th batch of low - orbit internet satellites from Hainan site",
+          "src": "timesofindia.indiatimes.com",
+          "url": "https://timesofindia.indiatimes.com/world/china/china-launches-24th-batch-of-low-orbit-internet-satellites-from-hainan-site/articleshow/133273853.cms",
+          "date": "8月16日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China Long March 12 rocket launches new internet satellite group",
+          "src": "usa.chinadaily.com.cn",
+          "url": "http://usa.chinadaily.com.cn/a/202606/17/WS6a322a07a310986e2b4607c4.html",
+          "date": "6月17日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China Long March - 10B rocket feat lights up social media : is SpaceX set to lose crown ?",
+          "src": "scmp.com",
+          "url": "https://www.scmp.com/news/china/science/article/3360231/chinas-long-march-10b-rocket-feat-lights-social-media-spacex-set-lose-crown",
+          "date": "7月11日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China Long March - 12 rocket launches new internet satellite group",
+          "src": "english.anhuinews.com",
+          "url": "http://english.anhuinews.com/newscenter/headline/202606/t20260618_9336150.html",
+          "date": "6月18日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "Rocket Lab Is Set to Acquire Satellite Telecom Giant Iridium for $8 BIllion",
+          "src": "fool.com",
+          "url": "https://www.fool.com/investing/2026/06/29/rocket-lab-is-set-to-acquire-satellite-telecom-giant-iridium-for-8-billion/?source=iedfolrf0000001",
+          "date": "6月29日",
+          "desc": "",
+          "dom": false
+        }
+      ]
     },
     {
       "name": "新能源产业政策与进展",
-      "items": []
+      "items": [
+        {
+          "title": "【 AICC Original Article 】 Exports of Anhui new energy vehicles , lithium batteries and photovoltaic products doubled",
+          "src": "english.anhuinews.com",
+          "url": "http://english.anhuinews.com/newscenter/headline/202606/t20260616_9332090.html",
+          "date": "6月16日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China Just Connected the World Biggest Hybrid Solar Plant to the Grid",
+          "src": "oilprice.com",
+          "url": "https://oilprice.com/Alternative-Energy/Solar-Energy/China-Just-Connected-the-Worlds-Biggest-Hybrid-Solar-Plant-to-the-Grid.html",
+          "date": "7月15日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "Vatrer 51 . 2V 100Ah Server Rack Lithium Battery with WIFI : Smart , Scalable Energy Storage for Off - Grid Living",
+          "src": "techtimes.com",
+          "url": "https://www.techtimes.com/articles/321647/20260727/vatrer-512v-100ah-server-rack-lithium-battery-wifi-smart-scalable-energy-storage-off-grid.htm",
+          "date": "7月27日",
+          "desc": "",
+          "dom": false
+        }
+      ]
     },
     {
       "name": "医药行业产业政策与进展",
@@ -65,35 +123,35 @@
       "name": "其它重大政策及事件",
       "items": [
         {
-          "title": "C财经 | 外国观众眼中的中国机器人产业：规模和创新世界领先",
+          "title": "“中国经济圆桌会”聚焦科技创新引领产业升级",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202608/24/WS6a8be9b545ce1aabf7a93576.html",
-          "date": "8月24日",
-          "desc": "为期5天的2026世界机器人大会23日在北京落下帷幕。本届大会集中展示了373家国内外知名企业的3000余件产品，其中首发新品达311件2026-08-2414:50",
+          "url": "//caijing.chinadaily.com.cn/a/202609/01/WS6a96629de4b09a165c7873b6.html",
+          "date": "9月1日",
+          "desc": "2026-09-0113:25",
           "dom": true
         },
         {
-          "title": "C财经 | 外资加码中国高技术产业 亮眼数据印证产业升级实力",
+          "title": "算力，靠抢！百万级产能缺口，订单排到三年后",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202608/28/WS6a9143c9e4b09a165c786a99.html",
-          "date": "8月28日",
-          "desc": "近期，我国外资引资核心数据显示，在全球跨国投资整体低迷的大背景下，外资持续看好中国市场，亮眼数据印证中国产业升级实力与对外开放吸引力。2026-08-2816:16",
+          "url": "//caijing.chinadaily.com.cn/a/202609/01/WS6a96334be4b09a165c7872b6.html",
+          "date": "9月1日",
+          "desc": "2026-09-0110:06",
           "dom": true
         },
         {
-          "title": "伊利再出发：“世界乳都”奖杯捐赠入馆",
+          "title": "理财新规今起施行 信披文件改版进行时",
           "src": "中国日报财经",
-          "url": "//cn.chinadaily.com.cn/a/202608/31/WS6a952bf6e4b09a165c787013.html",
-          "date": "8月31日",
-          "desc": "近日，伊利集团向呼和浩特档案史志馆捐赠“世界乳都”荣誉奖杯奖牌。这份承载城市乳业至高荣誉的实物档案正式入馆，将这一里程碑式的荣耀永久镌刻在城市记忆之中。2026-08-3115:23",
+          "url": "//caijing.chinadaily.com.cn/a/202609/01/WS6a963399e4b09a165c7872ba.html",
+          "date": "9月1日",
+          "desc": "2026-09-0110:08",
           "dom": true
         },
         {
-          "title": "2026数博会映照“十五五”数字经济发展新图景",
+          "title": "美财长称不允许中国拥有1.2万亿顺差 中方回应",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202608/31/WS6a94e79ce4b09a165c786db4.html",
-          "date": "8月31日",
-          "desc": "2026-08-3110:30",
+          "url": "//caijing.chinadaily.com.cn/a/202609/01/WS6a96348fe4b09a165c7872bf.html",
+          "date": "9月1日",
+          "desc": "2026-09-0110:12",
           "dom": true
         }
       ]
