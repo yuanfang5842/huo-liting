@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-02 10:01 UTC",
+  "updated": "2026-09-02 15:25 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
@@ -33,22 +33,6 @@
         "date": "7月13日",
         "desc": "",
         "dom": true
-      },
-      {
-        "title": "Palvella Therapeutics ( PVLA ) Submits Initial Module of NDA For QTORIN",
-        "src": "finance.yahoo.com",
-        "url": "https://finance.yahoo.com/healthcare/articles/palvella-therapeutics-pvla-submits-initial-140151901.html",
-        "date": "7月16日",
-        "desc": "",
-        "dom": false
-      },
-      {
-        "title": "Asia - Pacific Roundup : TGA seeks feedback on increasing transparency of GMP inspection outcomes",
-        "src": "raps.org",
-        "url": "https://www.raps.org/resource/asia-pacific-roundup-tga-seeks-feedback-on-increasing-transparency-of-gmp-inspection-outcomes.html",
-        "date": "6月16日",
-        "desc": "",
-        "dom": false
       }
     ],
     "海外FDA与全球进展": [
@@ -61,18 +45,18 @@
         "dom": false
       },
       {
-        "title": "Rasonque earns FDA approval for pancreatic cancer",
-        "src": "healio.com",
-        "url": "https://www.healio.com/news/hematology-oncology/20260826/rasonque-nabs-fda-approval-for-previously-treated-metastatic-pancreatic-adenocarcinoma",
-        "date": "8月26日",
+        "title": "Industry asks FDA for harmonization , clarification in fermentation , semi - synthetic antibiotics guidance",
+        "src": "raps.org",
+        "url": "https://www.raps.org/resource/industry-asks-fda-for-harmonization-clarification-in-fermentation-semi-synthetic-antibiotics-guidance.html",
+        "date": "6月24日",
         "desc": "",
         "dom": false
       },
       {
-        "title": "Vanda Pharmaceuticals Announces EMA Positive Opinion for Orphan Drug Designation of Imsidolimab for Generalized Pustular Psoriasis - A Milestone Recognition of GPP as a Distinct Rare Disease in Europe",
-        "src": "prnewswire.com",
-        "url": "http://www.prnewswire.com/news-releases/vanda-pharmaceuticals-announces-ema-positive-opinion-for-orphan-drug-designation-of-imsidolimab-for-generalized-pustular-psoriasis--a-milestone-recognition-of-gpp-as-a-distinct-rare-disease-in-europe-302827934.html",
-        "date": "7月16日",
+        "title": "Recon : Vertex buys Crinetics for $10B ; EMA fast tracks Revolution metastatic pancreatic cancer drug",
+        "src": "raps.org",
+        "url": "https://www.raps.org/resource/recon-vertex-buys-crinetics-for-10b-ema-fast-tracks-revolution-s-metastatic-pancreatic-cancer-drug.html",
+        "date": "7月7日",
         "desc": "",
         "dom": false
       }
