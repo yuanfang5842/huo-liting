@@ -1,11 +1,10 @@
 {
-  "updated": "2026-09-02 20:10 UTC",
+  "updated": "2026-09-03 01:39 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
     "GDELT·新能源产业政策与进展",
-    "GDELT·医药行业产业政策与进展",
     "GDELT·其它重大政策及事件"
   ],
   "modules": [
@@ -52,16 +51,7 @@
     },
     {
       "name": "医药行业产业政策与进展",
-      "items": [
-        {
-          "title": "Royalty Pharma appoints Greg Raskin as Senior Vice President , Head of Academic Initiatives",
-          "src": "manilatimes.net",
-          "url": "https://www.manilatimes.net/2026/08/03/tmt-newswire/globenewswire/royalty-pharma-appoints-greg-raskin-as-senior-vice-president-head-of-academic-initiatives/2397043",
-          "date": "8月3日",
-          "desc": "",
-          "dom": false
-        }
-      ]
+      "items": []
     },
     {
       "name": "消费产业政策与进展",
