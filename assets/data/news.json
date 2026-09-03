@@ -1,11 +1,10 @@
 {
-  "updated": "2026-09-03 10:11 UTC",
+  "updated": "2026-09-03 15:18 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·健康/国内",
     "GDELT·国内新药/临床/科研",
-    "GDELT·海外FDA与全球进展",
     "GDELT·政策/医保/行业"
   ],
   "grouped": {
@@ -17,50 +16,9 @@
         "date": "9月2日",
         "desc": "",
         "dom": true
-      },
-      {
-        "title": "Shanghai Ark Biopharmaceutical Co ., Ltd .: ArkBio Announces China IND Approval for its Antiviral Drug - Fc Conjugate ( AFC ) Candidate AK0406 for Influenza Prophylaxis",
-        "src": "finanznachrichten.de",
-        "url": "https://www.finanznachrichten.de/nachrichten-2026-08/69296513-shanghai-ark-biopharmaceutical-co-ltd-arkbio-announces-china-ind-approval-for-its-antiviral-drug-fc-conjugate-afc-candidate-ak0406-for-influenza-008.htm",
-        "date": "8月13日",
-        "desc": "",
-        "dom": true
-      },
-      {
-        "title": "ArkBio Announces China IND Approval for its Antiviral Drug - Fc Conjugate ( AFC ) Candidate AK0406 for Influenza Prophylaxis",
-        "src": "prnewswire.com",
-        "url": "https://www.prnewswire.com/news-releases/arkbio-announces-china-ind-approval-for-its-antiviral-drug-fc-conjugate-afc-candidate-ak0406-for-influenza-prophylaxis-302849797.html",
-        "date": "8月13日",
-        "desc": "",
-        "dom": true
       }
     ],
-    "海外FDA与全球进展": [
-      {
-        "title": "Shanghai Ark Biopharmaceutical Co ., Ltd .: ArkBio RSV Antiviral Drug Ziresovir Receives FDA Approval for Phase II Clinical Trial",
-        "src": "finanznachrichten.de",
-        "url": "https://www.finanznachrichten.de/nachrichten-2026-08/69314640-shanghai-ark-biopharmaceutical-co-ltd-arkbio-s-rsv-antiviral-drug-ziresovir-receives-fda-approval-for-phase-ii-clinical-trial-008.htm",
-        "date": "8月14日",
-        "desc": "",
-        "dom": true
-      },
-      {
-        "title": "ArkBio RSV Antiviral Drug Ziresovir Receives FDA Approval for Phase II Clinical Trial",
-        "src": "thailand-business-news.com",
-        "url": "https://www.thailand-business-news.com/pr-news/arkbios-rsv-antiviral-drug-ziresovir-receives-fda-approval-for-phase-ii-clinical-trial",
-        "date": "8月14日",
-        "desc": "",
-        "dom": false
-      },
-      {
-        "title": "Phanes Therapeutics Receives FDA Fast Track Designation for Spevatamig in Advanced and Metastatic Biliary Tract Carcinoma",
-        "src": "prnewswire.com",
-        "url": "http://www.prnewswire.com/news-releases/phanes-therapeutics-receives-fda-fast-track-designation-for-spevatamig-in-advanced-and-metastatic-biliary-tract-carcinoma-302851460.html",
-        "date": "8月14日",
-        "desc": "",
-        "dom": false
-      }
-    ],
+    "海外FDA与全球进展": [],
     "政策/医保/行业": [
       {
         "title": "全国政协委员方向明：拓展中医药应用场景",
