@@ -1,12 +1,10 @@
 {
-  "updated": "2026-09-07 01:27 UTC",
+  "updated": "2026-09-07 10:49 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
     "GDELT·商业航天产业政策与进展",
-    "GDELT·新能源产业政策与进展",
-    "GDELT·医药行业产业政策与进展",
     "GDELT·其它重大政策及事件"
   ],
   "modules": [
@@ -22,64 +20,54 @@
       "name": "商业航天产业政策与进展",
       "items": [
         {
-          "title": "我国商业航天迸发新动能",
-          "src": "中华国内",
-          "url": "https://news.china.com/domestic/945/20260906/49721885.html",
-          "date": "9月6日",
+          "title": "China launches 24th batch of low - orbit internet satellites from Hainan site",
+          "src": "timesofindia.indiatimes.com",
+          "url": "https://timesofindia.indiatimes.com/world/china/china-launches-24th-batch-of-low-orbit-internet-satellites-from-hainan-site/articleshow/133273853.cms",
+          "date": "8月16日",
           "desc": "",
           "dom": true
+        },
+        {
+          "title": "China Long March 12 rocket launches new internet satellite group",
+          "src": "usa.chinadaily.com.cn",
+          "url": "http://usa.chinadaily.com.cn/a/202606/17/WS6a322a07a310986e2b4607c4.html",
+          "date": "6月17日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China Long March - 10B rocket feat lights up social media : is SpaceX set to lose crown ?",
+          "src": "scmp.com",
+          "url": "https://www.scmp.com/news/china/science/article/3360231/chinas-long-march-10b-rocket-feat-lights-social-media-spacex-set-lose-crown",
+          "date": "7月11日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China Long March - 12 rocket launches new internet satellite group",
+          "src": "english.anhuinews.com",
+          "url": "http://english.anhuinews.com/newscenter/headline/202606/t20260618_9336150.html",
+          "date": "6月18日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "Rocket Lab Is Set to Acquire Satellite Telecom Giant Iridium for $8 BIllion",
+          "src": "fool.com",
+          "url": "https://www.fool.com/investing/2026/06/29/rocket-lab-is-set-to-acquire-satellite-telecom-giant-iridium-for-8-billion/?source=iedfolrf0000001",
+          "date": "6月29日",
+          "desc": "",
+          "dom": false
         }
       ]
     },
     {
       "name": "新能源产业政策与进展",
-      "items": [
-        {
-          "title": "【 AICC Original Article 】 Exports of Anhui new energy vehicles , lithium batteries and photovoltaic products doubled",
-          "src": "english.anhuinews.com",
-          "url": "http://english.anhuinews.com/newscenter/headline/202606/t20260616_9332090.html",
-          "date": "6月16日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China Just Connected the World Biggest Hybrid Solar Plant to the Grid",
-          "src": "oilprice.com",
-          "url": "https://oilprice.com/Alternative-Energy/Solar-Energy/China-Just-Connected-the-Worlds-Biggest-Hybrid-Solar-Plant-to-the-Grid.html",
-          "date": "7月15日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Vatrer 51 . 2V 100Ah Server Rack Lithium Battery with WIFI : Smart , Scalable Energy Storage for Off - Grid Living",
-          "src": "techtimes.com",
-          "url": "https://www.techtimes.com/articles/321647/20260727/vatrer-512v-100ah-server-rack-lithium-battery-wifi-smart-scalable-energy-storage-off-grid.htm",
-          "date": "7月27日",
-          "desc": "",
-          "dom": false
-        }
-      ]
+      "items": []
     },
     {
       "name": "医药行业产业政策与进展",
-      "items": [
-        {
-          "title": "The numbers behind China pharma rise",
-          "src": "swissinfo.ch",
-          "url": "https://www.swissinfo.ch/eng/healthcare-innovation/the-numbers-behind-chinas-pharma-rise/91994947",
-          "date": "9月3日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Royalty Pharma appoints Greg Raskin as Senior Vice President , Head of Academic Initiatives",
-          "src": "manilatimes.net",
-          "url": "https://www.manilatimes.net/2026/08/03/tmt-newswire/globenewswire/royalty-pharma-appoints-greg-raskin-as-senior-vice-president-head-of-academic-initiatives/2397043",
-          "date": "8月3日",
-          "desc": "",
-          "dom": false
-        }
-      ]
+      "items": []
     },
     {
       "name": "消费产业政策与进展",
@@ -89,35 +77,35 @@
       "name": "其它重大政策及事件",
       "items": [
         {
-          "title": "C财经｜自愿减排交易市场：激活减排动力，释放绿色潜力",
+          "title": "129个国家和地区客商投洽会上寻商机",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/04/WS6a9a83f4e4b09a165c7881f8.html",
-          "date": "9月4日",
-          "desc": "建成诚信透明、方法统一、参与广泛、与国际接轨的自愿减排交易市场，将纳入更多符合条件的市场主体参与交易，进一步提升碳交易活力，助力实现碳达峰目标。2026-09-0416:40",
+          "url": "//caijing.chinadaily.com.cn/a/202609/07/WS6a9e1dd1e4b09a165c788488.html",
+          "date": "9月7日",
+          "desc": "2026-09-0710:13",
           "dom": true
         },
         {
-          "title": "2636亿元账单出炉 “中国游”带火这门“新生意”→",
+          "title": "5年再增约10亿“风光”意味着什么",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/04/WS6a9a3d96e4b09a165c78800f.html",
-          "date": "9月4日",
-          "desc": "从海外社交平台刷屏的避暑打卡，到行李箱装满国货好物；从地铁闸机“一拍通行”，到购物退税“一拍办结”，“中国游”与“中国购”互相成就。2026-09-0411:38",
+          "url": "//caijing.chinadaily.com.cn/a/202609/07/WS6a9e1e2ce4b09a165c78848a.html",
+          "date": "9月7日",
+          "desc": "2026-09-0710:14",
           "dom": true
         },
         {
-          "title": "上市车企上半年逾七成盈利 商用车成确定性主线",
+          "title": "中国国债何以“风景独好”？",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/04/WS6a9a3e32e4b09a165c788014.html",
-          "date": "9月4日",
-          "desc": "沪深两市19家整车上市公司及港股上市的吉利汽车、奇瑞汽车、北京汽车已全部完成半年报披露。其中，16家车企实现盈利，占比73%；10家车企净利润同比增长，占比45%。2026-09-0411:42",
+          "url": "//caijing.chinadaily.com.cn/a/202609/07/WS6a9e1e7fe4b09a165c78848c.html",
+          "date": "9月7日",
+          "desc": "2026-09-0710:16",
           "dom": true
         },
         {
-          "title": "全国碳市场配额分配相关方案印发",
+          "title": "A股缩量整理或临近尾声 机构看好9月中下旬行情",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/04/WS6a9a3ed7e4b09a165c788019.html",
-          "date": "9月4日",
-          "desc": "生态环境部近日印发《全国碳排放权交易市场2025、2026年度发电行业以及2026年度钢铁、水泥、铝冶炼行业配额总量和分配方案》，对相关行业配额的分配范围、计算方法、发放和清缴等工作进行部署。2026-09-0411:45",
+          "url": "//caijing.chinadaily.com.cn/a/202609/07/WS6a9e1ef7e4b09a165c788492.html",
+          "date": "9月7日",
+          "desc": "2026-09-0710:18",
           "dom": true
         }
       ]
