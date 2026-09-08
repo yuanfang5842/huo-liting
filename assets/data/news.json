@@ -1,31 +1,13 @@
 {
-  "updated": "2026-09-07 20:50 UTC",
+  "updated": "2026-09-08 01:36 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·健康/国内",
-    "GDELT·国内新药/临床/科研",
     "GDELT·政策/医保/行业"
   ],
   "grouped": {
-    "国内新药/临床/科研": [
-      {
-        "title": "Rezubio Announces FDA and NMPA IND Clearances and First Cohort Dosing of RZ - 520 , a Novel Inhaled Therapy for Chronic Respiratory Diseases",
-        "src": "manilatimes.net",
-        "url": "https://www.manilatimes.net/2026/09/07/tmt-newswire/globenewswire/rezubio-announces-fda-and-nmpa-ind-clearances-and-first-cohort-dosing-of-rz-520-a-novel-inhaled-therapy-for-chronic-respiratory-diseases/2419531",
-        "date": "9月7日",
-        "desc": "",
-        "dom": false
-      },
-      {
-        "title": "Asia - Pacific Roundup : TGA seeks feedback on increasing transparency of GMP inspection outcomes",
-        "src": "raps.org",
-        "url": "https://www.raps.org/resource/asia-pacific-roundup-tga-seeks-feedback-on-increasing-transparency-of-gmp-inspection-outcomes.html",
-        "date": "6月16日",
-        "desc": "",
-        "dom": false
-      }
-    ],
+    "国内新药/临床/科研": [],
     "海外FDA与全球进展": [],
     "政策/医保/行业": [
       {
