@@ -1,11 +1,11 @@
 {
-  "updated": "2026-09-10 15:18 UTC",
+  "updated": "2026-09-10 20:08 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
     "GDELT·商业航天产业政策与进展",
-    "GDELT·医药行业产业政策与进展",
+    "GDELT·消费产业政策与进展",
     "GDELT·其它重大政策及事件"
   ],
   "modules": [
@@ -36,28 +36,44 @@
     },
     {
       "name": "医药行业产业政策与进展",
+      "items": []
+    },
+    {
+      "name": "消费产业政策与进展",
       "items": [
         {
-          "title": "The numbers behind China pharma rise",
-          "src": "swissinfo.ch",
-          "url": "https://www.swissinfo.ch/eng/healthcare-innovation/the-numbers-behind-chinas-pharma-rise/91994947",
-          "date": "9月3日",
+          "title": "Retail moves seen boosting economy",
+          "src": "usa.chinadaily.com.cn",
+          "url": "http://usa.chinadaily.com.cn/a/202607/10/WS6a5047e9a310986e2b464840.html",
+          "date": "7月10日",
           "desc": "",
           "dom": true
         },
         {
-          "title": "Royalty Pharma appoints Greg Raskin as Senior Vice President , Head of Academic Initiatives",
-          "src": "manilatimes.net",
-          "url": "https://www.manilatimes.net/2026/08/03/tmt-newswire/globenewswire/royalty-pharma-appoints-greg-raskin-as-senior-vice-president-head-of-academic-initiatives/2397043",
-          "date": "8月3日",
+          "title": "China unveils second batch of 32 pilot cities for retail sector innovation",
+          "src": "china.org.cn",
+          "url": "http://www.china.org.cn/2026-09/04/content_118680089.shtml",
+          "date": "9月4日",
           "desc": "",
-          "dom": false
+          "dom": true
+        },
+        {
+          "title": "China unveils measures to expand , upgrade consumer goods consumption",
+          "src": "english.anhuinews.com",
+          "url": "http://english.anhuinews.com/newscenter/headline/202609/t20260901_9544708.html",
+          "date": "9月1日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China rolls out third trade - in fund tranche as weak retail data keeps stimulus pressure on",
+          "src": "investinglive.com",
+          "url": "https://investinglive.com:443/news/china-rolls-out-third-trade-in-fund-tranche-as-weak-retail-data-keeps-stimulus-pressure-on-20260618/",
+          "date": "6月18日",
+          "desc": "",
+          "dom": true
         }
       ]
-    },
-    {
-      "name": "消费产业政策与进展",
-      "items": []
     },
     {
       "name": "其它重大政策及事件",
