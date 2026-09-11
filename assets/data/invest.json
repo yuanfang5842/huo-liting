@@ -1,9 +1,12 @@
 {
-  "updated": "2026-09-11 01:38 UTC",
+  "updated": "2026-09-11 10:04 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
+    "GDELT·半导体产业政策与进展及风险",
+    "GDELT·商业航天产业政策与进展",
+    "GDELT·消费产业政策与进展",
     "GDELT·其它重大政策及事件"
   ],
   "modules": [
@@ -13,11 +16,61 @@
     },
     {
       "name": "半导体产业政策与进展及风险",
-      "items": []
+      "items": [
+        {
+          "title": "发力折叠屏 加码芯片智能体 手机市场迎来“系统级”竞争",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202609/11/WS6aa36f6ce4b09a165c78958d.html",
+          "date": "9月11日",
+          "desc": "2026-09-1111:02",
+          "dom": true
+        }
+      ]
     },
     {
       "name": "商业航天产业政策与进展",
-      "items": []
+      "items": [
+        {
+          "title": "China launches 24th batch of low - orbit internet satellites from Hainan site",
+          "src": "timesofindia.indiatimes.com",
+          "url": "https://timesofindia.indiatimes.com/world/china/china-launches-24th-batch-of-low-orbit-internet-satellites-from-hainan-site/articleshow/133273853.cms",
+          "date": "8月16日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China Long March - 10B rocket feat lights up social media : is SpaceX set to lose crown ?",
+          "src": "scmp.com",
+          "url": "https://www.scmp.com/news/china/science/article/3360231/chinas-long-march-10b-rocket-feat-lights-social-media-spacex-set-lose-crown",
+          "date": "7月11日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "Why China rocket breakthrough and Russia satellite push are worrying the US",
+          "src": "moneycontrol.com",
+          "url": "https://www.moneycontrol.com/world/why-china-s-rocket-breakthrough-and-russia-s-satellite-push-are-worrying-the-us-article-14016138.html",
+          "date": "8月26日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China Orbital Rocket Recovery : China becomes first to recover orbital rockets using two methods : How Zhuque - 3 works",
+          "src": "timesofindia.indiatimes.com",
+          "url": "https://timesofindia.indiatimes.com/science/china-becomes-first-to-recover-orbital-rockets-using-two-methods-how-zhuque-3-works/articleshow/133341418.cms",
+          "date": "8月19日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "Rocket Lab Is Set to Acquire Satellite Telecom Giant Iridium for $8 BIllion",
+          "src": "fool.com",
+          "url": "https://www.fool.com/investing/2026/06/29/rocket-lab-is-set-to-acquire-satellite-telecom-giant-iridium-for-8-billion/?source=iedfolrf0000001",
+          "date": "6月29日",
+          "desc": "",
+          "dom": false
+        }
+      ]
     },
     {
       "name": "新能源产业政策与进展",
@@ -29,11 +82,36 @@
     },
     {
       "name": "消费产业政策与进展",
-      "items": []
+      "items": [
+        {
+          "title": "我国提出到2030年进入世界汽车强国行列",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202609/11/WS6aa36f0de4b09a165c78958b.html",
+          "date": "9月11日",
+          "desc": "2026-09-1111:01",
+          "dom": true
+        }
+      ]
     },
     {
       "name": "其它重大政策及事件",
       "items": [
+        {
+          "title": "国新办发布会聚焦金融领域“十五五”时期工作重点",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202609/11/WS6aa36e82e4b09a165c789587.html",
+          "date": "9月11日",
+          "desc": "2026-09-1110:58",
+          "dom": true
+        },
+        {
+          "title": "2026年APEC工商领导人峰会举办时间确定",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202609/11/WS6aa36dc3e4b09a165c78957b.html",
+          "date": "9月11日",
+          "desc": "记者9月10日从中国贸促会获悉，2026年亚太经合组织（APEC）工商领导人峰会将于11月17日至18日在深圳举办。2026-09-1110:55",
+          "dom": true
+        },
         {
           "title": "今年前8个月4.99亿人次出入境 同比上升8.7%",
           "src": "中国日报财经",
@@ -48,22 +126,6 @@
           "url": "//caijing.chinadaily.com.cn/a/202609/10/WS6aa22903e4b09a165c78919c.html",
           "date": "9月10日",
           "desc": "2026-09-1011:50",
-          "dom": true
-        },
-        {
-          "title": "从投洽会看外资在华投资布局的三个转变",
-          "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/10/WS6aa2295fe4b09a165c78919d.html",
-          "date": "9月10日",
-          "desc": "2026-09-1011:51",
-          "dom": true
-        },
-        {
-          "title": "11个新职业发布 产业迭代催生就业新需求",
-          "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/10/WS6aa229cde4b09a165c7891a1.html",
-          "date": "9月10日",
-          "desc": "2026-09-1011:53",
           "dom": true
         }
       ]
