@@ -1,10 +1,11 @@
 {
-  "updated": "2026-09-13 10:41 UTC",
+  "updated": "2026-09-13 15:08 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
     "GDELT·半导体产业政策与进展及风险",
+    "GDELT·医药行业产业政策与进展",
     "GDELT·消费产业政策与进展",
     "GDELT·其它重大政策及事件"
   ],
@@ -23,38 +24,6 @@
           "date": "9月11日",
           "desc": "2026-09-1111:02",
           "dom": true
-        },
-        {
-          "title": "China reaches major milestone as domestic DUV chip tools enter mass production",
-          "src": "thenews.com.pk",
-          "url": "https://www.thenews.com.pk/latest/1410425-china-reaches-major-milestone-as-domestic-duv-chip-tools-enter-mass-production",
-          "date": "7月27日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Chinese Chip Toolmakers Post 400 % Profit Surge as Overseas Supplier Two - Year Backlogs Reshape the Industry",
-          "src": "wccftech.com",
-          "url": "https://wccftech.com/chinese-chip-toolmakers-post-400-profit-surge-as-overseas-suppliers-two-year-backlogs-reshape-the-industry/",
-          "date": "8月19日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "From isolation to independence : How China took its chip sector to the next level",
-          "src": "hani.co.kr",
-          "url": "https://www.hani.co.kr/arti/english_edition/e_business/1272806.html",
-          "date": "8月13日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Samsung Joins TSMC in Stalling ASML High NA EUV Rollout , Pushing the Costly Machines to 1nm Chips",
-          "src": "wccftech.com",
-          "url": "https://wccftech.com/samsung-joins-tsmc-in-stalling-asmls-high-na-euv-rollout-pushing-the-costly-machines-to-1nm-chips/",
-          "date": "8月11日",
-          "desc": "",
-          "dom": false
         }
       ]
     },
@@ -68,7 +37,24 @@
     },
     {
       "name": "医药行业产业政策与进展",
-      "items": []
+      "items": [
+        {
+          "title": "The numbers behind China pharma rise",
+          "src": "swissinfo.ch",
+          "url": "https://www.swissinfo.ch/eng/healthcare-innovation/the-numbers-behind-chinas-pharma-rise/91994947",
+          "date": "9月3日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "The Race for the Next Big Weight - Loss Drug Is On and China Wants In",
+          "src": "hindustantimes.com",
+          "url": "https://www.hindustantimes.com/world-news/the-race-for-the-next-big-weight-loss-drug-is-on-and-china-wants-in-101789117958664.html",
+          "date": "9月11日",
+          "desc": "",
+          "dom": true
+        }
+      ]
     },
     {
       "name": "消费产业政策与进展",
@@ -79,30 +65,6 @@
           "url": "//caijing.chinadaily.com.cn/a/202609/11/WS6aa36f0de4b09a165c78958b.html",
           "date": "9月11日",
           "desc": "2026-09-1111:01",
-          "dom": true
-        },
-        {
-          "title": "Retail moves seen boosting economy",
-          "src": "usa.chinadaily.com.cn",
-          "url": "http://usa.chinadaily.com.cn/a/202607/10/WS6a5047e9a310986e2b464840.html",
-          "date": "7月10日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China unveils second batch of 32 pilot cities for retail sector innovation",
-          "src": "china.org.cn",
-          "url": "http://www.china.org.cn/2026-09/04/content_118680089.shtml",
-          "date": "9月4日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China unveils measures to expand , upgrade consumer goods consumption",
-          "src": "english.anhuinews.com",
-          "url": "http://english.anhuinews.com/newscenter/headline/202609/t20260901_9544708.html",
-          "date": "9月1日",
-          "desc": "",
           "dom": true
         }
       ]
