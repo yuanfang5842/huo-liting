@@ -1,12 +1,12 @@
 {
-  "updated": "2026-09-14 01:53 UTC",
+  "updated": "2026-09-14 11:02 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
     "GDELT·半导体产业政策与进展及风险",
+    "GDELT·商业航天产业政策与进展",
     "GDELT·新能源产业政策与进展",
-    "GDELT·医药行业产业政策与进展",
     "GDELT·消费产业政策与进展",
     "GDELT·其它重大政策及事件"
   ],
@@ -25,44 +25,53 @@
           "date": "9月11日",
           "desc": "2026-09-1111:02",
           "dom": true
-        },
-        {
-          "title": "China reaches major milestone as domestic DUV chip tools enter mass production",
-          "src": "thenews.com.pk",
-          "url": "https://www.thenews.com.pk/latest/1410425-china-reaches-major-milestone-as-domestic-duv-chip-tools-enter-mass-production",
-          "date": "7月27日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Chinese Chip Toolmakers Post 400 % Profit Surge as Overseas Supplier Two - Year Backlogs Reshape the Industry",
-          "src": "wccftech.com",
-          "url": "https://wccftech.com/chinese-chip-toolmakers-post-400-profit-surge-as-overseas-suppliers-two-year-backlogs-reshape-the-industry/",
-          "date": "8月19日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "From isolation to independence : How China took its chip sector to the next level",
-          "src": "hani.co.kr",
-          "url": "https://www.hani.co.kr/arti/english_edition/e_business/1272806.html",
-          "date": "8月13日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Samsung Joins TSMC in Stalling ASML High NA EUV Rollout , Pushing the Costly Machines to 1nm Chips",
-          "src": "wccftech.com",
-          "url": "https://wccftech.com/samsung-joins-tsmc-in-stalling-asmls-high-na-euv-rollout-pushing-the-costly-machines-to-1nm-chips/",
-          "date": "8月11日",
-          "desc": "",
-          "dom": false
         }
       ]
     },
     {
       "name": "商业航天产业政策与进展",
-      "items": []
+      "items": [
+        {
+          "title": "China launches 24th batch of low - orbit internet satellites from Hainan site",
+          "src": "timesofindia.indiatimes.com",
+          "url": "https://timesofindia.indiatimes.com/world/china/china-launches-24th-batch-of-low-orbit-internet-satellites-from-hainan-site/articleshow/133273853.cms",
+          "date": "8月16日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China Long March - 10B rocket feat lights up social media : is SpaceX set to lose crown ?",
+          "src": "scmp.com",
+          "url": "https://www.scmp.com/news/china/science/article/3360231/chinas-long-march-10b-rocket-feat-lights-social-media-spacex-set-lose-crown",
+          "date": "7月11日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "Why China rocket breakthrough and Russia satellite push are worrying the US",
+          "src": "moneycontrol.com",
+          "url": "https://www.moneycontrol.com/world/why-china-s-rocket-breakthrough-and-russia-s-satellite-push-are-worrying-the-us-article-14016138.html",
+          "date": "8月26日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China Orbital Rocket Recovery : China becomes first to recover orbital rockets using two methods : How Zhuque - 3 works",
+          "src": "timesofindia.indiatimes.com",
+          "url": "https://timesofindia.indiatimes.com/science/china-becomes-first-to-recover-orbital-rockets-using-two-methods-how-zhuque-3-works/articleshow/133341418.cms",
+          "date": "8月19日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "Rocket Lab Is Set to Acquire Satellite Telecom Giant Iridium for $8 BIllion",
+          "src": "fool.com",
+          "url": "https://www.fool.com/investing/2026/06/29/rocket-lab-is-set-to-acquire-satellite-telecom-giant-iridium-for-8-billion/?source=iedfolrf0000001",
+          "date": "6月29日",
+          "desc": "",
+          "dom": false
+        }
+      ]
     },
     {
       "name": "新能源产业政策与进展",
@@ -103,24 +112,7 @@
     },
     {
       "name": "医药行业产业政策与进展",
-      "items": [
-        {
-          "title": "The numbers behind China pharma rise",
-          "src": "swissinfo.ch",
-          "url": "https://www.swissinfo.ch/eng/healthcare-innovation/the-numbers-behind-chinas-pharma-rise/91994947",
-          "date": "9月3日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "The Race for the Next Big Weight - Loss Drug Is On and China Wants In",
-          "src": "hindustantimes.com",
-          "url": "https://www.hindustantimes.com/world-news/the-race-for-the-next-big-weight-loss-drug-is-on-and-china-wants-in-101789117958664.html",
-          "date": "9月11日",
-          "desc": "",
-          "dom": true
-        }
-      ]
+      "items": []
     },
     {
       "name": "消费产业政策与进展",
@@ -132,30 +124,6 @@
           "date": "9月11日",
           "desc": "2026-09-1111:01",
           "dom": true
-        },
-        {
-          "title": "Retail moves seen boosting economy",
-          "src": "usa.chinadaily.com.cn",
-          "url": "http://usa.chinadaily.com.cn/a/202607/10/WS6a5047e9a310986e2b464840.html",
-          "date": "7月10日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China unveils second batch of 32 pilot cities for retail sector innovation",
-          "src": "china.org.cn",
-          "url": "http://www.china.org.cn/2026-09/04/content_118680089.shtml",
-          "date": "9月4日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China unveils measures to expand , upgrade consumer goods consumption",
-          "src": "english.anhuinews.com",
-          "url": "http://english.anhuinews.com/newscenter/headline/202609/t20260901_9544708.html",
-          "date": "9月1日",
-          "desc": "",
-          "dom": true
         }
       ]
     },
@@ -163,35 +131,35 @@
       "name": "其它重大政策及事件",
       "items": [
         {
-          "title": "国新办发布会聚焦金融领域“十五五”时期工作重点",
+          "title": "食品科技让营养更精准！《乳及乳成分与营养健康科学证据白皮书》重磅发布",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/11/WS6aa36e82e4b09a165c789587.html",
-          "date": "9月11日",
-          "desc": "2026-09-1110:58",
+          "url": "//cn.chinadaily.com.cn/a/202609/14/WS6aa79ff6e4b09a165c789e05.html",
+          "date": "9月14日",
+          "desc": "9月12日，在云南省红河州弥勒市举行的2026腾冲科学家论坛“生物制造与食品产业创新发展”专题活动上，中国食品科学技术学会重磅发布《乳及乳成分与营养健康科学证据白皮书》（以下简称《白皮书》）。2026-09-1415:19",
           "dom": true
         },
         {
-          "title": "2026年APEC工商领导人峰会举办时间确定",
+          "title": "2026年服贸会达成各类成果1200余项",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/11/WS6aa36dc3e4b09a165c78957b.html",
-          "date": "9月11日",
-          "desc": "记者9月10日从中国贸促会获悉，2026年亚太经合组织（APEC）工商领导人峰会将于11月17日至18日在深圳举办。2026-09-1110:55",
+          "url": "//caijing.chinadaily.com.cn/a/202609/14/WS6aa75450e4b09a165c789b7c.html",
+          "date": "9月14日",
+          "desc": "2026-09-1409:55",
           "dom": true
         },
         {
-          "title": "今年前8个月4.99亿人次出入境 同比上升8.7%",
+          "title": "房地产金融制度迎来系统性重塑",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/10/WS6aa22a62e4b09a165c7891a3.html",
-          "date": "9月10日",
-          "desc": "2026-09-1011:56",
+          "url": "//caijing.chinadaily.com.cn/a/202609/14/WS6aa754bde4b09a165c789b85.html",
+          "date": "9月14日",
+          "desc": "2026-09-1409:57",
           "dom": true
         },
         {
-          "title": "中国资产“确定性”筑牢资本市场内在稳定性",
+          "title": "全国一体化算力监测落地 算力网建设提速",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/10/WS6aa22903e4b09a165c78919c.html",
-          "date": "9月10日",
-          "desc": "2026-09-1011:50",
+          "url": "//caijing.chinadaily.com.cn/a/202609/14/WS6aa752a9e4b09a165c789b65.html",
+          "date": "9月14日",
+          "desc": "2026-09-1409:44",
           "dom": true
         }
       ]
