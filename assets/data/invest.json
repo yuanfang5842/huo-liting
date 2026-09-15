@@ -1,11 +1,9 @@
 {
-  "updated": "2026-09-15 02:02 UTC",
+  "updated": "2026-09-15 10:32 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
-    "GDELT·商业航天产业政策与进展",
-    "GDELT·新能源产业政策与进展",
     "GDELT·医药行业产业政策与进展",
     "GDELT·其它重大政策及事件"
   ],
@@ -20,85 +18,11 @@
     },
     {
       "name": "商业航天产业政策与进展",
-      "items": [
-        {
-          "title": "China launches 24th batch of low - orbit internet satellites from Hainan site",
-          "src": "timesofindia.indiatimes.com",
-          "url": "https://timesofindia.indiatimes.com/world/china/china-launches-24th-batch-of-low-orbit-internet-satellites-from-hainan-site/articleshow/133273853.cms",
-          "date": "8月16日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China Long March - 10B rocket feat lights up social media : is SpaceX set to lose crown ?",
-          "src": "scmp.com",
-          "url": "https://www.scmp.com/news/china/science/article/3360231/chinas-long-march-10b-rocket-feat-lights-social-media-spacex-set-lose-crown",
-          "date": "7月11日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Why China rocket breakthrough and Russia satellite push are worrying the US",
-          "src": "moneycontrol.com",
-          "url": "https://www.moneycontrol.com/world/why-china-s-rocket-breakthrough-and-russia-s-satellite-push-are-worrying-the-us-article-14016138.html",
-          "date": "8月26日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China Orbital Rocket Recovery : China becomes first to recover orbital rockets using two methods : How Zhuque - 3 works",
-          "src": "timesofindia.indiatimes.com",
-          "url": "https://timesofindia.indiatimes.com/science/china-becomes-first-to-recover-orbital-rockets-using-two-methods-how-zhuque-3-works/articleshow/133341418.cms",
-          "date": "8月19日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Rocket Lab Is Set to Acquire Satellite Telecom Giant Iridium for $8 BIllion",
-          "src": "fool.com",
-          "url": "https://www.fool.com/investing/2026/06/29/rocket-lab-is-set-to-acquire-satellite-telecom-giant-iridium-for-8-billion/?source=iedfolrf0000001",
-          "date": "6月29日",
-          "desc": "",
-          "dom": false
-        }
-      ]
+      "items": []
     },
     {
       "name": "新能源产业政策与进展",
-      "items": [
-        {
-          "title": "China Halts New Battery Storage Plant Approvals",
-          "src": "zerohedge.com",
-          "url": "https://www.zerohedge.com/energy/china-halts-new-battery-storage-plant-approvals",
-          "date": "9月9日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China Just Connected the World Biggest Hybrid Solar Plant to the Grid",
-          "src": "oilprice.com",
-          "url": "https://oilprice.com/Alternative-Energy/Solar-Energy/China-Just-Connected-the-Worlds-Biggest-Hybrid-Solar-Plant-to-the-Grid.html",
-          "date": "7月15日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China temporarily suspends new battery storage factory approvals : Report",
-          "src": "aninews.in",
-          "url": "https://aninews.in/news/business/china-temporarily-suspends-new-battery-storage-factory-approvals-report20260907145343/",
-          "date": "9月7日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Vatrer 51 . 2V 100Ah Server Rack Lithium Battery with WIFI : Smart , Scalable Energy Storage for Off - Grid Living",
-          "src": "techtimes.com",
-          "url": "https://www.techtimes.com/articles/321647/20260727/vatrer-512v-100ah-server-rack-lithium-battery-wifi-smart-scalable-energy-storage-off-grid.htm",
-          "date": "7月27日",
-          "desc": "",
-          "dom": false
-        }
-      ]
+      "items": []
     },
     {
       "name": "医药行业产业政策与进展",
@@ -121,35 +45,35 @@
       "name": "其它重大政策及事件",
       "items": [
         {
+          "title": "一图速览前8月主要经济指标数据",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202609/15/WS6aa8dd31e4b09a165c78a1d4.html",
+          "date": "9月15日",
+          "desc": "总的来看，8月份国民经济运行总体平稳，延续动能向新、结构向优的发展态势。但也要看到，外部环境不利影响加深，国内供强需弱矛盾突出，部分企业生产经营困难，经济稳中向好的基础还需巩固。2026-09-1513:52",
+          "dom": true
+        },
+        {
+          "title": "洗稿搬运、换脸仿声 AI微短剧侵权问题如何界定？",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202609/15/WS6aa8dda8e4b09a165c78a1d6.html",
+          "date": "9月15日",
+          "desc": "最近，国家广电总局《微短剧发展管理办法》正式实施，这也是我国首部规范微短剧行业的规章。然而记者发现，这个规章在落地执行上仍面临不少现实考验。2026-09-1513:54",
+          "dom": true
+        },
+        {
+          "title": "脑机接口再迎新标准 将如何影响你我生活？",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202609/15/WS6aa8ddf6e4b09a165c78a1e1.html",
+          "date": "9月15日",
+          "desc": "国家药监局14日批准发布我国第三个脑机接口医疗器械标准，这也是全球首个采用人工智能技术处理脑电数据的脑机接口医疗器械产品标准，将于明年9月1日起正式实施。2026-09-1513:55",
+          "dom": true
+        },
+        {
           "title": "电子信息制造业发展“十五五”规划发布",
           "src": "中国日报财经",
           "url": "//caijing.chinadaily.com.cn/a/202609/15/WS6aa8a34ee4b09a165c78a058.html",
           "date": "9月15日",
           "desc": "2026-09-1509:35",
-          "dom": true
-        },
-        {
-          "title": "“算力金属”，为何涨得这么猛？",
-          "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/15/WS6aa8a40be4b09a165c78a05a.html",
-          "date": "9月15日",
-          "desc": "2026-09-1509:47",
-          "dom": true
-        },
-        {
-          "title": "8月金融数据出炉，释放哪些信息",
-          "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/15/WS6aa8a46ee4b09a165c78a05d.html",
-          "date": "9月15日",
-          "desc": "2026-09-1509:50",
-          "dom": true
-        },
-        {
-          "title": "食品科技让营养更精准！《乳及乳成分与营养健康科学证据白皮书》重磅发布",
-          "src": "中国日报财经",
-          "url": "//cn.chinadaily.com.cn/a/202609/14/WS6aa79ff6e4b09a165c789e05.html",
-          "date": "9月14日",
-          "desc": "9月12日，在云南省红河州弥勒市举行的2026腾冲科学家论坛“生物制造与食品产业创新发展”专题活动上，中国食品科学技术学会重磅发布《乳及乳成分与营养健康科学证据白皮书》（以下简称《白皮书》）。2026-09-1415:19",
           "dom": true
         }
       ]
