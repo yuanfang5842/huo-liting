@@ -1,10 +1,9 @@
 {
-  "updated": "2026-09-16 01:53 UTC",
+  "updated": "2026-09-16 10:21 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
-    "GDELT·半导体产业政策与进展及风险",
     "GDELT·商业航天产业政策与进展",
     "GDELT·医药行业产业政策与进展",
     "GDELT·其它重大政策及事件"
@@ -16,56 +15,15 @@
     },
     {
       "name": "半导体产业政策与进展及风险",
-      "items": [
-        {
-          "title": "China reaches major milestone as domestic DUV chip tools enter mass production",
-          "src": "thenews.com.pk",
-          "url": "https://www.thenews.com.pk/latest/1410425-china-reaches-major-milestone-as-domestic-duv-chip-tools-enter-mass-production",
-          "date": "7月27日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Chinese Chip Toolmakers Post 400 % Profit Surge as Overseas Supplier Two - Year Backlogs Reshape the Industry",
-          "src": "wccftech.com",
-          "url": "https://wccftech.com/chinese-chip-toolmakers-post-400-profit-surge-as-overseas-suppliers-two-year-backlogs-reshape-the-industry/",
-          "date": "8月19日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "From isolation to independence : How China took its chip sector to the next level",
-          "src": "hani.co.kr",
-          "url": "https://www.hani.co.kr/arti/english_edition/e_business/1272806.html",
-          "date": "8月13日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Tau Scaling Law to rewrite rules for chip performance growth",
-          "src": "usa.chinadaily.com.cn",
-          "url": "http://usa.chinadaily.com.cn/a/202608/06/WS6a73e54aa310986e2b4693c3.html",
-          "date": "8月6日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Samsung Joins TSMC in Stalling ASML High NA EUV Rollout , Pushing the Costly Machines to 1nm Chips",
-          "src": "wccftech.com",
-          "url": "https://wccftech.com/samsung-joins-tsmc-in-stalling-asmls-high-na-euv-rollout-pushing-the-costly-machines-to-1nm-chips/",
-          "date": "8月11日",
-          "desc": "",
-          "dom": false
-        }
-      ]
+      "items": []
     },
     {
       "name": "商业航天产业政策与进展",
       "items": [
         {
-          "title": "一箭九星！引力一号遥三运载火箭发射成功",
+          "title": "火箭发射为什么都往海上“跑”？",
           "src": "中华国内",
-          "url": "https://news.china.com/domestic/945/20260916/49744196.html",
+          "url": "https://news.china.com/domestic/945/20260916/49745094.html",
           "date": "9月16日",
           "desc": "",
           "dom": true
@@ -80,11 +38,19 @@
       "name": "医药行业产业政策与进展",
       "items": [
         {
-          "title": "我国创新药出海再提速 今年对外授权突破1200亿美元",
-          "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/15/WS6aa8a533e4b09a165c78a061.html",
-          "date": "9月15日",
-          "desc": "2026-09-1509:53",
+          "title": "The numbers behind China pharma rise",
+          "src": "swissinfo.ch",
+          "url": "https://www.swissinfo.ch/eng/healthcare-innovation/the-numbers-behind-chinas-pharma-rise/91994947",
+          "date": "9月3日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "The Race for the Next Big Weight - Loss Drug Is On and China Wants In",
+          "src": "hindustantimes.com",
+          "url": "https://www.hindustantimes.com/world-news/the-race-for-the-next-big-weight-loss-drug-is-on-and-china-wants-in-101789117958664.html",
+          "date": "9月11日",
+          "desc": "",
           "dom": true
         }
       ]
@@ -97,35 +63,35 @@
       "name": "其它重大政策及事件",
       "items": [
         {
-          "title": "一图速览前8月主要经济指标数据",
+          "title": "发达经济体为何开启加息潮？",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/15/WS6aa8dd31e4b09a165c78a1d4.html",
-          "date": "9月15日",
-          "desc": "总的来看，8月份国民经济运行总体平稳，延续动能向新、结构向优的发展态势。但也要看到，外部环境不利影响加深，国内供强需弱矛盾突出，部分企业生产经营困难，经济稳中向好的基础还需巩固。2026-09-1513:52",
+          "url": "//caijing.chinadaily.com.cn/a/202609/16/WS6aa9f549e4b09a165c78a4d2.html",
+          "date": "9月16日",
+          "desc": "2026-09-1609:42",
           "dom": true
         },
         {
-          "title": "洗稿搬运、换脸仿声 AI微短剧侵权问题如何界定？",
+          "title": "新一代通信网，带来哪些智能时代新体验？",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/15/WS6aa8dda8e4b09a165c78a1d6.html",
-          "date": "9月15日",
-          "desc": "最近，国家广电总局《微短剧发展管理办法》正式实施，这也是我国首部规范微短剧行业的规章。然而记者发现，这个规章在落地执行上仍面临不少现实考验。2026-09-1513:54",
+          "url": "//caijing.chinadaily.com.cn/a/202609/16/WS6aa9f618e4b09a165c78a4d5.html",
+          "date": "9月16日",
+          "desc": "2026-09-1609:47",
           "dom": true
         },
         {
-          "title": "脑机接口再迎新标准 将如何影响你我生活？",
+          "title": "商品房销售制度开启新变革",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/15/WS6aa8ddf6e4b09a165c78a1e1.html",
-          "date": "9月15日",
-          "desc": "国家药监局14日批准发布我国第三个脑机接口医疗器械标准，这也是全球首个采用人工智能技术处理脑电数据的脑机接口医疗器械产品标准，将于明年9月1日起正式实施。2026-09-1513:55",
+          "url": "//caijing.chinadaily.com.cn/a/202609/16/WS6aa9f658e4b09a165c78a4d9.html",
+          "date": "9月16日",
+          "desc": "2026-09-1609:51",
           "dom": true
         },
         {
-          "title": "电子信息制造业发展“十五五”规划发布",
+          "title": "超70家启用，“机器人学校”正加速落地",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/15/WS6aa8a34ee4b09a165c78a058.html",
-          "date": "9月15日",
-          "desc": "2026-09-1509:35",
+          "url": "//caijing.chinadaily.com.cn/a/202609/16/WS6aa9f6a4e4b09a165c78a4da.html",
+          "date": "9月16日",
+          "desc": "2026-09-1609:53",
           "dom": true
         }
       ]
