@@ -1,11 +1,10 @@
 {
-  "updated": "2026-09-16 10:21 UTC",
+  "updated": "2026-09-16 15:37 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
     "GDELT·商业航天产业政策与进展",
-    "GDELT·医药行业产业政策与进展",
     "GDELT·其它重大政策及事件"
   ],
   "modules": [
@@ -36,24 +35,7 @@
     },
     {
       "name": "医药行业产业政策与进展",
-      "items": [
-        {
-          "title": "The numbers behind China pharma rise",
-          "src": "swissinfo.ch",
-          "url": "https://www.swissinfo.ch/eng/healthcare-innovation/the-numbers-behind-chinas-pharma-rise/91994947",
-          "date": "9月3日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "The Race for the Next Big Weight - Loss Drug Is On and China Wants In",
-          "src": "hindustantimes.com",
-          "url": "https://www.hindustantimes.com/world-news/the-race-for-the-next-big-weight-loss-drug-is-on-and-china-wants-in-101789117958664.html",
-          "date": "9月11日",
-          "desc": "",
-          "dom": true
-        }
-      ]
+      "items": []
     },
     {
       "name": "消费产业政策与进展",
