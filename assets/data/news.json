@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-18 01:44 UTC",
+  "updated": "2026-09-18 10:07 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
@@ -39,6 +39,14 @@
         "src": "finance.yahoo.com",
         "url": "https://finance.yahoo.com/healthcare/articles/palvella-therapeutics-pvla-submits-initial-140151901.html",
         "date": "7月16日",
+        "desc": "",
+        "dom": false
+      },
+      {
+        "title": "Rezubio Announces FDA and NMPA IND Clearances and First Cohort Dosing of RZ - 520 , a Novel Inhaled Therapy for Chronic Respiratory Diseases",
+        "src": "manilatimes.net",
+        "url": "https://www.manilatimes.net/2026/09/07/tmt-newswire/globenewswire/rezubio-announces-fda-and-nmpa-ind-clearances-and-first-cohort-dosing-of-rz-520-a-novel-inhaled-therapy-for-chronic-respiratory-diseases/2419531",
+        "date": "9月7日",
         "desc": "",
         "dom": false
       }
@@ -84,6 +92,14 @@
         "url": "https://www.163.com/jiankang/article/KN8GRIJS0038804U.html",
         "date": "3月5日",
         "desc": "全国两会前夕，新一届全国政协委员、浙江大学医药学部副主任、九三学社浙江省委副主委方向明赴德清调研中医药创新发展问题。“了解到了一线的情况，中医药应用场景还可以也应该拓展。",
+        "dom": true
+      },
+      {
+        "title": "喝水这件小事里藏着哪些健康大事 国家卫健委提倡多喝白开水、淡茶水",
+        "src": "中华国内",
+        "url": "https://news.china.com/socialgd/10000169/20260918/49749840.html",
+        "date": "9月18日",
+        "desc": "",
         "dom": true
       },
       {

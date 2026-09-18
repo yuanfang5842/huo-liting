@@ -1,28 +1,19 @@
 {
-  "updated": "2026-09-18 01:44 UTC",
+  "updated": "2026-09-18 10:07 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
-    "GDELT·昨日美股等国外股市表现",
     "GDELT·商业航天产业政策与进展",
     "GDELT·新能源产业政策与进展",
     "GDELT·医药行业产业政策与进展",
+    "GDELT·消费产业政策与进展",
     "GDELT·其它重大政策及事件"
   ],
   "modules": [
     {
       "name": "昨日美股等国外股市表现",
-      "items": [
-        {
-          "title": "美联储三年多来首次加息",
-          "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/17/WS6aab46bde4b09a165c78a922.html",
-          "date": "9月17日",
-          "desc": "2026-09-1709:44",
-          "dom": true
-        }
-      ]
+      "items": []
     },
     {
       "name": "半导体产业政策与进展及风险",
@@ -51,38 +42,6 @@
           "date": "9月17日",
           "desc": "",
           "dom": true
-        },
-        {
-          "title": "China Halts New Battery Storage Plant Approvals",
-          "src": "zerohedge.com",
-          "url": "https://www.zerohedge.com/energy/china-halts-new-battery-storage-plant-approvals",
-          "date": "9月9日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China Just Connected the World Biggest Hybrid Solar Plant to the Grid",
-          "src": "oilprice.com",
-          "url": "https://oilprice.com/Alternative-Energy/Solar-Energy/China-Just-Connected-the-Worlds-Biggest-Hybrid-Solar-Plant-to-the-Grid.html",
-          "date": "7月15日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China temporarily suspends new battery storage factory approvals : Report",
-          "src": "aninews.in",
-          "url": "https://aninews.in/news/business/china-temporarily-suspends-new-battery-storage-factory-approvals-report20260907145343/",
-          "date": "9月7日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Vatrer 51 . 2V 100Ah Server Rack Lithium Battery with WIFI : Smart , Scalable Energy Storage for Off - Grid Living",
-          "src": "techtimes.com",
-          "url": "https://www.techtimes.com/articles/321647/20260727/vatrer-512v-100ah-server-rack-lithium-battery-wifi-smart-scalable-energy-storage-off-grid.htm",
-          "date": "7月27日",
-          "desc": "",
-          "dom": false
         }
       ]
     },
@@ -90,60 +49,61 @@
       "name": "医药行业产业政策与进展",
       "items": [
         {
-          "title": "The numbers behind China pharma rise",
-          "src": "swissinfo.ch",
-          "url": "https://www.swissinfo.ch/eng/healthcare-innovation/the-numbers-behind-chinas-pharma-rise/91994947",
-          "date": "9月3日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "The Race for the Next Big Weight - Loss Drug Is On and China Wants In",
-          "src": "hindustantimes.com",
-          "url": "https://www.hindustantimes.com/world-news/the-race-for-the-next-big-weight-loss-drug-is-on-and-china-wants-in-101789117958664.html",
-          "date": "9月11日",
-          "desc": "",
+          "title": "《医药工业发展“十五五”规划》解读",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202609/18/WS6aaca8dde4b09a165c78ad6e.html",
+          "date": "9月18日",
+          "desc": "医药工业是关系国计民生和国家安全的战略性新兴产业，是培育新质生产力的重点领域和着力打造的新兴支柱产业。2026-09-1810:58",
           "dom": true
         }
       ]
     },
     {
       "name": "消费产业政策与进展",
-      "items": []
+      "items": [
+        {
+          "title": "各地纷纷出台提取细则激活住房消费",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202609/18/WS6aac99c4e4b09a165c78ad10.html",
+          "date": "9月18日",
+          "desc": "2026-09-1809:54",
+          "dom": true
+        }
+      ]
     },
     {
       "name": "其它重大政策及事件",
       "items": [
         {
-          "title": "平陆运河何以改变西南出海的“经济账本”",
+          "title": "金价回落 油价冲高 两大龙头商品走势分化",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/17/WS6aab5f54e4b09a165c78aa08.html",
-          "date": "9月17日",
-          "desc": "9月16日，备受瞩目的世纪工程平陆运河建成通航。西南地区货物经运河出海航程较经传统路径大幅缩短，从社会物流成本、企业经营效益到产业布局落地，运河带来的效应正逐渐显现。2026-09-1711:31",
+          "url": "//caijing.chinadaily.com.cn/a/202609/18/WS6aaca932e4b09a165c78ad75.html",
+          "date": "9月18日",
+          "desc": "近期，同为美元计价的国际黄金、原油价格走势迥异。2026-09-1810:59",
           "dom": true
         },
         {
-          "title": "“月付、余额宝无法付款”不实 新规仅规范展示规则",
+          "title": "新职业“上新” 折射产业发展新风向",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/17/WS6aab5fb2e4b09a165c78aa09.html",
-          "date": "9月17日",
-          "desc": "此类信息为误读，消费信贷产品、货币基金等资管产品需与银行卡等支付工具“区隔展示”，消费者仍可以正常使用。2026-09-1711:33",
+          "url": "//caijing.chinadaily.com.cn/a/202609/18/WS6aaca769e4b09a165c78ad51.html",
+          "date": "9月18日",
+          "desc": "我国已累计发布八批121个新职业。职业目录的持续迭代，如同观察产业变迁的“晴雨表”，新职业的诞生、工种的更新折射着产业升级的脉动。2026-09-1810:52",
           "dom": true
         },
         {
-          "title": "香港公布首个五年规划 全力推进“四中心、一高地”建设",
+          "title": "金钱政治具象化 美国富豪竞相为中期选举砸钱",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/17/WS6aab4739e4b09a165c78a924.html",
-          "date": "9月17日",
-          "desc": "2026-09-1709:48",
+          "url": "//caijing.chinadaily.com.cn/a/202609/18/WS6aaca7e1e4b09a165c78ad5a.html",
+          "date": "9月18日",
+          "desc": "今年中期选举选战仍充斥金钱政治，但与外界预期稍有不同的是，共和党尽管民调支持率不及民主党，却获得多数美国超级富豪的支持。2026-09-1810:53",
           "dom": true
         },
         {
-          "title": "超长“双节”假期催热多元旅游需求",
+          "title": "住房城乡建设部：我国房地产进入存量时代",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/17/WS6aab4743e4b09a165c78a925.html",
-          "date": "9月17日",
-          "desc": "2026-09-1709:49",
+          "url": "//caijing.chinadaily.com.cn/a/202609/18/WS6aaca867e4b09a165c78ad61.html",
+          "date": "9月18日",
+          "desc": "9月18日，国务院新闻办公室举行“开局起步‘十五五’”系列主题新闻发布会。2026-09-1810:56",
           "dom": true
         }
       ]
