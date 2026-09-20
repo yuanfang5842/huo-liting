@@ -1,13 +1,11 @@
 {
-  "updated": "2026-09-20 01:52 UTC",
+  "updated": "2026-09-20 10:10 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
-    "GDELT·半导体产业政策与进展及风险",
-    "GDELT·商业航天产业政策与进展",
+    "GDELT·新能源产业政策与进展",
     "GDELT·医药行业产业政策与进展",
-    "GDELT·消费产业政策与进展",
     "GDELT·其它重大政策及事件"
   ],
   "modules": [
@@ -17,69 +15,60 @@
     },
     {
       "name": "半导体产业政策与进展及风险",
-      "items": [
-        {
-          "title": "解码农业“育种芯片” 科技创新改变农业生产",
-          "src": "中华国内",
-          "url": "https://news.china.com/domestic/945/20260919/49752064.html",
-          "date": "9月19日",
-          "desc": "",
-          "dom": true
-        }
-      ]
+      "items": []
     },
     {
       "name": "商业航天产业政策与进展",
+      "items": []
+    },
+    {
+      "name": "新能源产业政策与进展",
       "items": [
         {
-          "title": "China launches 24th batch of low - orbit internet satellites from Hainan site",
-          "src": "timesofindia.indiatimes.com",
-          "url": "https://timesofindia.indiatimes.com/world/china/china-launches-24th-batch-of-low-orbit-internet-satellites-from-hainan-site/articleshow/133273853.cms",
-          "date": "8月16日",
+          "title": "China Halts New Battery Storage Plant Approvals",
+          "src": "zerohedge.com",
+          "url": "https://www.zerohedge.com/energy/china-halts-new-battery-storage-plant-approvals",
+          "date": "9月9日",
           "desc": "",
           "dom": true
         },
         {
-          "title": "China Long March - 10B rocket feat lights up social media : is SpaceX set to lose crown ?",
-          "src": "scmp.com",
-          "url": "https://www.scmp.com/news/china/science/article/3360231/chinas-long-march-10b-rocket-feat-lights-social-media-spacex-set-lose-crown",
-          "date": "7月11日",
+          "title": "China Just Connected the World Biggest Hybrid Solar Plant to the Grid",
+          "src": "oilprice.com",
+          "url": "https://oilprice.com/Alternative-Energy/Solar-Energy/China-Just-Connected-the-Worlds-Biggest-Hybrid-Solar-Plant-to-the-Grid.html",
+          "date": "7月15日",
           "desc": "",
           "dom": true
         },
         {
-          "title": "Why China rocket breakthrough and Russia satellite push are worrying the US",
-          "src": "moneycontrol.com",
-          "url": "https://www.moneycontrol.com/world/why-china-s-rocket-breakthrough-and-russia-s-satellite-push-are-worrying-the-us-article-14016138.html",
-          "date": "8月26日",
+          "title": "China temporarily suspends new battery storage factory approvals : Report",
+          "src": "aninews.in",
+          "url": "https://aninews.in/news/business/china-temporarily-suspends-new-battery-storage-factory-approvals-report20260907145343/",
+          "date": "9月7日",
           "desc": "",
           "dom": true
         },
         {
-          "title": "China Orbital Rocket Recovery : China becomes first to recover orbital rockets using two methods : How Zhuque - 3 works",
-          "src": "timesofindia.indiatimes.com",
-          "url": "https://timesofindia.indiatimes.com/science/china-becomes-first-to-recover-orbital-rockets-using-two-methods-how-zhuque-3-works/articleshow/133341418.cms",
-          "date": "8月19日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Rocket Lab Is Set to Acquire Satellite Telecom Giant Iridium for $8 BIllion",
-          "src": "fool.com",
-          "url": "https://www.fool.com/investing/2026/06/29/rocket-lab-is-set-to-acquire-satellite-telecom-giant-iridium-for-8-billion/?source=iedfolrf0000001",
-          "date": "6月29日",
+          "title": "Vatrer 51 . 2V 100Ah Server Rack Lithium Battery with WIFI : Smart , Scalable Energy Storage for Off - Grid Living",
+          "src": "techtimes.com",
+          "url": "https://www.techtimes.com/articles/321647/20260727/vatrer-512v-100ah-server-rack-lithium-battery-wifi-smart-scalable-energy-storage-off-grid.htm",
+          "date": "7月27日",
           "desc": "",
           "dom": false
         }
       ]
     },
     {
-      "name": "新能源产业政策与进展",
-      "items": []
-    },
-    {
       "name": "医药行业产业政策与进展",
       "items": [
+        {
+          "title": "国家药监局：对新靶点、新机制创新药加强前置指导",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202609/20/WS6aaf4fb8e4b09a165c78b2d0.html",
+          "date": "9月20日",
+          "desc": "2026-09-2011:14",
+          "dom": true
+        },
         {
           "title": "《医药工业发展“十五五”规划》解读",
           "src": "中国日报财经",
@@ -87,55 +76,62 @@
           "date": "9月18日",
           "desc": "医药工业是关系国计民生和国家安全的战略性新兴产业，是培育新质生产力的重点领域和着力打造的新兴支柱产业。2026-09-1810:58",
           "dom": true
-        }
-      ]
-    },
-    {
-      "name": "消费产业政策与进展",
-      "items": [
+        },
         {
-          "title": "各地纷纷出台提取细则激活住房消费",
-          "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/18/WS6aac99c4e4b09a165c78ad10.html",
-          "date": "9月18日",
-          "desc": "2026-09-1809:54",
+          "title": "The numbers behind China pharma rise",
+          "src": "swissinfo.ch",
+          "url": "https://www.swissinfo.ch/eng/healthcare-innovation/the-numbers-behind-chinas-pharma-rise/91994947",
+          "date": "9月3日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "The Race for the Next Big Weight - Loss Drug Is On and China Wants In",
+          "src": "hindustantimes.com",
+          "url": "https://www.hindustantimes.com/world-news/the-race-for-the-next-big-weight-loss-drug-is-on-and-china-wants-in-101789117958664.html",
+          "date": "9月11日",
+          "desc": "",
           "dom": true
         }
       ]
     },
     {
+      "name": "消费产业政策与进展",
+      "items": []
+    },
+    {
       "name": "其它重大政策及事件",
       "items": [
+        {
+          "title": "“算力”变“农力”：中国—东盟AI农业合作提速",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202609/20/WS6aaf4fd8e4b09a165c78b2d3.html",
+          "date": "9月20日",
+          "desc": "2026-09-2011:14",
+          "dom": true
+        },
+        {
+          "title": "新一期贷款市场报价利率未作调整",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202609/20/WS6aaf503de4b09a165c78b2d8.html",
+          "date": "9月20日",
+          "desc": "2026-09-2011:16",
+          "dom": true
+        },
+        {
+          "title": "今天起 装修、交物业费都能用这笔钱了",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202609/20/WS6aaf505ee4b09a165c78b2db.html",
+          "date": "9月20日",
+          "desc": "2026-09-2011:17",
+          "dom": true
+        },
         {
           "title": "金价回落 油价冲高 两大龙头商品走势分化",
           "src": "中国日报财经",
           "url": "//caijing.chinadaily.com.cn/a/202609/18/WS6aaca932e4b09a165c78ad75.html",
           "date": "9月18日",
           "desc": "近期，同为美元计价的国际黄金、原油价格走势迥异。2026-09-1810:59",
-          "dom": true
-        },
-        {
-          "title": "新职业“上新” 折射产业发展新风向",
-          "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/18/WS6aaca769e4b09a165c78ad51.html",
-          "date": "9月18日",
-          "desc": "我国已累计发布八批121个新职业。职业目录的持续迭代，如同观察产业变迁的“晴雨表”，新职业的诞生、工种的更新折射着产业升级的脉动。2026-09-1810:52",
-          "dom": true
-        },
-        {
-          "title": "金钱政治具象化 美国富豪竞相为中期选举砸钱",
-          "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/18/WS6aaca7e1e4b09a165c78ad5a.html",
-          "date": "9月18日",
-          "desc": "今年中期选举选战仍充斥金钱政治，但与外界预期稍有不同的是，共和党尽管民调支持率不及民主党，却获得多数美国超级富豪的支持。2026-09-1810:53",
-          "dom": true
-        },
-        {
-          "title": "住房城乡建设部：我国房地产进入存量时代",
-          "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/18/WS6aaca867e4b09a165c78ad61.html",
-          "date": "9月18日",
-          "desc": "9月18日，国务院新闻办公室举行“开局起步‘十五五’”系列主题新闻发布会。2026-09-1810:56",
           "dom": true
         }
       ]
