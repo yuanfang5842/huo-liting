@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-21 01:53 UTC",
+  "updated": "2026-09-21 11:12 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
@@ -7,6 +7,7 @@
     "GDELT·商业航天产业政策与进展",
     "GDELT·新能源产业政策与进展",
     "GDELT·医药行业产业政策与进展",
+    "GDELT·消费产业政策与进展",
     "GDELT·其它重大政策及事件"
   ],
   "modules": [
@@ -78,54 +79,71 @@
           "date": "9月20日",
           "desc": "2026-09-2011:14",
           "dom": true
-        },
-        {
-          "title": "《医药工业发展“十五五”规划》解读",
-          "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/18/WS6aaca8dde4b09a165c78ad6e.html",
-          "date": "9月18日",
-          "desc": "医药工业是关系国计民生和国家安全的战略性新兴产业，是培育新质生产力的重点领域和着力打造的新兴支柱产业。2026-09-1810:58",
-          "dom": true
         }
       ]
     },
     {
       "name": "消费产业政策与进展",
-      "items": []
+      "items": [
+        {
+          "title": "Retail moves seen boosting economy",
+          "src": "usa.chinadaily.com.cn",
+          "url": "http://usa.chinadaily.com.cn/a/202607/10/WS6a5047e9a310986e2b464840.html",
+          "date": "7月10日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China unveils second batch of 32 pilot cities for retail sector innovation",
+          "src": "china.org.cn",
+          "url": "http://www.china.org.cn/2026-09/04/content_118680089.shtml",
+          "date": "9月4日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China unveils measures to expand , upgrade consumer goods consumption",
+          "src": "english.anhuinews.com",
+          "url": "http://english.anhuinews.com/newscenter/headline/202609/t20260901_9544708.html",
+          "date": "9月1日",
+          "desc": "",
+          "dom": true
+        }
+      ]
     },
     {
       "name": "其它重大政策及事件",
       "items": [
         {
-          "title": "“算力”变“农力”：中国—东盟AI农业合作提速",
+          "title": "C财经｜一图读懂第48届世界技能大赛",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/20/WS6aaf4fd8e4b09a165c78b2d3.html",
+          "url": "//caijing.chinadaily.com.cn/a/202609/20/WS6aafa107e4b09a165c78b5b5.html",
           "date": "9月20日",
-          "desc": "2026-09-2011:14",
+          "desc": "世赛的举办，将在全球范围内让更多人了解技能对经济社会发展的贡献，鼓励青年投身技能事业。2026-09-2017:01",
           "dom": true
         },
         {
-          "title": "新一期贷款市场报价利率未作调整",
+          "title": "数智跃升 中国制造业两化融合发展水平达67.1",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/20/WS6aaf503de4b09a165c78b2d8.html",
-          "date": "9月20日",
-          "desc": "2026-09-2011:16",
+          "url": "//caijing.chinadaily.com.cn/a/202609/21/WS6ab0971ee4b09a165c78b6fd.html",
+          "date": "9月21日",
+          "desc": "2026-09-2110:31",
           "dom": true
         },
         {
-          "title": "今天起 装修、交物业费都能用这笔钱了",
+          "title": "技能改变世界 技能照亮前程——第四十八届世界技能大赛前瞻",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/20/WS6aaf505ee4b09a165c78b2db.html",
-          "date": "9月20日",
-          "desc": "2026-09-2011:17",
+          "url": "//caijing.chinadaily.com.cn/a/202609/21/WS6ab0976de4b09a165c78b6ff.html",
+          "date": "9月21日",
+          "desc": "2026-09-2110:33",
           "dom": true
         },
         {
-          "title": "金价回落 油价冲高 两大龙头商品走势分化",
+          "title": "A股反弹窗口有望延续 三季报或是下一个关键时点",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/18/WS6aaca932e4b09a165c78ad75.html",
-          "date": "9月18日",
-          "desc": "近期，同为美元计价的国际黄金、原油价格走势迥异。2026-09-1810:59",
+          "url": "//caijing.chinadaily.com.cn/a/202609/21/WS6ab097cee4b09a165c78b701.html",
+          "date": "9月21日",
+          "desc": "2026-09-2110:34",
           "dom": true
         }
       ]
