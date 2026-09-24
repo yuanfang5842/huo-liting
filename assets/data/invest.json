@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-24 01:48 UTC",
+  "updated": "2026-09-24 10:35 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
@@ -7,7 +7,7 @@
     "GDELT·昨日美股等国外股市表现",
     "GDELT·半导体产业政策与进展及风险",
     "GDELT·商业航天产业政策与进展",
-    "GDELT·医药行业产业政策与进展",
+    "GDELT·新能源产业政策与进展",
     "GDELT·消费产业政策与进展",
     "GDELT·其它重大政策及事件"
   ],
@@ -85,32 +85,64 @@
     },
     {
       "name": "新能源产业政策与进展",
-      "items": []
-    },
-    {
-      "name": "医药行业产业政策与进展",
       "items": [
         {
-          "title": "The numbers behind China pharma rise",
-          "src": "swissinfo.ch",
-          "url": "https://www.swissinfo.ch/eng/healthcare-innovation/the-numbers-behind-chinas-pharma-rise/91994947",
-          "date": "9月3日",
+          "title": "China Halts New Battery Storage Plant Approvals",
+          "src": "zerohedge.com",
+          "url": "https://www.zerohedge.com/energy/china-halts-new-battery-storage-plant-approvals",
+          "date": "9月9日",
           "desc": "",
           "dom": true
         },
         {
-          "title": "The Race for the Next Big Weight - Loss Drug Is On and China Wants In",
-          "src": "hindustantimes.com",
-          "url": "https://www.hindustantimes.com/world-news/the-race-for-the-next-big-weight-loss-drug-is-on-and-china-wants-in-101789117958664.html",
-          "date": "9月11日",
+          "title": "China Just Connected the World Biggest Hybrid Solar Plant to the Grid",
+          "src": "oilprice.com",
+          "url": "https://oilprice.com/Alternative-Energy/Solar-Energy/China-Just-Connected-the-Worlds-Biggest-Hybrid-Solar-Plant-to-the-Grid.html",
+          "date": "7月15日",
           "desc": "",
           "dom": true
+        },
+        {
+          "title": "China temporarily suspends new battery storage factory approvals : Report",
+          "src": "aninews.in",
+          "url": "https://aninews.in/news/business/china-temporarily-suspends-new-battery-storage-factory-approvals-report20260907145343/",
+          "date": "9月7日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "Vatrer 51 . 2V 100Ah Server Rack Lithium Battery with WIFI : Smart , Scalable Energy Storage for Off - Grid Living",
+          "src": "techtimes.com",
+          "url": "https://www.techtimes.com/articles/321647/20260727/vatrer-512v-100ah-server-rack-lithium-battery-wifi-smart-scalable-energy-storage-off-grid.htm",
+          "date": "7月27日",
+          "desc": "",
+          "dom": false
         }
       ]
     },
     {
+      "name": "医药行业产业政策与进展",
+      "items": []
+    },
+    {
       "name": "消费产业政策与进展",
       "items": [
+        {
+          "title": "中国经济圆桌会丨专家：以长线思维促消费 把“知名度”转化为“美誉度”",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202609/24/WS6ab4e688e4b09a165c78c9c1.html",
+          "date": "9月24日",
+          "desc": "2026-09-2416:59",
+          "dom": true
+        },
+        {
+          "title": "中国经济圆桌会｜专家：新消费品牌将成为撬动消费市场重要突破口",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202609/24/WS6ab4e77ce4b09a165c78c9d5.html",
+          "date": "9月24日",
+          "desc": "2026-09-2417:01",
+          "dom": true
+        },
         {
           "title": "Retail moves seen boosting economy",
           "src": "usa.chinadaily.com.cn",
@@ -126,14 +158,6 @@
           "date": "9月4日",
           "desc": "",
           "dom": true
-        },
-        {
-          "title": "China unveils measures to expand , upgrade consumer goods consumption",
-          "src": "english.anhuinews.com",
-          "url": "http://english.anhuinews.com/newscenter/headline/202609/t20260901_9544708.html",
-          "date": "9月1日",
-          "desc": "",
-          "dom": true
         }
       ]
     },
@@ -141,35 +165,35 @@
       "name": "其它重大政策及事件",
       "items": [
         {
-          "title": "央行加码流动性投放呵护节前资金面",
+          "title": "我国对外直接投资规模稳居全球前列",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/22/WS6ab1dd2fe4b09a165c78bb79.html",
-          "date": "9月22日",
-          "desc": "2026-09-2209:40",
+          "url": "//caijing.chinadaily.com.cn/a/202609/24/WS6ab49ad9e4b09a165c78c6ce.html",
+          "date": "9月24日",
+          "desc": "2026-09-2411:34",
           "dom": true
         },
         {
-          "title": "鼓励民间资本参与重点项目 推动北斗规模应用——国家发展改革委解析近期经济热点",
+          "title": "“40年房贷”新政落地近满月 银行受理情况如何？",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/23/WS6ab33377e4b09a165c78c076.html",
-          "date": "9月23日",
-          "desc": "2026-09-2310:03",
+          "url": "//caijing.chinadaily.com.cn/a/202609/24/WS6ab49ad2e4b09a165c78c6cc.html",
+          "date": "9月24日",
+          "desc": "2026-09-2411:35",
           "dom": true
         },
         {
-          "title": "2026民企500强放榜！核心竞争力持续提升",
+          "title": "人民币对美元汇率创阶段新高",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/23/WS6ab33b03e4b09a165c78c0ef.html",
-          "date": "9月23日",
-          "desc": "2026-09-2310:35",
+          "url": "//caijing.chinadaily.com.cn/a/202609/24/WS6ab49ad5e4b09a165c78c6cd.html",
+          "date": "9月24日",
+          "desc": "2026-09-2411:36",
           "dom": true
         },
         {
-          "title": "反向海淘兴起，外国游客的“中国购物清单”越来越长",
+          "title": "身份迷雾重重的“中食办”靠什么大行其道？",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/23/WS6ab33b59e4b09a165c78c0f2.html",
-          "date": "9月23日",
-          "desc": "2026-09-2310:36",
+          "url": "//caijing.chinadaily.com.cn/a/202609/24/WS6ab49b13e4b09a165c78c6cf.html",
+          "date": "9月24日",
+          "desc": "2026-09-2411:37",
           "dom": true
         }
       ]
