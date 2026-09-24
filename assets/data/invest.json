@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-24 15:59 UTC",
+  "updated": "2026-09-24 20:50 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
@@ -38,6 +38,38 @@
           "date": "9月24日",
           "desc": "",
           "dom": true
+        },
+        {
+          "title": "Kinetica - 1 successfully launches 9 satellites as China completes 6 orbital launches in 6 days",
+          "src": "globaltimes.cn",
+          "url": "https://www.globaltimes.cn/page/202609/1370940.shtml",
+          "date": "9月20日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China launches 24th batch of low - orbit internet satellites from Hainan site",
+          "src": "timesofindia.indiatimes.com",
+          "url": "https://timesofindia.indiatimes.com/world/china/china-launches-24th-batch-of-low-orbit-internet-satellites-from-hainan-site/articleshow/133273853.cms",
+          "date": "8月16日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China Long March - 10B rocket feat lights up social media : is SpaceX set to lose crown ?",
+          "src": "scmp.com",
+          "url": "https://www.scmp.com/news/china/science/article/3360231/chinas-long-march-10b-rocket-feat-lights-social-media-spacex-set-lose-crown",
+          "date": "7月11日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "FAA Proposes Waiving Environmental Laws for Commercial Space Launches and Reentries – NaturalNews . com",
+          "src": "naturalnews.com",
+          "url": "https://www.naturalnews.com/2026-08-02-faa-proposes-waiving-laws-commercial-launches-reentries.html",
+          "date": "8月2日",
+          "desc": "",
+          "dom": false
         }
       ]
     },
@@ -99,6 +131,22 @@
           "url": "//caijing.chinadaily.com.cn/a/202609/24/WS6ab4e77ce4b09a165c78c9d5.html",
           "date": "9月24日",
           "desc": "2026-09-2417:01",
+          "dom": true
+        },
+        {
+          "title": "Retail moves seen boosting economy",
+          "src": "usa.chinadaily.com.cn",
+          "url": "http://usa.chinadaily.com.cn/a/202607/10/WS6a5047e9a310986e2b464840.html",
+          "date": "7月10日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China unveils second batch of 32 pilot cities for retail sector innovation",
+          "src": "china.org.cn",
+          "url": "http://www.china.org.cn/2026-09/04/content_118680089.shtml",
+          "date": "9月4日",
+          "desc": "",
           "dom": true
         }
       ]
