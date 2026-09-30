@@ -1,11 +1,11 @@
 {
-  "updated": "2026-09-30 11:26 UTC",
+  "updated": "2026-09-30 17:03 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
     "GDELT·昨日美股等国外股市表现",
-    "GDELT·新能源产业政策与进展",
+    "GDELT·商业航天产业政策与进展",
     "GDELT·医药行业产业政策与进展",
     "GDELT·消费产业政策与进展",
     "GDELT·其它重大政策及事件"
@@ -30,44 +30,52 @@
     },
     {
       "name": "商业航天产业政策与进展",
-      "items": []
-    },
-    {
-      "name": "新能源产业政策与进展",
       "items": [
         {
-          "title": "China Halts New Battery Storage Plant Approvals",
-          "src": "zerohedge.com",
-          "url": "https://www.zerohedge.com/energy/china-halts-new-battery-storage-plant-approvals",
-          "date": "9月9日",
+          "title": "Kinetica - 1 successfully launches 9 satellites as China completes 6 orbital launches in 6 days",
+          "src": "globaltimes.cn",
+          "url": "https://www.globaltimes.cn/page/202609/1370940.shtml",
+          "date": "9月20日",
           "desc": "",
           "dom": true
         },
         {
-          "title": "China Just Connected the World Biggest Hybrid Solar Plant to the Grid",
-          "src": "oilprice.com",
-          "url": "https://oilprice.com/Alternative-Energy/Solar-Energy/China-Just-Connected-the-Worlds-Biggest-Hybrid-Solar-Plant-to-the-Grid.html",
-          "date": "7月15日",
+          "title": "China launches 24th batch of low - orbit internet satellites from Hainan site",
+          "src": "timesofindia.indiatimes.com",
+          "url": "https://timesofindia.indiatimes.com/world/china/china-launches-24th-batch-of-low-orbit-internet-satellites-from-hainan-site/articleshow/133273853.cms",
+          "date": "8月16日",
           "desc": "",
           "dom": true
         },
         {
-          "title": "China temporarily suspends new battery storage factory approvals : Report",
-          "src": "aninews.in",
-          "url": "https://aninews.in/news/business/china-temporarily-suspends-new-battery-storage-factory-approvals-report20260907145343/",
-          "date": "9月7日",
+          "title": "China Long March - 10B rocket feat lights up social media : is SpaceX set to lose crown ?",
+          "src": "scmp.com",
+          "url": "https://www.scmp.com/news/china/science/article/3360231/chinas-long-march-10b-rocket-feat-lights-social-media-spacex-set-lose-crown",
+          "date": "7月11日",
           "desc": "",
           "dom": true
         },
         {
-          "title": "Vatrer 51 . 2V 100Ah Server Rack Lithium Battery with WIFI : Smart , Scalable Energy Storage for Off - Grid Living",
-          "src": "techtimes.com",
-          "url": "https://www.techtimes.com/articles/321647/20260727/vatrer-512v-100ah-server-rack-lithium-battery-wifi-smart-scalable-energy-storage-off-grid.htm",
-          "date": "7月27日",
+          "title": "Why China rocket breakthrough and Russia satellite push are worrying the US",
+          "src": "moneycontrol.com",
+          "url": "https://www.moneycontrol.com/world/why-china-s-rocket-breakthrough-and-russia-s-satellite-push-are-worrying-the-us-article-14016138.html",
+          "date": "8月26日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "Iridium Stockholders Approve Acquisition by Rocket Lab",
+          "src": "prnewswire.com",
+          "url": "http://www.prnewswire.com/news-releases/iridium-stockholders-approve-acquisition-by-rocket-lab-302889586.html",
+          "date": "9月24日",
           "desc": "",
           "dom": false
         }
       ]
+    },
+    {
+      "name": "新能源产业政策与进展",
+      "items": []
     },
     {
       "name": "医药行业产业政策与进展",
@@ -114,6 +122,14 @@
           "src": "中华国内",
           "url": "https://news.china.com/domestic/945/20260930/49772143.html",
           "date": "9月30日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "Retail moves seen boosting economy",
+          "src": "usa.chinadaily.com.cn",
+          "url": "http://usa.chinadaily.com.cn/a/202607/10/WS6a5047e9a310986e2b464840.html",
+          "date": "7月10日",
           "desc": "",
           "dom": true
         }

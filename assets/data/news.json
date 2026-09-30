@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-30 11:26 UTC",
+  "updated": "2026-09-30 17:03 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
@@ -19,36 +19,20 @@
         "dom": true
       },
       {
-        "title": "Rezubio Announces FDA and NMPA IND Clearances and First Cohort Dosing of RZ - 520 , a Novel Inhaled Therapy for Chronic Respiratory Diseases",
-        "src": "manilatimes.net",
-        "url": "https://www.manilatimes.net/2026/09/07/tmt-newswire/globenewswire/rezubio-announces-fda-and-nmpa-ind-clearances-and-first-cohort-dosing-of-rz-520-a-novel-inhaled-therapy-for-chronic-respiratory-diseases/2419531",
-        "date": "9月7日",
-        "desc": "",
-        "dom": false
-      },
-      {
-        "title": "Medicines watchdog approves first - ever mRNA - based flu shot in the US",
-        "src": "euronews.com",
-        "url": "https://www.euronews.com/health/2026/08/06/medicines-watchdog-approves-first-ever-mrna-based-flu-shot-in-the-us",
-        "date": "8月6日",
+        "title": "Palvella Therapeutics ( PVLA ) Submits Initial Module of NDA For QTORIN",
+        "src": "finance.yahoo.com",
+        "url": "https://finance.yahoo.com/healthcare/articles/palvella-therapeutics-pvla-submits-initial-140151901.html",
+        "date": "7月16日",
         "desc": "",
         "dom": false
       }
     ],
     "海外FDA与全球进展": [
       {
-        "title": "Can - Fite Highlights Advanced FDA and EMA Regulatory Status of its Phase III Drug Candidates",
-        "src": "manilatimes.net",
-        "url": "https://www.manilatimes.net/2026/08/12/tmt-newswire/globenewswire/can-fite-highlights-advanced-fda-and-ema-regulatory-status-of-its-phase-iii-drug-candidates/2403795",
-        "date": "8月12日",
-        "desc": "",
-        "dom": false
-      },
-      {
-        "title": "EMA Fast - tracks Review Of Revolution Experimental Pancreatic Cancer Pill",
-        "src": "medscape.com",
-        "url": "https://www.medscape.com/s/viewarticle/ema-fast-tracks-review-revolutions-experimental-pancreatic-2026a1000mys",
-        "date": "7月8日",
+        "title": "Rasonque earns FDA approval for pancreatic cancer",
+        "src": "healio.com",
+        "url": "https://www.healio.com/news/hematology-oncology/20260826/rasonque-nabs-fda-approval-for-previously-treated-metastatic-pancreatic-adenocarcinoma",
+        "date": "8月26日",
         "desc": "",
         "dom": false
       },
@@ -57,6 +41,14 @@
         "src": "prnewswire.com",
         "url": "http://www.prnewswire.com/news-releases/vanda-pharmaceuticals-announces-ema-positive-opinion-for-orphan-drug-designation-of-imsidolimab-for-generalized-pustular-psoriasis--a-milestone-recognition-of-gpp-as-a-distinct-rare-disease-in-europe-302827934.html",
         "date": "7月16日",
+        "desc": "",
+        "dom": false
+      },
+      {
+        "title": "Revolution Medicines Wins FDA Approval For Rasonque In Pancreatic Cancer",
+        "src": "rttnews.com",
+        "url": "https://www.rttnews.com/3684909/revolution-medicines-wins-fda-approval-for-rasonque-in-pancreatic-cancer.aspx",
+        "date": "8月26日",
         "desc": "",
         "dom": false
       }
