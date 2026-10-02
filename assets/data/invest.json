@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-02 02:43 UTC",
+  "updated": "2026-10-02 11:26 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
@@ -62,6 +62,14 @@
           "src": "中华国内",
           "url": "https://news.china.com/domestic/945/20261002/49774828.html",
           "date": "10月2日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "Retail moves seen boosting economy",
+          "src": "usa.chinadaily.com.cn",
+          "url": "http://usa.chinadaily.com.cn/a/202607/10/WS6a5047e9a310986e2b464840.html",
+          "date": "7月10日",
           "desc": "",
           "dom": true
         }
