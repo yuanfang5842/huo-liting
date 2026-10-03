@@ -1,13 +1,11 @@
 {
-  "updated": "2026-10-02 21:28 UTC",
+  "updated": "2026-10-03 02:30 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
     "GDELT·昨日美股等国外股市表现",
-    "GDELT·商业航天产业政策与进展",
     "GDELT·新能源产业政策与进展",
-    "GDELT·医药行业产业政策与进展",
     "GDELT·消费产业政策与进展",
     "GDELT·其它重大政策及事件"
   ],
@@ -31,48 +29,7 @@
     },
     {
       "name": "商业航天产业政策与进展",
-      "items": [
-        {
-          "title": "Kinetica - 1 successfully launches 9 satellites as China completes 6 orbital launches in 6 days",
-          "src": "globaltimes.cn",
-          "url": "https://www.globaltimes.cn/page/202609/1370940.shtml",
-          "date": "9月20日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China launches 24th batch of low - orbit internet satellites from Hainan site",
-          "src": "timesofindia.indiatimes.com",
-          "url": "https://timesofindia.indiatimes.com/world/china/china-launches-24th-batch-of-low-orbit-internet-satellites-from-hainan-site/articleshow/133273853.cms",
-          "date": "8月16日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China Long March - 10B rocket feat lights up social media : is SpaceX set to lose crown ?",
-          "src": "scmp.com",
-          "url": "https://www.scmp.com/news/china/science/article/3360231/chinas-long-march-10b-rocket-feat-lights-social-media-spacex-set-lose-crown",
-          "date": "7月11日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Why China rocket breakthrough and Russia satellite push are worrying the US",
-          "src": "moneycontrol.com",
-          "url": "https://www.moneycontrol.com/world/why-china-s-rocket-breakthrough-and-russia-s-satellite-push-are-worrying-the-us-article-14016138.html",
-          "date": "8月26日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Prediction : 2 Space Stocks That Could Join SpaceX and Rocket Lab in the Nasdaq - 100 by 2030",
-          "src": "fool.com",
-          "url": "https://www.fool.com/investing/2026/10/02/prediction-2-space-stocks-that-could-join-spacex-i/",
-          "date": "10月2日",
-          "desc": "",
-          "dom": false
-        }
-      ]
+      "items": []
     },
     {
       "name": "新能源产业政策与进展",
@@ -113,24 +70,7 @@
     },
     {
       "name": "医药行业产业政策与进展",
-      "items": [
-        {
-          "title": "The numbers behind China pharma rise",
-          "src": "swissinfo.ch",
-          "url": "https://www.swissinfo.ch/eng/healthcare-innovation/the-numbers-behind-chinas-pharma-rise/91994947",
-          "date": "9月3日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "The Race for the Next Big Weight - Loss Drug Is On and China Wants In",
-          "src": "hindustantimes.com",
-          "url": "https://www.hindustantimes.com/world-news/the-race-for-the-next-big-weight-loss-drug-is-on-and-china-wants-in-101789117958664.html",
-          "date": "9月11日",
-          "desc": "",
-          "dom": true
-        }
-      ]
+      "items": []
     },
     {
       "name": "消费产业政策与进展",
@@ -161,9 +101,9 @@
         },
         {
           "title": "Retail moves seen boosting economy",
-          "src": "usa.chinadaily.com.cn",
-          "url": "http://usa.chinadaily.com.cn/a/202607/10/WS6a5047e9a310986e2b464840.html",
-          "date": "7月10日",
+          "src": "china.org.cn",
+          "url": "http://www.china.org.cn/2026-07/13/content_118595975.shtml",
+          "date": "7月13日",
           "desc": "",
           "dom": true
         }
