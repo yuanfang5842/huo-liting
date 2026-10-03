@@ -1,11 +1,12 @@
 {
-  "updated": "2026-10-03 02:30 UTC",
+  "updated": "2026-10-03 10:43 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
     "GDELT·昨日美股等国外股市表现",
     "GDELT·新能源产业政策与进展",
+    "GDELT·医药行业产业政策与进展",
     "GDELT·消费产业政策与进展",
     "GDELT·其它重大政策及事件"
   ],
@@ -34,6 +35,14 @@
     {
       "name": "新能源产业政策与进展",
       "items": [
+        {
+          "title": "@新能源车主 应对充电繁忙 假期出行注意这几点",
+          "src": "中华国内",
+          "url": "https://news.china.com/domestic/945/20261003/49775931.html",
+          "date": "10月3日",
+          "desc": "",
+          "dom": true
+        },
         {
           "title": "China Halts New Battery Storage Plant Approvals",
           "src": "zerohedge.com",
@@ -70,7 +79,24 @@
     },
     {
       "name": "医药行业产业政策与进展",
-      "items": []
+      "items": [
+        {
+          "title": "The numbers behind China pharma rise",
+          "src": "swissinfo.ch",
+          "url": "https://www.swissinfo.ch/eng/healthcare-innovation/the-numbers-behind-chinas-pharma-rise/91994947",
+          "date": "9月3日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "The Race for the Next Big Weight - Loss Drug Is On and China Wants In",
+          "src": "hindustantimes.com",
+          "url": "https://www.hindustantimes.com/world-news/the-race-for-the-next-big-weight-loss-drug-is-on-and-china-wants-in-101789117958664.html",
+          "date": "9月11日",
+          "desc": "",
+          "dom": true
+        }
+      ]
     },
     {
       "name": "消费产业政策与进展",
@@ -89,22 +115,6 @@
           "url": "//caijing.chinadaily.com.cn/a/202609/24/WS6ab4e77ce4b09a165c78c9d5.html",
           "date": "9月24日",
           "desc": "2026-09-2417:01",
-          "dom": true
-        },
-        {
-          "title": "国庆假期去哪玩？各地文旅市场热力全开",
-          "src": "中华国内",
-          "url": "https://news.china.com/domestic/945/20261002/49774828.html",
-          "date": "10月2日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Retail moves seen boosting economy",
-          "src": "china.org.cn",
-          "url": "http://www.china.org.cn/2026-07/13/content_118595975.shtml",
-          "date": "7月13日",
-          "desc": "",
           "dom": true
         }
       ]
