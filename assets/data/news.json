@@ -1,58 +1,24 @@
 {
-  "updated": "2026-10-05 02:34 UTC",
+  "updated": "2026-10-05 12:47 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·健康/国内",
     "GDELT·国内新药/临床/科研",
-    "GDELT·海外FDA与全球进展",
     "GDELT·政策/医保/行业"
   ],
   "grouped": {
     "国内新药/临床/科研": [
       {
-        "title": "GSK partner Hansoh Pharma succeeds in Chinese Phase III SCLC ADC trial",
-        "src": "yahoo.com",
-        "url": "https://www.yahoo.com/news/science/articles/gsk-partner-hansoh-pharma-succeeds-103917835.html",
-        "date": "7月13日",
-        "desc": "",
-        "dom": true
-      },
-      {
-        "title": "Medicines watchdog approves first - ever mRNA - based flu shot in the US",
-        "src": "euronews.com",
-        "url": "https://www.euronews.com/health/2026/08/06/medicines-watchdog-approves-first-ever-mrna-based-flu-shot-in-the-us",
-        "date": "8月6日",
-        "desc": "",
-        "dom": false
-      }
-    ],
-    "海外FDA与全球进展": [
-      {
-        "title": "Can - Fite Highlights Advanced FDA and EMA Regulatory Status of its Phase III Drug Candidates",
+        "title": "Rezubio Announces FDA and NMPA IND Clearances and First Cohort Dosing of RZ - 520 , a Novel Inhaled Therapy for Chronic Respiratory Diseases",
         "src": "manilatimes.net",
-        "url": "https://www.manilatimes.net/2026/08/12/tmt-newswire/globenewswire/can-fite-highlights-advanced-fda-and-ema-regulatory-status-of-its-phase-iii-drug-candidates/2403795",
-        "date": "8月12日",
-        "desc": "",
-        "dom": false
-      },
-      {
-        "title": "Vanda Pharmaceuticals Announces EMA Positive Opinion for Orphan Drug Designation of Imsidolimab for Generalized Pustular Psoriasis - A Milestone Recognition of GPP as a Distinct Rare Disease in Europe",
-        "src": "prnewswire.com",
-        "url": "http://www.prnewswire.com/news-releases/vanda-pharmaceuticals-announces-ema-positive-opinion-for-orphan-drug-designation-of-imsidolimab-for-generalized-pustular-psoriasis--a-milestone-recognition-of-gpp-as-a-distinct-rare-disease-in-europe-302827934.html",
-        "date": "7月16日",
-        "desc": "",
-        "dom": false
-      },
-      {
-        "title": "FDA Issues New Guidance On Therapeutic Equivalence",
-        "src": "pharmaceuticalonline.com",
-        "url": "https://www.pharmaceuticalonline.com/doc/fda-issues-new-guidance-on-therapeutic-equivalence-0001",
-        "date": "9月1日",
+        "url": "https://www.manilatimes.net/2026/09/07/tmt-newswire/globenewswire/rezubio-announces-fda-and-nmpa-ind-clearances-and-first-cohort-dosing-of-rz-520-a-novel-inhaled-therapy-for-chronic-respiratory-diseases/2419531",
+        "date": "9月7日",
         "desc": "",
         "dom": false
       }
     ],
+    "海外FDA与全球进展": [],
     "政策/医保/行业": [
       {
         "title": "全国政协委员方向明：拓展中医药应用场景",
