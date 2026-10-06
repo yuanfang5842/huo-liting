@@ -1,10 +1,11 @@
 {
-  "updated": "2026-10-05 23:23 UTC",
+  "updated": "2026-10-06 03:27 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
     "GDELT·昨日美股等国外股市表现",
+    "GDELT·医药行业产业政策与进展",
     "GDELT·消费产业政策与进展",
     "GDELT·其它重大政策及事件"
   ],
@@ -36,7 +37,24 @@
     },
     {
       "name": "医药行业产业政策与进展",
-      "items": []
+      "items": [
+        {
+          "title": "The numbers behind China pharma rise",
+          "src": "swissinfo.ch",
+          "url": "https://www.swissinfo.ch/eng/healthcare-innovation/the-numbers-behind-chinas-pharma-rise/91994947",
+          "date": "9月3日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "The Race for the Next Big Weight - Loss Drug Is On and China Wants In",
+          "src": "hindustantimes.com",
+          "url": "https://www.hindustantimes.com/world-news/the-race-for-the-next-big-weight-loss-drug-is-on-and-china-wants-in-101789117958664.html",
+          "date": "9月11日",
+          "desc": "",
+          "dom": true
+        }
+      ]
     },
     {
       "name": "消费产业政策与进展",
@@ -58,18 +76,18 @@
           "dom": true
         },
         {
-          "title": "Retail moves seen boosting economy",
-          "src": "china.org.cn",
-          "url": "http://www.china.org.cn/2026-07/13/content_118595975.shtml",
-          "date": "7月13日",
+          "title": "攀升、焕新、升腾，国庆消费多点开花！",
+          "src": "中华国内",
+          "url": "https://news.china.com/domestic/945/20261006/49778964.html",
+          "date": "10月6日",
           "desc": "",
           "dom": true
         },
         {
-          "title": "China unveils second batch of 32 pilot cities for retail sector innovation",
-          "src": "china.org.cn",
-          "url": "http://www.china.org.cn/2026-09/04/content_118680089.shtml",
-          "date": "9月4日",
+          "title": "品非遗逛市集 国庆假期多地文旅场景上新",
+          "src": "中华国内",
+          "url": "https://news.china.com/domestic/945/20261006/49778976.html",
+          "date": "10月6日",
           "desc": "",
           "dom": true
         }
