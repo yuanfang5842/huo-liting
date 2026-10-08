@@ -1,26 +1,17 @@
 {
-  "updated": "2026-10-08 03:09 UTC",
+  "updated": "2026-10-08 12:19 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
-    "GDELT·昨日美股等国外股市表现",
+    "GDELT·商业航天产业政策与进展",
     "GDELT·消费产业政策与进展",
     "GDELT·其它重大政策及事件"
   ],
   "modules": [
     {
       "name": "昨日美股等国外股市表现",
-      "items": [
-        {
-          "title": "美联储加息靴子落地 私募机构谋划A股“新打法”",
-          "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/23/WS6ab33819e4b09a165c78c0dd.html",
-          "date": "9月23日",
-          "desc": "2026-09-2310:23",
-          "dom": true
-        }
-      ]
+      "items": []
     },
     {
       "name": "半导体产业政策与进展及风险",
@@ -28,7 +19,48 @@
     },
     {
       "name": "商业航天产业政策与进展",
-      "items": []
+      "items": [
+        {
+          "title": "Kinetica - 1 successfully launches 9 satellites as China completes 6 orbital launches in 6 days",
+          "src": "globaltimes.cn",
+          "url": "https://www.globaltimes.cn/page/202609/1370940.shtml",
+          "date": "9月20日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China launches 24th batch of low - orbit internet satellites from Hainan site",
+          "src": "timesofindia.indiatimes.com",
+          "url": "https://timesofindia.indiatimes.com/world/china/china-launches-24th-batch-of-low-orbit-internet-satellites-from-hainan-site/articleshow/133273853.cms",
+          "date": "8月16日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "Why China rocket breakthrough and Russia satellite push are worrying the US",
+          "src": "moneycontrol.com",
+          "url": "https://www.moneycontrol.com/world/why-china-s-rocket-breakthrough-and-russia-s-satellite-push-are-worrying-the-us-article-14016138.html",
+          "date": "8月26日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China Orbital Rocket Recovery : China becomes first to recover orbital rockets using two methods : How Zhuque - 3 works",
+          "src": "timesofindia.indiatimes.com",
+          "url": "https://timesofindia.indiatimes.com/science/china-becomes-first-to-recover-orbital-rockets-using-two-methods-how-zhuque-3-works/articleshow/133341418.cms",
+          "date": "8月19日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "Prediction : 2 Space Stocks That Could Join SpaceX and Rocket Lab in the Nasdaq - 100 by 2030",
+          "src": "fool.com",
+          "url": "https://www.fool.com/investing/2026/10/02/prediction-2-space-stocks-that-could-join-spacex-i/",
+          "date": "10月2日",
+          "desc": "",
+          "dom": false
+        }
+      ]
     },
     {
       "name": "新能源产业政策与进展",
@@ -50,6 +82,14 @@
           "dom": true
         },
         {
+          "title": "“电影+”激活文旅消费 假日文化消费活力持续释放",
+          "src": "中华国内",
+          "url": "https://news.china.com/domestic/945/20261008/49782871.html",
+          "date": "10月8日",
+          "desc": "",
+          "dom": true
+        },
+        {
           "title": "多元文化体验激活假日文旅消费新动能",
           "src": "中华国内",
           "url": "https://news.china.com/domestic/945/20261008/49780541.html",
@@ -58,11 +98,11 @@
           "dom": true
         },
         {
-          "title": "中国经济圆桌会｜专家：新消费品牌将成为撬动消费市场重要突破口",
+          "title": "国庆消费“热力图”：服务扩容 智能升级",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/24/WS6ab4e77ce4b09a165c78c9d5.html",
-          "date": "9月24日",
-          "desc": "2026-09-2417:01",
+          "url": "//caijing.chinadaily.com.cn/a/202610/08/WS6ac70d0ae4b09a165c78e1b9.html",
+          "date": "10月8日",
+          "desc": "2026-10-0811:24",
           "dom": true
         }
       ]
@@ -71,35 +111,35 @@
       "name": "其它重大政策及事件",
       "items": [
         {
+          "title": "两部门联合发布民营经济领域纠纷多元化解典型案例",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202610/08/WS6ac70d1ee4b09a165c78e1bb.html",
+          "date": "10月8日",
+          "desc": "2026-10-0811:24",
+          "dom": true
+        },
+        {
+          "title": "一批重大工程刷新“进度条”",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202610/08/WS6ac70df6e4b09a165c78e1bc.html",
+          "date": "10月8日",
+          "desc": "2026-10-0811:28",
+          "dom": true
+        },
+        {
+          "title": "黄金储备“23连增” 背后的深意",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202610/08/WS6ac70e73e4b09a165c78e1bf.html",
+          "date": "10月8日",
+          "desc": "2026-10-0811:30",
+          "dom": true
+        },
+        {
           "title": "我国对外直接投资规模稳居全球前列",
           "src": "中国日报财经",
           "url": "//caijing.chinadaily.com.cn/a/202609/24/WS6ab49ad9e4b09a165c78c6ce.html",
           "date": "9月24日",
           "desc": "2026-09-2411:34",
-          "dom": true
-        },
-        {
-          "title": "“40年房贷”新政落地近满月 银行受理情况如何？",
-          "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/24/WS6ab49ad2e4b09a165c78c6cc.html",
-          "date": "9月24日",
-          "desc": "2026-09-2411:35",
-          "dom": true
-        },
-        {
-          "title": "人民币对美元汇率创阶段新高",
-          "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/24/WS6ab49ad5e4b09a165c78c6cd.html",
-          "date": "9月24日",
-          "desc": "2026-09-2411:36",
-          "dom": true
-        },
-        {
-          "title": "身份迷雾重重的“中食办”靠什么大行其道？",
-          "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/24/WS6ab49b13e4b09a165c78c6cf.html",
-          "date": "9月24日",
-          "desc": "2026-09-2411:37",
           "dom": true
         }
       ]

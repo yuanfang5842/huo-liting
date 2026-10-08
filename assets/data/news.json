@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-08 03:09 UTC",
+  "updated": "2026-10-08 12:19 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
@@ -11,20 +11,20 @@
   "grouped": {
     "国内新药/临床/科研": [
       {
-        "title": "Palvella Therapeutics ( PVLA ) Submits Initial Module of NDA For QTORIN",
-        "src": "finance.yahoo.com",
-        "url": "https://finance.yahoo.com/healthcare/articles/palvella-therapeutics-pvla-submits-initial-140151901.html",
-        "date": "7月16日",
+        "title": "Medicines watchdog approves first - ever mRNA - based flu shot in the US",
+        "src": "euronews.com",
+        "url": "https://www.euronews.com/health/2026/08/06/medicines-watchdog-approves-first-ever-mrna-based-flu-shot-in-the-us",
+        "date": "8月6日",
         "desc": "",
         "dom": false
       }
     ],
     "海外FDA与全球进展": [
       {
-        "title": "Rasonque earns FDA approval for pancreatic cancer",
-        "src": "healio.com",
-        "url": "https://www.healio.com/news/hematology-oncology/20260826/rasonque-nabs-fda-approval-for-previously-treated-metastatic-pancreatic-adenocarcinoma",
-        "date": "8月26日",
+        "title": "Can - Fite Highlights Advanced FDA and EMA Regulatory Status of its Phase III Drug Candidates",
+        "src": "manilatimes.net",
+        "url": "https://www.manilatimes.net/2026/08/12/tmt-newswire/globenewswire/can-fite-highlights-advanced-fda-and-ema-regulatory-status-of-its-phase-iii-drug-candidates/2403795",
+        "date": "8月12日",
         "desc": "",
         "dom": false
       },
@@ -37,10 +37,10 @@
         "dom": false
       },
       {
-        "title": "Revolution Medicines Wins FDA Approval For Rasonque In Pancreatic Cancer",
-        "src": "rttnews.com",
-        "url": "https://www.rttnews.com/3684909/revolution-medicines-wins-fda-approval-for-rasonque-in-pancreatic-cancer.aspx",
-        "date": "8月26日",
+        "title": "FDA Issues New Guidance On Therapeutic Equivalence",
+        "src": "pharmaceuticalonline.com",
+        "url": "https://www.pharmaceuticalonline.com/doc/fda-issues-new-guidance-on-therapeutic-equivalence-0001",
+        "date": "9月1日",
         "desc": "",
         "dom": false
       }
