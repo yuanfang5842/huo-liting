@@ -1,10 +1,9 @@
 {
-  "updated": "2026-10-11 21:07 UTC",
+  "updated": "2026-10-12 02:49 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
-    "GDELT·新能源产业政策与进展",
     "GDELT·医药行业产业政策与进展",
     "GDELT·消费产业政策与进展",
     "GDELT·其它重大政策及事件"
@@ -24,32 +23,7 @@
     },
     {
       "name": "新能源产业政策与进展",
-      "items": [
-        {
-          "title": "China Halts New Battery Storage Plant Approvals",
-          "src": "zerohedge.com",
-          "url": "https://www.zerohedge.com/energy/china-halts-new-battery-storage-plant-approvals",
-          "date": "9月9日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China temporarily suspends new battery storage factory approvals : Report",
-          "src": "aninews.in",
-          "url": "https://aninews.in/news/business/china-temporarily-suspends-new-battery-storage-factory-approvals-report20260907145343/",
-          "date": "9月7日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Global Battery Electrolyte Market to Reach USD 50 . 98 Bn . by 2034 as EV Expansion , Grid - Scale Energy Storage and Next - Generation Battery Technologies Accelerate Demand Maximize Market Research Reports",
-          "src": "prnewswire.com",
-          "url": "https://www.prnewswire.com/news-releases/global-battery-electrolyte-market-to-reach-usd-50-98-bn-by-2034-as-ev-expansion-grid-scale-energy-storage-and-next-generation-battery-technologies-accelerate-demand-maximize-market-research-reports-302894415.html",
-          "date": "9月30日",
-          "desc": "",
-          "dom": false
-        }
-      ]
+      "items": []
     },
     {
       "name": "医药行业产业政策与进展",
@@ -76,11 +50,19 @@
       "name": "消费产业政策与进展",
       "items": [
         {
-          "title": "国庆消费“热力图”：服务扩容 智能升级",
+          "title": "中国汽车工业协会：严守安全底线，规范创新设计",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202610/08/WS6ac70d0ae4b09a165c78e1b9.html",
-          "date": "10月8日",
-          "desc": "2026-10-0811:24",
+          "url": "//caijing.chinadaily.com.cn/a/202610/12/WS6acc39d3e4b09a165c78eb62.html",
+          "date": "10月12日",
+          "desc": "2026-10-1209:37",
+          "dom": true
+        },
+        {
+          "title": "国产汽车出海通道+1！“南京—欧洲”新航线开通",
+          "src": "中华国内",
+          "url": "https://news.china.com/domestic/945/20261012/49788462.html",
+          "date": "10月12日",
+          "desc": "",
           "dom": true
         }
       ]
@@ -89,35 +71,35 @@
       "name": "其它重大政策及事件",
       "items": [
         {
-          "title": "中欧贸易投资磋商机制第二次例会发布联合声明",
+          "title": "C财经｜“大国重器”彰显科技实力，你了解多少？",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202610/10/WS6ac996b8e4b09a165c78e84b.html",
-          "date": "10月10日",
-          "desc": "2026-10-1009:36",
+          "url": "//caijing.chinadaily.com.cn/a/202609/28/WS6ab9bc1ae4b09a165c78cde0.html",
+          "date": "9月28日",
+          "desc": "从浩瀚苍穹到万米深海，从军事科技到民生保障，硬核科技创新的浪潮奔涌向前。国庆之际，让我们一同细数在各领域熠熠生辉的大国重器，一睹它们的发展实绩。2026-09-2809:00",
           "dom": true
         },
         {
-          "title": "财政部安排使用5500亿元地方政府债务结存限额",
+          "title": "C财经｜第48届世赛：在一场“手搓”盛宴里品匠心",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202610/10/WS6ac996bbe4b09a165c78e84c.html",
-          "date": "10月10日",
-          "desc": "2026-10-1009:36",
+          "url": "//caijing.chinadaily.com.cn/a/202609/29/WS6abb7d9ce4b09a165c78d752.html",
+          "date": "9月29日",
+          "desc": "正是这一份份渗透到工作和生活的技能和匠心，才雕琢出温暖而有品质的生活，拥有了这份宝贵的体验之后，即便站在科技前沿，又有谁会质疑匠心的分量？2026-09-2916:58",
           "dom": true
         },
         {
-          "title": "降至5000万元 权益类基金成立门槛拟下调",
+          "title": "食品安全法修订改了啥？回应了哪些民生关切？一文了解",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202610/10/WS6ac99744e4b09a165c78e84f.html",
-          "date": "10月10日",
-          "desc": "2026-10-1009:38",
+          "url": "//caijing.chinadaily.com.cn/a/202610/12/WS6acc38d9e4b09a165c78eb5d.html",
+          "date": "10月12日",
+          "desc": "2026-10-1209:32",
           "dom": true
         },
         {
-          "title": "国际金价三季度上涨3.74% 四季度或维持高波动",
+          "title": "年内A股公司回购金额超1300亿元 同比增近两成",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202610/10/WS6ac998c5e4b09a165c78e852.html",
-          "date": "10月10日",
-          "desc": "2026-10-1009:45",
+          "url": "//caijing.chinadaily.com.cn/a/202610/12/WS6acc3951e4b09a165c78eb5f.html",
+          "date": "10月12日",
+          "desc": "2026-10-1209:32",
           "dom": true
         }
       ]
