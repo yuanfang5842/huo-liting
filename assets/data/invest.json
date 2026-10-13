@@ -1,10 +1,11 @@
 {
-  "updated": "2026-10-12 23:51 UTC",
+  "updated": "2026-10-13 04:05 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
     "GDELT·半导体产业政策与进展及风险",
+    "GDELT·商业航天产业政策与进展",
     "GDELT·新能源产业政策与进展",
     "GDELT·消费产业政策与进展",
     "GDELT·其它重大政策及事件"
@@ -61,11 +62,60 @@
     },
     {
       "name": "商业航天产业政策与进展",
-      "items": []
+      "items": [
+        {
+          "title": "Kinetica - 1 successfully launches 9 satellites as China completes 6 orbital launches in 6 days",
+          "src": "globaltimes.cn",
+          "url": "https://www.globaltimes.cn/page/202609/1370940.shtml",
+          "date": "9月20日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China launches 24th batch of low - orbit internet satellites from Hainan site",
+          "src": "timesofindia.indiatimes.com",
+          "url": "https://timesofindia.indiatimes.com/world/china/china-launches-24th-batch-of-low-orbit-internet-satellites-from-hainan-site/articleshow/133273853.cms",
+          "date": "8月16日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "Why China rocket breakthrough and Russia satellite push are worrying the US",
+          "src": "moneycontrol.com",
+          "url": "https://www.moneycontrol.com/world/why-china-s-rocket-breakthrough-and-russia-s-satellite-push-are-worrying-the-us-article-14016138.html",
+          "date": "8月26日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China Orbital Rocket Recovery : China becomes first to recover orbital rockets using two methods : How Zhuque - 3 works",
+          "src": "timesofindia.indiatimes.com",
+          "url": "https://timesofindia.indiatimes.com/science/china-becomes-first-to-recover-orbital-rockets-using-two-methods-how-zhuque-3-works/articleshow/133341418.cms",
+          "date": "8月19日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "Prediction : 2 Space Stocks That Could Join SpaceX and Rocket Lab in the Nasdaq - 100 by 2030",
+          "src": "fool.com",
+          "url": "https://www.fool.com/investing/2026/10/02/prediction-2-space-stocks-that-could-join-spacex-i/",
+          "date": "10月2日",
+          "desc": "",
+          "dom": false
+        }
+      ]
     },
     {
       "name": "新能源产业政策与进展",
       "items": [
+        {
+          "title": "明年4月起实施！新能源车增值税出口退税率下调至9%",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202610/13/WS6acd89ace4b09a165c78ee8f.html",
+          "date": "10月13日",
+          "desc": "2026-10-1309:25",
+          "dom": true
+        },
         {
           "title": "前三季度我国新能源汽车新车销量占比升至53.6%",
           "src": "中华国内",
@@ -84,18 +134,34 @@
       "name": "消费产业政策与进展",
       "items": [
         {
-          "title": "中国汽车工业协会：严守安全底线，规范创新设计",
+          "title": "消费订单回暖，9月份中国电商物流指数小幅上行",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202610/12/WS6acc39d3e4b09a165c78eb62.html",
-          "date": "10月12日",
-          "desc": "2026-10-1209:37",
+          "url": "//caijing.chinadaily.com.cn/a/202610/13/WS6acd8a35e4b09a165c78ee93.html",
+          "date": "10月13日",
+          "desc": "2026-10-1309:32",
           "dom": true
         },
         {
-          "title": "国产汽车出海通道+1！“南京—欧洲”新航线开通",
+          "title": "金融消费投资维权，这些细节请留意",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202610/13/WS6acd8dfde4b09a165c78eea0.html",
+          "date": "10月13日",
+          "desc": "买了理财，结果大亏，一定由买者自负吗？贷款还不上时，才发现有高额违约息费条款，这笔钱该付吗？买了重疾险理赔却遭拒，理赔门槛怎么判定？……2026-10-1309:48",
+          "dom": true
+        },
+        {
+          "title": "商务部回应中欧混动汽车、电动汽车磋商共识",
           "src": "中华国内",
-          "url": "https://news.china.com/domestic/945/20261012/49788462.html",
-          "date": "10月12日",
+          "url": "https://news.china.com/domestic/945/20261013/49790575.html",
+          "date": "10月13日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China unveils second batch of 32 pilot cities for retail sector innovation",
+          "src": "china.org.cn",
+          "url": "http://www.china.org.cn/2026-09/04/content_118680089.shtml",
+          "date": "9月4日",
           "desc": "",
           "dom": true
         }
@@ -105,35 +171,35 @@
       "name": "其它重大政策及事件",
       "items": [
         {
+          "title": "美国AI支出大幅走高 投资回报兑现压力加大",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202610/13/WS6acd8df4e4b09a165c78ee9f.html",
+          "date": "10月13日",
+          "desc": "美国人工智能（AI）投资正以超高速度扩张，业界预计明年将达到约2万亿美元，超国内生产总值（GDP）比例的5%。在此背景下，市场波动加剧，各方对大型科技公司AI投资回报的担忧升温。2026-10-1309:45",
+          "dom": true
+        },
+        {
+          "title": "读万家账本，寻经济潮汐之锚——最新诺奖成果解读",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202610/13/WS6acd8909e4b09a165c78ee8d.html",
+          "date": "10月13日",
+          "desc": "2026-10-1309:23",
+          "dom": true
+        },
+        {
+          "title": "“硅谷要等几周，深圳只要一天！”又一中国造，全球爆单",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202610/13/WS6acd8a3fe4b09a165c78ee94.html",
+          "date": "10月13日",
+          "desc": "2026-10-1309:27",
+          "dom": true
+        },
+        {
           "title": "C财经 | 三季度经济数据即将公布：先行信号彰显经济动能持续增强",
           "src": "中国日报财经",
           "url": "//caijing.chinadaily.com.cn/a/202610/12/WS6acc5699e4b09a165c78ec75.html",
           "date": "10月12日",
           "desc": "2026年第三季度经济数据即将公布，多项先行指标释放积极信号，成为观察经济运行态势的重要窗口，也彰显我国经济发展动能持续增强。2026-10-1211:40",
-          "dom": true
-        },
-        {
-          "title": "C财经｜“大国重器”彰显科技实力，你了解多少？",
-          "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/28/WS6ab9bc1ae4b09a165c78cde0.html",
-          "date": "9月28日",
-          "desc": "从浩瀚苍穹到万米深海，从军事科技到民生保障，硬核科技创新的浪潮奔涌向前。国庆之际，让我们一同细数在各领域熠熠生辉的大国重器，一睹它们的发展实绩。2026-09-2809:00",
-          "dom": true
-        },
-        {
-          "title": "C财经｜第48届世赛：在一场“手搓”盛宴里品匠心",
-          "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202609/29/WS6abb7d9ce4b09a165c78d752.html",
-          "date": "9月29日",
-          "desc": "正是这一份份渗透到工作和生活的技能和匠心，才雕琢出温暖而有品质的生活，拥有了这份宝贵的体验之后，即便站在科技前沿，又有谁会质疑匠心的分量？2026-09-2916:58",
-          "dom": true
-        },
-        {
-          "title": "食品安全法修订改了啥？回应了哪些民生关切？一文了解",
-          "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202610/12/WS6acc38d9e4b09a165c78eb5d.html",
-          "date": "10月12日",
-          "desc": "2026-10-1209:32",
           "dom": true
         }
       ]
