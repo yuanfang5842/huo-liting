@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-13 22:00 UTC",
+  "updated": "2026-10-14 02:19 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
     "GDELT·半导体产业政策与进展及风险",
+    "GDELT·商业航天产业政策与进展",
     "GDELT·新能源产业政策与进展",
-    "GDELT·医药行业产业政策与进展",
     "GDELT·消费产业政策与进展",
     "GDELT·其它重大政策及事件"
   ],
@@ -62,7 +62,48 @@
     },
     {
       "name": "商业航天产业政策与进展",
-      "items": []
+      "items": [
+        {
+          "title": "Kinetica - 1 successfully launches 9 satellites as China completes 6 orbital launches in 6 days",
+          "src": "globaltimes.cn",
+          "url": "https://www.globaltimes.cn/page/202609/1370940.shtml",
+          "date": "9月20日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China launches 24th batch of low - orbit internet satellites from Hainan site",
+          "src": "timesofindia.indiatimes.com",
+          "url": "https://timesofindia.indiatimes.com/world/china/china-launches-24th-batch-of-low-orbit-internet-satellites-from-hainan-site/articleshow/133273853.cms",
+          "date": "8月16日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "Why China rocket breakthrough and Russia satellite push are worrying the US",
+          "src": "moneycontrol.com",
+          "url": "https://www.moneycontrol.com/world/why-china-s-rocket-breakthrough-and-russia-s-satellite-push-are-worrying-the-us-article-14016138.html",
+          "date": "8月26日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China Orbital Rocket Recovery : China becomes first to recover orbital rockets using two methods : How Zhuque - 3 works",
+          "src": "timesofindia.indiatimes.com",
+          "url": "https://timesofindia.indiatimes.com/science/china-becomes-first-to-recover-orbital-rockets-using-two-methods-how-zhuque-3-works/articleshow/133341418.cms",
+          "date": "8月19日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "Prediction : 2 Space Stocks That Could Join SpaceX and Rocket Lab in the Nasdaq - 100 by 2030",
+          "src": "fool.com",
+          "url": "https://www.fool.com/investing/2026/10/02/prediction-2-space-stocks-that-could-join-spacex-i/",
+          "date": "10月2日",
+          "desc": "",
+          "dom": false
+        }
+      ]
     },
     {
       "name": "新能源产业政策与进展",
@@ -79,40 +120,7 @@
     },
     {
       "name": "医药行业产业政策与进展",
-      "items": [
-        {
-          "title": "The numbers behind China pharma rise",
-          "src": "swissinfo.ch",
-          "url": "https://www.swissinfo.ch/eng/healthcare-innovation/the-numbers-behind-chinas-pharma-rise/91994947",
-          "date": "9月3日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "The Race for the Next Big Weight - Loss Drug Is On and China Wants In",
-          "src": "hindustantimes.com",
-          "url": "https://www.hindustantimes.com/world-news/the-race-for-the-next-big-weight-loss-drug-is-on-and-china-wants-in-101789117958664.html",
-          "date": "9月11日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "The race for the next big weight - loss drug is on and China wants in",
-          "src": "livemint.com",
-          "url": "https://www.livemint.com/global/the-race-for-the-next-big-weight-loss-drug-is-on-and-china-wants-in-11789089503857.html",
-          "date": "9月11日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "India biotech start - ups need patient capital to drive novel drug innovation , industry leaders say",
-          "src": "thehindubusinessline.com",
-          "url": "https://www.thehindubusinessline.com/companies/indias-biotech-start-ups-need-patient-capital-to-drive-novel-drug-innovation-industry-leaders-say/article71487718.ece",
-          "date": "9月20日",
-          "desc": "",
-          "dom": false
-        }
-      ]
+      "items": []
     },
     {
       "name": "消费产业政策与进展",
@@ -131,22 +139,6 @@
           "url": "//caijing.chinadaily.com.cn/a/202610/13/WS6acd8dfde4b09a165c78eea0.html",
           "date": "10月13日",
           "desc": "买了理财，结果大亏，一定由买者自负吗？贷款还不上时，才发现有高额违约息费条款，这笔钱该付吗？买了重疾险理赔却遭拒，理赔门槛怎么判定？……2026-10-1309:48",
-          "dom": true
-        },
-        {
-          "title": "商务部回应中欧混动汽车、电动汽车磋商共识",
-          "src": "中华国内",
-          "url": "https://news.china.com/domestic/945/20261013/49790575.html",
-          "date": "10月13日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China unveils second batch of 32 pilot cities for retail sector innovation",
-          "src": "china.org.cn",
-          "url": "http://www.china.org.cn/2026-09/04/content_118680089.shtml",
-          "date": "9月4日",
-          "desc": "",
           "dom": true
         }
       ]
