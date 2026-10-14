@@ -1,9 +1,10 @@
 {
-  "updated": "2026-10-14 02:19 UTC",
+  "updated": "2026-10-14 10:42 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
+    "GDELT·昨日美股等国外股市表现",
     "GDELT·半导体产业政策与进展及风险",
     "GDELT·商业航天产业政策与进展",
     "GDELT·新能源产业政策与进展",
@@ -13,7 +14,16 @@
   "modules": [
     {
       "name": "昨日美股等国外股市表现",
-      "items": []
+      "items": [
+        {
+          "title": "积极因素持续积累 A股市场有望迎来修复窗口",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202610/14/WS6acef39be4b09a165c78f2cc.html",
+          "date": "10月14日",
+          "desc": "2026-10-1411:14",
+          "dom": true
+        }
+      ]
     },
     {
       "name": "半导体产业政策与进展及风险",
@@ -109,12 +119,44 @@
       "name": "新能源产业政策与进展",
       "items": [
         {
+          "title": "中国新能源车企在欧洲市场“换挡”前行",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202610/14/WS6acef26be4b09a165c78f2c4.html",
+          "date": "10月14日",
+          "desc": "2026-10-1411:09",
+          "dom": true
+        },
+        {
           "title": "明年4月起实施！新能源车增值税出口退税率下调至9%",
           "src": "中国日报财经",
           "url": "//caijing.chinadaily.com.cn/a/202610/13/WS6acd89ace4b09a165c78ee8f.html",
           "date": "10月13日",
           "desc": "2026-10-1309:25",
           "dom": true
+        },
+        {
+          "title": "China Halts New Battery Storage Plant Approvals",
+          "src": "zerohedge.com",
+          "url": "https://www.zerohedge.com/energy/china-halts-new-battery-storage-plant-approvals",
+          "date": "9月9日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China temporarily suspends new battery storage factory approvals : Report",
+          "src": "aninews.in",
+          "url": "https://aninews.in/news/business/china-temporarily-suspends-new-battery-storage-factory-approvals-report20260907145343/",
+          "date": "9月7日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "Global Battery Electrolyte Market to Reach USD 50 . 98 Bn . by 2034 as EV Expansion , Grid - Scale Energy Storage and Next - Generation Battery Technologies Accelerate Demand Maximize Market Research Reports",
+          "src": "prnewswire.com",
+          "url": "https://www.prnewswire.com/news-releases/global-battery-electrolyte-market-to-reach-usd-50-98-bn-by-2034-as-ev-expansion-grid-scale-energy-storage-and-next-generation-battery-technologies-accelerate-demand-maximize-market-research-reports-302894415.html",
+          "date": "9月30日",
+          "desc": "",
+          "dom": false
         }
       ]
     },
@@ -134,6 +176,14 @@
           "dom": true
         },
         {
+          "title": "国家统计局：9月份居民消费价格同比上涨0.9%",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202610/14/WS6acef1ffe4b09a165c78f2c3.html",
+          "date": "10月14日",
+          "desc": "2026-10-1411:07",
+          "dom": true
+        },
+        {
           "title": "金融消费投资维权，这些细节请留意",
           "src": "中国日报财经",
           "url": "//caijing.chinadaily.com.cn/a/202610/13/WS6acd8dfde4b09a165c78eea0.html",
@@ -146,6 +196,14 @@
     {
       "name": "其它重大政策及事件",
       "items": [
+        {
+          "title": "IMF小幅上调全球增长预期 AI投资支撑经济韧性",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202610/14/WS6acef2fae4b09a165c78f2c7.html",
+          "date": "10月14日",
+          "desc": "2026-10-1411:11",
+          "dom": true
+        },
         {
           "title": "美国AI支出大幅走高 投资回报兑现压力加大",
           "src": "中国日报财经",
@@ -168,14 +226,6 @@
           "url": "//caijing.chinadaily.com.cn/a/202610/13/WS6acd8a3fe4b09a165c78ee94.html",
           "date": "10月13日",
           "desc": "2026-10-1309:27",
-          "dom": true
-        },
-        {
-          "title": "C财经 | 三季度经济数据即将公布：先行信号彰显经济动能持续增强",
-          "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202610/12/WS6acc5699e4b09a165c78ec75.html",
-          "date": "10月12日",
-          "desc": "2026年第三季度经济数据即将公布，多项先行指标释放积极信号，成为观察经济运行态势的重要窗口，也彰显我国经济发展动能持续增强。2026-10-1211:40",
           "dom": true
         }
       ]
