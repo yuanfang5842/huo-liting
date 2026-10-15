@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-15 02:00 UTC",
+  "updated": "2026-10-15 10:25 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
@@ -87,44 +87,20 @@
       "name": "新能源产业政策与进展",
       "items": [
         {
+          "title": "中国新能源车在欧洲受青睐 “反向合资”成合作新趋势",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202610/15/WS6ad03453e4b09a165c78f557.html",
+          "date": "10月15日",
+          "desc": "2026-10-1510:02",
+          "dom": true
+        },
+        {
           "title": "中国新能源车企在欧洲市场“换挡”前行",
           "src": "中国日报财经",
           "url": "//caijing.chinadaily.com.cn/a/202610/14/WS6acef26be4b09a165c78f2c4.html",
           "date": "10月14日",
           "desc": "2026-10-1411:09",
           "dom": true
-        },
-        {
-          "title": "明年4月起实施！新能源车增值税出口退税率下调至9%",
-          "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202610/13/WS6acd89ace4b09a165c78ee8f.html",
-          "date": "10月13日",
-          "desc": "2026-10-1309:25",
-          "dom": true
-        },
-        {
-          "title": "China Halts New Battery Storage Plant Approvals",
-          "src": "zerohedge.com",
-          "url": "https://www.zerohedge.com/energy/china-halts-new-battery-storage-plant-approvals",
-          "date": "9月9日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China temporarily suspends new battery storage factory approvals : Report",
-          "src": "aninews.in",
-          "url": "https://aninews.in/news/business/china-temporarily-suspends-new-battery-storage-factory-approvals-report20260907145343/",
-          "date": "9月7日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Global Battery Electrolyte Market to Reach USD 50 . 98 Bn . by 2034 as EV Expansion , Grid - Scale Energy Storage and Next - Generation Battery Technologies Accelerate Demand Maximize Market Research Reports",
-          "src": "prnewswire.com",
-          "url": "https://www.prnewswire.com/news-releases/global-battery-electrolyte-market-to-reach-usd-50-98-bn-by-2034-as-ev-expansion-grid-scale-energy-storage-and-next-generation-battery-technologies-accelerate-demand-maximize-market-research-reports-302894415.html",
-          "date": "9月30日",
-          "desc": "",
-          "dom": false
         }
       ]
     },
@@ -135,6 +111,14 @@
     {
       "name": "消费产业政策与进展",
       "items": [
+        {
+          "title": "加大住房消费支持力度 多地落实住房公积金新政",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202610/15/WS6ad03495e4b09a165c78f569.html",
+          "date": "10月15日",
+          "desc": "2026-10-1510:03",
+          "dom": true
+        },
         {
           "title": "国家统计局：9月份居民消费价格同比上涨0.9%",
           "src": "中国日报财经",
@@ -150,28 +134,20 @@
           "date": "10月13日",
           "desc": "买了理财，结果大亏，一定由买者自负吗？贷款还不上时，才发现有高额违约息费条款，这笔钱该付吗？买了重疾险理赔却遭拒，理赔门槛怎么判定？……2026-10-1309:48",
           "dom": true
-        },
-        {
-          "title": "China unveils second batch of 32 pilot cities for retail sector innovation",
-          "src": "china.org.cn",
-          "url": "http://www.china.org.cn/2026-09/04/content_118680089.shtml",
-          "date": "9月4日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China unveils measures to expand , upgrade consumer goods consumption",
-          "src": "english.anhuinews.com",
-          "url": "http://english.anhuinews.com/newscenter/headline/202609/t20260901_9544708.html",
-          "date": "9月1日",
-          "desc": "",
-          "dom": true
         }
       ]
     },
     {
       "name": "其它重大政策及事件",
       "items": [
+        {
+          "title": "俄总统代表：未来几天将签署首批对美柴油供应合同",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202610/15/WS6ad03314e4b09a165c78f54d.html",
+          "date": "10月15日",
+          "desc": "2026-10-1509:56",
+          "dom": true
+        },
         {
           "title": "前三季度社会融资规模增量累计为27.46万亿元",
           "src": "中国日报财经",
@@ -194,14 +170,6 @@
           "url": "//caijing.chinadaily.com.cn/a/202610/13/WS6acd8df4e4b09a165c78ee9f.html",
           "date": "10月13日",
           "desc": "美国人工智能（AI）投资正以超高速度扩张，业界预计明年将达到约2万亿美元，超国内生产总值（GDP）比例的5%。在此背景下，市场波动加剧，各方对大型科技公司AI投资回报的担忧升温。2026-10-1309:45",
-          "dom": true
-        },
-        {
-          "title": "读万家账本，寻经济潮汐之锚——最新诺奖成果解读",
-          "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202610/13/WS6acd8909e4b09a165c78ee8d.html",
-          "date": "10月13日",
-          "desc": "2026-10-1309:23",
           "dom": true
         }
       ]
