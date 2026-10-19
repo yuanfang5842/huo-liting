@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-19 17:49 UTC",
+  "updated": "2026-10-19 21:46 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
@@ -37,6 +37,38 @@
           "date": "10月19日",
           "desc": "",
           "dom": true
+        },
+        {
+          "title": "Kinetica - 1 successfully launches 9 satellites as China completes 6 orbital launches in 6 days",
+          "src": "globaltimes.cn",
+          "url": "https://www.globaltimes.cn/page/202609/1370940.shtml",
+          "date": "9月20日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China launches 24th batch of low - orbit internet satellites from Hainan site",
+          "src": "timesofindia.indiatimes.com",
+          "url": "https://timesofindia.indiatimes.com/world/china/china-launches-24th-batch-of-low-orbit-internet-satellites-from-hainan-site/articleshow/133273853.cms",
+          "date": "8月16日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "Why China rocket breakthrough and Russia satellite push are worrying the US",
+          "src": "moneycontrol.com",
+          "url": "https://www.moneycontrol.com/world/why-china-s-rocket-breakthrough-and-russia-s-satellite-push-are-worrying-the-us-article-14016138.html",
+          "date": "8月26日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "Prediction : 2 Space Stocks That Could Join SpaceX and Rocket Lab in the Nasdaq - 100 by 2030",
+          "src": "fool.com",
+          "url": "https://www.fool.com/investing/2026/10/02/prediction-2-space-stocks-that-could-join-spacex-i/",
+          "date": "10月2日",
+          "desc": "",
+          "dom": false
         }
       ]
     },
