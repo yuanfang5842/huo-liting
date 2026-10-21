@@ -1,10 +1,11 @@
 {
-  "updated": "2026-10-21 10:41 UTC",
+  "updated": "2026-10-21 16:10 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
     "GDELT·昨日美股等国外股市表现",
+    "GDELT·商业航天产业政策与进展",
     "GDELT·新能源产业政策与进展",
     "GDELT·消费产业政策与进展",
     "GDELT·其它重大政策及事件"
@@ -29,7 +30,48 @@
     },
     {
       "name": "商业航天产业政策与进展",
-      "items": []
+      "items": [
+        {
+          "title": "Kinetica - 1 successfully launches 9 satellites as China completes 6 orbital launches in 6 days",
+          "src": "globaltimes.cn",
+          "url": "https://www.globaltimes.cn/page/202609/1370940.shtml",
+          "date": "9月20日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China launches 24th batch of low - orbit internet satellites from Hainan site",
+          "src": "timesofindia.indiatimes.com",
+          "url": "https://timesofindia.indiatimes.com/world/china/china-launches-24th-batch-of-low-orbit-internet-satellites-from-hainan-site/articleshow/133273853.cms",
+          "date": "8月16日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "Why China rocket breakthrough and Russia satellite push are worrying the US",
+          "src": "moneycontrol.com",
+          "url": "https://www.moneycontrol.com/world/why-china-s-rocket-breakthrough-and-russia-s-satellite-push-are-worrying-the-us-article-14016138.html",
+          "date": "8月26日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China Orbital Rocket Recovery : China becomes first to recover orbital rockets using two methods : How Zhuque - 3 works",
+          "src": "timesofindia.indiatimes.com",
+          "url": "https://timesofindia.indiatimes.com/science/china-becomes-first-to-recover-orbital-rockets-using-two-methods-how-zhuque-3-works/articleshow/133341418.cms",
+          "date": "8月19日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "Prediction : 2 Space Stocks That Could Join SpaceX and Rocket Lab in the Nasdaq - 100 by 2030",
+          "src": "fool.com",
+          "url": "https://www.fool.com/investing/2026/10/02/prediction-2-space-stocks-that-could-join-spacex-i/",
+          "date": "10月2日",
+          "desc": "",
+          "dom": false
+        }
+      ]
     },
     {
       "name": "新能源产业政策与进展",
@@ -41,38 +83,6 @@
           "date": "10月21日",
           "desc": "",
           "dom": true
-        },
-        {
-          "title": "China Halts New Battery Storage Plant Approvals",
-          "src": "zerohedge.com",
-          "url": "https://www.zerohedge.com/energy/china-halts-new-battery-storage-plant-approvals",
-          "date": "9月9日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China temporarily suspends new battery storage factory approvals : Report",
-          "src": "aninews.in",
-          "url": "https://aninews.in/news/business/china-temporarily-suspends-new-battery-storage-factory-approvals-report20260907145343/",
-          "date": "9月7日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Ganfeng Lithium Net profit for first three quarters surged 195 times year - on - year",
-          "src": "autonews.gasgoo.com",
-          "url": "https://autonews.gasgoo.com/articles/ev/ganfeng-lithium-net-profit-for-first-three-quarters-surged-195-times-year-on-year-2111353166137802752",
-          "date": "10月17日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Global Battery Electrolyte Market to Reach USD 50 . 98 Bn . by 2034 as EV Expansion , Grid - Scale Energy Storage and Next - Generation Battery Technologies Accelerate Demand Maximize Market Research Reports",
-          "src": "prnewswire.com",
-          "url": "https://www.prnewswire.com/news-releases/global-battery-electrolyte-market-to-reach-usd-50-98-bn-by-2034-as-ev-expansion-grid-scale-energy-storage-and-next-generation-battery-technologies-accelerate-demand-maximize-market-research-reports-302894415.html",
-          "date": "9月30日",
-          "desc": "",
-          "dom": false
         }
       ]
     },
@@ -89,6 +99,30 @@
           "url": "//caijing.chinadaily.com.cn/a/202610/21/WS6ad8149de4b09a165c790716.html",
           "date": "10月21日",
           "desc": "2026-10-2109:25",
+          "dom": true
+        },
+        {
+          "title": "China unveils second batch of 32 pilot cities for retail sector innovation",
+          "src": "china.org.cn",
+          "url": "http://www.china.org.cn/2026-09/04/content_118680089.shtml",
+          "date": "9月4日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China unveils measures to expand , upgrade consumer goods consumption",
+          "src": "english.anhuinews.com",
+          "url": "http://english.anhuinews.com/newscenter/headline/202609/t20260901_9544708.html",
+          "date": "9月1日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "From barbecue to immersive theater , diverse consumption scenarios bring new vitality to China consumer market",
+          "src": "china.org.cn",
+          "url": "http://www.china.org.cn/2026-09/25/content_118712917.shtml",
+          "date": "9月25日",
+          "desc": "",
           "dom": true
         }
       ]
