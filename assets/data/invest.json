@@ -1,12 +1,11 @@
 {
-  "updated": "2026-10-22 16:08 UTC",
+  "updated": "2026-10-22 20:53 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
     "GDELT·昨日美股等国外股市表现",
     "GDELT·商业航天产业政策与进展",
-    "GDELT·新能源产业政策与进展",
     "GDELT·医药行业产业政策与进展",
     "GDELT·消费产业政策与进展",
     "GDELT·其它重大政策及事件"
@@ -52,40 +51,7 @@
     },
     {
       "name": "新能源产业政策与进展",
-      "items": [
-        {
-          "title": "China Halts New Battery Storage Plant Approvals",
-          "src": "zerohedge.com",
-          "url": "https://www.zerohedge.com/energy/china-halts-new-battery-storage-plant-approvals",
-          "date": "9月9日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China temporarily suspends new battery storage factory approvals : Report",
-          "src": "aninews.in",
-          "url": "https://aninews.in/news/business/china-temporarily-suspends-new-battery-storage-factory-approvals-report20260907145343/",
-          "date": "9月7日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Ganfeng Lithium Net profit for first three quarters surged 195 times year - on - year",
-          "src": "autonews.gasgoo.com",
-          "url": "https://autonews.gasgoo.com/articles/ev/ganfeng-lithium-net-profit-for-first-three-quarters-surged-195-times-year-on-year-2111353166137802752",
-          "date": "10月17日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Global Battery Electrolyte Market to Reach USD 50 . 98 Bn . by 2034 as EV Expansion , Grid - Scale Energy Storage and Next - Generation Battery Technologies Accelerate Demand Maximize Market Research Reports",
-          "src": "prnewswire.com",
-          "url": "https://www.prnewswire.com/news-releases/global-battery-electrolyte-market-to-reach-usd-50-98-bn-by-2034-as-ev-expansion-grid-scale-energy-storage-and-next-generation-battery-technologies-accelerate-demand-maximize-market-research-reports-302894415.html",
-          "date": "9月30日",
-          "desc": "",
-          "dom": false
-        }
-      ]
+      "items": []
     },
     {
       "name": "医药行业产业政策与进展",
@@ -109,30 +75,6 @@
           "url": "//caijing.chinadaily.com.cn/a/202610/22/WS6ad9b0e5e4b09a165c790dd0.html",
           "date": "10月22日",
           "desc": "消费是畅通国内大循环的关键环节和重要引擎。随着居民需求更为多元、消费结构持续调整，如何让供给更贴合需求变化、让场景释放更大消费潜力、让新技术新业态打开新的增长空间，成为摆在企业面前的必答题。2026-10-2214:44",
-          "dom": true
-        },
-        {
-          "title": "China unveils second batch of 32 pilot cities for retail sector innovation",
-          "src": "china.org.cn",
-          "url": "http://www.china.org.cn/2026-09/04/content_118680089.shtml",
-          "date": "9月4日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China unveils measures to expand , upgrade consumer goods consumption",
-          "src": "english.anhuinews.com",
-          "url": "http://english.anhuinews.com/newscenter/headline/202609/t20260901_9544708.html",
-          "date": "9月1日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "From barbecue to immersive theater , diverse consumption scenarios bring new vitality to China consumer market",
-          "src": "china.org.cn",
-          "url": "http://www.china.org.cn/2026-09/25/content_118712917.shtml",
-          "date": "9月25日",
-          "desc": "",
           "dom": true
         }
       ]
