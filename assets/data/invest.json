@@ -1,11 +1,12 @@
 {
-  "updated": "2026-10-21 20:56 UTC",
+  "updated": "2026-10-22 02:04 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
     "GDELT·昨日美股等国外股市表现",
-    "GDELT·新能源产业政策与进展",
+    "GDELT·商业航天产业政策与进展",
+    "GDELT·医药行业产业政策与进展",
     "GDELT·消费产业政策与进展",
     "GDELT·其它重大政策及事件"
   ],
@@ -14,11 +15,11 @@
       "name": "昨日美股等国外股市表现",
       "items": [
         {
-          "title": "AI融资火爆 华尔街大行增长动能切换",
+          "title": "中国证监会： 稳妥实施北交所新股市值配售",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202610/19/WS6ad57852e4b09a165c78fe87.html",
-          "date": "10月19日",
-          "desc": "2026-10-1909:54",
+          "url": "//caijing.chinadaily.com.cn/a/202610/22/WS6ad96b38e4b09a165c790be5.html",
+          "date": "10月22日",
+          "desc": "2026-10-2209:47",
           "dom": true
         }
       ]
@@ -29,24 +30,41 @@
     },
     {
       "name": "商业航天产业政策与进展",
-      "items": []
-    },
-    {
-      "name": "新能源产业政策与进展",
       "items": [
         {
-          "title": "算力储能等产品受客商青睐 我国外贸再添新引擎",
+          "title": "谷神星一号海射型遥八运载火箭发射成功",
           "src": "中华国内",
-          "url": "https://news.china.com/domestic/945/20261021/49806724.html",
-          "date": "10月21日",
+          "url": "https://news.china.com/domestic/945/20261022/49808847.html",
+          "date": "10月22日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "五羊星座首发星发射",
+          "src": "中华国内",
+          "url": "https://news.china.com/domestic/945/20261022/49808831.html",
+          "date": "10月22日",
           "desc": "",
           "dom": true
         }
       ]
     },
     {
-      "name": "医药行业产业政策与进展",
+      "name": "新能源产业政策与进展",
       "items": []
+    },
+    {
+      "name": "医药行业产业政策与进展",
+      "items": [
+        {
+          "title": "2026年前三季度医保统筹基金支出超1.7万亿元",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202610/22/WS6ad96ab9e4b09a165c790bd9.html",
+          "date": "10月22日",
+          "desc": "2026-10-2209:43",
+          "dom": true
+        }
+      ]
     },
     {
       "name": "消费产业政策与进展",
@@ -64,6 +82,14 @@
     {
       "name": "其它重大政策及事件",
       "items": [
+        {
+          "title": "我国将建设一批专精特新赋能中心",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202610/22/WS6ad96db1e4b09a165c790bf3.html",
+          "date": "10月22日",
+          "desc": "2026-10-2209:48",
+          "dom": true
+        },
         {
           "title": "C财经｜4.6%来之不易！前三季度经济呈现四大亮点",
           "src": "中国日报财经",
@@ -86,14 +112,6 @@
           "url": "//caijing.chinadaily.com.cn/a/202610/21/WS6ad8145fe4b09a165c790715.html",
           "date": "10月21日",
           "desc": "2026-10-2109:24",
-          "dom": true
-        },
-        {
-          "title": "多部门发布风险提示：求职者，警惕“央国企内推”骗局",
-          "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202610/21/WS6ad814f6e4b09a165c790719.html",
-          "date": "10月21日",
-          "desc": "2026-10-2109:26",
           "dom": true
         }
       ]
