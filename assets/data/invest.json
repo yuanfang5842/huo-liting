@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-25 10:14 UTC",
+  "updated": "2026-10-25 15:06 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
@@ -130,6 +130,22 @@
           "src": "中华国内",
           "url": "https://news.china.com/domestic/945/20261025/49815759.html",
           "date": "10月25日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China unveils second batch of 32 pilot cities for retail sector innovation",
+          "src": "china.org.cn",
+          "url": "http://www.china.org.cn/2026-09/04/content_118680089.shtml",
+          "date": "9月4日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China unveils measures to expand , upgrade consumer goods consumption",
+          "src": "english.anhuinews.com",
+          "url": "http://english.anhuinews.com/newscenter/headline/202609/t20260901_9544708.html",
+          "date": "9月1日",
           "desc": "",
           "dom": true
         }
