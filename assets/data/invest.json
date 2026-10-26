@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-26 01:56 UTC",
+  "updated": "2026-10-26 11:38 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
@@ -63,12 +63,36 @@
       "name": "医药行业产业政策与进展",
       "items": [
         {
-          "title": "2026年前三季度医保统筹基金支出超1.7万亿元",
-          "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202610/22/WS6ad96ab9e4b09a165c790bd9.html",
-          "date": "10月22日",
-          "desc": "2026-10-2209:43",
+          "title": "The numbers behind China pharma rise",
+          "src": "swissinfo.ch",
+          "url": "https://www.swissinfo.ch/eng/healthcare-innovation/the-numbers-behind-chinas-pharma-rise/91994947",
+          "date": "9月3日",
+          "desc": "",
           "dom": true
+        },
+        {
+          "title": "The Race for the Next Big Weight - Loss Drug Is On and China Wants In",
+          "src": "hindustantimes.com",
+          "url": "https://www.hindustantimes.com/world-news/the-race-for-the-next-big-weight-loss-drug-is-on-and-china-wants-in-101789117958664.html",
+          "date": "9月11日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "The race for the next big weight - loss drug is on and China wants in",
+          "src": "livemint.com",
+          "url": "https://www.livemint.com/global/the-race-for-the-next-big-weight-loss-drug-is-on-and-china-wants-in-11789089503857.html",
+          "date": "9月11日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "India biotech start - ups need patient capital to drive novel drug innovation , industry leaders say",
+          "src": "thehindubusinessline.com",
+          "url": "https://www.thehindubusinessline.com/companies/indias-biotech-start-ups-need-patient-capital-to-drive-novel-drug-innovation-industry-leaders-say/article71487718.ece",
+          "date": "9月20日",
+          "desc": "",
+          "dom": false
         }
       ]
     },
@@ -76,18 +100,10 @@
       "name": "消费产业政策与进展",
       "items": [
         {
-          "title": "消费市场扩容升级 迈向60万亿元规模",
-          "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202610/22/WS6ad9b0e5e4b09a165c790dd0.html",
-          "date": "10月22日",
-          "desc": "消费是畅通国内大循环的关键环节和重要引擎。随着居民需求更为多元、消费结构持续调整，如何让供给更贴合需求变化、让场景释放更大消费潜力、让新技术新业态打开新的增长空间，成为摆在企业面前的必答题。2026-10-2214:44",
-          "dom": true
-        },
-        {
-          "title": "前三季度“商品+服务”消费并重发展",
+          "title": "我国协作帮扶已实现消费帮扶2400多亿元",
           "src": "中华国内",
-          "url": "https://news.china.com/domestic/945/20261025/49815759.html",
-          "date": "10月25日",
+          "url": "https://news.china.com/domestic/945/20261026/49818376.html",
+          "date": "10月26日",
           "desc": "",
           "dom": true
         }
@@ -97,35 +113,35 @@
       "name": "其它重大政策及事件",
       "items": [
         {
-          "title": "商务部将支持更多符合条件境外主体发行熊猫债",
+          "title": "油价高企扰动全球央行降息节奏",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202610/23/WS6adac3f9e4b09a165c791054.html",
-          "date": "10月23日",
-          "desc": "2026-10-2310:16",
+          "url": "//caijing.chinadaily.com.cn/a/202610/26/WS6adebe64e4b09a165c791643.html",
+          "date": "10月26日",
+          "desc": "2026-10-2610:43",
           "dom": true
         },
         {
-          "title": "全国蛋价跌回“4元时代” 未来还会降吗？走势预测→",
+          "title": "更加积极的财政政策发力提效——中国经济三季报亮点解析",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202610/23/WS6adac3fde4b09a165c791055.html",
-          "date": "10月23日",
-          "desc": "2026-10-2310:18",
+          "url": "//caijing.chinadaily.com.cn/a/202610/26/WS6adeba7fe4b09a165c791637.html",
+          "date": "10月26日",
+          "desc": "2026-10-2610:26",
           "dom": true
         },
         {
-          "title": "全球超八成新船订单涌向中国",
+          "title": "硬核装备、特色鲜果齐亮相 第九届进博会首批展品进馆",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202610/23/WS6adac591e4b09a165c791059.html",
-          "date": "10月23日",
-          "desc": "2026-10-2310:24",
+          "url": "//caijing.chinadaily.com.cn/a/202610/26/WS6adeefcce4b09a165c791807.html",
+          "date": "10月26日",
+          "desc": "10月26日，第九届进博会首批展品进馆仪式在国家会展中心（上海）举行，来自奥地利、美国、德国等国的12件展品开始入馆，标志着本届进博会展馆搭建和布展工作进入最后冲刺阶段2026-10-2611:33",
           "dom": true
         },
         {
-          "title": "从第23届中国计算机大会看人工智能发展新动向",
+          "title": "工厂、商超都在用！年产量冲刺10万台！重大“机”遇，如何抓住？",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202610/23/WS6adac602e4b09a165c79105b.html",
-          "date": "10月23日",
-          "desc": "2026-10-2310:26",
+          "url": "//caijing.chinadaily.com.cn/a/202610/26/WS6adeeeb9e4b09a165c7917fa.html",
+          "date": "10月26日",
+          "desc": "2026年被业界称为人形机器人“量产元年”，但很多企业发现，从实验室里的“手搓样机”，到工厂里的批量下线，中间还有一定难度。供应链如何扩容？2026-10-2614:06",
           "dom": true
         }
       ]
