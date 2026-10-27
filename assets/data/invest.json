@@ -1,10 +1,9 @@
 {
-  "updated": "2026-10-26 21:57 UTC",
+  "updated": "2026-10-27 02:34 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
-    "GDELT·医药行业产业政策与进展",
     "GDELT·消费产业政策与进展",
     "GDELT·其它重大政策及事件"
   ],
@@ -27,73 +26,24 @@
     },
     {
       "name": "医药行业产业政策与进展",
-      "items": [
-        {
-          "title": "The numbers behind China pharma rise",
-          "src": "swissinfo.ch",
-          "url": "https://www.swissinfo.ch/eng/healthcare-innovation/the-numbers-behind-chinas-pharma-rise/91994947",
-          "date": "9月3日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "The Race for the Next Big Weight - Loss Drug Is On and China Wants In",
-          "src": "hindustantimes.com",
-          "url": "https://www.hindustantimes.com/world-news/the-race-for-the-next-big-weight-loss-drug-is-on-and-china-wants-in-101789117958664.html",
-          "date": "9月11日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "The race for the next big weight - loss drug is on and China wants in",
-          "src": "livemint.com",
-          "url": "https://www.livemint.com/global/the-race-for-the-next-big-weight-loss-drug-is-on-and-china-wants-in-11789089503857.html",
-          "date": "9月11日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "India biotech start - ups need patient capital to drive novel drug innovation , industry leaders say",
-          "src": "thehindubusinessline.com",
-          "url": "https://www.thehindubusinessline.com/companies/indias-biotech-start-ups-need-patient-capital-to-drive-novel-drug-innovation-industry-leaders-say/article71487718.ece",
-          "date": "9月20日",
-          "desc": "",
-          "dom": false
-        }
-      ]
+      "items": []
     },
     {
       "name": "消费产业政策与进展",
       "items": [
         {
+          "title": "消费新增长点持续涌现",
+          "src": "中华国内",
+          "url": "https://news.china.com/domestic/945/20261027/49819864.html",
+          "date": "10月27日",
+          "desc": "",
+          "dom": true
+        },
+        {
           "title": "我国协作帮扶已实现消费帮扶2400多亿元",
           "src": "中华国内",
           "url": "https://news.china.com/domestic/945/20261026/49818376.html",
           "date": "10月26日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China unveils second batch of 32 pilot cities for retail sector innovation",
-          "src": "china.org.cn",
-          "url": "http://www.china.org.cn/2026-09/04/content_118680089.shtml",
-          "date": "9月4日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China unveils measures to expand , upgrade consumer goods consumption",
-          "src": "english.anhuinews.com",
-          "url": "http://english.anhuinews.com/newscenter/headline/202609/t20260901_9544708.html",
-          "date": "9月1日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "From barbecue to immersive theater , diverse consumption scenarios bring new vitality to China consumer market",
-          "src": "china.org.cn",
-          "url": "http://www.china.org.cn/2026-09/25/content_118712917.shtml",
-          "date": "9月25日",
           "desc": "",
           "dom": true
         }
@@ -119,19 +69,19 @@
           "dom": true
         },
         {
+          "title": "央行设立债市非银大额赎回互换便利",
+          "src": "中华国内",
+          "url": "https://news.china.com/domestic/945/20261027/49819849.html",
+          "date": "10月27日",
+          "desc": "",
+          "dom": true
+        },
+        {
           "title": "硬核装备、特色鲜果齐亮相 第九届进博会首批展品进馆",
           "src": "中国日报财经",
           "url": "//caijing.chinadaily.com.cn/a/202610/26/WS6adeefcce4b09a165c791807.html",
           "date": "10月26日",
           "desc": "10月26日，第九届进博会首批展品进馆仪式在国家会展中心（上海）举行，来自奥地利、美国、德国等国的12件展品开始入馆，标志着本届进博会展馆搭建和布展工作进入最后冲刺阶段2026-10-2611:33",
-          "dom": true
-        },
-        {
-          "title": "工厂、商超都在用！年产量冲刺10万台！重大“机”遇，如何抓住？",
-          "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202610/26/WS6adeeeb9e4b09a165c7917fa.html",
-          "date": "10月26日",
-          "desc": "2026年被业界称为人形机器人“量产元年”，但很多企业发现，从实验室里的“手搓样机”，到工厂里的批量下线，中间还有一定难度。供应链如何扩容？2026-10-2614:06",
           "dom": true
         }
       ]
