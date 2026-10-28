@@ -1,31 +1,49 @@
 {
-  "updated": "2026-10-28 02:43 UTC",
+  "updated": "2026-10-28 11:43 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·健康/国内",
-    "GDELT·政策/医保/行业"
+    "GDELT·国内新药/临床/科研",
+    "GDELT·海外FDA与全球进展"
   ],
   "grouped": {
-    "国内新药/临床/科研": [],
-    "海外FDA与全球进展": [],
-    "政策/医保/行业": [
+    "国内新药/临床/科研": [
       {
-        "title": "全国政协委员方向明：拓展中医药应用场景",
-        "src": "网易健康",
-        "url": "https://www.163.com/jiankang/article/KN8GRIJS0038804U.html",
-        "date": "3月5日",
-        "desc": "全国两会前夕，新一届全国政协委员、浙江大学医药学部副主任、九三学社浙江省委副主委方向明赴德清调研中医药创新发展问题。“了解到了一线的情况，中医药应用场景还可以也应该拓展。",
-        "dom": true
+        "title": "Medicines watchdog approves first - ever mRNA - based flu shot in the US",
+        "src": "euronews.com",
+        "url": "https://www.euronews.com/health/2026/08/06/medicines-watchdog-approves-first-ever-mrna-based-flu-shot-in-the-us",
+        "date": "8月6日",
+        "desc": "",
+        "dom": false
+      }
+    ],
+    "海外FDA与全球进展": [
+      {
+        "title": "Can - Fite Highlights Advanced FDA and EMA Regulatory Status of its Phase III Drug Candidates",
+        "src": "manilatimes.net",
+        "url": "https://www.manilatimes.net/2026/08/12/tmt-newswire/globenewswire/can-fite-highlights-advanced-fda-and-ema-regulatory-status-of-its-phase-iii-drug-candidates/2403795",
+        "date": "8月12日",
+        "desc": "",
+        "dom": false
       },
       {
-        "title": "医生提醒：流感用药要避开这些误区",
-        "src": "网易健康",
-        "url": "https://www.163.com/jiankang/article/KHMRO24U0038804U.html",
-        "date": "12月26日",
-        "desc": "流感和普通感冒不是一回事，用药也不能一概而论。",
-        "dom": true
+        "title": "Dr . Falk Pharma and Renexxion Reach Alignment with FDA and EMA on Phase 3 Program for Naronapride in Gastroparesis",
+        "src": "manilatimes.net",
+        "url": "https://www.manilatimes.net/2026/10/21/tmt-newswire/globenewswire/dr-falk-pharma-and-renexxion-reach-alignment-with-fda-and-ema-on-phase-3-program-for-naronapride-in-gastroparesis/2450778",
+        "date": "10月21日",
+        "desc": "",
+        "dom": false
+      },
+      {
+        "title": "EMA Upholds Rejection of Posttransplant Complication Drug",
+        "src": "medscape.com",
+        "url": "https://www.medscape.com/viewarticle/ema-upholds-rejection-posttransplant-complication-drug-2026a10013l6",
+        "date": "10月21日",
+        "desc": "",
+        "dom": false
       }
-    ]
+    ],
+    "政策/医保/行业": []
   }
 }
