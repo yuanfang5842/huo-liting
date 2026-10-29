@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-29 11:51 UTC",
+  "updated": "2026-10-29 17:39 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
@@ -7,6 +7,7 @@
     "GDELT·昨日美股等国外股市表现",
     "GDELT·半导体产业政策与进展及风险",
     "GDELT·新能源产业政策与进展",
+    "GDELT·医药行业产业政策与进展",
     "GDELT·其它重大政策及事件"
   ],
   "modules": [
@@ -111,7 +112,40 @@
     },
     {
       "name": "医药行业产业政策与进展",
-      "items": []
+      "items": [
+        {
+          "title": "The numbers behind China pharma rise",
+          "src": "swissinfo.ch",
+          "url": "https://www.swissinfo.ch/eng/healthcare-innovation/the-numbers-behind-chinas-pharma-rise/91994947",
+          "date": "9月3日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "The Race for the Next Big Weight - Loss Drug Is On and China Wants In",
+          "src": "hindustantimes.com",
+          "url": "https://www.hindustantimes.com/world-news/the-race-for-the-next-big-weight-loss-drug-is-on-and-china-wants-in-101789117958664.html",
+          "date": "9月11日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "The race for the next big weight - loss drug is on and China wants in",
+          "src": "livemint.com",
+          "url": "https://www.livemint.com/global/the-race-for-the-next-big-weight-loss-drug-is-on-and-china-wants-in-11789089503857.html",
+          "date": "9月11日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "India biotech start - ups need patient capital to drive novel drug innovation , industry leaders say",
+          "src": "thehindubusinessline.com",
+          "url": "https://www.thehindubusinessline.com/companies/indias-biotech-start-ups-need-patient-capital-to-drive-novel-drug-innovation-industry-leaders-say/article71487718.ece",
+          "date": "9月20日",
+          "desc": "",
+          "dom": false
+        }
+      ]
     },
     {
       "name": "消费产业政策与进展",
