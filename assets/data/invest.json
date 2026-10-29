@@ -1,9 +1,11 @@
 {
-  "updated": "2026-10-28 21:56 UTC",
+  "updated": "2026-10-29 03:03 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
+    "GDELT·昨日美股等国外股市表现",
+    "GDELT·半导体产业政策与进展及风险",
     "GDELT·商业航天产业政策与进展",
     "GDELT·消费产业政策与进展",
     "GDELT·其它重大政策及事件"
@@ -11,11 +13,29 @@
   "modules": [
     {
       "name": "昨日美股等国外股市表现",
-      "items": []
+      "items": [
+        {
+          "title": "美联储宣布维持利率不变",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202610/29/WS6ae2b097e4b09a165c792382.html",
+          "date": "10月29日",
+          "desc": "2026-10-2910:33",
+          "dom": true
+        }
+      ]
     },
     {
       "name": "半导体产业政策与进展及风险",
-      "items": []
+      "items": [
+        {
+          "title": "从能用到好用，国产芯片筑牢算力网底座",
+          "src": "中华国内",
+          "url": "https://news.china.com/domestic/945/20261029/49825098.html",
+          "date": "10月29日",
+          "desc": "",
+          "dom": true
+        }
+      ]
     },
     {
       "name": "商业航天产业政策与进展",
@@ -74,10 +94,34 @@
       "name": "消费产业政策与进展",
       "items": [
         {
-          "title": "消费新增长点持续涌现",
-          "src": "中华国内",
-          "url": "https://news.china.com/domestic/945/20261027/49819864.html",
-          "date": "10月27日",
+          "title": "China unveils second batch of 32 pilot cities for retail sector innovation",
+          "src": "china.org.cn",
+          "url": "http://www.china.org.cn/2026-09/04/content_118680089.shtml",
+          "date": "9月4日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China unveils measures to expand , upgrade consumer goods consumption",
+          "src": "english.anhuinews.com",
+          "url": "http://english.anhuinews.com/newscenter/headline/202609/t20260901_9544708.html",
+          "date": "9月1日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "From barbecue to immersive theater , diverse consumption scenarios bring new vitality to China consumer market",
+          "src": "china.org.cn",
+          "url": "http://www.china.org.cn/2026-09/25/content_118712917.shtml",
+          "date": "9月25日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China consumer , wholesale inflation rebound in August",
+          "src": "cnbc.com",
+          "url": "https://www.cnbc.com/2026/09/09/china-cpi-ppi-august-oil-prices-tech-manufacturing-.html",
+          "date": "9月9日",
           "desc": "",
           "dom": true
         }
@@ -87,27 +131,27 @@
       "name": "其它重大政策及事件",
       "items": [
         {
-          "title": "油价高企扰动全球央行降息节奏",
+          "title": "8000亿元新型政策性金融工具投放完成",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202610/26/WS6adebe64e4b09a165c791643.html",
-          "date": "10月26日",
-          "desc": "2026-10-2610:43",
+          "url": "//caijing.chinadaily.com.cn/a/202610/29/WS6ae2b08fe4b09a165c792380.html",
+          "date": "10月29日",
+          "desc": "2026-10-2910:32",
           "dom": true
         },
         {
-          "title": "更加积极的财政政策发力提效——中国经济三季报亮点解析",
+          "title": "219家北交所公司三季报亮相 逾七成实现营收同比增长",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202610/26/WS6adeba7fe4b09a165c791637.html",
-          "date": "10月26日",
-          "desc": "2026-10-2610:26",
+          "url": "//caijing.chinadaily.com.cn/a/202610/29/WS6ae2b093e4b09a165c792381.html",
+          "date": "10月29日",
+          "desc": "2026-10-2910:33",
           "dom": true
         },
         {
-          "title": "央行设立债市非银大额赎回互换便利",
-          "src": "中华国内",
-          "url": "https://news.china.com/domestic/945/20261027/49819849.html",
-          "date": "10月27日",
-          "desc": "",
+          "title": "全球经济版图下的中国角色之变",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202610/29/WS6ae2b1e9e4b09a165c79239b.html",
+          "date": "10月29日",
+          "desc": "2026-10-2910:38",
           "dom": true
         },
         {
