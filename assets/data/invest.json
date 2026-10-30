@@ -1,11 +1,11 @@
 {
-  "updated": "2026-10-29 22:04 UTC",
+  "updated": "2026-10-30 03:07 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
     "GDELT·昨日美股等国外股市表现",
-    "GDELT·半导体产业政策与进展及风险",
+    "GDELT·商业航天产业政策与进展",
     "GDELT·医药行业产业政策与进展",
     "GDELT·其它重大政策及事件"
   ],
@@ -25,20 +25,52 @@
     },
     {
       "name": "半导体产业政策与进展及风险",
-      "items": [
-        {
-          "title": "从能用到好用，国产芯片筑牢算力网底座",
-          "src": "中华国内",
-          "url": "https://news.china.com/domestic/945/20261029/49825098.html",
-          "date": "10月29日",
-          "desc": "",
-          "dom": true
-        }
-      ]
+      "items": []
     },
     {
       "name": "商业航天产业政策与进展",
-      "items": []
+      "items": [
+        {
+          "title": "Kinetica - 1 successfully launches 9 satellites as China completes 6 orbital launches in 6 days",
+          "src": "globaltimes.cn",
+          "url": "https://www.globaltimes.cn/page/202609/1370940.shtml",
+          "date": "9月20日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China launches 24th batch of low - orbit internet satellites from Hainan site",
+          "src": "timesofindia.indiatimes.com",
+          "url": "https://timesofindia.indiatimes.com/world/china/china-launches-24th-batch-of-low-orbit-internet-satellites-from-hainan-site/articleshow/133273853.cms",
+          "date": "8月16日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "Why China rocket breakthrough and Russia satellite push are worrying the US",
+          "src": "moneycontrol.com",
+          "url": "https://www.moneycontrol.com/world/why-china-s-rocket-breakthrough-and-russia-s-satellite-push-are-worrying-the-us-article-14016138.html",
+          "date": "8月26日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China Orbital Rocket Recovery : China becomes first to recover orbital rockets using two methods : How Zhuque - 3 works",
+          "src": "timesofindia.indiatimes.com",
+          "url": "https://timesofindia.indiatimes.com/science/china-becomes-first-to-recover-orbital-rockets-using-two-methods-how-zhuque-3-works/articleshow/133341418.cms",
+          "date": "8月19日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "Prediction : 2 Space Stocks That Could Join SpaceX and Rocket Lab in the Nasdaq - 100 by 2030",
+          "src": "fool.com",
+          "url": "https://www.fool.com/investing/2026/10/02/prediction-2-space-stocks-that-could-join-spacex-i/",
+          "date": "10月2日",
+          "desc": "",
+          "dom": false
+        }
+      ]
     },
     {
       "name": "新能源产业政策与进展",
@@ -89,35 +121,35 @@
       "name": "其它重大政策及事件",
       "items": [
         {
-          "title": "8000亿元新型政策性金融工具投放完成",
+          "title": "欧洲央行维持三大关键利率不变",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202610/29/WS6ae2b08fe4b09a165c792380.html",
-          "date": "10月29日",
-          "desc": "2026-10-2910:32",
+          "url": "//caijing.chinadaily.com.cn/a/202610/30/WS6ae3ef0be4b09a165c792755.html",
+          "date": "10月30日",
+          "desc": "2026-10-3009:06",
           "dom": true
         },
         {
-          "title": "219家北交所公司三季报亮相 逾七成实现营收同比增长",
+          "title": "商务部：如欧方对中国产品采取歧视性限制措施，中方必将采取一切必要措施",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202610/29/WS6ae2b093e4b09a165c792381.html",
-          "date": "10月29日",
-          "desc": "2026-10-2910:33",
+          "url": "//caijing.chinadaily.com.cn/a/202610/30/WS6ae3ecaae4b09a165c79274c.html",
+          "date": "10月30日",
+          "desc": "2026-10-3008:46",
           "dom": true
         },
         {
-          "title": "全球经济版图下的中国角色之变",
+          "title": "海南自贸港跨境贸易投资便利化水平持续提升",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202610/29/WS6ae2b1e9e4b09a165c79239b.html",
-          "date": "10月29日",
-          "desc": "2026-10-2910:38",
+          "url": "//caijing.chinadaily.com.cn/a/202610/30/WS6ae3ed5ce4b09a165c792750.html",
+          "date": "10月30日",
+          "desc": "2026-10-3009:05",
           "dom": true
         },
         {
-          "title": "史上最大IPO募资加码AI 北美科技巨头“狂飙”资本开支",
+          "title": "11月起，这些新规将影响你我生活",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202610/28/WS6ae14d2de4b09a165c791f09.html",
-          "date": "10月28日",
-          "desc": "2026-10-2809:16",
+          "url": "//caijing.chinadaily.com.cn/a/202610/30/WS6ae3efb1e4b09a165c792757.html",
+          "date": "10月30日",
+          "desc": "2026-10-3009:13",
           "dom": true
         }
       ]
