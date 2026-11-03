@@ -1,13 +1,12 @@
 {
-  "updated": "2026-11-03 00:05 UTC",
+  "updated": "2026-11-03 13:05 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
     "GDELT·半导体产业政策与进展及风险",
     "GDELT·商业航天产业政策与进展",
-    "GDELT·新能源产业政策与进展",
-    "GDELT·医药行业产业政策与进展",
+    "GDELT·消费产业政策与进展",
     "GDELT·其它重大政策及事件"
   ],
   "modules": [
@@ -99,91 +98,82 @@
     },
     {
       "name": "新能源产业政策与进展",
-      "items": [
-        {
-          "title": "高原新能源“充电宝”破解供电难题",
-          "src": "中华国内",
-          "url": "https://news.china.com/domestic/945/20261102/49832361.html",
-          "date": "11月2日",
-          "desc": "",
-          "dom": true
-        }
-      ]
+      "items": []
     },
     {
       "name": "医药行业产业政策与进展",
-      "items": [
-        {
-          "title": "The numbers behind China pharma rise",
-          "src": "swissinfo.ch",
-          "url": "https://www.swissinfo.ch/eng/healthcare-innovation/the-numbers-behind-chinas-pharma-rise/91994947",
-          "date": "9月3日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "The Race for the Next Big Weight - Loss Drug Is On and China Wants In",
-          "src": "hindustantimes.com",
-          "url": "https://www.hindustantimes.com/world-news/the-race-for-the-next-big-weight-loss-drug-is-on-and-china-wants-in-101789117958664.html",
-          "date": "9月11日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "The race for the next big weight - loss drug is on and China wants in",
-          "src": "livemint.com",
-          "url": "https://www.livemint.com/global/the-race-for-the-next-big-weight-loss-drug-is-on-and-china-wants-in-11789089503857.html",
-          "date": "9月11日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "India biotech start - ups need patient capital to drive novel drug innovation , industry leaders say",
-          "src": "thehindubusinessline.com",
-          "url": "https://www.thehindubusinessline.com/companies/indias-biotech-start-ups-need-patient-capital-to-drive-novel-drug-innovation-industry-leaders-say/article71487718.ece",
-          "date": "9月20日",
-          "desc": "",
-          "dom": false
-        }
-      ]
+      "items": []
     },
     {
       "name": "消费产业政策与进展",
-      "items": []
+      "items": [
+        {
+          "title": "China unveils second batch of 32 pilot cities for retail sector innovation",
+          "src": "china.org.cn",
+          "url": "http://www.china.org.cn/2026-09/04/content_118680089.shtml",
+          "date": "9月4日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China unveils measures to expand , upgrade consumer goods consumption",
+          "src": "english.anhuinews.com",
+          "url": "http://english.anhuinews.com/newscenter/headline/202609/t20260901_9544708.html",
+          "date": "9月1日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "From barbecue to immersive theater , diverse consumption scenarios bring new vitality to China consumer market",
+          "src": "china.org.cn",
+          "url": "http://www.china.org.cn/2026-09/25/content_118712917.shtml",
+          "date": "9月25日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China consumer , wholesale inflation rebound in August",
+          "src": "cnbc.com",
+          "url": "https://www.cnbc.com/2026/09/09/china-cpi-ppi-august-oil-prices-tech-manufacturing-.html",
+          "date": "9月9日",
+          "desc": "",
+          "dom": true
+        }
+      ]
     },
     {
       "name": "其它重大政策及事件",
       "items": [
         {
-          "title": "欧洲央行维持三大关键利率不变",
+          "title": "央行决定上调金融机构外汇存款准备金率2个百分点",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202610/30/WS6ae3ef0be4b09a165c792755.html",
-          "date": "10月30日",
-          "desc": "2026-10-3009:06",
+          "url": "//caijing.chinadaily.com.cn/a/202611/03/WS6ae93a01e4b0e14252fc8bf6.html",
+          "date": "11月3日",
+          "desc": "2026-11-0309:32",
           "dom": true
         },
         {
-          "title": "C财经｜科技赋能绘就“丰”景",
+          "title": "红果用户数超越豆包！短剧撑起移动互联网使用时长",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202610/30/WS6ae43827e4b09a165c792900.html",
-          "date": "10月30日",
-          "desc": "科技不仅提升了产量和品质，更推动农业走向精细化、高效化、绿色化、品牌化。2026-10-3014:24",
+          "url": "//caijing.chinadaily.com.cn/a/202611/03/WS6ae99694e4b0e14252fc8e3e.html",
+          "date": "11月3日",
+          "desc": "从移动互联网使用时长增量看，短剧视频、短视频已成为核心引擎，截至2026年9月，其增长贡献率达到111.5%（吞噬了在线视频、综合资讯等领域时长）。2026-11-0316:07",
           "dom": true
         },
         {
-          "title": "“金九银十”收官 二手房市场成交韧性延续",
+          "title": "测评泛滥，找工作怎么成了无尽的“刷题闯关”？",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202611/02/WS6ae7f1d6e4b09a165c792d59.html",
-          "date": "11月2日",
-          "desc": "2026-11-0210:09",
+          "url": "//caijing.chinadaily.com.cn/a/202611/03/WS6ae94516e4b0e14252fc8c24.html",
+          "date": "11月3日",
+          "desc": "2026-11-0310:20",
           "dom": true
         },
         {
-          "title": "沪深上市公司前三季度净利润超5万亿元",
+          "title": "算力用电年均新增一千亿度以上，怎么接住？",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202611/02/WS6ae7f1d2e4b09a165c792d58.html",
-          "date": "11月2日",
-          "desc": "2026-11-0210:10",
+          "url": "//caijing.chinadaily.com.cn/a/202611/03/WS6ae93a80e4b0e14252fc8bfe.html",
+          "date": "11月3日",
+          "desc": "2026-11-0309:35",
           "dom": true
         }
       ]
