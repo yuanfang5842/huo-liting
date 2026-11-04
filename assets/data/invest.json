@@ -1,11 +1,9 @@
 {
-  "updated": "2026-11-04 03:30 UTC",
+  "updated": "2026-11-04 13:20 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
-    "GDELT·半导体产业政策与进展及风险",
-    "GDELT·消费产业政策与进展",
     "GDELT·其它重大政策及事件"
   ],
   "modules": [
@@ -15,48 +13,7 @@
     },
     {
       "name": "半导体产业政策与进展及风险",
-      "items": [
-        {
-          "title": "Chinese Chip Toolmakers Post 400 % Profit Surge as Overseas Supplier Two - Year Backlogs Reshape the Industry",
-          "src": "wccftech.com",
-          "url": "https://wccftech.com/chinese-chip-toolmakers-post-400-profit-surge-as-overseas-suppliers-two-year-backlogs-reshape-the-industry/",
-          "date": "8月19日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "From isolation to independence : How China took its chip sector to the next level",
-          "src": "hani.co.kr",
-          "url": "https://www.hani.co.kr/arti/english_edition/e_business/1272806.html",
-          "date": "8月13日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China Chip Equipment Hits 35 %; Vacuum Valves and RF Power Remain 80 % Foreign",
-          "src": "techtimes.com",
-          "url": "https://www.techtimes.com/articles/325956/20260829/china-chip-equipment-hits-35-vacuum-valves-rf-power-remain-80-foreign.htm",
-          "date": "8月29日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China domestic DUV lithography breakthrough : Lessons of technological self - reliance for Africa and the Global South",
-          "src": "thestandard.co.zw",
-          "url": "https://thestandard.co.zw/standard-people/article/200059024/chinas-domestic-duv-lithography-breakthrough-lessons-of-technological-self-reliance-for-africa-and-the-global-south",
-          "date": "8月27日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Tata Electronics : India Aims for 25 % of Global Semiconductor Market by 2032 , Urgent Need for Chip Units & Supply Chain Growth , ETTelecom",
-          "src": "telecom.economictimes.indiatimes.com",
-          "url": "https://telecom.economictimes.indiatimes.com/news/devices/india-needs-more-chip-units-robust-domestic-supply-chain-to-meet-25-global-semiconductor-demand-report/134450028",
-          "date": "9月24日",
-          "desc": "",
-          "dom": false
-        }
-      ]
+      "items": []
     },
     {
       "name": "商业航天产业政策与进展",
@@ -72,40 +29,7 @@
     },
     {
       "name": "消费产业政策与进展",
-      "items": [
-        {
-          "title": "China unveils second batch of 32 pilot cities for retail sector innovation",
-          "src": "china.org.cn",
-          "url": "http://www.china.org.cn/2026-09/04/content_118680089.shtml",
-          "date": "9月4日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China unveils measures to expand , upgrade consumer goods consumption",
-          "src": "english.anhuinews.com",
-          "url": "http://english.anhuinews.com/newscenter/headline/202609/t20260901_9544708.html",
-          "date": "9月1日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "From barbecue to immersive theater , diverse consumption scenarios bring new vitality to China consumer market",
-          "src": "china.org.cn",
-          "url": "http://www.china.org.cn/2026-09/25/content_118712917.shtml",
-          "date": "9月25日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China consumer , wholesale inflation rebound in August",
-          "src": "cnbc.com",
-          "url": "https://www.cnbc.com/2026/09/09/china-cpi-ppi-august-oil-prices-tech-manufacturing-.html",
-          "date": "9月9日",
-          "desc": "",
-          "dom": true
-        }
-      ]
+      "items": []
     },
     {
       "name": "其它重大政策及事件",
