@@ -1,13 +1,10 @@
 {
-  "updated": "2026-11-03 22:37 UTC",
+  "updated": "2026-11-04 03:30 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
     "GDELT·半导体产业政策与进展及风险",
-    "GDELT·商业航天产业政策与进展",
-    "GDELT·新能源产业政策与进展",
-    "GDELT·医药行业产业政策与进展",
     "GDELT·消费产业政策与进展",
     "GDELT·其它重大政策及事件"
   ],
@@ -44,10 +41,18 @@
           "dom": true
         },
         {
-          "title": "TSMC vs . ASML : Which Is the Better Semiconductor Equipment Stock to Own for the Next 10 Years ?",
-          "src": "fool.com",
-          "url": "https://www.fool.com/investing/2026/08/10/tsmc-vs-asml-which-is-the-better-semiconductor-equ/",
-          "date": "8月11日",
+          "title": "China domestic DUV lithography breakthrough : Lessons of technological self - reliance for Africa and the Global South",
+          "src": "thestandard.co.zw",
+          "url": "https://thestandard.co.zw/standard-people/article/200059024/chinas-domestic-duv-lithography-breakthrough-lessons-of-technological-self-reliance-for-africa-and-the-global-south",
+          "date": "8月27日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "Tata Electronics : India Aims for 25 % of Global Semiconductor Market by 2032 , Urgent Need for Chip Units & Supply Chain Growth , ETTelecom",
+          "src": "telecom.economictimes.indiatimes.com",
+          "url": "https://telecom.economictimes.indiatimes.com/news/devices/india-needs-more-chip-units-robust-domestic-supply-chain-to-meet-25-global-semiconductor-demand-report/134450028",
+          "date": "9月24日",
           "desc": "",
           "dom": false
         }
@@ -55,122 +60,15 @@
     },
     {
       "name": "商业航天产业政策与进展",
-      "items": [
-        {
-          "title": "Kinetica - 1 successfully launches 9 satellites as China completes 6 orbital launches in 6 days",
-          "src": "globaltimes.cn",
-          "url": "https://www.globaltimes.cn/page/202609/1370940.shtml",
-          "date": "9月20日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China launches 24th batch of low - orbit internet satellites from Hainan site",
-          "src": "timesofindia.indiatimes.com",
-          "url": "https://timesofindia.indiatimes.com/world/china/china-launches-24th-batch-of-low-orbit-internet-satellites-from-hainan-site/articleshow/133273853.cms",
-          "date": "8月16日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Why China rocket breakthrough and Russia satellite push are worrying the US",
-          "src": "moneycontrol.com",
-          "url": "https://www.moneycontrol.com/world/why-china-s-rocket-breakthrough-and-russia-s-satellite-push-are-worrying-the-us-article-14016138.html",
-          "date": "8月26日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China Orbital Rocket Recovery : China becomes first to recover orbital rockets using two methods : How Zhuque - 3 works",
-          "src": "timesofindia.indiatimes.com",
-          "url": "https://timesofindia.indiatimes.com/science/china-becomes-first-to-recover-orbital-rockets-using-two-methods-how-zhuque-3-works/articleshow/133341418.cms",
-          "date": "8月19日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Prediction : 2 Space Stocks That Could Join SpaceX and Rocket Lab in the Nasdaq - 100 by 2030",
-          "src": "fool.com",
-          "url": "https://www.fool.com/investing/2026/10/02/prediction-2-space-stocks-that-could-join-spacex-i/",
-          "date": "10月2日",
-          "desc": "",
-          "dom": false
-        }
-      ]
+      "items": []
     },
     {
       "name": "新能源产业政策与进展",
-      "items": [
-        {
-          "title": "China Halts New Battery Storage Plant Approvals",
-          "src": "zerohedge.com",
-          "url": "https://www.zerohedge.com/energy/china-halts-new-battery-storage-plant-approvals",
-          "date": "9月9日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China temporarily suspends new battery storage factory approvals : Report",
-          "src": "aninews.in",
-          "url": "https://aninews.in/news/business/china-temporarily-suspends-new-battery-storage-factory-approvals-report20260907145343/",
-          "date": "9月7日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Ganfeng Lithium Net profit for first three quarters surged 195 times year - on - year",
-          "src": "autonews.gasgoo.com",
-          "url": "https://autonews.gasgoo.com/articles/ev/ganfeng-lithium-net-profit-for-first-three-quarters-surged-195-times-year-on-year-2111353166137802752",
-          "date": "10月17日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Global Battery Electrolyte Market to Reach USD 50 . 98 Bn . by 2034 as EV Expansion , Grid - Scale Energy Storage and Next - Generation Battery Technologies Accelerate Demand Maximize Market Research Reports",
-          "src": "prnewswire.com",
-          "url": "https://www.prnewswire.com/news-releases/global-battery-electrolyte-market-to-reach-usd-50-98-bn-by-2034-as-ev-expansion-grid-scale-energy-storage-and-next-generation-battery-technologies-accelerate-demand-maximize-market-research-reports-302894415.html",
-          "date": "9月30日",
-          "desc": "",
-          "dom": false
-        }
-      ]
+      "items": []
     },
     {
       "name": "医药行业产业政策与进展",
-      "items": [
-        {
-          "title": "The numbers behind China pharma rise",
-          "src": "swissinfo.ch",
-          "url": "https://www.swissinfo.ch/eng/healthcare-innovation/the-numbers-behind-chinas-pharma-rise/91994947",
-          "date": "9月3日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "The Race for the Next Big Weight - Loss Drug Is On and China Wants In",
-          "src": "hindustantimes.com",
-          "url": "https://www.hindustantimes.com/world-news/the-race-for-the-next-big-weight-loss-drug-is-on-and-china-wants-in-101789117958664.html",
-          "date": "9月11日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "The race for the next big weight - loss drug is on and China wants in",
-          "src": "livemint.com",
-          "url": "https://www.livemint.com/global/the-race-for-the-next-big-weight-loss-drug-is-on-and-china-wants-in-11789089503857.html",
-          "date": "9月11日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "India biotech start - ups need patient capital to drive novel drug innovation , industry leaders say",
-          "src": "thehindubusinessline.com",
-          "url": "https://www.thehindubusinessline.com/companies/indias-biotech-start-ups-need-patient-capital-to-drive-novel-drug-innovation-industry-leaders-say/article71487718.ece",
-          "date": "9月20日",
-          "desc": "",
-          "dom": false
-        }
-      ]
+      "items": []
     },
     {
       "name": "消费产业政策与进展",
@@ -221,6 +119,14 @@
           "dom": true
         },
         {
+          "title": "重要信号！近5年来，央行首次上调",
+          "src": "中华国内",
+          "url": "https://news.china.com/domestic/945/20261104/49837703.html",
+          "date": "11月4日",
+          "desc": "",
+          "dom": true
+        },
+        {
           "title": "红果用户数超越豆包！短剧撑起移动互联网使用时长",
           "src": "中国日报财经",
           "url": "//caijing.chinadaily.com.cn/a/202611/03/WS6ae99694e4b0e14252fc8e3e.html",
@@ -234,14 +140,6 @@
           "url": "//caijing.chinadaily.com.cn/a/202611/03/WS6ae94516e4b0e14252fc8c24.html",
           "date": "11月3日",
           "desc": "2026-11-0310:20",
-          "dom": true
-        },
-        {
-          "title": "算力用电年均新增一千亿度以上，怎么接住？",
-          "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202611/03/WS6ae93a80e4b0e14252fc8bfe.html",
-          "date": "11月3日",
-          "desc": "2026-11-0309:35",
           "dom": true
         }
       ]
