@@ -1,9 +1,11 @@
 {
-  "updated": "2026-11-05 22:56 UTC",
+  "updated": "2026-11-06 03:50 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
+    "GDELT·商业航天产业政策与进展",
+    "GDELT·新能源产业政策与进展",
     "GDELT·其它重大政策及事件"
   ],
   "modules": [
@@ -17,11 +19,85 @@
     },
     {
       "name": "商业航天产业政策与进展",
-      "items": []
+      "items": [
+        {
+          "title": "我国成功发射遥感五十一号07-09星",
+          "src": "中华国内",
+          "url": "https://news.china.com/domestic/945/20261106/49845494.html",
+          "date": "11月6日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "Kinetica - 1 successfully launches 9 satellites as China completes 6 orbital launches in 6 days",
+          "src": "globaltimes.cn",
+          "url": "https://www.globaltimes.cn/page/202609/1370940.shtml",
+          "date": "9月20日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China launches 24th batch of low - orbit internet satellites from Hainan site",
+          "src": "timesofindia.indiatimes.com",
+          "url": "https://timesofindia.indiatimes.com/world/china/china-launches-24th-batch-of-low-orbit-internet-satellites-from-hainan-site/articleshow/133273853.cms",
+          "date": "8月16日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "Why China rocket breakthrough and Russia satellite push are worrying the US",
+          "src": "moneycontrol.com",
+          "url": "https://www.moneycontrol.com/world/why-china-s-rocket-breakthrough-and-russia-s-satellite-push-are-worrying-the-us-article-14016138.html",
+          "date": "8月26日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "Prediction : 2 Space Stocks That Could Join SpaceX and Rocket Lab in the Nasdaq - 100 by 2030",
+          "src": "fool.com",
+          "url": "https://www.fool.com/investing/2026/10/02/prediction-2-space-stocks-that-could-join-spacex-i/",
+          "date": "10月2日",
+          "desc": "",
+          "dom": false
+        }
+      ]
     },
     {
       "name": "新能源产业政策与进展",
-      "items": []
+      "items": [
+        {
+          "title": "China Halts New Battery Storage Plant Approvals",
+          "src": "zerohedge.com",
+          "url": "https://www.zerohedge.com/energy/china-halts-new-battery-storage-plant-approvals",
+          "date": "9月9日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China temporarily suspends new battery storage factory approvals : Report",
+          "src": "aninews.in",
+          "url": "https://aninews.in/news/business/china-temporarily-suspends-new-battery-storage-factory-approvals-report20260907145343/",
+          "date": "9月7日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "Ganfeng Lithium Net profit for first three quarters surged 195 times year - on - year",
+          "src": "autonews.gasgoo.com",
+          "url": "https://autonews.gasgoo.com/articles/ev/ganfeng-lithium-net-profit-for-first-three-quarters-surged-195-times-year-on-year-2111353166137802752",
+          "date": "10月17日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "Global Battery Electrolyte Market to Reach USD 50 . 98 Bn . by 2034 as EV Expansion , Grid - Scale Energy Storage and Next - Generation Battery Technologies Accelerate Demand Maximize Market Research Reports",
+          "src": "prnewswire.com",
+          "url": "https://www.prnewswire.com/news-releases/global-battery-electrolyte-market-to-reach-usd-50-98-bn-by-2034-as-ev-expansion-grid-scale-energy-storage-and-next-generation-battery-technologies-accelerate-demand-maximize-market-research-reports-302894415.html",
+          "date": "9月30日",
+          "desc": "",
+          "dom": false
+        }
+      ]
     },
     {
       "name": "医药行业产业政策与进展",
@@ -35,35 +111,35 @@
       "name": "其它重大政策及事件",
       "items": [
         {
-          "title": "央行决定上调金融机构外汇存款准备金率2个百分点",
+          "title": "全国铁路首批列车车次变更将于11月下旬实施",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202611/03/WS6ae93a01e4b0e14252fc8bf6.html",
-          "date": "11月3日",
-          "desc": "2026-11-0309:32",
+          "url": "//caijing.chinadaily.com.cn/a/202611/06/WS6aed3b45e4b0e14252fc97f8.html",
+          "date": "11月6日",
+          "desc": "2026-11-0610:27",
           "dom": true
         },
         {
-          "title": "从“大锅饭”到“自助餐”——精准营养在中国的产业化时刻",
+          "title": "年内熊猫债发行超2500亿元 再创新高",
           "src": "中国日报财经",
-          "url": "//cn.chinadaily.com.cn/a/202611/05/WS6aec3704e4b0e14252fc964d.html",
-          "date": "11月5日",
-          "desc": "10月31日，昆明。中国食品科学技术学会第二十三届年会现场，“精准营养”成为这场食品科学界盛会的热词。2026-11-0515:57",
+          "url": "//caijing.chinadaily.com.cn/a/202611/06/WS6aed3d22e4b0e14252fc9816.html",
+          "date": "11月6日",
+          "desc": "2026-11-0610:35",
           "dom": true
         },
         {
-          "title": "直播间里的Token，你会买吗？",
+          "title": "从每盎司跌破3900美元到重回4100美元 金价企稳？",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202611/05/WS6aec1871e4b0e14252fc951d.html",
-          "date": "11月5日",
-          "desc": "Token进直播间，其实也是一个标志：大模型不再只活在发布会、API文档和企业采购单里，而是被搬上货架，直接卖给大众。2026-11-0513:47",
+          "url": "//caijing.chinadaily.com.cn/a/202611/06/WS6aed3dfce4b0e14252fc9819.html",
+          "date": "11月6日",
+          "desc": "2026-11-0610:39",
           "dom": true
         },
         {
-          "title": "想象中的智能生活，正变得触手可及",
+          "title": "世行：最不发达国家外债成本创下近40年来新高",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202611/05/WS6aec18e4e4b0e14252fc9524.html",
-          "date": "11月5日",
-          "desc": "用智能仿生手弹奏钢琴曲，体验裸眼3D视频通话，看机器人大厨炒制热气腾腾的回锅肉……走进2026年世界互联网大会“互联网之光”博览会，曾经想象中的智能生活，正变得触手可及。2026-11-0513:48",
+          "url": "//caijing.chinadaily.com.cn/a/202611/06/WS6aed3e89e4b0e14252fc981c.html",
+          "date": "11月6日",
+          "desc": "2026-11-0610:42",
           "dom": true
         }
       ]
