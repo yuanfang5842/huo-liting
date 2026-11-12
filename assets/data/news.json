@@ -1,35 +1,45 @@
 {
-  "updated": "2026-11-11 23:45 UTC",
+  "updated": "2026-11-12 04:31 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·健康/国内",
+    "GDELT·国内新药/临床/科研",
     "GDELT·海外FDA与全球进展"
   ],
   "grouped": {
-    "国内新药/临床/科研": [],
+    "国内新药/临床/科研": [
+      {
+        "title": "Move Aside , Moderna : This mRNA Stock Is Sitting on a Cash Pile and a Deep Cancer Pipeline",
+        "src": "aol.com",
+        "url": "https://www.aol.com/articles/move-aside-moderna-mrna-stock-164300000.html",
+        "date": "10月17日",
+        "desc": "",
+        "dom": false
+      }
+    ],
     "海外FDA与全球进展": [
       {
-        "title": "Dr . Falk Pharma and Renexxion Reach Alignment with FDA and EMA on Phase 3 Program for Naronapride in Gastroparesis",
-        "src": "manilatimes.net",
-        "url": "https://www.manilatimes.net/2026/10/21/tmt-newswire/globenewswire/dr-falk-pharma-and-renexxion-reach-alignment-with-fda-and-ema-on-phase-3-program-for-naronapride-in-gastroparesis/2450778",
-        "date": "10月21日",
+        "title": "Sillajen Hits Upper Limit on FDA Orphan Drug Status , Hanmi Pharma Plunges [ K - Bio Pulse ]",
+        "src": "edaily.co.kr",
+        "url": "https://www.edaily.co.kr/News/Read?newsId=02597766645551584&mediaCodeNo=257",
+        "date": "8月26日",
         "desc": "",
         "dom": false
       },
       {
-        "title": "EMA Upholds Rejection of Posttransplant Complication Drug",
-        "src": "medscape.com",
-        "url": "https://www.medscape.com/viewarticle/ema-upholds-rejection-posttransplant-complication-drug-2026a10013l6",
-        "date": "10月21日",
+        "title": "SOT106 Lands Dual FDA Designations for Osteosarcoma and Soft Tissue Sarcoma",
+        "src": "onclive.com",
+        "url": "https://www.onclive.com/view/sot106-lands-dual-fda-designations-for-osteosarcoma-and-soft-tissue-sarcoma",
+        "date": "9月28日",
         "desc": "",
         "dom": false
       },
       {
-        "title": "FDA Issues New Guidance On Therapeutic Equivalence",
-        "src": "pharmaceuticalonline.com",
-        "url": "https://www.pharmaceuticalonline.com/doc/fda-issues-new-guidance-on-therapeutic-equivalence-0001",
-        "date": "9月1日",
+        "title": "FDA Sharpens Its Pencil And Oversight Tools On Global Clinical Trial Data",
+        "src": "mondaq.com",
+        "url": "https://www.mondaq.com:443/unitedstates/life-sciences-biotechnology-nanotechnology/1841128/fda-sharpens-its-pencil-and-oversight-tools-on-global-clinical-trial-data",
+        "date": "9月10日",
         "desc": "",
         "dom": false
       }
