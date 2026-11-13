@@ -1,35 +1,45 @@
 {
-  "updated": "2026-11-13 03:45 UTC",
+  "updated": "2026-11-13 13:29 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·健康/国内",
+    "GDELT·国内新药/临床/科研",
     "GDELT·海外FDA与全球进展"
   ],
   "grouped": {
-    "国内新药/临床/科研": [],
+    "国内新药/临床/科研": [
+      {
+        "title": "Move Aside , Moderna : This mRNA Stock Is Sitting on a Cash Pile and a Deep Cancer Pipeline",
+        "src": "aol.com",
+        "url": "https://www.aol.com/articles/move-aside-moderna-mrna-stock-164300000.html",
+        "date": "10月17日",
+        "desc": "",
+        "dom": false
+      }
+    ],
     "海外FDA与全球进展": [
       {
-        "title": "Rasonque earns FDA approval for pancreatic cancer",
-        "src": "healio.com",
-        "url": "https://www.healio.com/news/hematology-oncology/20260826/rasonque-nabs-fda-approval-for-previously-treated-metastatic-pancreatic-adenocarcinoma",
+        "title": "Sillajen Hits Upper Limit on FDA Orphan Drug Status , Hanmi Pharma Plunges [ K - Bio Pulse ]",
+        "src": "edaily.co.kr",
+        "url": "https://www.edaily.co.kr/News/Read?newsId=02597766645551584&mediaCodeNo=257",
         "date": "8月26日",
         "desc": "",
         "dom": false
       },
       {
-        "title": "Revolution Medicines Wins FDA Approval For Rasonque In Pancreatic Cancer",
-        "src": "rttnews.com",
-        "url": "https://www.rttnews.com/3684909/revolution-medicines-wins-fda-approval-for-rasonque-in-pancreatic-cancer.aspx",
-        "date": "8月26日",
+        "title": "SOT106 Lands Dual FDA Designations for Osteosarcoma and Soft Tissue Sarcoma",
+        "src": "onclive.com",
+        "url": "https://www.onclive.com/view/sot106-lands-dual-fda-designations-for-osteosarcoma-and-soft-tissue-sarcoma",
+        "date": "9月28日",
         "desc": "",
         "dom": false
       },
       {
-        "title": "FDA approves first - in - class targeted therapy for metastatic pancreatic cancer",
-        "src": "gulfcoastmedia.com",
-        "url": "http://www.gulfcoastmedia.com/stories/fda-approves-first-in-class-targeted-therapy-for-metastatic-pancreatic-cancer,346306",
-        "date": "9月8日",
+        "title": "FDA Sharpens Its Pencil And Oversight Tools On Global Clinical Trial Data",
+        "src": "mondaq.com",
+        "url": "https://www.mondaq.com:443/unitedstates/life-sciences-biotechnology-nanotechnology/1841128/fda-sharpens-its-pencil-and-oversight-tools-on-global-clinical-trial-data",
+        "date": "9月10日",
         "desc": "",
         "dom": false
       }
