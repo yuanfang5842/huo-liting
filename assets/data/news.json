@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-13 22:56 UTC",
+  "updated": "2026-11-14 03:43 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
@@ -16,14 +16,38 @@
         "date": "9月7日",
         "desc": "",
         "dom": false
+      },
+      {
+        "title": "Move Aside , Moderna : This mRNA Stock Is Sitting on a Cash Pile and a Deep Cancer Pipeline",
+        "src": "aol.com",
+        "url": "https://www.aol.com/articles/move-aside-moderna-mrna-stock-164300000.html",
+        "date": "10月17日",
+        "desc": "",
+        "dom": false
       }
     ],
     "海外FDA与全球进展": [
       {
-        "title": "PIMJETMI® ( pimicotinib ) Developed by Abbisko Therapeutics and Licensed by Merck KGaA , Darmstadt , Germany Receive U . S . FDA Approval for TGCT",
-        "src": "manilatimes.net",
-        "url": "https://www.manilatimes.net/2026/11/11/tmt-newswire/pr-newswire/pimjetmi-pimicotinib-developed-by-abbisko-therapeutics-and-licensed-by-merck-kgaa-darmstadt-germany-receive-us-fda-approval-for-tgct/2467209",
-        "date": "11月11日",
+        "title": "Sillajen Hits Upper Limit on FDA Orphan Drug Status , Hanmi Pharma Plunges [ K - Bio Pulse ]",
+        "src": "edaily.co.kr",
+        "url": "https://www.edaily.co.kr/News/Read?newsId=02597766645551584&mediaCodeNo=257",
+        "date": "8月26日",
+        "desc": "",
+        "dom": false
+      },
+      {
+        "title": "SOT106 Lands Dual FDA Designations for Osteosarcoma and Soft Tissue Sarcoma",
+        "src": "onclive.com",
+        "url": "https://www.onclive.com/view/sot106-lands-dual-fda-designations-for-osteosarcoma-and-soft-tissue-sarcoma",
+        "date": "9月28日",
+        "desc": "",
+        "dom": false
+      },
+      {
+        "title": "FDA Sharpens Its Pencil And Oversight Tools On Global Clinical Trial Data",
+        "src": "mondaq.com",
+        "url": "https://www.mondaq.com:443/unitedstates/life-sciences-biotechnology-nanotechnology/1841128/fda-sharpens-its-pencil-and-oversight-tools-on-global-clinical-trial-data",
+        "date": "9月10日",
         "desc": "",
         "dom": false
       }
