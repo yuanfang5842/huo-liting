@@ -1,9 +1,10 @@
 {
-  "updated": "2026-11-18 00:04 UTC",
+  "updated": "2026-11-18 14:39 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
+    "GDELT·商业航天产业政策与进展",
     "GDELT·消费产业政策与进展",
     "GDELT·其它重大政策及事件"
   ],
@@ -18,7 +19,48 @@
     },
     {
       "name": "商业航天产业政策与进展",
-      "items": []
+      "items": [
+        {
+          "title": "China CERES - 2 rocket returns to flight , placing four satellites into orbit",
+          "src": "globaltimes.cn",
+          "url": "https://www.globaltimes.cn/page/202611/1373836.shtml",
+          "date": "11月7日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "Kinetica - 1 successfully launches 9 satellites as China completes 6 orbital launches in 6 days",
+          "src": "globaltimes.cn",
+          "url": "https://www.globaltimes.cn/page/202609/1370940.shtml",
+          "date": "9月20日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "Why China rocket breakthrough and Russia satellite push are worrying the US",
+          "src": "moneycontrol.com",
+          "url": "https://www.moneycontrol.com/world/why-china-s-rocket-breakthrough-and-russia-s-satellite-push-are-worrying-the-us-article-14016138.html",
+          "date": "8月26日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China Long March rockets carry forward historic grit for new space exploration",
+          "src": "globaltimes.cn",
+          "url": "https://www.globaltimes.cn/page/202610/1372503.shtml",
+          "date": "10月18日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "Prediction : 2 Space Stocks That Could Join SpaceX and Rocket Lab in the Nasdaq - 100 by 2030",
+          "src": "fool.com",
+          "url": "https://www.fool.com/investing/2026/10/02/prediction-2-space-stocks-that-could-join-spacex-i/",
+          "date": "10月2日",
+          "desc": "",
+          "dom": false
+        }
+      ]
     },
     {
       "name": "新能源产业政策与进展",
@@ -32,17 +74,17 @@
       "name": "消费产业政策与进展",
       "items": [
         {
-          "title": "“智能好物”热卖，消费解锁新空间",
-          "src": "中华国内",
-          "url": "https://news.china.com/domestic/945/20261117/49878595.html",
-          "date": "11月17日",
-          "desc": "",
+          "title": "从“尝鲜”到“热销” 智能消费扩容升级",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202611/18/WS6afd2216e4b0e14252fcbd61.html",
+          "date": "11月18日",
+          "desc": "2026-11-1811:56",
           "dom": true
         },
         {
-          "title": "怎样看待当前消费形势（每周经济评论）",
+          "title": "“智能好物”热卖，消费解锁新空间",
           "src": "中华国内",
-          "url": "https://news.china.com/domestic/945/20261117/49878125.html",
+          "url": "https://news.china.com/domestic/945/20261117/49878595.html",
           "date": "11月17日",
           "desc": "",
           "dom": true
@@ -53,35 +95,35 @@
       "name": "其它重大政策及事件",
       "items": [
         {
+          "title": "商务部：中加同意将初步联合安排的相关豁免措施延长2年",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202611/18/WS6afd233be4b0e14252fcbd65.html",
+          "date": "11月18日",
+          "desc": "2026-11-1812:01",
+          "dom": true
+        },
+        {
+          "title": "从“用得上”到“用得好” “人工智能+”加速规模化落地",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202611/18/WS6afd237be4b0e14252fcbd69.html",
+          "date": "11月18日",
+          "desc": "2026-11-1812:02",
+          "dom": true
+        },
+        {
+          "title": "三组关键词折射机构对资本市场改革新期待",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202611/18/WS6afd2252e4b0e14252fcbd63.html",
+          "date": "11月18日",
+          "desc": "2026-11-1811:57",
+          "dom": true
+        },
+        {
           "title": "全国铁路首批列车车次变更将于11月下旬实施",
           "src": "中国日报财经",
           "url": "//caijing.chinadaily.com.cn/a/202611/06/WS6aed3b45e4b0e14252fc97f8.html",
           "date": "11月6日",
           "desc": "2026-11-0610:27",
-          "dom": true
-        },
-        {
-          "title": "年内熊猫债发行超2500亿元 再创新高",
-          "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202611/06/WS6aed3d22e4b0e14252fc9816.html",
-          "date": "11月6日",
-          "desc": "2026-11-0610:35",
-          "dom": true
-        },
-        {
-          "title": "从每盎司跌破3900美元到重回4100美元 金价企稳？",
-          "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202611/06/WS6aed3dfce4b0e14252fc9819.html",
-          "date": "11月6日",
-          "desc": "2026-11-0610:39",
-          "dom": true
-        },
-        {
-          "title": "世行：最不发达国家外债成本创下近40年来新高",
-          "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202611/06/WS6aed3e89e4b0e14252fc981c.html",
-          "date": "11月6日",
-          "desc": "2026-11-0610:42",
           "dom": true
         }
       ]
