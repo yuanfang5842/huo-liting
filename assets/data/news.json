@@ -1,30 +1,36 @@
 {
-  "updated": "2026-11-17 14:58 UTC",
+  "updated": "2026-11-18 00:04 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·健康/国内",
-    "GDELT·国内新药/临床/科研",
     "GDELT·海外FDA与全球进展",
     "GDELT·政策/医保/行业"
   ],
   "grouped": {
-    "国内新药/临床/科研": [
-      {
-        "title": "Rezubio Announces FDA and NMPA IND Clearances and First Cohort Dosing of RZ - 520 , a Novel Inhaled Therapy for Chronic Respiratory Diseases",
-        "src": "manilatimes.net",
-        "url": "https://www.manilatimes.net/2026/09/07/tmt-newswire/globenewswire/rezubio-announces-fda-and-nmpa-ind-clearances-and-first-cohort-dosing-of-rz-520-a-novel-inhaled-therapy-for-chronic-respiratory-diseases/2419531",
-        "date": "9月7日",
-        "desc": "",
-        "dom": false
-      }
-    ],
+    "国内新药/临床/科研": [],
     "海外FDA与全球进展": [
       {
-        "title": "PIMJETMI® ( pimicotinib ) Developed by Abbisko Therapeutics and Licensed by Merck KGaA , Darmstadt , Germany Receive U . S . FDA Approval for TGCT",
+        "title": "Dr . Falk Pharma and Renexxion Reach Alignment with FDA and EMA on Phase 3 Program for Naronapride in Gastroparesis",
         "src": "manilatimes.net",
-        "url": "https://www.manilatimes.net/2026/11/11/tmt-newswire/pr-newswire/pimjetmi-pimicotinib-developed-by-abbisko-therapeutics-and-licensed-by-merck-kgaa-darmstadt-germany-receive-us-fda-approval-for-tgct/2467209",
-        "date": "11月11日",
+        "url": "https://www.manilatimes.net/2026/10/21/tmt-newswire/globenewswire/dr-falk-pharma-and-renexxion-reach-alignment-with-fda-and-ema-on-phase-3-program-for-naronapride-in-gastroparesis/2450778",
+        "date": "10月21日",
+        "desc": "",
+        "dom": false
+      },
+      {
+        "title": "EMA Upholds Rejection of Posttransplant Complication Drug",
+        "src": "medscape.com",
+        "url": "https://www.medscape.com/viewarticle/ema-upholds-rejection-posttransplant-complication-drug-2026a10013l6",
+        "date": "10月21日",
+        "desc": "",
+        "dom": false
+      },
+      {
+        "title": "FDA Issues New Guidance On Therapeutic Equivalence",
+        "src": "pharmaceuticalonline.com",
+        "url": "https://www.pharmaceuticalonline.com/doc/fda-issues-new-guidance-on-therapeutic-equivalence-0001",
+        "date": "9月1日",
         "desc": "",
         "dom": false
       }
