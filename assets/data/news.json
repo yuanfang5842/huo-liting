@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-19 04:41 UTC",
+  "updated": "2026-11-19 14:46 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
@@ -10,6 +10,14 @@
   ],
   "grouped": {
     "国内新药/临床/科研": [
+      {
+        "title": "IASO Bio Announces NMPA IND Approval for IASO208 , Advancing Its In Vivo CAR - T Platform into Synchronized U . S .- China Clinical Development",
+        "src": "prnewswire.com",
+        "url": "https://www.prnewswire.com/news-releases/iaso-bio-announces-nmpa-ind-approval-for-iaso208-advancing-its-in-vivo-car-t-platform-into-synchronized-uschina-clinical-development-302935962.html",
+        "date": "11月11日",
+        "desc": "",
+        "dom": true
+      },
       {
         "title": "Move Aside , Moderna : This mRNA Stock Is Sitting on a Cash Pile and a Deep Cancer Pipeline",
         "src": "aol.com",
@@ -33,6 +41,14 @@
         "src": "mondaq.com",
         "url": "https://www.mondaq.com:443/unitedstates/life-sciences-biotechnology-nanotechnology/1841128/fda-sharpens-its-pencil-and-oversight-tools-on-global-clinical-trial-data",
         "date": "9月10日",
+        "desc": "",
+        "dom": false
+      },
+      {
+        "title": "FDA approves first - in - class targeted therapy for metastatic pancreatic cancer",
+        "src": "gulfcoastmedia.com",
+        "url": "http://www.gulfcoastmedia.com/stories/fda-approves-first-in-class-targeted-therapy-for-metastatic-pancreatic-cancer,346306",
+        "date": "9月8日",
         "desc": "",
         "dom": false
       }
