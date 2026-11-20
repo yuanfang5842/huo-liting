@@ -1,19 +1,28 @@
 {
-  "updated": "2026-11-20 05:01 UTC",
+  "updated": "2026-11-20 14:27 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
+    "GDELT·昨日美股等国外股市表现",
     "GDELT·半导体产业政策与进展及风险",
     "GDELT·商业航天产业政策与进展",
     "GDELT·新能源产业政策与进展",
-    "GDELT·消费产业政策与进展",
     "GDELT·其它重大政策及事件"
   ],
   "modules": [
     {
       "name": "昨日美股等国外股市表现",
-      "items": []
+      "items": [
+        {
+          "title": "AI热潮难掩忧虑 美股遭重挫",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202611/20/WS6affd579e4b0e14252fcc5c5.html",
+          "date": "11月20日",
+          "desc": "2026-11-2013:06",
+          "dom": true
+        }
+      ]
     },
     {
       "name": "半导体产业政策与进展及风险",
@@ -140,74 +149,41 @@
     },
     {
       "name": "消费产业政策与进展",
-      "items": [
-        {
-          "title": "从“尝鲜”到“热销” 智能消费扩容升级",
-          "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202611/18/WS6afd2216e4b0e14252fcbd61.html",
-          "date": "11月18日",
-          "desc": "2026-11-1811:56",
-          "dom": true
-        },
-        {
-          "title": "China unveils second batch of 32 pilot cities for retail sector innovation",
-          "src": "china.org.cn",
-          "url": "http://www.china.org.cn/2026-09/04/content_118680089.shtml",
-          "date": "9月4日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China unveils measures to expand , upgrade consumer goods consumption",
-          "src": "english.anhuinews.com",
-          "url": "http://english.anhuinews.com/newscenter/headline/202609/t20260901_9544708.html",
-          "date": "9月1日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "From barbecue to immersive theater , diverse consumption scenarios bring new vitality to China consumer market",
-          "src": "china.org.cn",
-          "url": "http://www.china.org.cn/2026-09/25/content_118712917.shtml",
-          "date": "9月25日",
-          "desc": "",
-          "dom": true
-        }
-      ]
+      "items": []
     },
     {
       "name": "其它重大政策及事件",
       "items": [
         {
-          "title": "2025年全球专利申请量创新高 中国大幅领先",
+          "title": "C财经 | 深耕专精特新沃土 北交所五年探索服务中小企业新路径",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202611/19/WS6afebd30e4b0e14252fcc3f8.html",
-          "date": "11月19日",
-          "desc": "2025年全球专利申请量达到390万件，同比增长6%，创近十年来最快增速。其中，来自中国的专利申请量全球第一，且大幅领先第二名。2026-11-1917:10",
+          "url": "//caijing.chinadaily.com.cn/a/202611/20/WS6b00017ce4b0e14252fcc7bf.html",
+          "date": "11月20日",
+          "desc": "2026-11-2016:14",
           "dom": true
         },
         {
-          "title": "新一轮国资国企改革全面实施 国资委要求防止“救助型”并购",
+          "title": "C财经｜温暖过冬 能源供给有保障",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202611/19/WS6afebdc1e4b0e14252fcc406.html",
-          "date": "11月19日",
-          "desc": "继国企改革三年行动、国企改革深化提升行动之后，新一轮国资国企改革全面实施。2026-11-1917:13",
+          "url": "//caijing.chinadaily.com.cn/a/202611/11/WS6af402ffe4b0e14252fca6de.html",
+          "date": "11月11日",
+          "desc": "受超强厄尔尼诺事件影响，预计今冬我国气温总体偏高，但寒潮频次略多、冷暖起伏大，极端天气可能多发频发，预计将给能源保供带来挑战。2026-11-1113:54",
           "dom": true
         },
         {
-          "title": "商务部：中韩自贸协定第二阶段谈判实质性完成",
+          "title": "Anthropic上市融资超$813亿 创史上最大IPO融资纪录",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202611/19/WS6afe8673e4b0e14252fcc1b9.html",
-          "date": "11月19日",
-          "desc": "2026-11-1913:16",
+          "url": "//caijing.chinadaily.com.cn/a/202611/20/WS6affd3fce4b0e14252fcc5bf.html",
+          "date": "11月20日",
+          "desc": "2026-11-2012:59",
           "dom": true
         },
         {
-          "title": "A股年内定增超5000亿元 扩产、补流、整合成主线",
+          "title": "新一期贷款市场报价利率未作调整",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202611/19/WS6afe8676e4b0e14252fcc1ba.html",
-          "date": "11月19日",
-          "desc": "2026-11-1913:16",
+          "url": "//caijing.chinadaily.com.cn/a/202611/20/WS6affd3ffe4b0e14252fcc5c0.html",
+          "date": "11月20日",
+          "desc": "2026-11-2013:00",
           "dom": true
         }
       ]
