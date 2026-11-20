@@ -1,12 +1,11 @@
 {
-  "updated": "2026-11-19 23:56 UTC",
+  "updated": "2026-11-20 05:01 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·健康/国内",
     "GDELT·国内新药/临床/科研",
-    "GDELT·海外FDA与全球进展",
-    "GDELT·政策/医保/行业"
+    "GDELT·海外FDA与全球进展"
   ],
   "grouped": {
     "国内新药/临床/科研": [
@@ -17,9 +16,33 @@
         "date": "9月7日",
         "desc": "",
         "dom": false
+      },
+      {
+        "title": "Move Aside , Moderna : This mRNA Stock Is Sitting on a Cash Pile and a Deep Cancer Pipeline",
+        "src": "aol.com",
+        "url": "https://www.aol.com/articles/move-aside-moderna-mrna-stock-164300000.html",
+        "date": "10月17日",
+        "desc": "",
+        "dom": false
       }
     ],
     "海外FDA与全球进展": [
+      {
+        "title": "SOT106 Lands Dual FDA Designations for Osteosarcoma and Soft Tissue Sarcoma",
+        "src": "onclive.com",
+        "url": "https://www.onclive.com/view/sot106-lands-dual-fda-designations-for-osteosarcoma-and-soft-tissue-sarcoma",
+        "date": "9月28日",
+        "desc": "",
+        "dom": false
+      },
+      {
+        "title": "FDA Sharpens Its Pencil And Oversight Tools On Global Clinical Trial Data",
+        "src": "mondaq.com",
+        "url": "https://www.mondaq.com:443/unitedstates/life-sciences-biotechnology-nanotechnology/1841128/fda-sharpens-its-pencil-and-oversight-tools-on-global-clinical-trial-data",
+        "date": "9月10日",
+        "desc": "",
+        "dom": false
+      },
       {
         "title": "PIMJETMI® ( pimicotinib ) Developed by Abbisko Therapeutics and Licensed by Merck KGaA , Darmstadt , Germany Receive U . S . FDA Approval for TGCT",
         "src": "manilatimes.net",
@@ -29,15 +52,6 @@
         "dom": false
       }
     ],
-    "政策/医保/行业": [
-      {
-        "title": "医保钱包2.0怎么用？新增哪些共济人？",
-        "src": "中华国内",
-        "url": "https://news.china.com/domestic/945/20261118/49882129.html",
-        "date": "11月18日",
-        "desc": "",
-        "dom": true
-      }
-    ]
+    "政策/医保/行业": []
   }
 }
