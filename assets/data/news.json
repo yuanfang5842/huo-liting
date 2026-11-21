@@ -1,13 +1,49 @@
 {
-  "updated": "2026-11-20 23:26 UTC",
-  "offline": true,
+  "updated": "2026-11-21 04:26 UTC",
+  "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
-    "天行数据·健康/国内"
+    "天行数据·健康/国内",
+    "GDELT·国内新药/临床/科研",
+    "GDELT·海外FDA与全球进展"
   ],
   "grouped": {
-    "国内新药/临床/科研": [],
-    "海外FDA与全球进展": [],
+    "国内新药/临床/科研": [
+      {
+        "title": "IASO Bio Announces NMPA IND Approval for IASO208 , Advancing Its In Vivo CAR - T Platform into Synchronized U . S .- China Clinical Development",
+        "src": "prnewswire.com",
+        "url": "https://www.prnewswire.com/news-releases/iaso-bio-announces-nmpa-ind-approval-for-iaso208-advancing-its-in-vivo-car-t-platform-into-synchronized-uschina-clinical-development-302935962.html",
+        "date": "11月11日",
+        "desc": "",
+        "dom": true
+      }
+    ],
+    "海外FDA与全球进展": [
+      {
+        "title": "FDA approves first - in - class targeted therapy for metastatic pancreatic cancer",
+        "src": "gulfcoastmedia.com",
+        "url": "http://www.gulfcoastmedia.com/stories/fda-approves-first-in-class-targeted-therapy-for-metastatic-pancreatic-cancer,346306",
+        "date": "9月8日",
+        "desc": "",
+        "dom": false
+      },
+      {
+        "title": "Ionis Pharmaceuticals ( IONS ) Gains First - Mover Advantage with FDA Approval of Rare Brain Disease Drug",
+        "src": "insidermonkey.com",
+        "url": "https://www.insidermonkey.com/blog/ionis-pharmaceuticals-ions-gains-first-mover-advantage-with-fda-approval-of-rare-brain-disease-drug-1827385/",
+        "date": "9月4日",
+        "desc": "",
+        "dom": false
+      },
+      {
+        "title": "FDA approves breakthrough drug to treat advanced pancreatic cancer – KTBB News , Weather , Talk",
+        "src": "ktbb.com",
+        "url": "https://ktbb.com/post/?p=1539038",
+        "date": "9月4日",
+        "desc": "",
+        "dom": false
+      }
+    ],
     "政策/医保/行业": []
   }
 }
