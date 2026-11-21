@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-21 13:46 UTC",
+  "updated": "2026-11-21 22:29 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
@@ -9,6 +9,14 @@
   ],
   "grouped": {
     "国内新药/临床/科研": [
+      {
+        "title": "Rezubio Announces FDA and NMPA IND Clearances and First Cohort Dosing of RZ - 520 , a Novel Inhaled Therapy for Chronic Respiratory Diseases",
+        "src": "manilatimes.net",
+        "url": "https://www.manilatimes.net/2026/09/07/tmt-newswire/globenewswire/rezubio-announces-fda-and-nmpa-ind-clearances-and-first-cohort-dosing-of-rz-520-a-novel-inhaled-therapy-for-chronic-respiratory-diseases/2419531",
+        "date": "9月7日",
+        "desc": "",
+        "dom": false
+      },
       {
         "title": "Move Aside , Moderna : This mRNA Stock Is Sitting on a Cash Pile and a Deep Cancer Pipeline",
         "src": "aol.com",
@@ -32,6 +40,14 @@
         "src": "mondaq.com",
         "url": "https://www.mondaq.com:443/unitedstates/life-sciences-biotechnology-nanotechnology/1841128/fda-sharpens-its-pencil-and-oversight-tools-on-global-clinical-trial-data",
         "date": "9月10日",
+        "desc": "",
+        "dom": false
+      },
+      {
+        "title": "PIMJETMI® ( pimicotinib ) Developed by Abbisko Therapeutics and Licensed by Merck KGaA , Darmstadt , Germany Receive U . S . FDA Approval for TGCT",
+        "src": "manilatimes.net",
+        "url": "https://www.manilatimes.net/2026/11/11/tmt-newswire/pr-newswire/pimjetmi-pimicotinib-developed-by-abbisko-therapeutics-and-licensed-by-merck-kgaa-darmstadt-germany-receive-us-fda-approval-for-tgct/2467209",
+        "date": "11月11日",
         "desc": "",
         "dom": false
       }
