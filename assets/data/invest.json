@@ -1,11 +1,10 @@
 {
-  "updated": "2026-11-22 22:52 UTC",
+  "updated": "2026-11-23 04:15 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
     "GDELT·昨日美股等国外股市表现",
-    "GDELT·商业航天产业政策与进展",
     "GDELT·消费产业政策与进展",
     "GDELT·其它重大政策及事件"
   ],
@@ -29,48 +28,7 @@
     },
     {
       "name": "商业航天产业政策与进展",
-      "items": [
-        {
-          "title": "China CERES - 2 rocket returns to flight , placing four satellites into orbit",
-          "src": "globaltimes.cn",
-          "url": "https://www.globaltimes.cn/page/202611/1373836.shtml",
-          "date": "11月7日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Kinetica - 1 successfully launches 9 satellites as China completes 6 orbital launches in 6 days",
-          "src": "globaltimes.cn",
-          "url": "https://www.globaltimes.cn/page/202609/1370940.shtml",
-          "date": "9月20日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China Long March rockets carry forward historic grit for new space exploration",
-          "src": "globaltimes.cn",
-          "url": "https://www.globaltimes.cn/page/202610/1372503.shtml",
-          "date": "10月18日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China launches 28th batch of internet satellites from Hainan",
-          "src": "thenews.com.pk",
-          "url": "https://www.thenews.com.pk/latest/1421238-china-launches-28th-batch-of-internet-satellites-from-hainan",
-          "date": "10月25日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Prediction : 2 Space Stocks That Could Join SpaceX and Rocket Lab in the Nasdaq - 100 by 2030",
-          "src": "fool.com",
-          "url": "https://www.fool.com/investing/2026/10/02/prediction-2-space-stocks-that-could-join-spacex-i/",
-          "date": "10月2日",
-          "desc": "",
-          "dom": false
-        }
-      ]
+      "items": []
     },
     {
       "name": "新能源产业政策与进展",
@@ -84,19 +42,11 @@
       "name": "消费产业政策与进展",
       "items": [
         {
-          "title": "各地打造冬季文旅消费新场景新业态",
-          "src": "中华国内",
-          "url": "https://news.china.com/domestic/945/20261122/49894847.html",
-          "date": "11月22日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "多地秋假激发亲子文旅市场活力",
-          "src": "中华国内",
-          "url": "https://news.china.com/domestic/945/20261122/49894800.html",
-          "date": "11月22日",
-          "desc": "",
+          "title": "第二艘国产大型邮轮首航  激发海洋消费新活力",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202611/23/WS6b039a79e4b0e14252fcca86.html",
+          "date": "11月23日",
+          "desc": "2026-11-2309:42",
           "dom": true
         }
       ]
@@ -105,35 +55,35 @@
       "name": "其它重大政策及事件",
       "items": [
         {
+          "title": "8000亿元“金融活水”投向了哪些项目",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202611/23/WS6b039a71e4b0e14252fcca85.html",
+          "date": "11月23日",
+          "desc": "2026-11-2309:42",
+          "dom": true
+        },
+        {
+          "title": "具身智能机器人应用技术员：把机器人“教”进真实世界",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202611/23/WS6b039b83e4b0e14252fcca8c.html",
+          "date": "11月23日",
+          "desc": "2026-11-2309:48",
+          "dom": true
+        },
+        {
+          "title": "商务部：美方恶意打压中国电信企业在美运营",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202611/23/WS6b039c0be4b0e14252fcca9c.html",
+          "date": "11月23日",
+          "desc": "2026-11-2309:50",
+          "dom": true
+        },
+        {
           "title": "C财经 | 深耕专精特新沃土 北交所五年探索服务中小企业新路径",
           "src": "中国日报财经",
           "url": "//caijing.chinadaily.com.cn/a/202611/20/WS6b00017ce4b0e14252fcc7bf.html",
           "date": "11月20日",
           "desc": "2026-11-2016:14",
-          "dom": true
-        },
-        {
-          "title": "C财经｜温暖过冬 能源供给有保障",
-          "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202611/11/WS6af402ffe4b0e14252fca6de.html",
-          "date": "11月11日",
-          "desc": "受超强厄尔尼诺事件影响，预计今冬我国气温总体偏高，但寒潮频次略多、冷暖起伏大，极端天气可能多发频发，预计将给能源保供带来挑战。2026-11-1113:54",
-          "dom": true
-        },
-        {
-          "title": "Anthropic上市融资超$813亿 创史上最大IPO融资纪录",
-          "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202611/20/WS6affd3fce4b0e14252fcc5bf.html",
-          "date": "11月20日",
-          "desc": "2026-11-2012:59",
-          "dom": true
-        },
-        {
-          "title": "新一期贷款市场报价利率未作调整",
-          "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202611/20/WS6affd3ffe4b0e14252fcc5c0.html",
-          "date": "11月20日",
-          "desc": "2026-11-2013:00",
           "dom": true
         }
       ]
