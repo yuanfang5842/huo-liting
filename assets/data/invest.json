@@ -1,26 +1,17 @@
 {
-  "updated": "2026-11-23 16:37 UTC",
+  "updated": "2026-11-24 03:30 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
-    "GDELT·昨日美股等国外股市表现",
+    "GDELT·商业航天产业政策与进展",
     "GDELT·消费产业政策与进展",
     "GDELT·其它重大政策及事件"
   ],
   "modules": [
     {
       "name": "昨日美股等国外股市表现",
-      "items": [
-        {
-          "title": "AI热潮难掩忧虑 美股遭重挫",
-          "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202611/20/WS6affd579e4b0e14252fcc5c5.html",
-          "date": "11月20日",
-          "desc": "2026-11-2013:06",
-          "dom": true
-        }
-      ]
+      "items": []
     },
     {
       "name": "半导体产业政策与进展及风险",
@@ -28,7 +19,48 @@
     },
     {
       "name": "商业航天产业政策与进展",
-      "items": []
+      "items": [
+        {
+          "title": "China CERES - 2 rocket returns to flight , placing four satellites into orbit",
+          "src": "globaltimes.cn",
+          "url": "https://www.globaltimes.cn/page/202611/1373836.shtml",
+          "date": "11月7日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "Kinetica - 1 successfully launches 9 satellites as China completes 6 orbital launches in 6 days",
+          "src": "globaltimes.cn",
+          "url": "https://www.globaltimes.cn/page/202609/1370940.shtml",
+          "date": "9月20日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China Long March rockets carry forward historic grit for new space exploration",
+          "src": "globaltimes.cn",
+          "url": "https://www.globaltimes.cn/page/202610/1372503.shtml",
+          "date": "10月18日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China launches 28th batch of internet satellites from Hainan",
+          "src": "thenews.com.pk",
+          "url": "https://www.thenews.com.pk/latest/1421238-china-launches-28th-batch-of-internet-satellites-from-hainan",
+          "date": "10月25日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "Prediction : 2 Space Stocks That Could Join SpaceX and Rocket Lab in the Nasdaq - 100 by 2030",
+          "src": "fool.com",
+          "url": "https://www.fool.com/investing/2026/10/02/prediction-2-space-stocks-that-could-join-spacex-i/",
+          "date": "10月2日",
+          "desc": "",
+          "dom": false
+        }
+      ]
     },
     {
       "name": "新能源产业政策与进展",
@@ -50,26 +82,10 @@
           "dom": true
         },
         {
-          "title": "China unveils second batch of 32 pilot cities for retail sector innovation",
-          "src": "china.org.cn",
-          "url": "http://www.china.org.cn/2026-09/04/content_118680089.shtml",
-          "date": "9月4日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China unveils measures to expand , upgrade consumer goods consumption",
-          "src": "english.anhuinews.com",
-          "url": "http://english.anhuinews.com/newscenter/headline/202609/t20260901_9544708.html",
-          "date": "9月1日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "From barbecue to immersive theater , diverse consumption scenarios bring new vitality to China consumer market",
-          "src": "china.org.cn",
-          "url": "http://www.china.org.cn/2026-09/25/content_118712917.shtml",
-          "date": "9月25日",
+          "title": "国际金价大幅回调 买黄金是消费还是投资？",
+          "src": "中华国内",
+          "url": "https://news.china.com/domestic/945/20261124/49900233.html",
+          "date": "11月24日",
           "desc": "",
           "dom": true
         }
@@ -79,35 +95,35 @@
       "name": "其它重大政策及事件",
       "items": [
         {
-          "title": "8000亿元“金融活水”投向了哪些项目",
+          "title": "10月快递业务再超170亿件",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202611/23/WS6b039a71e4b0e14252fcca85.html",
-          "date": "11月23日",
-          "desc": "2026-11-2309:42",
+          "url": "//caijing.chinadaily.com.cn/a/202611/24/WS6b04f2ade4b0e14252fcd011.html",
+          "date": "11月24日",
+          "desc": "10月，我国快递业务量已连续两个月超170亿件，有力助推城乡消费提质扩容，为产业协同发展、消费潜力释放提供流通保障。2026-11-2410:12",
           "dom": true
         },
         {
-          "title": "具身智能机器人应用技术员：把机器人“教”进真实世界",
+          "title": "74.8%，内需贡献率怎么看",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202611/23/WS6b039b83e4b0e14252fcca8c.html",
-          "date": "11月23日",
-          "desc": "2026-11-2309:48",
+          "url": "//caijing.chinadaily.com.cn/a/202611/24/WS6b04f0f6e4b0e14252fccfe1.html",
+          "date": "11月24日",
+          "desc": "2026-11-2410:05",
           "dom": true
         },
         {
-          "title": "商务部：美方恶意打压中国电信企业在美运营",
+          "title": "守护“养老钱”“保命钱” 社保基金新规征求意见",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202611/23/WS6b039c0be4b0e14252fcca9c.html",
-          "date": "11月23日",
-          "desc": "2026-11-2309:50",
+          "url": "//caijing.chinadaily.com.cn/a/202611/24/WS6b04f1a8e4b0e14252fccfe6.html",
+          "date": "11月24日",
+          "desc": "2026-11-2410:07",
           "dom": true
         },
         {
-          "title": "C财经 | 深耕专精特新沃土 北交所五年探索服务中小企业新路径",
+          "title": "美国通胀数据将公布 黄金股或先于金价企稳",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202611/20/WS6b00017ce4b0e14252fcc7bf.html",
-          "date": "11月20日",
-          "desc": "2026-11-2016:14",
+          "url": "//caijing.chinadaily.com.cn/a/202611/24/WS6b04eaace4b0e14252fccfcb.html",
+          "date": "11月24日",
+          "desc": "2026-11-2409:36",
           "dom": true
         }
       ]
