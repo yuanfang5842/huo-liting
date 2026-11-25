@@ -1,10 +1,9 @@
 {
-  "updated": "2026-11-25 01:40 UTC",
+  "updated": "2026-11-25 16:16 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
-    "GDELT·新能源产业政策与进展",
     "GDELT·消费产业政策与进展",
     "GDELT·其它重大政策及事件"
   ],
@@ -23,48 +22,7 @@
     },
     {
       "name": "新能源产业政策与进展",
-      "items": [
-        {
-          "title": "China Halts New Battery Storage Plant Approvals",
-          "src": "zerohedge.com",
-          "url": "https://www.zerohedge.com/energy/china-halts-new-battery-storage-plant-approvals",
-          "date": "9月9日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China temporarily suspends new battery storage factory approvals : Report",
-          "src": "aninews.in",
-          "url": "https://aninews.in/news/business/china-temporarily-suspends-new-battery-storage-factory-approvals-report20260907145343/",
-          "date": "9月7日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Ganfeng Lithium Net profit for first three quarters surged 195 times year - on - year",
-          "src": "autonews.gasgoo.com",
-          "url": "https://autonews.gasgoo.com/articles/ev/ganfeng-lithium-net-profit-for-first-three-quarters-surged-195-times-year-on-year-2111353166137802752",
-          "date": "10月17日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China has temporarily suspends approvals for new ‌factories for manufacturing battery storage",
-          "src": "thehindubusinessline.com",
-          "url": "https://www.thehindubusinessline.com/news/world/china-pauses-approvals-for-battery-storage-manufacturing-projects/article71437465.ece",
-          "date": "9月7日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Global Battery Electrolyte Market to Reach USD 50 . 98 Bn . by 2034 as EV Expansion , Grid - Scale Energy Storage and Next - Generation Battery Technologies Accelerate Demand Maximize Market Research Reports",
-          "src": "prnewswire.com",
-          "url": "https://www.prnewswire.com/news-releases/global-battery-electrolyte-market-to-reach-usd-50-98-bn-by-2034-as-ev-expansion-grid-scale-energy-storage-and-next-generation-battery-technologies-accelerate-demand-maximize-market-research-reports-302894415.html",
-          "date": "9月30日",
-          "desc": "",
-          "dom": false
-        }
-      ]
+      "items": []
     },
     {
       "name": "医药行业产业政策与进展",
@@ -73,14 +31,6 @@
     {
       "name": "消费产业政策与进展",
       "items": [
-        {
-          "title": "第二艘国产大型邮轮首航  激发海洋消费新活力",
-          "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202611/23/WS6b039a79e4b0e14252fcca86.html",
-          "date": "11月23日",
-          "desc": "2026-11-2309:42",
-          "dom": true
-        },
         {
           "title": "国际金价大幅回调 买黄金是消费还是投资？",
           "src": "中华国内",
@@ -95,35 +45,35 @@
       "name": "其它重大政策及事件",
       "items": [
         {
-          "title": "10月快递业务再超170亿件",
+          "title": "黄仁勋回归：全球AI供应链的变局与新机",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202611/24/WS6b04f2ade4b0e14252fcd011.html",
-          "date": "11月24日",
-          "desc": "10月，我国快递业务量已连续两个月超170亿件，有力助推城乡消费提质扩容，为产业协同发展、消费潜力释放提供流通保障。2026-11-2410:12",
+          "url": "//caijing.chinadaily.com.cn/a/202611/25/WS6b063c7de4b0e14252fcd43b.html",
+          "date": "11月25日",
+          "desc": "2026-11-2509:37",
           "dom": true
         },
         {
-          "title": "74.8%，内需贡献率怎么看",
+          "title": "社保基金加仓路径浮出水面 资源品种获青睐",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202611/24/WS6b04f0f6e4b0e14252fccfe1.html",
-          "date": "11月24日",
-          "desc": "2026-11-2410:05",
+          "url": "//caijing.chinadaily.com.cn/a/202611/25/WS6b063c76e4b0e14252fcd43a.html",
+          "date": "11月25日",
+          "desc": "2026-11-2509:38",
           "dom": true
         },
         {
-          "title": "守护“养老钱”“保命钱” 社保基金新规征求意见",
+          "title": "6G创新发展部省协同试点在上海启动",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202611/24/WS6b04f1a8e4b0e14252fccfe6.html",
-          "date": "11月24日",
-          "desc": "2026-11-2410:07",
+          "url": "//caijing.chinadaily.com.cn/a/202611/25/WS6b063cf4e4b0e14252fcd440.html",
+          "date": "11月25日",
+          "desc": "2026-11-2509:41",
           "dom": true
         },
         {
-          "title": "美国通胀数据将公布 黄金股或先于金价企稳",
+          "title": "我国牵头制定78项人工智能国际标准",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202611/24/WS6b04eaace4b0e14252fccfcb.html",
-          "date": "11月24日",
-          "desc": "2026-11-2409:36",
+          "url": "//caijing.chinadaily.com.cn/a/202611/25/WS6b063d4ce4b0e14252fcd442.html",
+          "date": "11月25日",
+          "desc": "2026-11-2509:43",
           "dom": true
         }
       ]
