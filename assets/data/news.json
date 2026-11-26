@@ -1,13 +1,75 @@
 {
-  "updated": "2026-11-25 16:16 UTC",
-  "offline": true,
+  "updated": "2026-11-26 01:13 UTC",
+  "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
-    "天行数据·健康/国内"
+    "天行数据·健康/国内",
+    "GDELT·国内新药/临床/科研",
+    "GDELT·海外FDA与全球进展",
+    "GDELT·政策/医保/行业"
   ],
   "grouped": {
-    "国内新药/临床/科研": [],
-    "海外FDA与全球进展": [],
-    "政策/医保/行业": []
+    "国内新药/临床/科研": [
+      {
+        "title": "IASO Bio Announces NMPA IND Approval for IASO208 , Advancing Its In Vivo CAR - T Platform into Synchronized U . S .- China Clinical Development",
+        "src": "prnewswire.com",
+        "url": "https://www.prnewswire.com/news-releases/iaso-bio-announces-nmpa-ind-approval-for-iaso208-advancing-its-in-vivo-car-t-platform-into-synchronized-uschina-clinical-development-302935962.html",
+        "date": "11月11日",
+        "desc": "",
+        "dom": true
+      },
+      {
+        "title": "Rezubio Announces FDA and NMPA IND Clearances and First Cohort Dosing of RZ - 520 , a Novel Inhaled Therapy for Chronic Respiratory Diseases",
+        "src": "manilatimes.net",
+        "url": "https://www.manilatimes.net/2026/09/07/tmt-newswire/globenewswire/rezubio-announces-fda-and-nmpa-ind-clearances-and-first-cohort-dosing-of-rz-520-a-novel-inhaled-therapy-for-chronic-respiratory-diseases/2419531",
+        "date": "9月7日",
+        "desc": "",
+        "dom": false
+      },
+      {
+        "title": "Move Aside , Moderna : This mRNA Stock Is Sitting on a Cash Pile and a Deep Cancer Pipeline",
+        "src": "aol.com",
+        "url": "https://www.aol.com/articles/move-aside-moderna-mrna-stock-164300000.html",
+        "date": "10月17日",
+        "desc": "",
+        "dom": false
+      }
+    ],
+    "海外FDA与全球进展": [
+      {
+        "title": "SOT106 Lands Dual FDA Designations for Osteosarcoma and Soft Tissue Sarcoma",
+        "src": "onclive.com",
+        "url": "https://www.onclive.com/view/sot106-lands-dual-fda-designations-for-osteosarcoma-and-soft-tissue-sarcoma",
+        "date": "9月28日",
+        "desc": "",
+        "dom": false
+      },
+      {
+        "title": "FDA Sharpens Its Pencil And Oversight Tools On Global Clinical Trial Data",
+        "src": "mondaq.com",
+        "url": "https://www.mondaq.com:443/unitedstates/life-sciences-biotechnology-nanotechnology/1841128/fda-sharpens-its-pencil-and-oversight-tools-on-global-clinical-trial-data",
+        "date": "9月10日",
+        "desc": "",
+        "dom": false
+      },
+      {
+        "title": "FDA approves first - in - class targeted therapy for metastatic pancreatic cancer",
+        "src": "gulfcoastmedia.com",
+        "url": "http://www.gulfcoastmedia.com/stories/fda-approves-first-in-class-targeted-therapy-for-metastatic-pancreatic-cancer,346306",
+        "date": "9月8日",
+        "desc": "",
+        "dom": false
+      }
+    ],
+    "政策/医保/行业": [
+      {
+        "title": "呼吸道疾病进入高发季 儿童什么时候需要就医",
+        "src": "中华国内",
+        "url": "https://news.china.com/domestic/945/20261126/49908082.html",
+        "date": "11月26日",
+        "desc": "",
+        "dom": true
+      }
+    ]
   }
 }

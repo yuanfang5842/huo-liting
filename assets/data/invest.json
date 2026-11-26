@@ -1,10 +1,11 @@
 {
-  "updated": "2026-11-25 16:16 UTC",
+  "updated": "2026-11-26 01:13 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
-    "GDELT·消费产业政策与进展",
+    "GDELT·商业航天产业政策与进展",
+    "GDELT·新能源产业政策与进展",
     "GDELT·其它重大政策及事件"
   ],
   "modules": [
@@ -18,11 +19,69 @@
     },
     {
       "name": "商业航天产业政策与进展",
-      "items": []
+      "items": [
+        {
+          "title": "携手追梦 中外航天员首次会师“天宫”",
+          "src": "中华国内",
+          "url": "https://news.china.com/domestic/945/20261126/49907949.html",
+          "date": "11月26日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "60秒回顾神舟二十四号发射精彩瞬间",
+          "src": "中华国内",
+          "url": "https://news.china.com/domestic/945/20261126/49908028.html",
+          "date": "11月26日",
+          "desc": "",
+          "dom": true
+        }
+      ]
     },
     {
       "name": "新能源产业政策与进展",
-      "items": []
+      "items": [
+        {
+          "title": "China Halts New Battery Storage Plant Approvals",
+          "src": "zerohedge.com",
+          "url": "https://www.zerohedge.com/energy/china-halts-new-battery-storage-plant-approvals",
+          "date": "9月9日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China temporarily suspends new battery storage factory approvals : Report",
+          "src": "aninews.in",
+          "url": "https://aninews.in/news/business/china-temporarily-suspends-new-battery-storage-factory-approvals-report20260907145343/",
+          "date": "9月7日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "Ganfeng Lithium Net profit for first three quarters surged 195 times year - on - year",
+          "src": "autonews.gasgoo.com",
+          "url": "https://autonews.gasgoo.com/articles/ev/ganfeng-lithium-net-profit-for-first-three-quarters-surged-195-times-year-on-year-2111353166137802752",
+          "date": "10月17日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China has temporarily suspends approvals for new ‌factories for manufacturing battery storage",
+          "src": "thehindubusinessline.com",
+          "url": "https://www.thehindubusinessline.com/news/world/china-pauses-approvals-for-battery-storage-manufacturing-projects/article71437465.ece",
+          "date": "9月7日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "Global Battery Electrolyte Market to Reach USD 50 . 98 Bn . by 2034 as EV Expansion , Grid - Scale Energy Storage and Next - Generation Battery Technologies Accelerate Demand Maximize Market Research Reports",
+          "src": "prnewswire.com",
+          "url": "https://www.prnewswire.com/news-releases/global-battery-electrolyte-market-to-reach-usd-50-98-bn-by-2034-as-ev-expansion-grid-scale-energy-storage-and-next-generation-battery-technologies-accelerate-demand-maximize-market-research-reports-302894415.html",
+          "date": "9月30日",
+          "desc": "",
+          "dom": false
+        }
+      ]
     },
     {
       "name": "医药行业产业政策与进展",
@@ -30,16 +89,7 @@
     },
     {
       "name": "消费产业政策与进展",
-      "items": [
-        {
-          "title": "国际金价大幅回调 买黄金是消费还是投资？",
-          "src": "中华国内",
-          "url": "https://news.china.com/domestic/945/20261124/49900233.html",
-          "date": "11月24日",
-          "desc": "",
-          "dom": true
-        }
-      ]
+      "items": []
     },
     {
       "name": "其它重大政策及事件",
