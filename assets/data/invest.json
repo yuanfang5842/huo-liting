@@ -1,11 +1,12 @@
 {
-  "updated": "2026-11-26 01:13 UTC",
+  "updated": "2026-11-26 15:52 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
     "GDELT·商业航天产业政策与进展",
-    "GDELT·新能源产业政策与进展",
+    "GDELT·医药行业产业政策与进展",
+    "GDELT·消费产业政策与进展",
     "GDELT·其它重大政策及事件"
   ],
   "modules": [
@@ -35,95 +36,120 @@
           "date": "11月26日",
           "desc": "",
           "dom": true
-        }
-      ]
-    },
-    {
-      "name": "新能源产业政策与进展",
-      "items": [
+        },
         {
-          "title": "China Halts New Battery Storage Plant Approvals",
-          "src": "zerohedge.com",
-          "url": "https://www.zerohedge.com/energy/china-halts-new-battery-storage-plant-approvals",
-          "date": "9月9日",
+          "title": "China CERES - 2 rocket returns to flight , placing four satellites into orbit",
+          "src": "globaltimes.cn",
+          "url": "https://www.globaltimes.cn/page/202611/1373836.shtml",
+          "date": "11月7日",
           "desc": "",
           "dom": true
         },
         {
-          "title": "China temporarily suspends new battery storage factory approvals : Report",
-          "src": "aninews.in",
-          "url": "https://aninews.in/news/business/china-temporarily-suspends-new-battery-storage-factory-approvals-report20260907145343/",
-          "date": "9月7日",
+          "title": "Kinetica - 1 successfully launches 9 satellites as China completes 6 orbital launches in 6 days",
+          "src": "globaltimes.cn",
+          "url": "https://www.globaltimes.cn/page/202609/1370940.shtml",
+          "date": "9月20日",
           "desc": "",
           "dom": true
         },
         {
-          "title": "Ganfeng Lithium Net profit for first three quarters surged 195 times year - on - year",
-          "src": "autonews.gasgoo.com",
-          "url": "https://autonews.gasgoo.com/articles/ev/ganfeng-lithium-net-profit-for-first-three-quarters-surged-195-times-year-on-year-2111353166137802752",
-          "date": "10月17日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "China has temporarily suspends approvals for new ‌factories for manufacturing battery storage",
-          "src": "thehindubusinessline.com",
-          "url": "https://www.thehindubusinessline.com/news/world/china-pauses-approvals-for-battery-storage-manufacturing-projects/article71437465.ece",
-          "date": "9月7日",
-          "desc": "",
-          "dom": true
-        },
-        {
-          "title": "Global Battery Electrolyte Market to Reach USD 50 . 98 Bn . by 2034 as EV Expansion , Grid - Scale Energy Storage and Next - Generation Battery Technologies Accelerate Demand Maximize Market Research Reports",
-          "src": "prnewswire.com",
-          "url": "https://www.prnewswire.com/news-releases/global-battery-electrolyte-market-to-reach-usd-50-98-bn-by-2034-as-ev-expansion-grid-scale-energy-storage-and-next-generation-battery-technologies-accelerate-demand-maximize-market-research-reports-302894415.html",
-          "date": "9月30日",
+          "title": "Prediction : 2 Space Stocks That Could Join SpaceX and Rocket Lab in the Nasdaq - 100 by 2030",
+          "src": "fool.com",
+          "url": "https://www.fool.com/investing/2026/10/02/prediction-2-space-stocks-that-could-join-spacex-i/",
+          "date": "10月2日",
           "desc": "",
           "dom": false
         }
       ]
     },
     {
-      "name": "医药行业产业政策与进展",
+      "name": "新能源产业政策与进展",
       "items": []
     },
     {
+      "name": "医药行业产业政策与进展",
+      "items": [
+        {
+          "title": "医保上线新功能  参保人可便捷查询个人用药情况",
+          "src": "中国日报财经",
+          "url": "//caijing.chinadaily.com.cn/a/202611/26/WS6b07943ae4b0e14252fcd894.html",
+          "date": "11月26日",
+          "desc": "2026-11-2610:06",
+          "dom": true
+        }
+      ]
+    },
+    {
       "name": "消费产业政策与进展",
-      "items": []
+      "items": [
+        {
+          "title": "China unveils second batch of 32 pilot cities for retail sector innovation",
+          "src": "china.org.cn",
+          "url": "http://www.china.org.cn/2026-09/04/content_118680089.shtml",
+          "date": "9月4日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "From barbecue to immersive theater , diverse consumption scenarios bring new vitality to China consumer market",
+          "src": "china.org.cn",
+          "url": "http://www.china.org.cn/2026-09/25/content_118712917.shtml",
+          "date": "9月25日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China consumer , wholesale inflation rebound in August",
+          "src": "cnbc.com",
+          "url": "https://www.cnbc.com/2026/09/09/china-cpi-ppi-august-oil-prices-tech-manufacturing-.html",
+          "date": "9月9日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "( China Economic Roundtable ) Service consumption outpaces goods as China consumer market enters new stage : experts",
+          "src": "bignewsnetwork.com",
+          "url": "http://www.bignewsnetwork.com/news/279328015/china-economic-roundtable-service-consumption-outpaces-goods-as-china-consumer-market-enters-new-stage-experts",
+          "date": "9月24日",
+          "desc": "",
+          "dom": true
+        }
+      ]
     },
     {
       "name": "其它重大政策及事件",
       "items": [
         {
-          "title": "黄仁勋回归：全球AI供应链的变局与新机",
+          "title": "上线即被盗？影视版权保护要“争分夺秒”",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202611/25/WS6b063c7de4b0e14252fcd43b.html",
-          "date": "11月25日",
-          "desc": "2026-11-2509:37",
+          "url": "//caijing.chinadaily.com.cn/a/202611/26/WS6b0799c7e4b0e14252fcd8d7.html",
+          "date": "11月26日",
+          "desc": "“上线即被盗、更新即泄露”——不少院线新片、网络剧集，刚正式上线没多久，高清盗版资源就已经出现在网盘、短视频平台、小众社群，甚至配套字幕、片段剪辑也同步扩散。2026-11-2610:29",
           "dom": true
         },
         {
-          "title": "社保基金加仓路径浮出水面 资源品种获青睐",
+          "title": "中国经济圆桌会丨专家：我国服务贸易呈现持续增长、结构向优良好态势",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202611/25/WS6b063c76e4b0e14252fcd43a.html",
-          "date": "11月25日",
-          "desc": "2026-11-2509:38",
+          "url": "//caijing.chinadaily.com.cn/a/202611/26/WS6b0793d7e4b0e14252fcd88b.html",
+          "date": "11月26日",
+          "desc": "2026-11-2610:02",
           "dom": true
         },
         {
-          "title": "6G创新发展部省协同试点在上海启动",
+          "title": "“中国购”火了，有哪些“供货地”",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202611/25/WS6b063cf4e4b0e14252fcd440.html",
-          "date": "11月25日",
-          "desc": "2026-11-2509:41",
+          "url": "//caijing.chinadaily.com.cn/a/202611/26/WS6b0793d4e4b0e14252fcd88a.html",
+          "date": "11月26日",
+          "desc": "2026-11-2610:04",
           "dom": true
         },
         {
-          "title": "我国牵头制定78项人工智能国际标准",
+          "title": "财政部前瞻性补充国有大型金融机构资本",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202611/25/WS6b063d4ce4b0e14252fcd442.html",
-          "date": "11月25日",
-          "desc": "2026-11-2509:43",
+          "url": "//caijing.chinadaily.com.cn/a/202611/26/WS6b079478e4b0e14252fcd896.html",
+          "date": "11月26日",
+          "desc": "2026-11-2610:07",
           "dom": true
         }
       ]

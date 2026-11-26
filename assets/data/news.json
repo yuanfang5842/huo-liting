@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-26 01:13 UTC",
+  "updated": "2026-11-26 15:52 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
@@ -10,14 +10,6 @@
   ],
   "grouped": {
     "国内新药/临床/科研": [
-      {
-        "title": "IASO Bio Announces NMPA IND Approval for IASO208 , Advancing Its In Vivo CAR - T Platform into Synchronized U . S .- China Clinical Development",
-        "src": "prnewswire.com",
-        "url": "https://www.prnewswire.com/news-releases/iaso-bio-announces-nmpa-ind-approval-for-iaso208-advancing-its-in-vivo-car-t-platform-into-synchronized-uschina-clinical-development-302935962.html",
-        "date": "11月11日",
-        "desc": "",
-        "dom": true
-      },
       {
         "title": "Rezubio Announces FDA and NMPA IND Clearances and First Cohort Dosing of RZ - 520 , a Novel Inhaled Therapy for Chronic Respiratory Diseases",
         "src": "manilatimes.net",
@@ -53,10 +45,10 @@
         "dom": false
       },
       {
-        "title": "FDA approves first - in - class targeted therapy for metastatic pancreatic cancer",
-        "src": "gulfcoastmedia.com",
-        "url": "http://www.gulfcoastmedia.com/stories/fda-approves-first-in-class-targeted-therapy-for-metastatic-pancreatic-cancer,346306",
-        "date": "9月8日",
+        "title": "PIMJETMI® ( pimicotinib ) Developed by Abbisko Therapeutics and Licensed by Merck KGaA , Darmstadt , Germany Receive U . S . FDA Approval for TGCT",
+        "src": "manilatimes.net",
+        "url": "https://www.manilatimes.net/2026/11/11/tmt-newswire/pr-newswire/pimjetmi-pimicotinib-developed-by-abbisko-therapeutics-and-licensed-by-merck-kgaa-darmstadt-germany-receive-us-fda-approval-for-tgct/2467209",
+        "date": "11月11日",
         "desc": "",
         "dom": false
       }
