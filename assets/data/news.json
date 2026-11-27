@@ -1,14 +1,50 @@
 {
-  "updated": "2026-11-27 01:11 UTC",
+  "updated": "2026-11-27 15:41 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·健康/国内",
+    "GDELT·国内新药/临床/科研",
+    "GDELT·海外FDA与全球进展",
     "GDELT·政策/医保/行业"
   ],
   "grouped": {
-    "国内新药/临床/科研": [],
-    "海外FDA与全球进展": [],
+    "国内新药/临床/科研": [
+      {
+        "title": "Rezubio Announces FDA and NMPA IND Clearances and First Cohort Dosing of RZ - 520 , a Novel Inhaled Therapy for Chronic Respiratory Diseases",
+        "src": "manilatimes.net",
+        "url": "https://www.manilatimes.net/2026/09/07/tmt-newswire/globenewswire/rezubio-announces-fda-and-nmpa-ind-clearances-and-first-cohort-dosing-of-rz-520-a-novel-inhaled-therapy-for-chronic-respiratory-diseases/2419531",
+        "date": "9月7日",
+        "desc": "",
+        "dom": false
+      }
+    ],
+    "海外FDA与全球进展": [
+      {
+        "title": "Dr . Falk Pharma and Renexxion Reach Alignment with FDA and EMA on Phase 3 Program for Naronapride in Gastroparesis",
+        "src": "manilatimes.net",
+        "url": "https://www.manilatimes.net/2026/10/21/tmt-newswire/globenewswire/dr-falk-pharma-and-renexxion-reach-alignment-with-fda-and-ema-on-phase-3-program-for-naronapride-in-gastroparesis/2450778",
+        "date": "10月21日",
+        "desc": "",
+        "dom": false
+      },
+      {
+        "title": "EMA Upholds Rejection of Posttransplant Complication Drug",
+        "src": "medscape.com",
+        "url": "https://www.medscape.com/viewarticle/ema-upholds-rejection-posttransplant-complication-drug-2026a10013l6",
+        "date": "10月21日",
+        "desc": "",
+        "dom": false
+      },
+      {
+        "title": "Zensar , HCL Technologies rebounded from 100 - month EMA support , says analyst",
+        "src": "business-standard.com",
+        "url": "https://www.business-standard.com/markets/news/zensar-hcl-technologies-rebounded-from-100-month-ema-support-says-analyst-126101600472_1.html",
+        "date": "10月16日",
+        "desc": "",
+        "dom": false
+      }
+    ],
     "政策/医保/行业": [
       {
         "title": "呼吸道疾病进入高发季 儿童什么时候需要就医",

@@ -1,11 +1,12 @@
 {
-  "updated": "2026-11-27 01:11 UTC",
+  "updated": "2026-11-27 15:41 UTC",
   "offline": false,
   "sources": [
     "✅ 天行KEY已配置(145c****)",
     "天行数据·财经/国内",
     "GDELT·商业航天产业政策与进展",
     "GDELT·医药行业产业政策与进展",
+    "GDELT·消费产业政策与进展",
     "GDELT·其它重大政策及事件"
   ],
   "modules": [
@@ -57,41 +58,74 @@
     },
     {
       "name": "消费产业政策与进展",
-      "items": []
+      "items": [
+        {
+          "title": "China unveils second batch of 32 pilot cities for retail sector innovation",
+          "src": "china.org.cn",
+          "url": "http://www.china.org.cn/2026-09/04/content_118680089.shtml",
+          "date": "9月4日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "From barbecue to immersive theater , diverse consumption scenarios bring new vitality to China consumer market",
+          "src": "china.org.cn",
+          "url": "http://www.china.org.cn/2026-09/25/content_118712917.shtml",
+          "date": "9月25日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "China consumer , wholesale inflation rebound in August",
+          "src": "cnbc.com",
+          "url": "https://www.cnbc.com/2026/09/09/china-cpi-ppi-august-oil-prices-tech-manufacturing-.html",
+          "date": "9月9日",
+          "desc": "",
+          "dom": true
+        },
+        {
+          "title": "( China Economic Roundtable ) Service consumption outpaces goods as China consumer market enters new stage : experts",
+          "src": "bignewsnetwork.com",
+          "url": "http://www.bignewsnetwork.com/news/279328015/china-economic-roundtable-service-consumption-outpaces-goods-as-china-consumer-market-enters-new-stage-experts",
+          "date": "9月24日",
+          "desc": "",
+          "dom": true
+        }
+      ]
     },
     {
       "name": "其它重大政策及事件",
       "items": [
         {
-          "title": "上线即被盗？影视版权保护要“争分夺秒”",
+          "title": "商务部：坚决反对美对中国等经济体加征301关税",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202611/26/WS6b0799c7e4b0e14252fcd8d7.html",
-          "date": "11月26日",
-          "desc": "“上线即被盗、更新即泄露”——不少院线新片、网络剧集，刚正式上线没多久，高清盗版资源就已经出现在网盘、短视频平台、小众社群，甚至配套字幕、片段剪辑也同步扩散。2026-11-2610:29",
+          "url": "//caijing.chinadaily.com.cn/a/202611/27/WS6b08dbe5e4b0e14252fcdc7a.html",
+          "date": "11月27日",
+          "desc": "2026-11-2709:24",
           "dom": true
         },
         {
-          "title": "中国经济圆桌会丨专家：我国服务贸易呈现持续增长、结构向优良好态势",
+          "title": "四大商业银行已与上市公司签订股票回购增持贷款合同超6000亿元",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202611/26/WS6b0793d7e4b0e14252fcd88b.html",
-          "date": "11月26日",
-          "desc": "2026-11-2610:02",
+          "url": "//caijing.chinadaily.com.cn/a/202611/27/WS6b08dbeae4b0e14252fcdc7b.html",
+          "date": "11月27日",
+          "desc": "2026-11-2709:24",
           "dom": true
         },
         {
-          "title": "“中国购”火了，有哪些“供货地”",
+          "title": "全球黄金储备迁移进程加速",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202611/26/WS6b0793d4e4b0e14252fcd88a.html",
-          "date": "11月26日",
-          "desc": "2026-11-2610:04",
+          "url": "//caijing.chinadaily.com.cn/a/202611/27/WS6b08dd5be4b0e14252fcdc85.html",
+          "date": "11月27日",
+          "desc": "2026-11-2709:26",
           "dom": true
         },
         {
-          "title": "财政部前瞻性补充国有大型金融机构资本",
+          "title": "不只6G，新一代通信网承载“万物智联”",
           "src": "中国日报财经",
-          "url": "//caijing.chinadaily.com.cn/a/202611/26/WS6b079478e4b0e14252fcd896.html",
-          "date": "11月26日",
-          "desc": "2026-11-2610:07",
+          "url": "//caijing.chinadaily.com.cn/a/202611/27/WS6b08dd4fe4b0e14252fcdc83.html",
+          "date": "11月27日",
+          "desc": "2026-11-2709:27",
           "dom": true
         }
       ]
